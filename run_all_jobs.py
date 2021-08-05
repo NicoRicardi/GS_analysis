@@ -364,10 +364,10 @@ meta_ftmpa  = dict(method_A="MP2", method_B="import", opt=None, status=None,
 
 # get name of calculation folder
 meta_ftmpa["path"] = os.path.join(meta_fnt["path"], "MP2_A")
-already_done = ut.status_ok(path=meta_ftmpa["path"])
+already_done_ftmpa = ut.status_ok(path=meta_ftmpa["path"])
 
 # run calculation and update status ("checkpoint")
-if already_done == False and meta_fnt["status"] == "FIN":
+if already_done_ftmpa == False and already_done:
     memory = 14000
     rem_kw = Trem_kw.substitute(Tdefaults["rem_kw"], **rem_adc_basic, **{"memory": memory, "fde": "true"})
     frag_specs = dict(frag_a=frags["A"], frag_b=frags["B"])
@@ -407,10 +407,10 @@ meta_ftmpb  = dict(method_A="MP2", method_B="import", opt=None, status=None,
               basename="emb")
 # get name of calculation folder
 meta_ftmpb["path"] = os.path.join(meta_fnt["path"], "MP2_B")
-already_done = ut.status_ok(path=meta_ftmpb["path"])
+already_done_ftmpb = ut.status_ok(path=meta_ftmpb["path"])
 
 # run calculation and update status ("checkpoint")
-if already_done == False and meta_fnt["status"] == "FIN":
+if already_done_ftmpb == False and already_done:
     memory = 14000
     rem_kw = Trem_kw.substitute(Tdefaults["rem_kw"], **rem_adc_basic, **{"memory": memory, "fde": "true"})
     frag_specs = dict(frag_a=frags["B"], frag_b=frags["A"])
@@ -522,7 +522,7 @@ for ID, dmfile in densities.items():
         specs_mpb = ut.myupd(Tdefaults["inp"], rem_kw=rem_kw, molecule=frag_str, extras=extras)
         queue_mpb = dict(**slrm.shabug_XS)  
         ut.mkdif(meta_mpb["path"]) 
-#        iterDir = ut.get_last_iter_dir(active="A", path=meta["path"],opt="macrocycles")
+        iterDir = ut.get_last_iter_dir(active="A", path=meta["path"],opt="macrocycles")  # in case block for MPA did not run
         sh.copy(os.path.join(iterDir, "Densmat_B.txt"), os.path.join(meta_mpb["path"], "Densmat_A.txt"))
         copy_density(os.path.join(iterDir, "FDE_State0_tot_dens.txt"),
                     os.path.join(meta_mpb["path"], "Densmat_B.txt"),
