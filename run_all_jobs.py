@@ -30,6 +30,8 @@ systfol = os.path.join(root, systfol)
 
 bs_kw = "gen"  
 bs_string = ut.read_file("aug-cc-pVDZ.bas")
+if bs_string[-1] == "\n":
+    bs_string = bs_string[:-1]
 rem_adc_basic = dict(method="adc(2)", basis=bs_kw, ee_specs=Tadc.substitute(Tdefaults["adc"]))
 rem_hf_basic = dict(method="hf", basis=bs_kw)
 extra_basic = Tbasis.substitute(**{"basis_specs": bs_string})
