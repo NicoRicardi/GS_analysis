@@ -67,7 +67,7 @@ meta_A_MP2g["path"] = os.path.join(systfol, "A_MP2_gh")
 already_done = ut.status_ok(path=meta_A_MP2g["path"])
 
 # run calculation and update status ("checkpoint")
-if not already_done:
+if already_done == False:
     memory = 14000
     rem_kw = Trem_kw.substitute(Tdefaults["rem_kw"], **rem_adc_basic, **{"memory": memory})
     mol_specs = dict(xyz=frags["AB_ghost"])
@@ -94,7 +94,7 @@ meta_B_MP2g["path"] = os.path.join(systfol, "B_MP2_gh")
 already_done = ut.status_ok(path=meta_B_MP2g["path"])
 
 # run calculation and update status ("checkpoint")
-if not already_done:
+if already_done == False:
     memory = 14000
     rem_kw = Trem_kw.substitute(Tdefaults["rem_kw"], **rem_adc_basic, **{"memory": memory})
     mol_specs = dict(xyz=frags["BA_ghost"])
@@ -121,7 +121,7 @@ meta_A_MP2["path"] = os.path.join(systfol, "A_MP2")
 already_done = ut.status_ok(path=meta_A_MP2["path"])
 
 # run calculation and update status ("checkpoint")
-if not already_done:
+if already_done == False:
     memory = 14000
     rem_kw = Trem_kw.substitute(Tdefaults["rem_kw"], **rem_adc_basic, **{"rem_extras": chelpg_kw, "memory": memory})
     
@@ -174,7 +174,7 @@ meta_B_MP2["path"] = os.path.join(systfol, "B_MP2")
 already_done = ut.status_ok(path=meta_B_MP2["path"])
 
 # run calculation and update status ("checkpoint")
-if not already_done:
+if already_done == False:
     memory = 14000
     rem_kw = Trem_kw.substitute(Tdefaults["rem_kw"], **rem_adc_basic, **{"memory": memory})
     mol_specs = dict(xyz=frags["B"])
@@ -210,7 +210,7 @@ meta_AB_MP2["path"] = os.path.join(systfol, "AB_MP2")
 already_done = ut.status_ok(path=meta_AB_MP2["path"])
 
 # run calculation and update status ("checkpoint")
-if not already_done:
+if already_done == False:
     memory = 14000
     rem_kw = Trem_kw.substitute(Tdefaults["rem_kw"], **rem_adc_basic, **{"memory": memory})
     mol_specs = dict(xyz=frags["AB"])
@@ -244,7 +244,7 @@ meta_B_HFp["path"] = os.path.join(systfol, "B_HF_ppM_Mulliken")
 already_done = ut.status_ok(path=meta_B_HFp["path"])
 
 # run calculation and update status ("checkpoint")
-if not already_done and len(mulliken_charges) != 0:
+if already_done == False and len(mulliken_charges) != 0:
     memory = 14000
     rem_kw = Trem_kw.substitute(Tdefaults["rem_kw"], **rem_hf_basic, **{"memory": memory})
     mol_specs = dict(xyz=frags["B"])
@@ -284,7 +284,7 @@ meta_B_HFp["path"] = os.path.join(systfol, "B_HF_ppM_ChelPG")
 already_done = ut.status_ok(path=meta_B_HFp["path"])
 
 # run calculation and update status ("checkpoint")
-if not already_done and len(chelpg_charges) != 0:
+if already_done == False and len(chelpg_charges) != 0:
     memory = 14000
     rem_kw = Trem_kw.substitute(Tdefaults["rem_kw"], **rem_hf_basic, **{"memory": memory})
     mol_specs = dict(xyz=frags["B"])
@@ -329,7 +329,7 @@ meta_fnt  = dict(method_A="HF", method_B="HF", opt="freeze-thaw", status=None)
 meta_fnt["path"] = os.path.join(systfol, "FT-ME")
 already_done = ut.status_ok(path=meta_fnt["path"])
 
-if not already_done:
+if already_done == False:
     # run calculation and update status ("checkpoint")
     try:
         ut.mkdif(meta_fnt["path"])
@@ -358,7 +358,7 @@ meta_ftmpa["path"] = os.path.join(meta_fnt["path"], "MP2_A")
 already_done = ut.status_ok(path=meta_ftmpa["path"])
 
 # run calculation and update status ("checkpoint")
-if not already_done and meta_fnt["status"] == "FIN":
+if already_done == False and meta_fnt["status"] == "FIN":
     memory = 14000
     rem_kw = Trem_kw.substitute(Tdefaults["rem_kw"], **rem_adc_basic, **{"memory": memory, "fde": "true"})
     frag_specs = dict(frag_a=frags["A"], frag_b=frags["B"])
@@ -401,7 +401,7 @@ meta_ftmpb["path"] = os.path.join(meta_fnt["path"], "MP2_B")
 already_done = ut.status_ok(path=meta_ftmpb["path"])
 
 # run calculation and update status ("checkpoint")
-if not already_done and meta_fnt["status"] == "FIN":
+if already_done == False and meta_fnt["status"] == "FIN":
     memory = 14000
     rem_kw = Trem_kw.substitute(Tdefaults["rem_kw"], **rem_adc_basic, **{"memory": memory, "fde": "true"})
     frag_specs = dict(frag_a=frags["B"], frag_b=frags["A"])
@@ -445,7 +445,7 @@ queue_mc = dict(**slrm.shabug_XS)
 for ID, dmfile in densities.items():
     meta_mc["path"] = os.path.join(systfol, "MC-{}".format(ID))
     already_done = ut.status_ok(path=meta_mc["path"])
-    if not already_done:
+    if already_done == False:
         try:
             ut.mkdif(meta_mc["path"])
             os.chdir(meta_mc["path"])
@@ -471,7 +471,7 @@ for ID, dmfile in densities.items():
     meta_mpa = dict(method_A="MP2", method_B="import", opt=None, status=None,basename="emb")
     meta_mpa["path"] = os.path.join(meta_mc["path"], "MP2_A")
     already_done_mpa = ut.status_ok(path=meta_mpa["path"])
-    if not already_done_mpa and already_done:
+    if already_done_mpa == False and already_done == True:
         memory = 14000
         rem_kw = Trem_kw.substitute(Tdefaults["rem_kw"], **rem_adc_basic, **{"memory": memory, "fde": "true"})
         frag_specs = dict(frag_a=frags["A"], frag_b=frags["B"])
@@ -501,7 +501,7 @@ for ID, dmfile in densities.items():
     meta_mpb = dict(method_A="MP2", method_B="import", opt=None, status=None,basename="emb")
     meta_mpb["path"] = os.path.join(meta_mc["path"], "MP2_B")
     already_done_mpb = ut.status_ok(path=meta_mpb["path"])
-    if not already_done_mpb and already_done:
+    if already_done_mpb == False and already_done == True:
         memory = 14000
         rem_kw = Trem_kw.substitute(Tdefaults["rem_kw"], **rem_adc_basic, **{"memory": memory, "fde": "true"})
         frag_specs = dict(frag_a=frags["B"], frag_b=frags["A"])
