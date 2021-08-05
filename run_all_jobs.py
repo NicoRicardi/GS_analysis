@@ -133,10 +133,10 @@ if already_done == False:
     molecule = Tmolecule.substitute(Tdefaults["molecule"], **mol_specs)
     specs_A_MP2 = ut.myupd(Tdefaults["inp"], rem_kw=rem_kw, molecule=molecule, extras=extra_basic)
     queue_A_MP2 = dict(**slrm.shabug_XS)  
-    json_files = gl.glob("*.json")
+    json_files = gl.glob(os.path.join(meta_A_MP2["path"],"*.json"))
     ut.run_job(specs_A_MP2, queue_A_MP2, meta_A_MP2, Tinp,
             batch_mode=False)  # because we want to extract data and copy matrices
-    njsf = [i for i in gl.glob("*.json") if i not in json_files][0]  # whatever json was just added, i.e. default_ccpjson
+    njsf = [i for i in gl.glob(os.path.join(meta_A_MP2["path"],"*.json")) if i not in json_files][0]  # whatever json was just added, i.e. default_ccpjson
      
     # serialize current meta information for later (we're still in the calc folder)
     ut.save_status(meta_A_MP2)
@@ -382,10 +382,10 @@ if already_done == False and meta_fnt["status"] == "FIN":
                  header_src=False, alpha_only_src=False)
     
     # finally run 
-    json_files = gl.glob("*.json")
+    json_files = gl.glob(os.path.join(meta_ftmpa["path"],"*.json"))
     ut.run_job(specs_ftmpa, queue_ftmpa, meta_ftmpa, Tinp, q_custom=slrm.slurm_add,  
             batch_mode=False, create_folder=False)  # because we want to extract data  
-    njsf = [i for i in gl.glob("*.json") if i not in json_files][0]  # whatever json was just added, i.e. default_ccpjson
+    njsf = [i for i in gl.glob(os.path.join(meta_ftmpa["path"],"*.json")) if i not in json_files][0]  # whatever json was just added, i.e. default_ccpjson
     # serialize current meta information for later (we're still in the calc folder)
     ut.save_status(meta_ftmpa)
     data = ut.load_js(njsf)  # default ccp json_filename
@@ -490,10 +490,10 @@ for ID, dmfile in densities.items():
         copy_density(os.path.join(iterDir, "FDE_State0_tot_dens.txt"),
                     os.path.join(meta_mpa["path"], "Densmat_A.txt"),
                     header_src=False, alpha_only_src=False)
-        json_files = gl.glob("*.json")
+        json_files = gl.glob(os.path.join(meta_mpa["path"],"*.json"))
         ut.run_job(specs_mpa, queue_mpa, meta_mpa, Tinp, q_custom=slrm.slurm_add, batch_mode=False)  # because we want to extract data
         ut.save_status(meta_mpa)
-        njsf = [i for i in gl.glob("*.json") if i not in json_files][0]
+        njsf = [i for i in gl.glob(os.path.join(meta_mpa["path"],"*.json")) if i not in json_files][0]
         data = ut.load_js(njsf)  # default ccp json_filename
         energies.append(data["SCF"][-1]) # CHECK
         ut.dump_js(energies, energies_file)
