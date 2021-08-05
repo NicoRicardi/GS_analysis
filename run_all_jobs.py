@@ -329,6 +329,7 @@ meta_fnt  = dict(method_A="HF", method_B="HF", opt="freeze-thaw", status=None)
 
 # create calculation folder
 meta_fnt["path"] = os.path.join(systfol, "FT-ME")
+energies_file = os.path.join(meta_fnt["path"], "energies.json")
 already_done = ut.status_ok(path=meta_fnt["path"])
 
 if already_done == False:
@@ -347,14 +348,7 @@ if already_done == False:
     
     # serialize current meta information for later
     ut.save_status(meta_fnt)
-    energies_file = os.path.join(meta_fnt["path"], "energies.json")
     energies = ut.load_js(energies_file)
-    
-elif already_done == True:
-    meta_fnt["status"] == "FIN"
-else:
-    meta_fnt["status"] == "PENDING"  # should not happen
-ut.save_status(meta_fnt)
 
 #-----------------------------------------------------------------------------#    
 # REF 9: FDE-MP2 using FT densities: (A-in-B) [ME]
@@ -396,6 +390,8 @@ if already_done_ftmpa == False and already_done:
     # serialize current meta information for later (we're still in the calc folder)
     ut.save_status(meta_ftmpa)
     data = ut.load_js(njsf)  # default ccp json_filename
+    if "energies" not in globals():
+            energies = ut.load_js(energies_file)
     energies.append(data["SCF"][-1]) # CHECK
     ut.dump_js(energies, energies_file)
 
@@ -425,7 +421,7 @@ if already_done_ftmpb == False and already_done:
     ut.mkdif(meta_ftmpb["path"])
     
     # SPECIAL: copy density matrices
-#    iterDir = ut.get_last_iter_dir(active="A", path=meta_fnt["path"])
+    iterDir = ut.get_last_iter_dir(active="A", path=meta_fnt["path"])  # in case block for MP2_A did not run
     sh.copy(os.path.join(iterDir, "Densmat_B.txt"), os.path.join(meta_ftmpb["path"], "Densmat_A.txt"))
     # corresponds to density of B that is also used in the last cycle
     copy_density(os.path.join(iterDir, "FDE_State0_tot_dens.txt"),
@@ -453,6 +449,7 @@ meta_mc  = dict(method_A="HF", method_B="HF", opt="macrocycles", status=None)
 queue_mc = dict(**slrm.shabug_XS)  
 for ID, dmfile in densities.items():
     meta_mc["path"] = os.path.join(systfol, "MC-{}".format(ID))
+    energies_file = os.path.join(meta_mc["path"], "energies.json")
     already_done = ut.status_ok(path=meta_mc["path"])
     if already_done == False:
         try:
@@ -469,7 +466,6 @@ for ID, dmfile in densities.items():
             macrocycles(queue_mc, **specs_mc)
             meta_mc["status"] = "FIN"
             already_done=True
-            energies_file = os.path.join(meta_mc["path"], "energies.json")
             energies = ut.load_js(energies_file)
         except NotConvergedError:
             meta_mc["status"] = "FAIL"
@@ -502,6 +498,8 @@ for ID, dmfile in densities.items():
         ut.save_status(meta_mpa)
         njsf = [i for i in gl.glob(os.path.join(meta_mpa["path"],"*.json")) if i not in json_files][0]
         data = ut.load_js(njsf)  # default ccp json_filename
+        if "energies" not in globals():
+            energies = ut.load_js(energies_file)
         energies.append(data["SCF"][-1]) # CHECK
         ut.dump_js(energies, energies_file)
     #-----------------------------------------------------------------------------#
@@ -522,7 +520,7 @@ for ID, dmfile in densities.items():
         specs_mpb = ut.myupd(Tdefaults["inp"], rem_kw=rem_kw, molecule=frag_str, extras=extras)
         queue_mpb = dict(**slrm.shabug_XS)  
         ut.mkdif(meta_mpb["path"]) 
-        iterDir = ut.get_last_iter_dir(active="A", path=meta["path"],opt="macrocycles")  # in case block for MPA did not run
+        iterDir = ut.get_last_iter_dir(active="A", path=meta_mc["path"],opt="macrocycles")  # in case block for MPA did not run
         sh.copy(os.path.join(iterDir, "Densmat_B.txt"), os.path.join(meta_mpb["path"], "Densmat_A.txt"))
         copy_density(os.path.join(iterDir, "FDE_State0_tot_dens.txt"),
                     os.path.join(meta_mpb["path"], "Densmat_B.txt"),
