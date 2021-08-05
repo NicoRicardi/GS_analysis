@@ -349,6 +349,13 @@ if already_done == False:
     ut.save_status(meta_fnt)
     energies_file = os.path.join(meta_fnt["path"], "energies.json")
     energies = ut.load_js(energies_file)
+    
+elif already_done == True:
+    meta_fnt["status"] == "FIN"
+else:
+    meta_fnt["status"] == "PENDING"  # should not happen
+ut.save_status(meta_fnt)
+
 #-----------------------------------------------------------------------------#    
 # REF 9: FDE-MP2 using FT densities: (A-in-B) [ME]
 #-----------------------------------------------------------------------------#
