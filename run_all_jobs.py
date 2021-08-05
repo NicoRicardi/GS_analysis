@@ -320,7 +320,7 @@ del meta_B_HFp
 #-----------------------------------------------------------------------------#
 memory = 14000
 rem_kw = dict(**rem_hf_basic, **{"memory": memory})
-fde_kw = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA = true", "method_b": "import_rhoB = true"})
+fde_kw = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA true", "method_b": "import_rhoB true"})
 specs_fnt = dict(rem_kw=rem_kw, fde_kw=fde_kw, extras=extra_basic, use_zr=False,
                 fragments=frags, elconf=elconf, q_custom=slrm.slurm_add,
                 maxiter=10, thresh=1e-9)  
@@ -367,7 +367,7 @@ if already_done == False and meta_fnt["status"] == "FIN":
     if found_elconf:
         frag_specs.update(elconf)
     frag_str = Tfragments.substitute(Tdefaults["molecule"], **frag_specs)
-    fde_sect = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA = true", "method_b": "import_rhoB = true"})
+    fde_sect = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA true", "method_b": "import_rhoB true"})
     extras = "\n".join([extra_basic]+[fde_sect])
     specs_ftmpa = ut.myupd(Tdefaults["inp"], rem_kw=rem_kw, molecule=frag_str, extras=extras)
     queue_ftmpa = dict(**slrm.shabug_XS)  
@@ -410,7 +410,7 @@ if already_done == False and meta_fnt["status"] == "FIN":
     if found_elconf:
         frag_specs.update(elconf_rev)
     frag_str = Tfragments.substitute(Tdefaults["molecule"], **frag_specs)
-    fde_sect = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA = true", "method_b": "import_rhoB = true"})
+    fde_sect = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA true", "method_b": "import_rhoB true"})
     extras = "\n".join([extra_basic]+[fde_sect])
     specs_ftmpb = ut.myupd(Tdefaults["inp"], rem_kw=rem_kw, molecule=frag_str, extras=extras)
     queue_ftmpb = dict(**slrm.shabug_XS)  
@@ -438,7 +438,7 @@ densities = {i: "Densmat_B_{}.txt".format(i) for i in ["nopp", "pp_Mulliken", "p
 
 memory = 14000
 rem_kw = dict(**rem_hf_basic, **{"memory": memory})
-fde_kw = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA = true", "method_b": "import_rhoB = true"})
+fde_kw = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA true", "method_b": "import_rhoB true"})
 specs_mc = dict(rem_kw=rem_kw, fde_kw=fde_kw, extras=extra_basic, use_zr=False,
                 fragments=frags, elconf=elconf, q_custom=slrm.slurm_add,
                 maxiter=10, thresh=1e-9)  
@@ -480,7 +480,7 @@ for ID, dmfile in densities.items():
         if found_elconf:
             frag_specs.update(elconf)
         frag_str = Tfragments.substitute(Tdefaults["molecule"], **frag_specs)
-        fde_sect = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA = true", "method_b": "import_rhoB = true"})
+        fde_sect = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA true", "method_b": "import_rhoB true"})
         extras = "\n".join([extra_basic]+[fde_sect])
         specs_mpa = ut.myupd(Tdefaults["inp"], rem_kw=rem_kw, molecule=frag_str, extras=extras)
         queue_mpa = dict(**slrm.shabug_XS)  
@@ -510,7 +510,7 @@ for ID, dmfile in densities.items():
         if found_elconf:
             frag_specs.update(elconf_rev)
         frag_str = Tfragments.substitute(Tdefaults["molecule"], **frag_specs)
-        fde_sect = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA = true", "method_b": "import_rhoB = true"})
+        fde_sect = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA true", "method_b": "import_rhoB true"})
         extras = "\n".join([extra_basic]+[fde_sect])
         specs_mpb = ut.myupd(Tdefaults["inp"], rem_kw=rem_kw, molecule=frag_str, extras=extras)
         queue_mpb = dict(**slrm.shabug_XS)  
