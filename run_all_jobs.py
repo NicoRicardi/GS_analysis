@@ -321,7 +321,7 @@ del meta_B_HFp
 memory = 14000
 rem_kw = dict(**rem_hf_basic, **{"memory": memory})
 fde_kw = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA = true", "method_b": "import_rhoB = true"})
-specs_fnt = dict(rem_kw=rem_kw, fde_kw=fde_kw, extras=extra_basic, 
+specs_fnt = dict(rem_kw=rem_kw, fde_kw=fde_kw, extras=extra_basic, use_zr=False,
                 fragments=frags, elconf=elconf, q_custom=slrm.slurm_add,
                 maxiter=10, thresh=1e-9)  
 queue_fnt = dict(**slrm.shabug_XS)  
@@ -439,7 +439,7 @@ densities = {i: "Densmat_B_{}.txt".format(i) for i in ["nopp", "pp_Mulliken", "p
 memory = 14000
 rem_kw = dict(**rem_hf_basic, **{"memory": memory})
 fde_kw = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA = true", "method_b": "import_rhoB = true"})
-specs_mc = dict(rem_kw=rem_kw, fde_kw=fde_kw, extras=extra_basic, 
+specs_mc = dict(rem_kw=rem_kw, fde_kw=fde_kw, extras=extra_basic, use_zr=False,
                 fragments=frags, elconf=elconf, q_custom=slrm.slurm_add,
                 maxiter=10, thresh=1e-9)  
 meta_mc  = dict(method_A="HF", method_B="HF", opt="macrocycles", status=None)
