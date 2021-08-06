@@ -498,9 +498,9 @@ for ID, dmfile in densities.items():
                     header_src=False, alpha_only_src=False)
         json_files = gl.glob(os.path.join(meta_mpa["path"],"*.json"))
         ut.run_job(specs_mpa, queue_mpa, meta_mpa, Tinp, q_custom=slrm.slurm_add, batch_mode=False)  # because we want to extract data
-        ut.save_status(meta_mpa)
         njsf = [i for i in gl.glob(os.path.join(meta_mpa["path"],"*.json")) if i not in json_files][0]
         data = ut.load_js(njsf)  # default ccp json_filename
+        ut.save_status(meta_mpa)
         if "energies" not in globals():
             energies = ut.load_js(energies_file)
         energies.append(data["scf_energy"][-1][0]) # CHECK
