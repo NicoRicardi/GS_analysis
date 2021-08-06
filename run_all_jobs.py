@@ -527,7 +527,7 @@ for ID, dmfile in densities.items():
         ut.save_status(meta_mpb)
         
 #-----------------------------------------------------------------------------#
-# REF 8: Freeze-and-Thaw, SE
+# REF 12: Freeze-and-Thaw, SE
 #-----------------------------------------------------------------------------#
 memory = 14000
 rem_kw = dict(**rem_hf_basic, **{"memory": memory})
@@ -552,7 +552,7 @@ if already_done_fnt == False:
             copy_density(os.path.join(systfol, "B_MP2_gh", "Densmat_SCF.txt"),
                          "Densmat_B.txt", header_src=False, alpha_only_src=False) 
         if not os.path.exists(os.path.join(meta_fnt["path"],"Densmat_A.txt")):
-            sh.copy(os.path.join(systfol, "A_MP2_gh", "Densmat_SCF.txt"),
+            copy_density(os.path.join(systfol, "A_MP2_gh", "Densmat_SCF.txt"),
                     "Densmat_A.txt", header_src=False, alpha_only_src=False)
         freeze_and_thaw(queue_fnt, **specs_fnt)  
         meta_fnt["status"] = "FIN"
@@ -565,7 +565,7 @@ if already_done_fnt == False:
     ut.save_status(meta_fnt)
 
 #-----------------------------------------------------------------------------#    
-# REF 9: FDE-MP2 using FT densities: (A-in-B) [ME]
+# REF 13: FDE-MP2 using FT densities: (A-in-B) [SE]
 #-----------------------------------------------------------------------------#
 meta_ftmpa  = dict(method_A="MP2", method_B="import", opt=None, status=None,
               basename="emb")
@@ -607,7 +607,7 @@ if already_done_ftmpa == False and already_done_fnt:
     sp.call("echo {E_A} >> {en_file}".format(E_A=data["scf_energy"][-1][0], en_file=en_file), shell=True)
 
 #-----------------------------------------------------------------------------#
-# REF 10: FDE-MP2 using FT densities: (B-in-A) [ME]
+# REF 14: FDE-MP2 using FT densities: (B-in-A) [SE]
 #-----------------------------------------------------------------------------#
 
 meta_ftmpb  = dict(method_A="MP2", method_B="import", opt=None, status=None,
@@ -644,7 +644,9 @@ if already_done_ftmpb == False and already_done_fnt:
     
     # serialize current meta information for later (we're still in the calc folder)
     ut.save_status(meta_ftmpb)
-    
+#-----------------------------------------------------------------------------#
+# REF 15: Macrocycles for rhoA dependency with frozen rhoB 
+#-----------------------------------------------------------------------------#   
 densities = {i: "Densmat_B_{}.txt".format(i) for i in ["SE"]}
 copy_density(os.path.join(systfol, "B_MP2_gh", "Densmat_SCF.txt"),
                          os.path.join(systfol,"Densmat_B_SE.txt"),
@@ -654,7 +656,7 @@ copy_density(os.path.join(systfol, "A_MP2_gh", "Densmat_SCF.txt"),
                          header_src=False, alpha_only_src=False)
 memory = 14000
 rem_kw = dict(**rem_hf_basic, **{"memory": memory})
-fde_kw = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA true", "method_b": "import_rhoB true"})
+fde_kw = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA true", "method_b": "import_rhoB true", "expansion": "SE"})
 specs_mc = dict(rem_kw=rem_kw, fde_kw=fde_kw, extras=extra_basic, use_zr=False,
                 fragments=frags, elconf=elconf, q_custom=slrm.slurm_add,
                 maxiter=20, thresh=1e-9, en_file="energies.txt")  
@@ -697,7 +699,7 @@ for ID, dmfile in densities.items():
         if found_elconf:
             frag_specs.update(elconf)
         frag_str = Tfragments.substitute(Tdefaults["molecule"], **frag_specs)
-        fde_sect = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA true", "method_b": "import_rhoB true"})
+        fde_sect = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA true", "method_b": "import_rhoB true", "expansion": "SE"})
         extras = "\n".join([extra_basic]+[fde_sect])
         specs_mpa = ut.myupd(Tdefaults["inp"], rem_kw=rem_kw, molecule=frag_str, extras=extras)
         queue_mpa = dict(**slrm.shabug_XS)  
@@ -726,7 +728,7 @@ for ID, dmfile in densities.items():
         if found_elconf:
             frag_specs.update(elconf_rev)
         frag_str = Tfragments.substitute(Tdefaults["molecule"], **frag_specs)
-        fde_sect = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA true", "method_b": "import_rhoB true"})
+        fde_sect = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA true", "method_b": "import_rhoB true", "expansion": "SE"})
         extras = "\n".join([extra_basic]+[fde_sect])
         specs_mpb = ut.myupd(Tdefaults["inp"], rem_kw=rem_kw, molecule=frag_str, extras=extras)
         queue_mpb = dict(**slrm.shabug_XS)  
