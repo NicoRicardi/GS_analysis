@@ -10,10 +10,11 @@ Created on Fri Jul 30 11:46:46 2021
 #import CCParser as ccp
 #import numpy as np
 import glob as gl
+import subprocess as sp
 import os
 import CCJob as ccj
 import CCJob.utils as ut
-from CCJob.iterative import freeze_and_thaw, macrocycles, copy_density, NotConvergedError
+from CCJob.iterative import freeze_and_thaw, macrocycles, copy_density
 import shutil as sh
 from CCJob.Composable_templates import Tdefaults, Tinps, Tinp, Trem_kw, Tmolecule,\
  Tadc,  Tpc, Tbasis, chelpg_kw, Tfragments, Tfde
@@ -323,13 +324,13 @@ rem_kw = dict(**rem_hf_basic, **{"memory": memory})
 fde_kw = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA true", "method_b": "import_rhoB true"})
 specs_fnt = dict(rem_kw=rem_kw, fde_kw=fde_kw, extras=extra_basic, use_zr=False,
                 fragments=frags, elconf=elconf, q_custom=slrm.slurm_add,
-                maxiter=20, thresh=1e-9)  
+                maxiter=20, thresh=1e-9, en_file="energies.txt")  
 queue_fnt = dict(**slrm.shabug_XS)  
 meta_fnt  = dict(method_A="HF", method_B="HF", opt="freeze-thaw", status=None)
 
 # create calculation folder
 meta_fnt["path"] = os.path.join(systfol, "FT-ME")
-energies_file = os.path.join(meta_fnt["path"], "energies.json")
+en_file = os.path.join(meta_fnt["path"], specs_fnt["en_file"])
 already_done_fnt = ut.status_ok(path=meta_fnt["path"])
 
 if already_done_fnt == False:
@@ -344,13 +345,11 @@ if already_done_fnt == False:
         freeze_and_thaw(queue_fnt, **specs_fnt)  
         meta_fnt["status"] = "FIN"
         already_done_fnt = True
-    except NotConvergedError as e:
+    except Exception as e:
         print(e)
         meta_fnt["status"] = "FAIL"
-    
     # serialize current meta information for later
     ut.save_status(meta_fnt)
-    energies = ut.load_js(energies_file)
 
 #-----------------------------------------------------------------------------#    
 # REF 9: FDE-MP2 using FT densities: (A-in-B) [ME]
@@ -392,10 +391,7 @@ if already_done_ftmpa == False and already_done_fnt:
     # serialize current meta information for later (we're still in the calc folder)
     ut.save_status(meta_ftmpa)
     data = ut.load_js(njsf)  # default ccp json_filename
-    if "energies" not in globals():
-            energies = ut.load_js(energies_file)
-    energies.append(data["scf_energy"][-1][0]) # CHECK
-    ut.dump_js(energies, energies_file)
+    sp.call("echo {E_A} >> {en_file}".format(E_A=data["scf_energy"][-1][0], en_file=en_file))
 
 #-----------------------------------------------------------------------------#
 # REF 10: FDE-MP2 using FT densities: (B-in-A) [ME]
@@ -446,12 +442,12 @@ rem_kw = dict(**rem_hf_basic, **{"memory": memory})
 fde_kw = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA true", "method_b": "import_rhoB true"})
 specs_mc = dict(rem_kw=rem_kw, fde_kw=fde_kw, extras=extra_basic, use_zr=False,
                 fragments=frags, elconf=elconf, q_custom=slrm.slurm_add,
-                maxiter=20, thresh=1e-9)  
+                maxiter=20, thresh=1e-9, en_file="energies.txt")  
 meta_mc  = dict(method_A="HF", method_B="HF", opt="macrocycles", status=None)
 queue_mc = dict(**slrm.shabug_XS)  
 for ID, dmfile in densities.items():
     meta_mc["path"] = os.path.join(systfol, "MC-{}".format(ID))
-    energies_file = os.path.join(meta_mc["path"], "energies.json")
+    en_file = os.path.join(meta_mc["path"], specs_mc["en_file"])
     already_done_mc = ut.status_ok(path=meta_mc["path"])
     if already_done_mc == False:
         try:
@@ -468,8 +464,7 @@ for ID, dmfile in densities.items():
             macrocycles(queue_mc, **specs_mc)
             meta_mc["status"] = "FIN"
             already_done_mc = True
-            energies = ut.load_js(energies_file)
-        except NotConvergedError as e:
+        except Exception as e:  # Mainly NotConverged, but not only
             print(e)
             meta_mc["status"] = "FAIL"
         ut.save_status(meta_mc)
@@ -501,10 +496,7 @@ for ID, dmfile in densities.items():
         njsf = [i for i in gl.glob(os.path.join(meta_mpa["path"],"*.json")) if i not in json_files][0]
         data = ut.load_js(njsf)  # default ccp json_filename
         ut.save_status(meta_mpa)
-        if "energies" not in globals():
-            energies = ut.load_js(energies_file)
-        energies.append(data["scf_energy"][-1][0]) # CHECK
-        ut.dump_js(energies, energies_file)
+        sp.call("echo {E_A} >> {en_file}".format(E_A=data["scf_energy"][-1][0], en_file=en_file))
     #-----------------------------------------------------------------------------#
     # FDE-MP2  B in A
     #-----------------------------------------------------------------------------#
