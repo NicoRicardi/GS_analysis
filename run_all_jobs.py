@@ -323,16 +323,16 @@ rem_kw = dict(**rem_hf_basic, **{"memory": memory})
 fde_kw = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA true", "method_b": "import_rhoB true"})
 specs_fnt = dict(rem_kw=rem_kw, fde_kw=fde_kw, extras=extra_basic, use_zr=False,
                 fragments=frags, elconf=elconf, q_custom=slrm.slurm_add,
-                maxiter=10, thresh=1e-9)  
+                maxiter=20, thresh=1e-9)  
 queue_fnt = dict(**slrm.shabug_XS)  
 meta_fnt  = dict(method_A="HF", method_B="HF", opt="freeze-thaw", status=None)
 
 # create calculation folder
 meta_fnt["path"] = os.path.join(systfol, "FT-ME")
 energies_file = os.path.join(meta_fnt["path"], "energies.json")
-already_done = ut.status_ok(path=meta_fnt["path"])
+already_done_fnt = ut.status_ok(path=meta_fnt["path"])
 
-if already_done == False:
+if already_done_fnt == False:
     # run calculation and update status ("checkpoint")
     try:
         ut.mkdif(meta_fnt["path"])
@@ -343,7 +343,9 @@ if already_done == False:
             sh.copy(os.path.join(systfol, "Densmat_A_nopp.txt"), "Densmat_A.txt")
         freeze_and_thaw(queue_fnt, **specs_fnt)  
         meta_fnt["status"] = "FIN"
-    except NotConvergedError:
+        already_done_fnt = True
+    except NotConvergedError as e:
+        print(e)
         meta_fnt["status"] = "FAIL"
     
     # serialize current meta information for later
@@ -361,7 +363,7 @@ meta_ftmpa["path"] = os.path.join(meta_fnt["path"], "MP2_A")
 already_done_ftmpa = ut.status_ok(path=meta_ftmpa["path"])
 
 # run calculation and update status ("checkpoint")
-if already_done_ftmpa == False and already_done:
+if already_done_ftmpa == False and already_done_fnt:
     memory = 14000
     rem_kw = Trem_kw.substitute(Tdefaults["rem_kw"], **rem_adc_basic, **{"memory": memory, "fde": "true"})
     frag_specs = dict(frag_a=frags["A"], frag_b=frags["B"])
@@ -406,7 +408,7 @@ meta_ftmpb["path"] = os.path.join(meta_fnt["path"], "MP2_B")
 already_done_ftmpb = ut.status_ok(path=meta_ftmpb["path"])
 
 # run calculation and update status ("checkpoint")
-if already_done_ftmpb == False and already_done:
+if already_done_ftmpb == False and already_done_fnt:
     memory = 14000
     rem_kw = Trem_kw.substitute(Tdefaults["rem_kw"], **rem_adc_basic, **{"memory": memory, "fde": "true"})
     frag_specs = dict(frag_a=frags["B"], frag_b=frags["A"])
@@ -444,14 +446,14 @@ rem_kw = dict(**rem_hf_basic, **{"memory": memory})
 fde_kw = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA true", "method_b": "import_rhoB true"})
 specs_mc = dict(rem_kw=rem_kw, fde_kw=fde_kw, extras=extra_basic, use_zr=False,
                 fragments=frags, elconf=elconf, q_custom=slrm.slurm_add,
-                maxiter=10, thresh=1e-9)  
+                maxiter=20, thresh=1e-9)  
 meta_mc  = dict(method_A="HF", method_B="HF", opt="macrocycles", status=None)
 queue_mc = dict(**slrm.shabug_XS)  
 for ID, dmfile in densities.items():
     meta_mc["path"] = os.path.join(systfol, "MC-{}".format(ID))
     energies_file = os.path.join(meta_mc["path"], "energies.json")
-    already_done = ut.status_ok(path=meta_mc["path"])
-    if already_done == False:
+    already_done_mc = ut.status_ok(path=meta_mc["path"])
+    if already_done_mc == False:
         try:
             ut.mkdif(meta_mc["path"])
             os.chdir(meta_mc["path"])
@@ -465,9 +467,10 @@ for ID, dmfile in densities.items():
                 #-----------------------------------------------------------------------------#
             macrocycles(queue_mc, **specs_mc)
             meta_mc["status"] = "FIN"
-            already_done=True
+            already_done_mc = True
             energies = ut.load_js(energies_file)
-        except NotConvergedError:
+        except NotConvergedError as e:
+            print(e)
             meta_mc["status"] = "FAIL"
         ut.save_status(meta_mc)
     #-----------------------------------------------------------------------------#
@@ -476,7 +479,7 @@ for ID, dmfile in densities.items():
     meta_mpa = dict(method_A="MP2", method_B="import", opt=None, status=None,basename="emb")
     meta_mpa["path"] = os.path.join(meta_mc["path"], "MP2_A")
     already_done_mpa = ut.status_ok(path=meta_mpa["path"])
-    if already_done_mpa == False and already_done == True:
+    if already_done_mpa == False and already_done_mc == True:
         memory = 14000
         rem_kw = Trem_kw.substitute(Tdefaults["rem_kw"], **rem_adc_basic, **{"memory": memory, "fde": "true"})
         frag_specs = dict(frag_a=frags["A"], frag_b=frags["B"])
@@ -508,7 +511,7 @@ for ID, dmfile in densities.items():
     meta_mpb = dict(method_A="MP2", method_B="import", opt=None, status=None,basename="emb")
     meta_mpb["path"] = os.path.join(meta_mc["path"], "MP2_B")
     already_done_mpb = ut.status_ok(path=meta_mpb["path"])
-    if already_done_mpb == False and already_done == True:
+    if already_done_mpb == False and already_done_mc == True:
         memory = 14000
         rem_kw = Trem_kw.substitute(Tdefaults["rem_kw"], **rem_adc_basic, **{"memory": memory, "fde": "true"})
         frag_specs = dict(frag_a=frags["B"], frag_b=frags["A"])
