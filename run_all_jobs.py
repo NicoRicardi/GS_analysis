@@ -392,7 +392,7 @@ if already_done_ftmpa == False and already_done:
     data = ut.load_js(njsf)  # default ccp json_filename
     if "energies" not in globals():
             energies = ut.load_js(energies_file)
-    energies.append(data["SCF"][-1]) # CHECK
+    energies.append(data["scf_energy"][-1][0]) # CHECK
     ut.dump_js(energies, energies_file)
 
 #-----------------------------------------------------------------------------#
@@ -500,7 +500,7 @@ for ID, dmfile in densities.items():
         data = ut.load_js(njsf)  # default ccp json_filename
         if "energies" not in globals():
             energies = ut.load_js(energies_file)
-        energies.append(data["SCF"][-1]) # CHECK
+        energies.append(data["scf_energy"][-1][0]) # CHECK
         ut.dump_js(energies, energies_file)
     #-----------------------------------------------------------------------------#
     # FDE-MP2  B in A
