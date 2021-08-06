@@ -391,7 +391,7 @@ if already_done_ftmpa == False and already_done_fnt:
     # serialize current meta information for later (we're still in the calc folder)
     ut.save_status(meta_ftmpa)
     data = ut.load_js(njsf)  # default ccp json_filename
-    sp.call("echo {E_A} >> {en_file}".format(E_A=data["scf_energy"][-1][0], en_file=en_file))
+    sp.call("echo {E_A} >> {en_file}".format(E_A=data["scf_energy"][-1][0], en_file=en_file), shell=True)
 
 #-----------------------------------------------------------------------------#
 # REF 10: FDE-MP2 using FT densities: (B-in-A) [ME]
@@ -496,7 +496,7 @@ for ID, dmfile in densities.items():
         njsf = [i for i in gl.glob(os.path.join(meta_mpa["path"],"*.json")) if i not in json_files][0]
         data = ut.load_js(njsf)  # default ccp json_filename
         ut.save_status(meta_mpa)
-        sp.call("echo {E_A} >> {en_file}".format(E_A=data["scf_energy"][-1][0], en_file=en_file))
+        sp.call("echo {E_A} >> {en_file}".format(E_A=data["scf_energy"][-1][0], en_file=en_file), shell=True)
     #-----------------------------------------------------------------------------#
     # FDE-MP2  B in A
     #-----------------------------------------------------------------------------#
