@@ -10,6 +10,7 @@ Created on Fri Jul 30 11:46:46 2021
 #import CCParser as ccp
 #import numpy as np
 import glob as gl
+import traceback
 import subprocess as sp
 import os
 import CCJob as ccj
@@ -347,6 +348,7 @@ if already_done_fnt == False:
         already_done_fnt = True
     except Exception as e:
         print(e)
+        traceback.print_exc()
         meta_fnt["status"] = "FAIL"
     # serialize current meta information for later
     ut.save_status(meta_fnt)
@@ -466,6 +468,7 @@ for ID, dmfile in densities.items():
             already_done_mc = True
         except Exception as e:  # Mainly NotConverged, but not only
             print(e)
+            traceback.print_exc()
             meta_mc["status"] = "FAIL"
         ut.save_status(meta_mc)
     #-----------------------------------------------------------------------------#
@@ -556,6 +559,7 @@ if already_done_fnt == False:
         already_done_fnt = True
     except Exception as e:
         print(e)
+        traceback.print_exc()
         meta_fnt["status"] = "FAIL"
     # serialize current meta information for later
     ut.save_status(meta_fnt)
@@ -677,6 +681,7 @@ for ID, dmfile in densities.items():
             already_done_mc = True
         except Exception as e:  # Mainly NotConverged, but not only
             print(e)
+            traceback.print_exc()
             meta_mc["status"] = "FAIL"
         ut.save_status(meta_mc)
     #-----------------------------------------------------------------------------#
