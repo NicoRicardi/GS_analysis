@@ -33,7 +33,7 @@ systfol = os.path.join(root, systfol)
 #logfile = os.path.join(systfol,"GS_stuff.log")
 # set up logger. NB avoid homonimity with other module's loggers (e.g. ccp)
 ccjlog = logging.getLogger("ccj")
-ut.setupLogger()
+ut.setupLogger(to_console=True, to_file=True, printlevel=30)
 #ut.setupLogger(to_console=True, to_log=True, logname=logfile)
 bs_kw = "gen"  
 bs_string = ut.read_file("aug-cc-pVDZ.bas")
