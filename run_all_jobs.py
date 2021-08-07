@@ -27,13 +27,13 @@ import logging
 ###############################################################################
 ###############################################################################
 root = os.getcwd()
-systfol = sys.argv[1]
-systfol = os.path.join(root, systfol)
+system = sys.argv[1]
+systfol = os.path.join(root, system)
 ###############################################################################
-#logfile = os.path.join(systfol,"GS_stuff.log")
+logfile = os.path.join(systfol,"{}_ccj.log".format(system))
 # set up logger. NB avoid homonimity with other module's loggers (e.g. ccp)
 ccjlog = logging.getLogger("ccj")
-ut.setupLogger(to_console=True, to_file=True, printlevel=30)
+ut.setupLogger(to_console=True, to_log=True, printlevel=20)
 #ut.setupLogger(to_console=True, to_log=True, logname=logfile)
 bs_kw = "gen"  
 bs_string = ut.read_file("aug-cc-pVDZ.bas")
