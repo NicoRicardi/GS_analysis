@@ -21,15 +21,16 @@ from CCJob.Composable_templates import Tdefaults, Tinps, Tinp, Trem_kw, Tmolecul
  Tadc,  Tpc, Tbasis, chelpg_kw, Tfragments, Tfde
 import slurm_stuff_yggdrasil as slrm
 #import slurm_stuff_baobab as slrm
-
+import sys
 
 ###############################################################################
 ###############################################################################
 root = os.getcwd()
-systfol = "NH3_H2O"
+systfol = sys.argv[2]
 systfol = os.path.join(root, systfol)
 ###############################################################################
-
+logfile = os.path.join(systfol,"GS_stuff.log")
+ut.setupLogger(to_console=True, to_log=True, logname=logfile)
 bs_kw = "gen"  
 bs_string = ut.read_file("aug-cc-pVDZ.bas")
 if bs_string[-1] == "\n":
