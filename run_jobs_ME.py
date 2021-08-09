@@ -42,7 +42,7 @@ def symlinkif(src, dst, printout=False):
     if os.path.exists(src) and not os.path.exists(dst):
         os.symlink(src, dst)
         if printout:
-        print("created symlink!")
+            print("created symlink!")
     if printout:
         print("Nothing done")
     

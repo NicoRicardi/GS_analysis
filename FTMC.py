@@ -44,7 +44,7 @@ def symlinkif(src, dst, printout=False):
     if os.path.exists(src) and not os.path.exists(dst):
         os.symlink(src, dst)
         if printout:
-        print("created symlink!")
+            print("created symlink!")
     if printout:
         print("Nothing done")
 
@@ -183,6 +183,6 @@ for n in range(0, len(iterdirs)):  # we run for all cycles because we need MP2_B
     if n % 2 == 0 and n > 1:
         dst = os.path.join(meta_ftmc["path"], "MP2_B")
         src = os.path.join(ft_fol, "{}{}".format(dirbase, n-1),
-                               "FT{}-MC-{}".format(n, expansion),
+                               "FT{}-MC-{}".format(n-1, expansion),
                                "MP2_A")
         symlinkif(src, dst)
