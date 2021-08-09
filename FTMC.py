@@ -51,6 +51,12 @@ os.chdir(systfol)
 zr_file = ccj.find_file(systfol, extension="zr")
 frags = ccj.zr_frag(zr_file)
 
+frags_rev = {}
+frags_rev["A"] = frags["B"]
+frags_rev["B"] = frags["A"]
+frags_rev["AB_ghost"] = frags["BA_ghost"]
+frags_rev["AB"] = frags_rev["A"] + frags_rev["B"]
+
 # --- Electronic configuration ---
 f_elconf = ccj.find_eleconfig(systfol)
 elconf = ccj.read_eleconfig(fname=f_elconf)
@@ -77,6 +83,9 @@ rem_kw = dict(**rem_hf_basic, **{"memory": memory})
 fde_kw = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA true", "method_b": "import_rhoB true", "expansion": expansion})
 specs_ftmc = dict(rem_kw=rem_kw, fde_kw=fde_kw, extras=extra_basic, use_zr=False,
                 fragments=frags, elconf=elconf, q_custom=slrm.slurm_add,
+                maxiter=20, thresh=1e-9, en_file="energies.txt")  
+specs_ftmc_rev = dict(rem_kw=rem_kw, fde_kw=fde_kw, extras=extra_basic, use_zr=False,
+                fragments=frags_rev, elconf=elconf_rev, q_custom=slrm.slurm_add,
                 maxiter=20, thresh=1e-9, en_file="energies.txt")  
 meta_ftmc  = dict(method_A="HF", method_B="HF", opt="macrocycles", status=None)
 queue_ftmc = dict(**slrm.shabug_XS)  
@@ -110,7 +119,7 @@ for n in range(0, len(iterdirs)):  # we run for all cycles because we need MP2_B
                              alpha_only_src=False)
         try:
             os.chdir(ftmc_fol)
-            macrocycles(queue_ftmc, **specs_ftmc)
+            macrocycles(queue_ftmc, **specs_ftmc if n%2 == 0 else specs_ftmc_rev)
             meta_ftmc["status"] = "FIN"
             already_done_ftmc = True
         except Exception as e:  # Mainly NotConverged, but not only
@@ -127,9 +136,9 @@ for n in range(0, len(iterdirs)):  # we run for all cycles because we need MP2_B
     if already_done_mpa == False and already_done_ftmc == True:
         memory = 14000
         rem_kw = Trem_kw.substitute(Tdefaults["rem_kw"], **rem_adc_basic, **{"memory": memory, "fde": "true"})
-        frag_specs = dict(frag_a=frags["A"], frag_b=frags["B"])
+        frag_specs = dict(frag_a=frags["A"], frag_b=frags["B"]) if n%2 == 0 else dict(frag_a=frags_rev["A"], frag_b=frags_rev["B"])
         if found_elconf:
-            frag_specs.update(elconf)
+            frag_specs.update(elconf if n%2 == 0 else elconf_rev)
         frag_str = Tfragments.substitute(Tdefaults["molecule"], **frag_specs)
         fde_sect = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA true", "method_b": "import_rhoB true", "expansion": expansion})
         extras = "\n".join([extra_basic]+[fde_sect])
