@@ -515,4 +515,5 @@ for ID, dmfile in densities.items():
     # Create Symbolic link  to MP2 B
     #-----------------------------------------------------------------------------#    
     dst = os.path.join(meta_mc["path"], "MP2_B")
-    os.symlink(mpb_fols[ID], dst)
+    if not os.path.exists(dst):
+        os.symlink(mpb_fols[ID], dst)

@@ -84,17 +84,18 @@ queue_ftmc = dict(**slrm.shabug_XS)
 ft_fol = os.path.join(systfol, "FT-{}".format(expansion))
 dirbase = "cy"
 iterdirs = [i for i in os.listdir(ft_fol) if dirbase in i]
-for n in range(0, len(iterdirs), 2):
+for n in range(0, len(iterdirs)):  # we run for all cycles because we need MP2_B as well
     cyfol = "{}{}".format(dirbase, n)
     ftmc_fol = os.path.join(ft_fol, cyfol, "FT{}-MC-{}".format(n, expansion))
     meta_ftmc["path"] = ftmc_fol
     if expansion == "ME" and n == 0:  # we already have this, just symlink
-        os.symlink(os.path.join(systfol, "MC-nopp"), ftmc_fol)
+        if not os.path.exists(os.path.join(systfol, "MC-nopp")):
+            os.symlink(os.path.join(systfol, "MC-nopp"), ftmc_fol)
         continue
     en_file = os.path.join(ftmc_fol, specs_ftmc["en_file"])
     already_done_ftmc = ut.status_ok(path=meta_ftmc["path"])
     if already_done_ftmc == False:
-        ut.mkdif()
+        ut.mkdif(ftmc_fol)
         if not os.path.isfile(os.path.join(ftmc_fol, "Densmat_B.txt")):
             sh.copy(os.path.join(ft_fol, cyfol, "Densmat_B.txt"),
                     os.path.join(ftmc_fol, "Densmat_B.txt"))
@@ -108,6 +109,7 @@ for n in range(0, len(iterdirs), 2):
                              header_src=False,
                              alpha_only_src=False)
         try:
+            os.chdir(ftmc_fol)
             macrocycles(queue_ftmc, **specs_ftmc)
             meta_ftmc["status"] = "FIN"
             already_done_ftmc = True
@@ -145,3 +147,13 @@ for n in range(0, len(iterdirs), 2):
         data = ut.load_js(njsf)  # default ccp json_filename
         ut.save_status(meta_mpa)
         sp.call("echo {E_A} >> {en_file}".format(E_A=data["scf_energy"][-1][0], en_file=en_file), shell=True)
+    #-----------------------------------------------------------------------------#
+    # Create Symbolic link  to MP2 B
+    #-----------------------------------------------------------------------------#    
+    if n % 2 == 0 and n > 1:
+        dst = os.path.join(meta_ftmc["path"], "MP2_B")
+        if not os.path.exists(dst):
+            src = os.path.join(ft_fol, "{}{}".format(dirbase, n-1),
+                               "FT{}-MC-{}".format(n, expansion),
+                               "MP2_A")
+            os.symlink(src, dst)
