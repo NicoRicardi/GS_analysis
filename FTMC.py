@@ -26,6 +26,26 @@ import slurm_stuff_yggdrasil as slrm
 import sys
 import logging
 
+def symlinkif(src, dst, printout=False):
+    """
+    Note
+    ----
+    as os.symlink but never raises errors (checks if file already exists)
+    
+    Parameters
+    ----------
+    src: str
+        source path
+    dst: str
+        destination path
+    printout: bool
+        whether it should print what happens
+    """
+    if os.path.exists(src) and not os.path.exists(dst):
+        os.symlink(src, dst)
+        print("created symlink!")
+    print("Nothing done")
+
 ###############################################################################
 ###############################################################################
 root = os.getcwd()
@@ -98,8 +118,7 @@ for n in range(0, len(iterdirs)):  # we run for all cycles because we need MP2_B
     ftmc_fol = os.path.join(ft_fol, cyfol, "FT{}-MC-{}".format(n, expansion))
     meta_ftmc["path"] = ftmc_fol
     if expansion == "ME" and n == 0:  # we already have this, just symlink
-        if not os.path.exists(os.path.join(systfol, "MC-nopp")):
-            os.symlink(os.path.join(systfol, "MC-nopp"), ftmc_fol)
+        symlinkif(os.path.join(systfol, "MC-nopp"), ftmc_fol)
         continue
     en_file = os.path.join(ftmc_fol, specs_ftmc["en_file"])
     already_done_ftmc = ut.status_ok(path=meta_ftmc["path"])
@@ -161,8 +180,7 @@ for n in range(0, len(iterdirs)):  # we run for all cycles because we need MP2_B
     #-----------------------------------------------------------------------------#    
     if n % 2 == 0 and n > 1:
         dst = os.path.join(meta_ftmc["path"], "MP2_B")
-        if not os.path.exists(dst):
-            src = os.path.join(ft_fol, "{}{}".format(dirbase, n-1),
+        src = os.path.join(ft_fol, "{}{}".format(dirbase, n-1),
                                "FT{}-MC-{}".format(n, expansion),
                                "MP2_A")
-            os.symlink(src, dst)
+        symlinkif(src, dst)

@@ -24,6 +24,26 @@ import slurm_stuff_yggdrasil as slrm
 import sys
 import logging
 
+def symlinkif(src, dst, printout=False):
+    """
+    Note
+    ----
+    as os.symlink but never raises errors (checks if file already exists)
+    
+    Parameters
+    ----------
+    src: str
+        source path
+    dst: str
+        destination path
+    printout: bool
+        whether it should print what happens
+    """
+    if os.path.exists(src) and not os.path.exists(dst):
+        os.symlink(src, dst)
+        print("created symlink!")
+    print("Nothing done")
+    
 ###############################################################################
 ###############################################################################
 root = os.getcwd()
@@ -515,5 +535,4 @@ for ID, dmfile in densities.items():
     # Create Symbolic link  to MP2 B
     #-----------------------------------------------------------------------------#    
     dst = os.path.join(meta_mc["path"], "MP2_B")
-    if not os.path.exists(dst):
-        os.symlink(mpb_fols[ID], dst)
+    symlinkif(mpb_fols[ID], dst)
