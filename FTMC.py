@@ -68,7 +68,7 @@ rem_adc_basic = dict(method="adc(2)", basis=bs_kw, ee_specs=Tadc.substitute(Tdef
 rem_hf_basic = dict(method="hf", basis=bs_kw)
 extra_basic = Tbasis.substitute(**{"basis_specs": bs_string})
     
-os.chdir(systfol)
+ut.logchdir(ccjlog,systfol)
 # --- First things first : STRUCTURE ---
 zr_file = ccj.find_file(systfol, extension="zr")
 frags = ccj.zr_frag(zr_file)
@@ -139,7 +139,7 @@ for n in range(0, len(iterdirs)):  # we run for all cycles because we need MP2_B
                              header_src=False,
                              alpha_only_src=False)
         try:
-            os.chdir(ftmc_fol)
+            ut.logchdir(ccjlog,ftmc_fol)
             macrocycles(queue_ftmc, **specs_ftmc if n%2 == 0 else specs_ftmc_rev)
             meta_ftmc["status"] = "FIN"
             already_done_ftmc = True

@@ -43,7 +43,7 @@ rem_adc_basic = dict(method="adc(2)", basis=bs_kw, ee_specs=Tadc.substitute(Tdef
 rem_hf_basic = dict(method="hf", basis=bs_kw)
 extra_basic = Tbasis.substitute(**{"basis_specs": bs_string})
     
-os.chdir(systfol)
+ut.logchdir(ccjlog,systfol)
 # --- First things first : STRUCTURE ---
 zr_file = ccj.find_file(systfol, extension="zr")
 frags = ccj.zr_frag(zr_file)
@@ -87,7 +87,7 @@ if already_done_fnt == False:
     # run calculation and update status ("checkpoint")
     try:
         ut.mkdif(meta_fnt["path"])
-        os.chdir(meta_fnt["path"])
+        ut.logchdir(ccjlog,meta_fnt["path"])
         if not os.path.exists(os.path.join(meta_fnt["path"],"Densmat_B.txt")):
             copy_density(os.path.join(systfol, "B_MP2_gh", "Densmat_SCF.txt"),
                          "Densmat_B.txt", header_src=False, alpha_only_src=False) 

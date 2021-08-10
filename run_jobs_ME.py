@@ -67,7 +67,7 @@ rem_adc_basic = dict(method="adc(2)", basis=bs_kw, ee_specs=Tadc.substitute(Tdef
 rem_hf_basic = dict(method="hf", basis=bs_kw)
 extra_basic = Tbasis.substitute(**{"basis_specs": bs_string})
     
-os.chdir(systfol)
+ut.logchdir(ccjlog,systfol)
 # --- First things first : STRUCTURE ---
 zr_file = ccj.find_file(systfol, extension="zr")
 frags = ccj.zr_frag(zr_file)
@@ -380,7 +380,7 @@ if already_done_fnt == False:
     # run calculation and update status ("checkpoint")
     try:
         ut.mkdif(meta_fnt["path"])
-        os.chdir(meta_fnt["path"])
+        ut.logchdir(ccjlog,meta_fnt["path"])
         if not os.path.exists(os.path.join(meta_fnt["path"],"Densmat_B.txt")):
             sh.copy(os.path.join(systfol, "Densmat_B_nopp.txt"), "Densmat_B.txt")
         if not os.path.exists(os.path.join(meta_fnt["path"],"Densmat_A.txt")):
@@ -499,7 +499,7 @@ for ID, dmfile in densities.items():
     if already_done_mc == False:
         try:
             ut.mkdif(meta_mc["path"])
-            os.chdir(meta_mc["path"])
+            ut.logchdir(ccjlog,meta_mc["path"])
             ##exceptional, not general
             if not os.path.exists(os.path.join(meta_mc["path"],"Densmat_B.txt")):
                 sh.copy(os.path.join(systfol, dmfile), "Densmat_B.txt")
