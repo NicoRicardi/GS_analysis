@@ -58,7 +58,6 @@ weso_big8 = dict(mem=193228, cpus=4,  time="0-1", partition=p_weso,
                  script=script)
 
 slurm_add = {"--nodes": 1,
-            "--ntasks-per-node": 1,
             "--mail-type": "FAIL",
             " --mail-user": "niccolo.ricardi@unige.ch"}
 

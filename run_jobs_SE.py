@@ -19,8 +19,8 @@ from CCJob.iterative import freeze_and_thaw, macrocycles, copy_density
 import shutil as sh
 from CCJob.Composable_templates import Tdefaults, Tinps, Tinp, Trem_kw, Tmolecule,\
  Tadc,  Tpc, Tbasis, chelpg_kw, Tfragments, Tfde
-import slurm_stuff_yggdrasil as slrm
-#import slurm_stuff_baobab as slrm
+#import slurm_stuff_yggdrasil as slrm
+import slurm_stuff_baobab as slrm
 import sys
 import logging
 
@@ -69,13 +69,13 @@ if found_elconf:
 #-----------------------------------------------------------------------------#
 # 1 Freeze-and-Thaw, SE
 #-----------------------------------------------------------------------------#
-memory = 14000
+memory = 28000
 rem_kw = dict(**rem_hf_basic, **{"memory": memory})
 fde_kw = dict(Tdefaults["fde"], **{"method_a": "import_rhoA true", "method_b": "import_rhoB true", "expansion": "SE"})
 specs_fnt = dict(rem_kw=rem_kw, fde_kw=fde_kw, extras=extra_basic, use_zr=False,
                 fragments=frags, elconf=elconf, q_custom=slrm.slurm_add,
                 maxiter=20, thresh=1e-9, en_file="energies.txt")  
-queue_fnt = dict(**slrm.shabug_XS)  
+queue_fnt = dict(**slrm.shabug_M)  
 meta_fnt  = dict(method_A="HF", method_B="HF", opt="freeze-thaw", status=None)
 
 # create calculation folder
@@ -116,7 +116,7 @@ already_done_ftmpa = ut.status_ok(path=meta_ftmpa["path"])
 
 # run calculation and update status ("checkpoint")
 if already_done_ftmpa == False and already_done_fnt:
-    memory = 14000
+    memory = 87000
     rem_kw = Trem_kw.substitute(Tdefaults["rem_kw"], **rem_adc_basic, **{"memory": memory, "fde": "true"})
     frag_specs = dict(frag_a=frags["A"], frag_b=frags["B"])
     if found_elconf:
@@ -125,7 +125,7 @@ if already_done_ftmpa == False and already_done_fnt:
     fde_sect = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA true", "method_b": "import_rhoB true", "expansion": "SE"})
     extras = "\n".join([extra_basic]+[fde_sect])
     specs_ftmpa = ut.myupd(Tdefaults["inp"], rem_kw=rem_kw, molecule=frag_str, extras=extras)
-    queue_ftmpa = dict(**slrm.shabug_XS)  
+    queue_ftmpa = dict(**slrm.weso_small1)  
     # calculation hasn't run yet, create folder in order to copy densmat
     ut.mkdif(meta_ftmpa["path"])
     
@@ -158,7 +158,7 @@ already_done_ftmpb = ut.status_ok(path=meta_ftmpb["path"])
 
 # run calculation and update status ("checkpoint")
 if already_done_ftmpb == False and already_done_fnt:
-    memory = 14000
+    memory = 87000
     rem_kw = Trem_kw.substitute(Tdefaults["rem_kw"], **rem_adc_basic, **{"memory": memory, "fde": "true"})
     frag_specs = dict(frag_a=frags["B"], frag_b=frags["A"])
     if found_elconf:
@@ -167,7 +167,7 @@ if already_done_ftmpb == False and already_done_fnt:
     fde_sect = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA true", "method_b": "import_rhoB true", "expansion": "SE"})
     extras = "\n".join([extra_basic]+[fde_sect])
     specs_ftmpb = ut.myupd(Tdefaults["inp"], rem_kw=rem_kw, molecule=frag_str, extras=extras)
-    queue_ftmpb = dict(**slrm.shabug_XS)  
+    queue_ftmpb = dict(**slrm.weso_small1)  
     # calculation hasn't run yet, create folder in order to copy densmat
     ut.mkdif(meta_ftmpb["path"])
     
