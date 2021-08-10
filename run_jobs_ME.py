@@ -57,6 +57,8 @@ logfile = os.path.join(systfol,"{}_ccj.log".format(system))
 ccjlog = logging.getLogger("ccj")
 ut.setupLogger(to_console=True, to_log=True, printlevel=20)
 #ut.setupLogger(to_console=True, to_log=True, logname=logfile)
+
+default_ccpjson = "CCParser.json"
 bs_kw = "gen"  
 bs_string = ut.read_file("aug-cc-pVDZ.bas")
 if bs_string[-1] == "\n":
@@ -240,22 +242,13 @@ if already_done == False:
     ut.run_job(specs_A_MP2, queue_A_MP2, meta_A_MP2, Tinp,
             batch_mode=False)  # because we want to extract data and copy matrices
     njsf = [i for i in gl.glob(os.path.join(meta_A_MP2["path"],"*.json")) if i not in json_files][0]  # whatever json was just added, i.e. default_ccpjson
-     
+    try:
+        assert njsf == default_ccpjson
+    except AssertionError:
+        ccjlog.critical("CCParser has a different default! change default_ccpjson in this script!!")
+        default_ccpjson = njsf
     # serialize current meta information for later (we're still in the calc folder)
     ut.save_status(meta_A_MP2)
-    #-----------------------------------------------------------------------------#
-    # Saving MP2 isolated (A) Mulliken and ChelPG charges
-    #-----------------------------------------------------------------------------#
-    parser_jsfile = os.path.join(meta_A_MP2["path"], njsf)
-    results = ut.load_js(parser_jsfile)
-    mulliken_charges = list(map(lambda x, y: x[1:]+[y[1]], results["xyz"][0][0],
-                             results["mulliken"][1][0]))
-    mulliken_charges_str = "\n".join(["    ".join(list(map(str, s))) for s in \
-                                   mulliken_charges])
-    chelpg_charges = list(map(lambda x, y: x[1:]+[y[1]], results["xyz"][0][0],
-                             results["chelpg"][0][0]))
-    chelpg_charges_str = "\n".join(["    ".join(list(map(str, s))) for s in \
-                                   chelpg_charges])
     #-----------------------------------------------------------------------------#
     # Saving HF and MP density matrices
     #-----------------------------------------------------------------------------#
@@ -266,16 +259,26 @@ if already_done == False:
                  os.path.join(systfol, "Densmat_A_MP.txt"),
                  header_src=False, alpha_only_src=False)
     del specs_A_MP2, queue_A_MP2
-del meta_A_MP2
+
 
 #-----------------------------------------------------------------------------#
-# 6: HF prepol Mulliken(B)
+# 6: HF+MP prepol Mulliken(B)
 #-----------------------------------------------------------------------------#
-meta_B_HFp  = dict(method="HF", status=None, basename="hf_prepol")
+meta_B_MPp  = dict(method="HF", status=None, basename="mp_prepol")
 
 # get name of calculation folder
-meta_B_HFp["path"] = os.path.join(systfol, "B_MP_pp_Mulliken")
-already_done = ut.status_ok(path=meta_B_HFp["path"])
+meta_B_MPp["path"] = os.path.join(systfol, "B_MP_pp_Mulliken")
+already_done = ut.status_ok(path=meta_B_MPp["path"])
+
+    #-----------------------------------------------------------------------------#
+    # Getting MP2 isolated (A) Mulliken and ChelPG charges
+    #-----------------------------------------------------------------------------#
+parser_jsfile = os.path.join(meta_A_MP2["path"], default_ccpjson)
+results = ut.load_js(parser_jsfile)
+mulliken_charges = list(map(lambda x, y: x[1:]+[y[1]], results["xyz"][0][0],
+                         results["mulliken"][1][0]))
+mulliken_charges_str = "\n".join(["    ".join(list(map(str, s))) for s in \
+                               mulliken_charges])
 
 # run calculation and update status ("checkpoint")
 if already_done == False and len(mulliken_charges) != 0:
@@ -289,33 +292,42 @@ if already_done == False and len(mulliken_charges) != 0:
     extras = [extra_basic] + [point_charges] 
     inp1 = Tinp.substitute(Tdefaults["inp"], rem_kw=rem_kw, molecule=molecule, extras="\n".join(extras))
     rem_extras = "\n".join(["max_scf_cycles = 0", "scf_guess = read"])
-    rem_kw2 = Trem_kw.substitute(Tdefaults["rem_kw"], **rem_hf_basic, **{"memory": memory, rem_extras: rem_extras})
+    rem_kw2 = Trem_kw.substitute(Tdefaults["rem_kw"], **rem_hf_basic, **{"memory": memory, "rem_extras": rem_extras})
     inp2 = Tinp.substitute(Tdefaults["inp"], rem_kw=rem_kw2, molecule="read", extras=extra_basic)
     
-    specs_B_HFp = dict(inp1=inp1, inp2=inp2)
-    queue_B_HFp = dict(**slrm.shabug_XS)  
+    specs_B_MPp = dict(inp1=inp1, inp2=inp2)
+    queue_B_MPp = dict(**slrm.shabug_XS)  
     # technically this calculation always fails. Nonetheless this template
     # works in our favour since CCParser does not know the second part fails
-    ut.run_job(specs_B_HFp, queue_B_HFp, meta_B_HFp, Tinps,  
+    ut.run_job(specs_B_MPp, queue_B_MPp, meta_B_MPp, Tinps,  
             batch_mode=False, q_custom=slrm.slurm_add)  # because we want to extract data and copy matrices
     
     # serialize current meta information for later (we're still in the calc folder)
-    ut.save_status(meta_B_HFp)
-    copy_density(os.path.join(meta_B_HFp["path"], "Densmat_SCF.txt"),
+    ut.save_status(meta_B_MPp)
+    copy_density(os.path.join(meta_B_MPp["path"], "Densmat_SCF.txt"),
             "Densmat_B_pp_Mulliken.txt",
             header_src=False, alpha_only_src=False)
-    del specs_B_HFp, queue_B_HFp
-del meta_B_HFp
+    del specs_B_MPp, queue_B_MPp
+del meta_B_MPp
 
 #-----------------------------------------------------------------------------#
-#  7: HF prepol ChelPG(B)
+#  7: HF+MP prepol ChelPG(B)
 #-----------------------------------------------------------------------------#
-
-meta_B_HFp  = dict(method="HF", status=None, basename="hf_prepol")
+if "results" not in globals():
+    parser_jsfile = os.path.join(meta_A_MP2["path"], default_ccpjson)
+    results = ut.load_js(parser_jsfile)
+    #-----------------------------------------------------------------------------#
+    # Getting MP2 isolated (A) Mulliken and ChelPG charges
+    #-----------------------------------------------------------------------------#
+chelpg_charges = list(map(lambda x, y: x[1:]+[y[1]], results["xyz"][0][0],
+                         results["chelpg"][0][0]))
+chelpg_charges_str = "\n".join(["    ".join(list(map(str, s))) for s in \
+                               chelpg_charges])
+meta_B_MPp  = dict(method="HF", status=None, basename="mp_prepol")
 
 # get name of calculation folder
-meta_B_HFp["path"] = os.path.join(systfol, "B_MP_pp_ChelPG")
-already_done = ut.status_ok(path=meta_B_HFp["path"])
+meta_B_MPp["path"] = os.path.join(systfol, "B_MP_pp_ChelPG")
+already_done = ut.status_ok(path=meta_B_MPp["path"])
 
 # run calculation and update status ("checkpoint")
 if already_done == False and len(chelpg_charges) != 0:
@@ -329,24 +341,24 @@ if already_done == False and len(chelpg_charges) != 0:
     extras = [extra_basic] + [point_charges] 
     inp1 = Tinp.substitute(Tdefaults["inp"], rem_kw=rem_kw, molecule=molecule, extras="\n".join(extras))
     rem_extras = "\n".join(["max_scf_cycles = 0", "scf_guess = read"])
-    rem_kw2 = Trem_kw.substitute(Tdefaults["rem_kw"], **rem_hf_basic, **{"memory": memory, rem_extras: rem_extras})
+    rem_kw2 = Trem_kw.substitute(Tdefaults["rem_kw"], **rem_hf_basic, **{"memory": memory, "rem_extras": rem_extras})
     inp2 = Tinp.substitute(Tdefaults["inp"], rem_kw=rem_kw2, molecule="read", extras=extra_basic)
 
-    specs_B_HFp = dict(inp1=inp1, inp2=inp2)
-    queue_B_HFp = dict(**slrm.shabug_XS)  
+    specs_B_MPp = dict(inp1=inp1, inp2=inp2)
+    queue_B_MPp = dict(**slrm.shabug_XS)  
     # technically this calculation always fails. Nonetheless this template
     # works in our favour since CCParser does not know the second part fails
-    ut.run_job(specs_B_HFp, queue_B_HFp, meta_B_HFp, Tinps,  
+    ut.run_job(specs_B_MPp, queue_B_MPp, meta_B_MPp, Tinps,  
             batch_mode=False, q_custom=slrm.slurm_add)  # because we want to extract data and copy matrices
     
     # serialize current meta information for later (we're still in the calc folder)
-    ut.save_status(meta_B_HFp)
-    copy_density(os.path.join(meta_B_HFp["path"], "Densmat_SCF.txt"),
+    ut.save_status(meta_B_MPp)
+    copy_density(os.path.join(meta_B_MPp["path"], "Densmat_SCF.txt"),
             "Densmat_B_pp_ChelPG.txt",
             header_src=False, alpha_only_src=False)
-    del specs_B_HFp, queue_B_HFp
-del meta_B_HFp
-
+    del specs_B_MPp, queue_B_MPp
+del meta_B_MPp
+del meta_A_MP2  # only now because needed for charges
 #-----------------------------------------------------------------------------#
 #  8: Freeze-and-Thaw, ME
 #-----------------------------------------------------------------------------#
