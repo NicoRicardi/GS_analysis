@@ -55,8 +55,8 @@ systfol = os.path.join(root, system)
 logfile = os.path.join(systfol,"{}_ccj.log".format(system))
 # set up logger. NB avoid homonimity with other module's loggers (e.g. ccp)
 ccjlog = logging.getLogger("ccj")
-ut.setupLogger(to_console=True, to_log=True, printlevel=20)
-#ut.setupLogger(to_console=True, to_log=True, logname=logfile)
+#ut.setupLogger(to_console=True, to_log=True, printlevel=20)
+ut.setupLogger(to_console=True, to_log=True, logname=logfile)
 
 default_ccpjson = "CCParser.json"
 bs_kw = "gen"  
