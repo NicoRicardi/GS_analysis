@@ -15,7 +15,7 @@ expansion = sys.argv[1]
 for system in systems:
     slrm = "--time=12:00 -p shared-cpu --mem=8000 -c 1 --nodes=1 "
     script = "FTMC.py"
-    command = "sbatch {slrm} python3 {script} {system} {expansion}".format(slrm=slrm, script=script, system=system, expansion=expansion) 
+    command = "sbatch {slrm} {script} {system} {expansion}".format(slrm=slrm, script=script, system=system, expansion=expansion) 
     print(command)
     p = sp.run(command, stdout=sp.PIPE, stderr=sp.STDOUT, shell=True)
     print(p.stdout)
