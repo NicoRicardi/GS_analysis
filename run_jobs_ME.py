@@ -107,14 +107,14 @@ already_done = ut.status_ok(path=meta_B_MP2["path"])
 batch_mode_bmp = False
 # run calculation and update status ("checkpoint")
 if already_done == False:
-    memory = 28000
+    memory = 57500
     rem_kw = Trem_kw.substitute(Tdefaults["rem_kw"], **rem_adc_basic, **{"memory": memory})
     mol_specs = dict(xyz=frags["B"])
     if found_elconf:
         mol_specs.update(elconf_B)
     molecule = Tmolecule.substitute(Tdefaults["molecule"], **mol_specs)
     specs_B_MP2 = ut.myupd(Tdefaults["inp"], rem_kw=rem_kw, molecule=molecule, extras=extra_basic)
-    queue_B_MP2 = dict(**slrm.shabug_M)  
+    queue_B_MP2 = dict(**slrm.shaweso_L)  
     ut.run_job(specs_B_MP2, queue_B_MP2, meta_B_MP2, Tinp,  
             batch_mode=batch_mode_bmp)  # because we want to extract data and copy matrices
     
@@ -145,7 +145,7 @@ batch_mode_mpab = True
 
 # run calculation and update status ("checkpoint")
 if already_done == False:
-    memory = 87000
+    memory = 240000
     rem_kw = Trem_kw.substitute(Tdefaults["rem_kw"], **rem_adc_basic, **{"memory": memory})
     mol_specs = dict(xyz=frags["AB"])
     if found_elconf:
@@ -153,7 +153,7 @@ if already_done == False:
     molecule = Tmolecule.substitute(Tdefaults["molecule"], **mol_specs)
     specs_AB_MP2 = ut.myupd(Tdefaults["inp"], rem_kw=rem_kw, molecule=molecule, extras=extra_basic)
     
-    queue_AB_MP2 = dict(**slrm.weso_small1)  
+    queue_AB_MP2 = dict(**slrm.weso_big3)  
     ut.run_job(specs_AB_MP2, queue_AB_MP2, meta_AB_MP2, Tinp,  
             batch_mode=batch_mode_mpab)  # because we want to extract data and copy matrices
     
@@ -187,7 +187,7 @@ if already_done == False:
         mol_specs.update(elconf_A)
     molecule = Tmolecule.substitute(Tdefaults["molecule"], **mol_specs)
     specs_A_MP2g = ut.myupd(Tdefaults["inp"], rem_kw=rem_kw, molecule=molecule, extras=extra_basic)
-    queue_A_MP2g = dict(**slrm.shabug_L)  
+    queue_A_MP2g = dict(**slrm.shaweso_L)  
     ut.run_job(specs_A_MP2g, queue_A_MP2g, meta_A_MP2g, Tinp,
             batch_mode=True)
     
@@ -214,7 +214,7 @@ if already_done == False:
         mol_specs.update(elconf_B)
     molecule = Tmolecule.substitute(Tdefaults["molecule"], **mol_specs)
     specs_B_MP2g = ut.myupd(Tdefaults["inp"], rem_kw=rem_kw, molecule=molecule, extras=extra_basic)
-    queue_B_MP2g = dict(**slrm.shabug_L)  
+    queue_B_MP2g = dict(**slrm.shaweso_L)  
     ut.run_job(specs_B_MP2g, queue_B_MP2g, meta_B_MP2g, Tinp,  
             batch_mode=True)
     
@@ -234,7 +234,7 @@ already_done = ut.status_ok(path=meta_A_MP2["path"])
 
 # run calculation and update status ("checkpoint")
 if already_done == False:
-    memory = 28000
+    memory = 57500
     rem_extras = rem_extras_basic + [chelpg_kw]
     rem_kw_tmp = ut.myupd(rem_adc_basic, {"rem_extras": "\n".join(rem_extras), "memory": memory})
     rem_kw = Trem_kw.substitute(Tdefaults["rem_kw"], **rem_kw_tmp)
@@ -244,7 +244,7 @@ if already_done == False:
         mol_specs.update(elconf_A)
     molecule = Tmolecule.substitute(Tdefaults["molecule"], **mol_specs)
     specs_A_MP2 = ut.myupd(Tdefaults["inp"], rem_kw=rem_kw, molecule=molecule, extras=extra_basic)
-    queue_A_MP2 = dict(**slrm.shabug_M)  
+    queue_A_MP2 = dict(**slrm.shaweso_L)  
     json_files = gl.glob(os.path.join(meta_A_MP2["path"],"*.json"))
     ut.run_job(specs_A_MP2, queue_A_MP2, meta_A_MP2, Tinp,
             batch_mode=False)  # because we want to extract data and copy matrices
@@ -289,7 +289,7 @@ mulliken_charges_str = "\n".join(["    ".join(list(map(str, s))) for s in \
 
 # run calculation and update status ("checkpoint")
 if already_done == False and len(mulliken_charges) != 0:
-    memory = 28000
+    memory = 57500
     rem_kw = Trem_kw.substitute(Tdefaults["rem_kw"], **rem_adc_basic, **{"memory": memory}) #asdf
     mol_specs = dict(xyz=frags["B"])
     if found_elconf:
@@ -304,7 +304,7 @@ if already_done == False and len(mulliken_charges) != 0:
     inp2 = Tinp.substitute(Tdefaults["inp"], rem_kw=rem_kw2, molecule="read", extras=extra_basic)
     
     specs_B_MPp = dict(inp1=inp1, inp2=inp2)
-    queue_B_MPp = dict(**slrm.shabug_M)  
+    queue_B_MPp = dict(**slrm.shaweso_L)  
     # technically this calculation always fails. Nonetheless this template
     # works in our favour since CCParser does not know the second part fails
     ut.run_job(specs_B_MPp, queue_B_MPp, meta_B_MPp, Tinps,  
@@ -339,7 +339,7 @@ already_done = ut.status_ok(path=meta_B_MPp["path"])
 
 # run calculation and update status ("checkpoint")
 if already_done == False and len(chelpg_charges) != 0:
-    memory = 28000
+    memory = 57500
     rem_kw = Trem_kw.substitute(Tdefaults["rem_kw"], **rem_adc_basic, **{"memory": memory})
     mol_specs = dict(xyz=frags["B"])
     if found_elconf:
@@ -354,7 +354,7 @@ if already_done == False and len(chelpg_charges) != 0:
     inp2 = Tinp.substitute(Tdefaults["inp"], rem_kw=rem_kw2, molecule="read", extras=extra_basic)
 
     specs_B_MPp = dict(inp1=inp1, inp2=inp2)
-    queue_B_MPp = dict(**slrm.shabug_M)  
+    queue_B_MPp = dict(**slrm.shaweso_L)  
     # technically this calculation always fails. Nonetheless this template
     # works in our favour since CCParser does not know the second part fails
     ut.run_job(specs_B_MPp, queue_B_MPp, meta_B_MPp, Tinps,  
@@ -424,7 +424,7 @@ if already_done_ftmpb == False and already_done_fnt:
     fde_sect = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA true", "method_b": "import_rhoB true"})
     extras = "\n".join([extra_basic]+[fde_sect])
     specs_ftmpb = ut.myupd(Tdefaults["inp"], rem_kw=rem_kw, molecule=frag_str, extras=extras)
-    queue_ftmpb = dict(**slrm.shabug_L)  
+    queue_ftmpb = dict(**slrm.shaweso_L)  
     # calculation hasn't run yet, create folder in order to copy densmat
     ut.mkdif(meta_ftmpb["path"])
     
@@ -463,7 +463,7 @@ if already_done_ftmpa == False and already_done_fnt:
     fde_sect = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA true", "method_b": "import_rhoB true"})
     extras = "\n".join([extra_basic]+[fde_sect])
     specs_ftmpa = ut.myupd(Tdefaults["inp"], rem_kw=rem_kw, molecule=frag_str, extras=extras)
-    queue_ftmpa = dict(**slrm.shabug_L)  
+    queue_ftmpa = dict(**slrm.shaweso_L)  
     # calculation hasn't run yet, create folder in order to copy densmat
     ut.mkdif(meta_ftmpa["path"])
     
@@ -541,7 +541,7 @@ for ID, dmfile in densities.items():
         fde_sect = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA true", "method_b": "import_rhoB true"})
         extras = "\n".join([extra_basic]+[fde_sect])
         specs_mpa = ut.myupd(Tdefaults["inp"], rem_kw=rem_kw, molecule=frag_str, extras=extras)
-        queue_mpa = dict(**slrm.shabug_L)  
+        queue_mpa = dict(**slrm.shaweso_L)  
         ut.mkdif(meta_mpa["path"]) 
         iterDir = ut.get_last_iter_dir(active="A", path=meta_mc["path"],opt="macrocycles")
         sh.copy(os.path.join(iterDir, "Densmat_B.txt"), meta_mpa["path"])

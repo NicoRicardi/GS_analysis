@@ -25,6 +25,15 @@ shabug_M = dict(mem=32000, cpus=4, time=15, partition=p_shabug,
                script=script)
 shabug_L = dict(mem=64000, cpus=8, time=15, partition=p_shabug,
                script=script)
+
+shaweso_XS = dict(mem=8000, cpus=1, time=360, partition="shared-cpu,private-wesolowski-cpu",
+               script=script)
+shaweso_S = dict(mem=16000, cpus=2, time=360, partition="shared-cpu,private-wesolowski-cpu",
+               script=script)
+shaweso_M = dict(mem=32000, cpus=4, time=360, partition="shared-cpu,private-wesolowski-cpu",
+               script=script)
+shaweso_L = dict(mem=64000, cpus=8, time=360, partition="shared-cpu,private-wesolowski-cpu",
+               script=script)
 # small nodes on wesolowski partition
 # last number means 1/n share of node, i.e. '...small2' := half node
 weso_small1 = dict(mem=94000, cpus=20, time=180, partition="private-wesolowski-cpu",
