@@ -35,6 +35,8 @@ logfile = os.path.join(systfol,"{}_ccj.log".format(system))
 ccjlog = logging.getLogger("ccj")
 #ut.setupLogger(to_console=True, to_log=True, printlevel=20)
 ut.setupLogger(to_console=True, to_log=True, logname=logfile)
+
+default_ccpjson = "CCParser.json"
 bs_kw = "gen"  
 bs_string = ut.read_file("aug-cc-pVDZ.bas")
 if bs_string[-1] == "\n":
@@ -144,10 +146,17 @@ if already_done_ftmpa == False and already_done_fnt:
     json_files = gl.glob(os.path.join(meta_ftmpa["path"],"*.json"))
     ut.run_job(specs_ftmpa, queue_ftmpa, meta_ftmpa, Tinp, q_custom=slrm.slurm_add,  
             batch_mode=False, create_folder=False)  # because we want to extract data  
-    njsf = [i for i in gl.glob(os.path.join(meta_ftmpa["path"],"*.json")) if i not in json_files][0]  # whatever json was just added, i.e. default_ccpjson
+    try:
+        njsf = [i for i in gl.glob(os.path.join(meta_ftmpa["path"],"*.json")) if i not in json_files][0]  # whatever json was just added, i.e. default_ccpjson
+        assert njsf == default_ccpjson
+    except IndexError:
+        ccjlog.critical("The json file was already there. Will use default name: {}".forma(default_ccpjson))
+    except AssertionError:
+        ccjlog.critical("CCParser's default seems to be \"{}\" change default_ccpjson in this script!!".format(njsf))
+        default_ccpjson = njsf
     # serialize current meta information for later (we're still in the calc folder)
     ut.save_status(meta_ftmpa)
-    data = ut.load_js(njsf)  # default ccp json_filename
+    data = ut.load_js(default_ccpjson)  # default ccp json_filename
     sp.call("echo {E_A} >> {en_file}".format(E_A=data["scf_energy"][-1][0], en_file=en_file), shell=True)
 
 #-----------------------------------------------------------------------------#

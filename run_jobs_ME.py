@@ -248,11 +248,13 @@ if already_done == False:
     json_files = gl.glob(os.path.join(meta_A_MP2["path"],"*.json"))
     ut.run_job(specs_A_MP2, queue_A_MP2, meta_A_MP2, Tinp,
             batch_mode=False)  # because we want to extract data and copy matrices
-    njsf = [i for i in gl.glob(os.path.join(meta_A_MP2["path"],"*.json")) if i not in json_files][0]  # whatever json was just added, i.e. default_ccpjson
     try:
+        njsf = [i for i in gl.glob(os.path.join(meta_A_MP2["path"],"*.json")) if i not in json_files][0]  # whatever json was just added, i.e. default_ccpjson
         assert njsf == default_ccpjson
+    except IndexError:
+        ccjlog.critical("The json file was already there. Will use default name: {}".forma(default_ccpjson))
     except AssertionError:
-        ccjlog.critical("CCParser has a different default! change default_ccpjson in this script!!")
+        ccjlog.critical("CCParser's default seems to be \"{}\" change default_ccpjson in this script!!".format(njsf))
         default_ccpjson = njsf
     # serialize current meta information for later (we're still in the calc folder)
     ut.save_status(meta_A_MP2)
@@ -478,10 +480,17 @@ if already_done_ftmpa == False and already_done_fnt:
     json_files = gl.glob(os.path.join(meta_ftmpa["path"],"*.json"))
     ut.run_job(specs_ftmpa, queue_ftmpa, meta_ftmpa, Tinp, q_custom=slrm.slurm_add,  
             batch_mode=False, create_folder=False)  # because we want to extract data  
-    njsf = [i for i in gl.glob(os.path.join(meta_ftmpa["path"],"*.json")) if i not in json_files][0]  # whatever json was just added, i.e. default_ccpjson
+    try:
+        njsf = [i for i in gl.glob(os.path.join(meta_ftmpa["path"],"*.json")) if i not in json_files][0]  # whatever json was just added, i.e. default_ccpjson
+        assert njsf == default_ccpjson
+    except IndexError:
+        ccjlog.critical("The json file was already there. Will use default name: {}".forma(default_ccpjson))
+    except AssertionError:
+        ccjlog.critical("CCParser's default seems to be \"{}\" change default_ccpjson in this script!!".format(njsf))
+        default_ccpjson = njsf
     # serialize current meta information for later (we're still in the calc folder)
     ut.save_status(meta_ftmpa)
-    data = ut.load_js(njsf)  # default ccp json_filename
+    data = ut.load_js(default_ccpjson)  # default ccp json_filename
     sp.call("echo {E_A} >> {en_file}".format(E_A=data["scf_energy"][-1][0], en_file=en_file), shell=True)
 
 
@@ -550,8 +559,16 @@ for ID, dmfile in densities.items():
                     header_src=False, alpha_only_src=False)
         json_files = gl.glob(os.path.join(meta_mpa["path"],"*.json"))
         ut.run_job(specs_mpa, queue_mpa, meta_mpa, Tinp, q_custom=slrm.slurm_add, batch_mode=False)  # because we want to extract data
-        njsf = [i for i in gl.glob(os.path.join(meta_mpa["path"],"*.json")) if i not in json_files][0]
-        data = ut.load_js(njsf)  # default ccp json_filename
+        
+        try:
+            njsf = [i for i in gl.glob(os.path.join(meta_mpa["path"],"*.json")) if i not in json_files][0]
+            assert njsf == default_ccpjson
+        except IndexError:
+            ccjlog.critical("The json file was already there. Will use default name: {}".forma(default_ccpjson))
+        except AssertionError:
+            ccjlog.critical("CCParser's default seems to be \"{}\" change default_ccpjson in this script!!".format(njsf))
+            default_ccpjson = njsf
+        data = ut.load_js(default_ccpjson)  # default ccp json_filename
         ut.save_status(meta_mpa)
         sp.call("echo {E_A} >> {en_file}".format(E_A=data["scf_energy"][-1][0], en_file=en_file), shell=True)
     #-----------------------------------------------------------------------------#
