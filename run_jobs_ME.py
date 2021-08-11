@@ -63,8 +63,13 @@ bs_kw = "gen"
 bs_string = ut.read_file("aug-cc-pVDZ.bas")
 if bs_string[-1] == "\n":
     bs_string = bs_string[:-1]
-rem_adc_basic = dict(method="adc(2)", basis=bs_kw, ee_specs=Tadc.substitute(Tdefaults["adc"]))
-rem_hf_basic = dict(method="hf", basis=bs_kw)
+
+rem_extras_basic = ["thresh = 14", "basis_lin_dep_thresh = 5"]
+rem_adc_basic = dict(method="adc(2)", basis=bs_kw,
+                     ee_specs=Tadc.substitute(Tdefaults["adc"]),
+                     rem_extras="\n".join(rem_extras_basic))
+rem_hf_basic = dict(method="hf", basis=bs_kw,
+                    rem_extras="\n".join(rem_extras_basic))
 extra_basic = Tbasis.substitute(**{"basis_specs": bs_string})
     
 ut.logchdir(ccjlog,systfol)
@@ -230,7 +235,8 @@ already_done = ut.status_ok(path=meta_A_MP2["path"])
 # run calculation and update status ("checkpoint")
 if already_done == False:
     memory = 14000
-    rem_kw = Trem_kw.substitute(Tdefaults["rem_kw"], **rem_adc_basic, **{"rem_extras": chelpg_kw, "memory": memory})
+    rem_extras = rem_extras_basic + [chelpg_kw]
+    rem_kw = Trem_kw.substitute(Tdefaults["rem_kw"], **rem_adc_basic, **{"rem_extras": "\n".join(rem_extras), "memory": memory})
     
     mol_specs = dict(xyz=frags["A"])
     if found_elconf:
@@ -291,8 +297,8 @@ if already_done == False and len(mulliken_charges) != 0:
     point_charges = Tpc.substitute(dict(point_charges=mulliken_charges_str))
     extras = [extra_basic] + [point_charges] 
     inp1 = Tinp.substitute(Tdefaults["inp"], rem_kw=rem_kw, molecule=molecule, extras="\n".join(extras))
-    rem_extras = "\n".join(["max_scf_cycles = 0", "scf_guess = read"])
-    rem_kw2 = Trem_kw.substitute(Tdefaults["rem_kw"], **rem_hf_basic, **{"memory": memory, "rem_extras": rem_extras})
+    rem_extras = rem_extras_basic + ["max_scf_cycles = 0", "scf_guess = read"]
+    rem_kw2 = Trem_kw.substitute(Tdefaults["rem_kw"], **rem_hf_basic, **{"memory": memory, "rem_extras": "\n".join(rem_extras)})
     inp2 = Tinp.substitute(Tdefaults["inp"], rem_kw=rem_kw2, molecule="read", extras=extra_basic)
     
     specs_B_MPp = dict(inp1=inp1, inp2=inp2)
@@ -340,8 +346,8 @@ if already_done == False and len(chelpg_charges) != 0:
     point_charges = Tpc.substitute(dict(point_charges=chelpg_charges_str))
     extras = [extra_basic] + [point_charges] 
     inp1 = Tinp.substitute(Tdefaults["inp"], rem_kw=rem_kw, molecule=molecule, extras="\n".join(extras))
-    rem_extras = "\n".join(["max_scf_cycles = 0", "scf_guess = read"])
-    rem_kw2 = Trem_kw.substitute(Tdefaults["rem_kw"], **rem_hf_basic, **{"memory": memory, "rem_extras": rem_extras})
+    rem_extras = rem_extras_basic + ["max_scf_cycles = 0", "scf_guess = read"]
+    rem_kw2 = Trem_kw.substitute(Tdefaults["rem_kw"], **rem_hf_basic, **{"memory": memory, "rem_extras": "\n".join(rem_extras)})
     inp2 = Tinp.substitute(Tdefaults["inp"], rem_kw=rem_kw2, molecule="read", extras=extra_basic)
 
     specs_B_MPp = dict(inp1=inp1, inp2=inp2)
