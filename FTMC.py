@@ -104,7 +104,7 @@ if found_elconf:
 #-----------------------------------------------------------------------------#
 # (3.1) Macrocycles starting from each FnT iteration
 #-----------------------------------------------------------------------------#  
-memory = 14000 if expansion == "ME" else 28000
+memory = 28000 if expansion == "ME" else 57500
 rem_kw = dict(**rem_hf_basic, **{"memory": memory})
 fde_kw = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA true", "method_b": "import_rhoB true", "expansion": expansion})
 specs_ftmc = dict(rem_kw=rem_kw, fde_kw=fde_kw, extras=extra_basic, use_zr=False,
@@ -114,7 +114,7 @@ specs_ftmc_rev = dict(rem_kw=rem_kw, fde_kw=fde_kw, extras=extra_basic, use_zr=F
                 fragments=frags_rev, elconf=elconf_rev, q_custom=slrm.slurm_add,
                 maxiter=20, thresh=1e-9, en_file="energies.txt")  
 meta_ftmc  = dict(method_A="HF", method_B="HF", opt="macrocycles", status=None)
-queue_ftmc = dict(**slrm.shabug_S if expansion === "SE" else slrm.shabug_M)  
+queue_ftmc = dict(**slrm.shabug_M if expansion === "SE" else slrm.shabug_L)  
         
 ft_fol = os.path.join(systfol, "FT-{}".format(expansion))
 dirbase = "cy"
@@ -159,7 +159,7 @@ for n in range(0, len(iterdirs)):  # we run for all cycles because we need MP2_B
     meta_mpa["path"] = os.path.join(meta_ftmc["path"], "MP2_A")
     already_done_mpa = ut.status_ok(path=meta_mpa["path"])
     if already_done_mpa == False and already_done_ftmc == True:
-        memory = 28000 if expansion == "ME" else 87000
+        memory = 57500 if expansion == "ME" else 87000
         rem_kw = Trem_kw.substitute(Tdefaults["rem_kw"], **rem_adc_basic, **{"memory": memory, "fde": "true"})
         frag_specs = dict(frag_a=frags["A"], frag_b=frags["B"]) if n%2 == 0 else dict(frag_a=frags_rev["A"], frag_b=frags_rev["B"])
         if found_elconf:
@@ -168,7 +168,7 @@ for n in range(0, len(iterdirs)):  # we run for all cycles because we need MP2_B
         fde_sect = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA true", "method_b": "import_rhoB true", "expansion": expansion})
         extras = "\n".join([extra_basic]+[fde_sect])
         specs_mpa = ut.myupd(Tdefaults["inp"], rem_kw=rem_kw, molecule=frag_str, extras=extras)
-        queue_mpa = dict(**slrm.shabug_M if expansion == "ME" else slrm.weso_small1)  
+        queue_mpa = dict(**slrm.shabug_L if expansion == "ME" else slrm.weso_small1)  
         ut.mkdif(meta_mpa["path"]) 
         iterDir = ut.get_last_iter_dir(active="A", path=meta_ftmc["path"],opt="macrocycles")
         sh.copy(os.path.join(iterDir, "Densmat_B.txt"), meta_mpa["path"])

@@ -73,13 +73,13 @@ if found_elconf:
 #-----------------------------------------------------------------------------#
 # 1 Freeze-and-Thaw, SE
 #-----------------------------------------------------------------------------#
-memory = 28000
+memory = 57500
 rem_kw = dict(**rem_hf_basic, **{"memory": memory})
 fde_kw = dict(Tdefaults["fde"], **{"method_a": "import_rhoA true", "method_b": "import_rhoB true", "expansion": "SE"})
 specs_fnt = dict(rem_kw=rem_kw, fde_kw=fde_kw, extras=extra_basic, use_zr=False,
                 fragments=frags, elconf=elconf, q_custom=slrm.slurm_add,
                 maxiter=20, thresh=1e-9, en_file="energies.txt")  
-queue_fnt = dict(**slrm.shabug_M)  
+queue_fnt = dict(**slrm.shabug_L)  
 meta_fnt  = dict(method_A="HF", method_B="HF", opt="freeze-thaw", status=None)
 
 # create calculation folder
