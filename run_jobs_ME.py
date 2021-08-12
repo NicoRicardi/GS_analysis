@@ -8,7 +8,7 @@ Created on Fri Jul 30 11:46:46 2021
 #import json as js
 #import subprocess as sp
 #import CCParser as ccp
-#import numpy as np
+import numpy as np
 import glob as gl
 import traceback
 import subprocess as sp
@@ -284,8 +284,13 @@ already_done = ut.status_ok(path=meta_B_MPp["path"])
     #-----------------------------------------------------------------------------#
 parser_jsfile = os.path.join(meta_A_MP2["path"], default_ccpjson)
 results = ut.load_js(parser_jsfile)
-mulliken_charges = list(map(lambda x, y: x[1:]+[y[1]], results["xyz"][0][0],
-                         results["mulliken"][1][0]))
+if type(results["xyz"][0][0]) == str:
+    npz = np.load(os.path.join(meta_A_MP2["path"], results["xyz"][0][0]), 
+                  allow_pickle=True)
+    mulliken_charges = np.hstack([npz["xyz"][0][:,1:],npz["mulliken"][1][:,1:]])  # the first one is MP2 charges
+else:
+    mulliken_charges = list(map(lambda x, y: x[1:]+[y[1]], results["xyz"][0][0],
+                         results["mulliken"][1][0])) # the first one is MP2 charges
 mulliken_charges_str = "\n".join(["    ".join(list(map(str, s))) for s in \
                                mulliken_charges])
 
@@ -329,7 +334,12 @@ if "results" not in globals():
     #-----------------------------------------------------------------------------#
     # Getting MP2 isolated (A) Mulliken and ChelPG charges
     #-----------------------------------------------------------------------------#
-chelpg_charges = list(map(lambda x, y: x[1:]+[y[1]], results["xyz"][0][0],
+if type(results["xyz"][0][0]) == str:
+    npz = np.load(os.path.join(meta_A_MP2["path"], results["xyz"][0][0]), 
+                  allow_pickle=True)
+    chelpg_charges = np.hstack([npz["xyz"][0][:,1:],npz["chelpg"][0][:,1:]])
+else:    
+    chelpg_charges = list(map(lambda x, y: x[1:]+[y[1]], results["xyz"][0][0],
                          results["chelpg"][0][0]))
 chelpg_charges_str = "\n".join(["    ".join(list(map(str, s))) for s in \
                                chelpg_charges])
