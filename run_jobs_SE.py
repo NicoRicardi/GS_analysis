@@ -150,7 +150,7 @@ if already_done_ftmpa == False and already_done_fnt:
         njsf = [i for i in gl.glob(os.path.join(meta_ftmpa["path"],"*.json")) if i not in json_files][0]  # whatever json was just added, i.e. default_ccpjson
         assert njsf == default_ccpjson
     except IndexError:
-        ccjlog.critical("The json file was already there. Will use default name: {}".forma(default_ccpjson))
+        ccjlog.critical("The json file was already there. Will use default name: {}".format(default_ccpjson))
     except AssertionError:
         ccjlog.critical("CCParser's default seems to be \"{}\" change default_ccpjson in this script!!".format(njsf))
         default_ccpjson = njsf
