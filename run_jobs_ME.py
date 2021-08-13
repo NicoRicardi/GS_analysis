@@ -50,7 +50,7 @@ def symlinkif(src, dst, printout=False):
 ###############################################################################
 root = os.getcwd()
 system = sys.argv[1]
-big = False if len(sys.argv) == 3 else True if sys.argv[2].lower == "true" else False
+big = False if len(sys.argv) == 3 else True if sys.argv[2].lower() == "true" else False
 systfol = os.path.join(root, system)
 ###############################################################################
 logfile = os.path.join(systfol,"{}_ccj.log".format(system))
@@ -115,7 +115,7 @@ if already_done == False:
         mol_specs.update(elconf_B)
     molecule = Tmolecule.substitute(Tdefaults["molecule"], **mol_specs)
     specs_B_MP2 = ut.myupd(Tdefaults["inp"], rem_kw=rem_kw, molecule=molecule, extras=extra_basic)
-    queue_B_MP2 = dict(**slrm.weso_big3 if big else srlm.weso_small1)  
+    queue_B_MP2 = dict(**slrm.weso_big3 if big else slrm.weso_small1)  
     ut.run_job(specs_B_MP2, queue_B_MP2, meta_B_MP2, Tinp,  
             batch_mode=batch_mode_bmp)  # because we want to extract data and copy matrices
     
@@ -188,7 +188,7 @@ if already_done == False:
         mol_specs.update(elconf_A)
     molecule = Tmolecule.substitute(Tdefaults["molecule"], **mol_specs)
     specs_A_MP2g = ut.myupd(Tdefaults["inp"], rem_kw=rem_kw, molecule=molecule, extras=extra_basic)
-    queue_A_MP2g = dict(**slrm.weso_big3 if big else srlm.weso_small1)  
+    queue_A_MP2g = dict(**slrm.weso_big3 if big else slrm.weso_small1)  
     ut.run_job(specs_A_MP2g, queue_A_MP2g, meta_A_MP2g, Tinp,
             batch_mode=True)
     
@@ -215,7 +215,7 @@ if already_done == False:
         mol_specs.update(elconf_B)
     molecule = Tmolecule.substitute(Tdefaults["molecule"], **mol_specs)
     specs_B_MP2g = ut.myupd(Tdefaults["inp"], rem_kw=rem_kw, molecule=molecule, extras=extra_basic)
-    queue_B_MP2g = dict(**slrm.weso_big3 if big else srlm.weso_small1)  
+    queue_B_MP2g = dict(**slrm.weso_big3 if big else slrm.weso_small1)  
     ut.run_job(specs_B_MP2g, queue_B_MP2g, meta_B_MP2g, Tinp,  
             batch_mode=True)
     
@@ -245,7 +245,7 @@ if already_done == False:
         mol_specs.update(elconf_A)
     molecule = Tmolecule.substitute(Tdefaults["molecule"], **mol_specs)
     specs_A_MP2 = ut.myupd(Tdefaults["inp"], rem_kw=rem_kw, molecule=molecule, extras=extra_basic)
-    queue_A_MP2 = dict(**slrm.weso_big3 if big else srlm.weso_small1)  
+    queue_A_MP2 = dict(**slrm.weso_big3 if big else slrm.weso_small1)  
     json_files = gl.glob(os.path.join(meta_A_MP2["path"],"*.json"))
     ut.run_job(specs_A_MP2, queue_A_MP2, meta_A_MP2, Tinp,
             batch_mode=False)  # because we want to extract data and copy matrices
@@ -312,7 +312,7 @@ if already_done == False and len(mulliken_charges) != 0:
     inp2 = Tinp.substitute(Tdefaults["inp"], rem_kw=rem_kw2, molecule="read", extras=extra_basic)
     
     specs_B_MPp = dict(inp1=inp1, inp2=inp2)
-    queue_B_MPp = dict(**slrm.weso_big3 if big else srlm.weso_small1)  
+    queue_B_MPp = dict(**slrm.weso_big3 if big else slrm.weso_small1)  
     # technically this calculation always fails. Nonetheless this template
     # works in our favour since CCParser does not know the second part fails
     ut.run_job(specs_B_MPp, queue_B_MPp, meta_B_MPp, Tinps,  
@@ -367,7 +367,7 @@ if already_done == False and len(chelpg_charges) != 0:
     inp2 = Tinp.substitute(Tdefaults["inp"], rem_kw=rem_kw2, molecule="read", extras=extra_basic)
 
     specs_B_MPp = dict(inp1=inp1, inp2=inp2)
-    queue_B_MPp = dict(**slrm.weso_big3 if big else srlm.weso_small1)  
+    queue_B_MPp = dict(**slrm.weso_big3 if big else slrm.weso_small1)  
     # technically this calculation always fails. Nonetheless this template
     # works in our favour since CCParser does not know the second part fails
     ut.run_job(specs_B_MPp, queue_B_MPp, meta_B_MPp, Tinps,  
@@ -437,7 +437,7 @@ if already_done_ftmpb == False and already_done_fnt:
     fde_sect = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA true", "method_b": "import_rhoB true"})
     extras = "\n".join([extra_basic]+[fde_sect])
     specs_ftmpb = ut.myupd(Tdefaults["inp"], rem_kw=rem_kw, molecule=frag_str, extras=extras)
-    queue_ftmpb = dict(**slrm.weso_big3 if big else srlm.weso_small1)  
+    queue_ftmpb = dict(**slrm.weso_big3 if big else slrm.weso_small1)  
     # calculation hasn't run yet, create folder in order to copy densmat
     ut.mkdif(meta_ftmpb["path"])
     
@@ -476,7 +476,7 @@ if already_done_ftmpa == False and already_done_fnt:
     fde_sect = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA true", "method_b": "import_rhoB true"})
     extras = "\n".join([extra_basic]+[fde_sect])
     specs_ftmpa = ut.myupd(Tdefaults["inp"], rem_kw=rem_kw, molecule=frag_str, extras=extras)
-    queue_ftmpa = dict(**slrm.weso_big3 if big else srlm.weso_small1)  
+    queue_ftmpa = dict(**slrm.weso_big3 if big else slrm.weso_small1)  
     # calculation hasn't run yet, create folder in order to copy densmat
     ut.mkdif(meta_ftmpa["path"])
     
@@ -561,7 +561,7 @@ for ID, dmfile in densities.items():
         fde_sect = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA true", "method_b": "import_rhoB true"})
         extras = "\n".join([extra_basic]+[fde_sect])
         specs_mpa = ut.myupd(Tdefaults["inp"], rem_kw=rem_kw, molecule=frag_str, extras=extras)
-        queue_mpa = dict(**slrm.weso_big3 if big else srlm.weso_small1)  
+        queue_mpa = dict(**slrm.weso_big3 if big else slrm.weso_small1)  
         ut.mkdif(meta_mpa["path"]) 
         iterDir = ut.get_last_iter_dir(active="A", path=meta_mc["path"],opt="macrocycles")
         sh.copy(os.path.join(iterDir, "Densmat_B.txt"), meta_mpa["path"])
