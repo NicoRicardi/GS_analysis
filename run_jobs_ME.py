@@ -50,7 +50,7 @@ def symlinkif(src, dst, printout=False):
 ###############################################################################
 root = os.getcwd()
 system = sys.argv[1]
-big = False if len(sys.argv) == 3 else True if sys.argv[2].lower() == "true" else False
+big = False if len(sys.argv) < 3 else True if sys.argv[2].lower() == "true" else False
 systfol = os.path.join(root, system)
 ###############################################################################
 logfile = os.path.join(systfol,"{}_ccj.log".format(system))
