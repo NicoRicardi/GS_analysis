@@ -60,6 +60,8 @@ logfile = os.path.join(systfol,"{}_ccj.log".format(system))
 ccjlog = logging.getLogger("ccj")
 #ut.setupLogger(to_console=True, to_log=True, printlevel=20)
 ut.setupLogger(to_console=True, to_log=True, logname=logfile)
+
+default_ccpjson = "CCParser.json"
 bs_kw = "gen"  
 bs_string = ut.read_file("aug-cc-pVDZ.bas")
 if bs_string[-1] == "\n":
