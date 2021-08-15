@@ -476,7 +476,7 @@ if already_done_ftmpa == False and already_done_fnt:
     fde_sect = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA true", "method_b": "import_rhoB true"})
     extras = "\n".join([extra_basic]+[fde_sect])
     specs_ftmpa = ut.myupd(Tdefaults["inp"], rem_kw=rem_kw, molecule=frag_str, extras=extras)
-    queue_ftmpa = dict(**slrm.weso_big3 if big else slrm.weso_small1)  
+    queue_ftmpa = dict(**slrm.weso_big2 if big else slrm.weso_small1)  
     # calculation hasn't run yet, create folder in order to copy densmat
     ut.mkdif(meta_ftmpa["path"])
     
@@ -562,7 +562,7 @@ for ID, dmfile in densities.items():
         fde_sect = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA true", "method_b": "import_rhoB true"})
         extras = "\n".join([extra_basic]+[fde_sect])
         specs_mpa = ut.myupd(Tdefaults["inp"], rem_kw=rem_kw, molecule=frag_str, extras=extras)
-        queue_mpa = dict(**slrm.weso_big3 if big else slrm.weso_small1)  
+        queue_mpa = dict(**slrm.weso_big2 if big else slrm.weso_small1)  
         ut.mkdif(meta_mpa["path"]) 
         iterDir = ut.get_last_iter_dir(active="A", path=meta_mc["path"],opt="macrocycles")
         sh.copy(os.path.join(iterDir, "Densmat_B.txt"), meta_mpa["path"])
