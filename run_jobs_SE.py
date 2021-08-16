@@ -75,13 +75,13 @@ if found_elconf:
 #-----------------------------------------------------------------------------#
 # 1 Freeze-and-Thaw, SE
 #-----------------------------------------------------------------------------#
-memory = 57500
+memory = 87000
 rem_kw = dict(**rem_hf_basic, **{"memory": memory})
 fde_kw = dict(Tdefaults["fde"], **{"method_a": "import_rhoA true", "method_b": "import_rhoB true", "expansion": "SE"})
 specs_fnt = dict(rem_kw=rem_kw, fde_kw=fde_kw, extras=extra_basic, use_zr=False,
                 fragments=frags, elconf=elconf, q_custom=slrm.slurm_add,
                 maxiter=20, thresh=1e-9, en_file="energies.txt")  
-queue_fnt = dict(**slrm.shabug_L)  
+queue_fnt = dict(**slrm.weso_small1)  
 meta_fnt  = dict(method_A="HF", method_B="HF", opt="freeze-thaw", status=None)
 
 # create calculation folder
@@ -109,57 +109,7 @@ if already_done_fnt == False:
         meta_fnt["status"] = "FAIL"
     # serialize current meta information for later
     ut.save_status(meta_fnt)
-
-#-----------------------------------------------------------------------------#    
-# 2: FDE-MP2 using FT densities: (A-in-B) [SE]
-#-----------------------------------------------------------------------------#
-meta_ftmpa  = dict(method_A="MP2", method_B="import", opt=None, status=None,
-              basename="emb")
-
-# get name of calculation folder
-meta_ftmpa["path"] = os.path.join(meta_fnt["path"], "MP2_A")
-already_done_ftmpa = ut.status_ok(path=meta_ftmpa["path"])
-
-# run calculation and update status ("checkpoint")
-if already_done_ftmpa == False and already_done_fnt:
-    memory = 87000
-    rem_kw = Trem_kw.substitute(Tdefaults["rem_kw"], **rem_adc_basic, **{"memory": memory, "fde": "true"})
-    frag_specs = dict(frag_a=frags["A"], frag_b=frags["B"])
-    if found_elconf:
-        frag_specs.update(elconf)
-    frag_str = Tfragments.substitute(Tdefaults["molecule"], **frag_specs)
-    fde_sect = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA true", "method_b": "import_rhoB true", "expansion": "SE"})
-    extras = "\n".join([extra_basic]+[fde_sect])
-    specs_ftmpa = ut.myupd(Tdefaults["inp"], rem_kw=rem_kw, molecule=frag_str, extras=extras)
-    queue_ftmpa = dict(**slrm.weso_small1)  
-    # calculation hasn't run yet, create folder in order to copy densmat
-    ut.mkdif(meta_ftmpa["path"])
     
-    # SPECIAL: copy density matrices
-    iterDir = ut.get_last_iter_dir(active="A", path=meta_fnt["path"])
-    sh.copy(os.path.join(iterDir, "Densmat_B.txt"), meta_ftmpa["path"],)
-    copy_density(os.path.join(iterDir, "FDE_State0_tot_dens.txt"),
-                 os.path.join(meta_ftmpa["path"],"Densmat_A.txt"),
-                 header_src=False, alpha_only_src=False)
-    
-    # finally run 
-    json_files = gl.glob(os.path.join(meta_ftmpa["path"],"*.json"))
-    ut.run_job(specs_ftmpa, queue_ftmpa, meta_ftmpa, Tinp, q_custom=slrm.slurm_add,  
-            batch_mode=False, create_folder=False)  # because we want to extract data  
-    try:
-        njsf = [os.path.basename(i) for i in gl.glob(os.path.join(meta_ftmpa["path"],"*.json")) if i not in json_files][0]  # whatever json was just added, i.e. default_ccpjson
-        assert njsf == default_ccpjson
-    except IndexError:
-        ccjlog.critical("The json file was already there. Will use default name: {}".format(default_ccpjson))
-    except AssertionError:
-        ccjlog.critical("CCParser's default seems to be \"{}\" change default_ccpjson in this script!!".format(njsf))
-        default_ccpjson = njsf
-    # serialize current meta information for later (we're still in the calc folder)
-    ut.save_status(meta_ftmpa)
-    parser_jsfile = os.path.join(meta_ftmpa["path"], default_ccpjson)
-    data = ut.load_js(parser_jsfile)  # default ccp json_filename
-    sp.call("echo {E_A} >> {en_file}".format(E_A=data["scf_energy"][-1][0], en_file=en_file), shell=True)
-
 #-----------------------------------------------------------------------------#
 # 3: FDE-MP2 using FT densities: (B-in-A) [SE]
 #-----------------------------------------------------------------------------#
@@ -194,7 +144,58 @@ if already_done_ftmpb == False and already_done_fnt:
                  header_src=False, alpha_only_src=False)
     
     ut.run_job(specs_ftmpb, queue_ftmpb, meta_ftmpb, Tinp, q_custom=slrm.slurm_add,  
-            batch_mode=False)   # because we want to extract data 
+            batch_mode=True)   # because we want to extract data 
     
     # serialize current meta information for later (we're still in the calc folder)
     ut.save_status(meta_ftmpb)
+    
+#-----------------------------------------------------------------------------#    
+# 2: FDE-MP2 using FT densities: (A-in-B) [SE]
+#-----------------------------------------------------------------------------#
+meta_ftmpa  = dict(method_A="MP2", method_B="import", opt=None, status=None,
+              basename="emb")
+
+# get name of calculation folder
+meta_ftmpa["path"] = os.path.join(meta_fnt["path"], "MP2_A")
+already_done_ftmpa = ut.status_ok(path=meta_ftmpa["path"])
+
+# run calculation and update status ("checkpoint")
+if already_done_ftmpa == False and already_done_fnt:
+    memory = 712000
+    rem_kw = Trem_kw.substitute(Tdefaults["rem_kw"], **rem_adc_basic, **{"memory": memory, "fde": "true"})
+    frag_specs = dict(frag_a=frags["A"], frag_b=frags["B"])
+    if found_elconf:
+        frag_specs.update(elconf)
+    frag_str = Tfragments.substitute(Tdefaults["molecule"], **frag_specs)
+    fde_sect = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA true", "method_b": "import_rhoB true", "expansion": "SE"})
+    extras = "\n".join([extra_basic]+[fde_sect])
+    specs_ftmpa = ut.myupd(Tdefaults["inp"], rem_kw=rem_kw, molecule=frag_str, extras=extras)
+    queue_ftmpa = dict(**slrm.weso_big1)  
+    # calculation hasn't run yet, create folder in order to copy densmat
+    ut.mkdif(meta_ftmpa["path"])
+    
+    # SPECIAL: copy density matrices
+    iterDir = ut.get_last_iter_dir(active="A", path=meta_fnt["path"])
+    sh.copy(os.path.join(iterDir, "Densmat_B.txt"), meta_ftmpa["path"],)
+    copy_density(os.path.join(iterDir, "FDE_State0_tot_dens.txt"),
+                 os.path.join(meta_ftmpa["path"],"Densmat_A.txt"),
+                 header_src=False, alpha_only_src=False)
+    
+    # finally run 
+    json_files = gl.glob(os.path.join(meta_ftmpa["path"],"*.json"))
+    ut.run_job(specs_ftmpa, queue_ftmpa, meta_ftmpa, Tinp, q_custom=slrm.slurm_add,  
+            batch_mode=False)  # because we want to extract data  
+    try:
+        njsf = [os.path.basename(i) for i in gl.glob(os.path.join(meta_ftmpa["path"],"*.json")) if i not in json_files][0]  # whatever json was just added, i.e. default_ccpjson
+        assert njsf == default_ccpjson
+    except IndexError:
+        ccjlog.critical("The json file was already there. Will use default name: {}".format(default_ccpjson))
+    except AssertionError:
+        ccjlog.critical("CCParser's default seems to be \"{}\" change default_ccpjson in this script!!".format(njsf))
+        default_ccpjson = njsf
+    # serialize current meta information for later (we're still in the calc folder)
+    ut.save_status(meta_ftmpa)
+    parser_jsfile = os.path.join(meta_ftmpa["path"], default_ccpjson)
+    data = ut.load_js(parser_jsfile)  # default ccp json_filename
+    sp.call("echo {E_A} >> {en_file}".format(E_A=data["scf_energy"][-1][0], en_file=en_file), shell=True)
+

@@ -161,7 +161,7 @@ for n in range(0, len(iterdirs)):  # we run for all cycles because we need MP2_B
     meta_mpa["path"] = os.path.join(meta_ftmc["path"], "MP2_A")
     already_done_mpa = ut.status_ok(path=meta_mpa["path"])
     if already_done_mpa == False and already_done_ftmc == True:
-        memory = 87000 if expansion == "ME" else 240000
+        memory = 87000 if expansion == "ME" else 712000
         rem_kw = Trem_kw.substitute(Tdefaults["rem_kw"], **rem_adc_basic, **{"memory": memory, "fde": "true"})
         frag_specs = dict(frag_a=frags["A"], frag_b=frags["B"]) if n%2 == 0 else dict(frag_a=frags_rev["A"], frag_b=frags_rev["B"])
         if found_elconf:
@@ -170,7 +170,7 @@ for n in range(0, len(iterdirs)):  # we run for all cycles because we need MP2_B
         fde_sect = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA true", "method_b": "import_rhoB true", "expansion": expansion})
         extras = "\n".join([extra_basic]+[fde_sect])
         specs_mpa = ut.myupd(Tdefaults["inp"], rem_kw=rem_kw, molecule=frag_str, extras=extras)
-        queue_mpa = dict(**slrm.weso_small1 if expansion == "ME" else slrm.weso_big3)  
+        queue_mpa = dict(**slrm.weso_small1 if expansion == "ME" else slrm.weso_big1)  
         ut.mkdif(meta_mpa["path"]) 
         iterDir = ut.get_last_iter_dir(active="A", path=meta_ftmc["path"],opt="macrocycles")
         sh.copy(os.path.join(iterDir, "Densmat_B.txt"), meta_mpa["path"])
