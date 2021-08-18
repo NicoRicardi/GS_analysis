@@ -121,7 +121,9 @@ queue_ftmc = dict(**slrm.shabug_L if expansion == "SE" else slrm.weso_small1)
 ft_fol = os.path.join(systfol, "FT-{}".format(expansion))
 dirbase = "cy"
 iterdirs = [i for i in os.listdir(ft_fol) if dirbase in i]
-for n in range(0, len(iterdirs)):  # we run for all cycles because we need MP2_B as well
+# we run for both odd- and even-numbered cycles because we need MP2_B as well
+# we stop before the last two because we already have them from the end of FT 
+for n in range(0, len(iterdirs)-2):  
     cyfol = "{}{}".format(dirbase, n)
     ftmc_fol = os.path.join(ft_fol, cyfol, "FT{}-MC-{}".format(n, expansion))
     meta_ftmc["path"] = ftmc_fol

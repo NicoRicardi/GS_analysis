@@ -15,7 +15,8 @@ import subprocess as sp
 import os
 import CCJob as ccj
 import CCJob.utils as ut
-from CCJob.iterative import freeze_and_thaw, macrocycles, copy_density
+from CCJob.iterative import freeze_and_thaw, macrocycles, copy_density, get_nbas,\
+read_density, transform_DM, write_density
 import shutil as sh
 from CCJob.Composable_templates import Tdefaults, Tinps, Tinp, Trem_kw, Tmolecule,\
  Tadc,  Tpc, Tbasis, chelpg_kw, Tfragments, Tfde
@@ -76,11 +77,12 @@ if found_elconf:
 # 1 Freeze-and-Thaw, SE
 #-----------------------------------------------------------------------------#
 memory = 87000
+basename = "FT_{}"
 rem_kw = dict(**rem_hf_basic, **{"memory": memory})
 fde_kw = dict(Tdefaults["fde"], **{"method_a": "import_rhoA true", "method_b": "import_rhoB true", "expansion": "SE"})
 specs_fnt = dict(rem_kw=rem_kw, fde_kw=fde_kw, extras=extra_basic, use_zr=False,
                 fragments=frags, elconf=elconf, q_custom=slrm.slurm_add,
-                maxiter=20, thresh=1e-9, en_file="energies.txt")  
+                maxiter=20, thresh=1e-9, en_file="energies.txt", basename=basename)  
 queue_fnt = dict(**slrm.weso_small1)  
 meta_fnt  = dict(method_A="HF", method_B="HF", opt="freeze-thaw", status=None)
 
@@ -135,13 +137,29 @@ if already_done_ftmpb == False and already_done_fnt:
     # calculation hasn't run yet, create folder in order to copy densmat
     ut.mkdif(meta_ftmpb["path"])
     
-    # SPECIAL: copy density matrices
-    iterDir = ut.get_last_iter_dir(active="A", path=meta_fnt["path"])  # in case block for MP2_A did not run
-    sh.copy(os.path.join(iterDir, "Densmat_B.txt"), os.path.join(meta_ftmpb["path"], "Densmat_A.txt"))
-    # corresponds to density of B that is also used in the last cycle
-    copy_density(os.path.join(iterDir, "FDE_State0_tot_dens.txt"),
-                 os.path.join(meta_ftmpb["path"], "Densmat_B.txt"),
-                 header_src=False, alpha_only_src=False)
+    ### SPECIAL: copy density matrices
+        # get reordering array
+    iterDir = ut.get_last_iter_dir(active="A", path=meta_fnt["path"])
+    final_iter = os.path.split(iterDir)[1][2:]
+    ccpjson = os.path.join(iterDir, basename.format(final_iter)+".json")
+    nbas = get_nbas(ccpjson)
+    nbasAB = nbas["nbasAB"]
+    nbasA  = nbas["nbasA"]
+    nbasB  = nbas["nbasB"]
+    ccjlog.critical("""-- Found number of basis functions:
+       .nbasAB = {0}
+       .nbasA  = {1}
+       .nbasB  = {2}
+    """.format(nbasAB, nbasA, nbasB))
+    number_line = [i for i in range(nbasAB)]
+    order_to_B  = number_line[nbasA:] + number_line[:nbasA]
+        # read, reorder, write
+    B = read_density(os.path.join(iterDir, "Densmat_B.txt"), header=True, alpha_only=False)
+    B = transform_DM(B, order_to_B)
+    write_density(os.path.join(meta_ftmpb["path"], "Densmat_A.txt"), B)
+    A = read_density(os.path.join(iterDir, "FDE_State0_tot_dens.txt"), header=True, alpha_only=False)
+    A = transform_DM(A, order_to_B)
+    write_density(os.path.join(meta_ftmpb["path"], "Densmat_B.txt"), A)
     
     ut.run_job(specs_ftmpb, queue_ftmpb, meta_ftmpb, Tinp, q_custom=slrm.slurm_add,  
             batch_mode=True)   # because we want to extract data 
@@ -175,7 +193,7 @@ if already_done_ftmpa == False and already_done_fnt:
     ut.mkdif(meta_ftmpa["path"])
     
     # SPECIAL: copy density matrices
-    iterDir = ut.get_last_iter_dir(active="A", path=meta_fnt["path"])
+    iterDir = ut.get_last_iter_dir(active="A", path=meta_fnt["path"])  # in case block for MP2_B did not run
     sh.copy(os.path.join(iterDir, "Densmat_B.txt"), meta_ftmpa["path"],)
     copy_density(os.path.join(iterDir, "FDE_State0_tot_dens.txt"),
                  os.path.join(meta_ftmpa["path"],"Densmat_A.txt"),
