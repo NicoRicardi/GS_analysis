@@ -411,8 +411,7 @@ if already_done_fnt == False:
         meta_fnt["status"] = "FIN"
         already_done_fnt = True
     except Exception as e:
-        print(e)
-        traceback.print_exc()
+        ccjlog.error("{}\n{}".format(e,traceback.format_exc()))
         meta_fnt["status"] = "FAIL"
     # serialize current meta information for later
     ut.save_status(meta_fnt)
@@ -542,8 +541,7 @@ for ID, dmfile in densities.items():
             meta_mc["status"] = "FIN"
             already_done_mc = True
         except Exception as e:  # Mainly NotConverged, but not only
-            print(e)
-            traceback.print_exc()
+            ccjlog.error("{}\n{}".format(e,traceback.format_exc()))
             meta_mc["status"] = "FAIL"
         ut.save_status(meta_mc)
     #-----------------------------------------------------------------------------#
