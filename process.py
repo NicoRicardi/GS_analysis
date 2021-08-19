@@ -10,8 +10,8 @@ import pandas as pd
 import os
 import itertools as ittl
 
-cqlist = ["E_fdet_mp", "E_fdet_hf", "E_ref_HF", "E_ref_HF_CP", "E_ref_MP",
-          "E_ref_MP_CP", "elst_change_ref", "elst_change_fdet"]
+cqlist = ["E_FDET_MP", "E_FDET_HF", "E_ref_HF", "E_ref_HF_CP", "E_ref_MP",
+          "E_ref_MP_CP"]
 reqs = {
       "E_ref_HF" : ["AB_MP2,scf_energy", "A_MP2,scf_energy", "B_MP2,scf_energy"], 
       "E_ref_HF_CP" : ["AB_MP2,scf_energy", "A_MP2_gh,scf_energy", "B_MP2_gh,scf_energy"], 
