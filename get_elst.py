@@ -57,9 +57,10 @@ systems = ["Uracil_5H2O"]
 #calcs = ["FT-ME", "MC-nopp", "MC-pp_Mulliken", "MC_pp_ChelPG"]
 calcs = ["FT-ME"]
 joblist = [i for i in ittl.product([cwd], systems, calcs)]
-reqs_, parserfuncs_, parserdict, parserargsdict, parserkwargsdict = ccd.myfunc(joblist, levelnames=["base","system","calc"], qlist=cqlist,
+df = ccd.myfunc(joblist, levelnames=["base","system","calc"], qlist=cqlist,
                  reqs=reqs, ext="*.out", ignore="slurm*", parser=parser, parserfuncs=parserfuncs,
                  parser_file="CCParser.json",parser_args=None, 
                  parser_kwargs=None, check_input=True, funcdict = "ccp",
                  to_console=True, to_log=False, printlevel=10)   
+df.to_csv("results.csv")
 
