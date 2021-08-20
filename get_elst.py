@@ -39,14 +39,14 @@ import itertools as ittl
 
 cqlist = ["elst_change_ref", "elst_change_FDET"]
 reqs = {}
-reqs_sum_iso = ["FT-ME/cy0,J_sum_iso", "FT-ME/cy0,AnucB_sum_iso","FT-ME/cy0,BnucA_sum_iso", "FT-ME/cy0,V_AB"]
+reqs_sum_iso = ["FT-ME/cy0,J_sum_iso", "FT-ME/cy0,AnucB_sum_iso","FT-ME/cy0,BnucA_sum_iso"]
 reqs_elst_AB = ["AB_MP2,tot_coulomb", "AB_MP2,nuc_attr", "AB_MP2,nuc_repu"]
 reqs_elst_FDET = ["A_MP2,tot_coulomb", "A_MP2_,nuc_attr", "A_MP2,nuc_repu",
     "A_MP2,J_int", "A_MP2_,V_AB", "A_MP2,AnucB", "A_MP2,BnucA",
     "B_MP2,tot_coulomb", "B_MP2_,nuc_attr", "B_MP2,nuc_repu"]
-reqs["elst_change_ref"] = reqs_sum_iso  + reqs_elst_AB
-reqs["elst_change_FDET"] = reqs_sum_iso  + reqs_elst_FDET
-parser = {i: "ccp" for i in reqs_elst_AB + reqs_elst_FDET}
+reqs["elst_change_ref"] = reqs_sum_iso + ["FT-ME/cy0,V_AB"]  + reqs_elst_AB
+reqs["elst_change_FDET"] = reqs_sum_iso + ["FT-ME/cy0,V_AB"] + reqs_elst_FDET
+parser = {i: "ccp" for i in reqs_elst_AB + reqs_elst_FDET + ["FT-ME/cy0,V_AB"]}
 parser.update(**{i: "elst" for i in reqs_sum_iso})
 parserfuncs = {"ccp": None, "elst": pfunc}
       
