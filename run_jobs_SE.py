@@ -96,7 +96,7 @@ if already_done_fnt == False:
     # run calculation and update status ("checkpoint")
     ut.mkdif(meta_fnt["path"])
     ut.logchdir(ccjlog,meta_fnt["path"])
-    udpate = False
+    update = False
     if os.path.exists(os.path.join(systfol, "B_MP2_gh", "Densmat_SCF.txt")):
         fde_kw.update(method_a="import_rhoA true")
         update = True
