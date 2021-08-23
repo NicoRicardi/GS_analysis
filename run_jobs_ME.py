@@ -386,7 +386,7 @@ del meta_A_MP2  # only now because needed for charges
 #-----------------------------------------------------------------------------#
 memory = 87000 if big else 57500
 rem_kw = dict(**rem_hf_basic, **{"memory": memory})
-fde_kw = Tfde.substitute(Tdefaults["fde"], **{"method_a": "import_rhoA true", "method_b": "import_rhoB true"})
+fde_kw = Tdefaults["fde"].copy()
 specs_fnt = dict(rem_kw=rem_kw, fde_kw=fde_kw, extras=extra_basic, use_zr=False,
                 fragments=frags, elconf=elconf, q_custom=slrm.slurm_add,
                 maxiter=20, thresh=1e-9, en_file="energies.txt")  
@@ -400,13 +400,22 @@ already_done_fnt = ut.status_ok(path=meta_fnt["path"])
 
 if already_done_fnt == False:
     # run calculation and update status ("checkpoint")
-    try:
-        ut.mkdif(meta_fnt["path"])
-        ut.logchdir(ccjlog,meta_fnt["path"])
+    ut.mkdif(meta_fnt["path"])
+    ut.logchdir(ccjlog,meta_fnt["path"])
+    update = False
+    if os.path.exists(os.path.join(systfol, "Densmat_B_nopp.txt")):
+        fde_kw.update(method_a="import_rhoA true")
+        update = True
         if not os.path.exists(os.path.join(meta_fnt["path"],"Densmat_B.txt")):
             sh.copy(os.path.join(systfol, "Densmat_B_nopp.txt"), "Densmat_B.txt")
+    if os.path.exists(os.path.join(systfol, "Densmat_A_nopp.txt")):
+        fde_kw.update(method_b="import_rhoB true")
+        update = True
         if not os.path.exists(os.path.join(meta_fnt["path"],"Densmat_A.txt")):
             sh.copy(os.path.join(systfol, "Densmat_A_nopp.txt"), "Densmat_A.txt")
+    if update:
+        specs_fnt.update(fde_kw=fde_kw)
+    try:
         freeze_and_thaw(queue_fnt, **specs_fnt)  
         meta_fnt["status"] = "FIN"
         already_done_fnt = True
