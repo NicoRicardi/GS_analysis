@@ -167,7 +167,7 @@ if already_done_ftmpb == False and already_done_fnt:
     B = read_density(os.path.join(iterDir, "Densmat_B.txt"), header=True, alpha_only=False)
     B = transform_DM(B, order_to_B)
     write_density(os.path.join(meta_ftmpb["path"], "Densmat_A.txt"), B)
-    A = read_density(os.path.join(iterDir, "FDE_State0_tot_dens.txt"), header=True, alpha_only=False)
+    A = read_density(os.path.join(iterDir, "FDE_State0_tot_dens.txt"), header=False, alpha_only=False)
     A = transform_DM(A, order_to_B)
     write_density(os.path.join(meta_ftmpb["path"], "Densmat_B.txt"), A)
     

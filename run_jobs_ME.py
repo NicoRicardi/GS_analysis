@@ -119,7 +119,7 @@ if already_done == False:
     ut.run_job(specs_B_MP2, queue_B_MP2, meta_B_MP2, Tinp,  
             batch_mode=batch_mode_bmp)  # because we want to extract data and copy matrices
     
-    # serialize current meta information for later (we're still in the calc folder)
+    # save status
     ut.save_status(meta_B_MP2)
     #-----------------------------------------------------------------------------#
     # Saving HF and MP density matrices
@@ -158,7 +158,7 @@ if already_done == False:
     ut.run_job(specs_AB_MP2, queue_AB_MP2, meta_AB_MP2, Tinp,  
             batch_mode=batch_mode_mpab)  # because we want to extract data and copy matrices
     
-    # serialize current meta information for later (we're still in the calc folder)
+    # save status
     ut.save_status(meta_AB_MP2)
     if not batch_mode_mpab:
         copy_density(os.path.join(meta_AB_MP2["path"], "Densmat_SCF.txt"),
@@ -192,7 +192,7 @@ if already_done == False:
     ut.run_job(specs_A_MP2g, queue_A_MP2g, meta_A_MP2g, Tinp,
             batch_mode=True)
     
-    # serialize current meta information for later (we're still in the calc folder)
+    # save status
     ut.save_status(meta_A_MP2g)
     del specs_A_MP2g, queue_A_MP2g
 del meta_A_MP2g
@@ -219,7 +219,7 @@ if already_done == False:
     ut.run_job(specs_B_MP2g, queue_B_MP2g, meta_B_MP2g, Tinp,  
             batch_mode=True)
     
-    # serialize current meta information for later (we're still in the calc folder)
+    # save status
     ut.save_status(meta_B_MP2g)
     del specs_B_MP2g, queue_B_MP2g
 del meta_B_MP2g
@@ -257,7 +257,7 @@ if already_done == False:
     except AssertionError:
         ccjlog.critical("CCParser's default seems to be \"{}\" change default_ccpjson in this script!!".format(njsf))
         default_ccpjson = njsf
-    # serialize current meta information for later (we're still in the calc folder)
+    # save status
     ut.save_status(meta_A_MP2)
     #-----------------------------------------------------------------------------#
     # Saving HF and MP density matrices
@@ -318,7 +318,7 @@ if already_done == False and len(mulliken_charges) != 0:
     ut.run_job(specs_B_MPp, queue_B_MPp, meta_B_MPp, Tinps,  
             batch_mode=False, q_custom=slrm.slurm_add)  # because we want to extract data and copy matrices
     
-    # serialize current meta information for later (we're still in the calc folder)
+    # save status
     ut.save_status(meta_B_MPp)
     copy_density(os.path.join(meta_B_MPp["path"], "Densmat_SCF.txt"),
             "Densmat_B_pp_Mulliken.txt",
@@ -373,7 +373,7 @@ if already_done == False and len(chelpg_charges) != 0:
     ut.run_job(specs_B_MPp, queue_B_MPp, meta_B_MPp, Tinps,  
             batch_mode=False, q_custom=slrm.slurm_add)  # because we want to extract data and copy matrices
     
-    # serialize current meta information for later (we're still in the calc folder)
+    # save status
     ut.save_status(meta_B_MPp)
     copy_density(os.path.join(meta_B_MPp["path"], "Densmat_SCF.txt"),
             "Densmat_B_pp_ChelPG.txt",
@@ -422,7 +422,7 @@ if already_done_fnt == False:
     except Exception as e:
         ccjlog.error("{}\n{}".format(e,traceback.format_exc()))
         meta_fnt["status"] = "FAIL"
-    # serialize current meta information for later
+    # save status
     ut.save_status(meta_fnt)
 #-----------------------------------------------------------------------------#
 #  9: FDE-MP2 using FT densities: (B-in-A) [ME]
@@ -460,7 +460,7 @@ if already_done_ftmpb == False and already_done_fnt:
     ut.run_job(specs_ftmpb, queue_ftmpb, meta_ftmpb, Tinp, q_custom=slrm.slurm_add,  
             batch_mode=True)   # because we want to extract data 
     
-    # serialize current meta information for later (we're still in the calc folder)
+    # save status
     ut.save_status(meta_ftmpb)
     
 #-----------------------------------------------------------------------------#    
@@ -507,7 +507,7 @@ if already_done_ftmpa == False and already_done_fnt:
     except AssertionError:
         ccjlog.critical("CCParser's default seems to be \"{}\" change default_ccpjson in this script!!".format(njsf))
         default_ccpjson = njsf
-    # serialize current meta information for later (we're still in the calc folder)
+    # save status
     ut.save_status(meta_ftmpa)
     parser_jsfile = os.path.join(meta_ftmpa["path"], default_ccpjson)
     data = ut.load_js(parser_jsfile)  # default ccp json_filename
