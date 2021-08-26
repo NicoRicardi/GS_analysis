@@ -53,7 +53,6 @@ parser = {i: "ccp" for i in reqs_elst_AB + reqs_elst_FDET + reqs_sum_iso_ccp}
 parser.update(**{i: "elst" for i in reqs_sum_iso_pfunc})
 parserfuncs = {"ccp": None, "elst": pfunc}
       
-joblist = [("WORK","database","folder"), ("WORK","database","folder2")]
 cwd = os.getcwd()
 #systems = ["7HQ_2MeOH", "7HQ_formate", "Uracil_5H2O", "XVI_2HCOOH"]
 systems = ["Uracil_5H2O"]
