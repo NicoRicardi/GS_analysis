@@ -46,7 +46,7 @@ reqs_sum_iso_ccp = ["A_MP2,tot_coulomb", "A_MP2,nuc_attr", "A_MP2,nuc_repu",
 reqs_elst_AB = ["AB_MP2,tot_coulomb", "AB_MP2,nuc_attr", "AB_MP2,nuc_repu"]
 reqs_elst_FDET = ["MP2_A,tot_coulomb", "MP2_A,nuc_attr", "MP2_A,nuc_repu",
     "MP2_A,J_int", "MP2_A,V_AB", "MP2_A,AnucB", "MP2_A,BnucA",
-    "MP2_A,tot_coulomb", "MP2_A,nuc_attr", "MP2_A,nuc_repu"]
+    "MP2_B,tot_coulomb", "MP2_B,nuc_attr", "MP2_B,nuc_repu"]
 reqs["elst_change_ref"] = reqs_sum_iso_pfunc + reqs_sum_iso_ccp + reqs_elst_AB
 reqs["elst_change_FDET"] = reqs_sum_iso_pfunc + reqs_sum_iso_ccp + reqs_elst_FDET
 parser = {i: "ccp" for i in reqs_elst_AB + reqs_elst_FDET + reqs_sum_iso_ccp}
