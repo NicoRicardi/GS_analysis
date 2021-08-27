@@ -56,7 +56,7 @@ parserfuncs = {"ccp": None, "elst": pfunc}
 cwd = os.getcwd()
 #systems = ["7HQ_2MeOH", "7HQ_formate", "Uracil_5H2O", "XVI_2HCOOH"]
 systems = ["Uracil_5H2O"]
-#calcs = ["FT-ME", "MC-nopp", "MC-pp_Mulliken", "MC_pp_ChelPG"]
+#calcs = ["FT-ME", "MC-nopp", "MC-pp_Mulliken", "MC-pp_ChelPG"]
 calcs = ["FT-ME"]
 joblist = [i for i in ittl.product([cwd], systems, calcs)]
 df = ccd.collect_data(joblist, levelnames=["base","system","calc"], qlist=cqlist,

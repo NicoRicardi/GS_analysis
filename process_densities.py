@@ -20,7 +20,6 @@ reqs["M_value"] = ["DMfinder.json,{}".format(i) for  i in ["HF_iso_B", "HF_ref"]
 parser = "dmf"
 parserfuncs = pfunc
       
-joblist = [("WORK","database","folder"), ("WORK","database","folder2")]
 cwd = os.getcwd()
 #systems = ["7HQ_2MeOH", "7HQ_formate", "Uracil_5H2O", "XVI_2HCOOH"]
 systems = ["Uracil_5H2O"]
