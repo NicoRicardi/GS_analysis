@@ -27,7 +27,7 @@ reqs["E_FDET_MP"] = reqs["E_FDET_HF"] + ["MP2_A,mp_correction", "MP2_B,mp_correc
 joblist = [("WORK","database","folder"), ("WORK","database","folder2")]
 cwd = os.getcwd()
 systems = ["7HQ_2MeOH", "7HQ_formate", "Uracil_5H2O", "XVI_2HCOOH"]
-calcs = ["FT-ME", "MC-nopp", "MC-pp_Mulliken", "MC-pp_ChelPG"]
+calcs = ["MC-nopp", "MC-pp_Mulliken", "MC-pp_ChelPG", "FT-ME"]
 joblist = [i for i in ittl.product([cwd], systems, calcs)]
 df = ccd.collect_data(joblist, levelnames=["base","system","calc"], qlist=cqlist,
                  reqs=reqs, ext="*.out", ignore="slurm*", parser=None,
