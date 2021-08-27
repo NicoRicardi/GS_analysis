@@ -21,4 +21,4 @@ for column in df.columns:
         n[column] = df[column].apply(convert)
     except: 
         continue
-n.to_csv("{}_kcal.csv".format(orig))
+n.to_csv("{}_kcal.csv".format(orig[:-4]))
