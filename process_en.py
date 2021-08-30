@@ -6,12 +6,13 @@ Created on Thu Aug 19 16:36:12 2021
 @author: nico
 """
 import CCDatabase.CCDatabase as ccd
-from CCDatabase.get_elst_int_sum import elst_int_sum_iso as pfunc
+from CCDatabase.DMfinder import get_all as phf
+from CCDatabase.DMfinder import find_fdet_dmfiles as pmp
 import pandas as pd
 import os
 import itertools as ittl
 
-cqlist = ["E_FDET_MP", "E_FDET_HF", "E_ref_HF", "E_ref_HF_CP", "E_ref_MP",
+cqlist = ["E_FDET_MP", "kernel_tot", "E_FDET_HF", "E_ref_HF", "E_ref_HF_CP", "E_ref_MP",
           "E_ref_MP_CP"]
 reqs = {
       "E_ref_HF" : ["AB_MP2,scf_energy", "A_MP2,scf_energy", "B_MP2,scf_energy"], 
@@ -24,15 +25,26 @@ reqs["E_ref_MP"] = reqs["E_ref_HF"] + ["AB_MP2,mp_correction", "A_MP2,mp_correct
 reqs["E_ref_MP_CP"] = reqs["E_ref_HF"] + ["AB_MP2,mp_correction", "A_MP2_gh,mp_correction", "B_MP2_gh,mp_correction"]
 reqs["E_FDET_MP"] = reqs["E_FDET_HF"] + ["MP2_A,mp_correction", "MP2_B,mp_correction"]
 
-joblist = [("WORK","database","folder"), ("WORK","database","folder2")]
+quantities_hf = ["DMfinder.json,{}".format(i) for  i in ["HF_FDET_A", "HF_FDET_B"]]
+quantities_mp = ["DMfinder.json,{}".format(i) for  i in ["MP_FDET_A", "MP_FDET_B"]]
+quantities_ccp_kernel = ["MP2_A,{}".format(i) for i in ["fde_Tfunc", "fde_Xfunc", "fde_Cfunc"]]
+reqs["kernel_tot"] = quantities_hf + quantities_mp + quantities_ccp_kernel
+
+quantities_ccp = list(set(reqs["E_ref_HF"] + reqs["E_ref_MP_CP"] + reqs["E_FDET_MP"]))
+parser = {k: "dmf_hf" for k in quantities_hf}
+parser.update({k: "dmf_mp" for k in quantities_mp})
+parser.update({k: "ccp" for k in quantities_ccp_kernel + quantities_ccp})
+parserfuncs = {"dmf_hf": phf, "dmf_mp": pmp, "ccp": None}
+parser_kwargs = {"dmf_hf": {}, "dmf_mp": {"filename": "Densmat_MP.txt", "prop_key": "MP_FDET"}, "ccp": {}}
+
 cwd = os.getcwd()
 systems = ["7HQ_2MeOH", "7HQ_formate", "Uracil_5H2O", "XVI_2HCOOH"]
 calcs = ["MC-nopp", "MC-pp_Mulliken", "MC-pp_ChelPG", "FT-ME"]
 joblist = [i for i in ittl.product([cwd], systems, calcs)]
 df = ccd.collect_data(joblist, levelnames=["base","system","calc"], qlist=cqlist,
-                 reqs=reqs, ext="*.out", ignore="slurm*", parser=None,
+                 reqs=reqs, ext="*.out", ignore="slurm*", parser=parser, parserfuncs=parserfuncs,
                  parser_file="CCParser.json",parser_args=None, 
-                 parser_kwargs=None, check_input=True, funcdict = "ccp",
+                 parser_kwargs=parser_kwargs, check_input=True, funcdict = "ccp",
                  to_console=True, to_log=False, printlevel=10)   
 df.to_csv("results_en.csv")
 
