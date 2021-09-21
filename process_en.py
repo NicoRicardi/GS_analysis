@@ -30,7 +30,7 @@ quantities_mp = ["DMfinder.json,{}".format(i) for  i in ["MP_FDET_A", "MP_FDET_B
 quantities_ccp_kernel = ["MP2_A,{}".format(i) for i in ["fde_Tfunc", "fde_Xfunc", "fde_Cfunc"]]
 reqs["kernel_tot"] = quantities_hf + quantities_mp + quantities_ccp_kernel
 
-quantities_ccp = list(set(reqs["E_ref_HF"] + reqs["E_ref_MP_CP"] + reqs["E_FDET_MP"]\
+quantities_ccp = list(set(reqs["E_ref_HF"] + reqs["E_ref_HF_CP"] + reqs["E_FDET_HF"]\
                           + reqs["E_ref_MP"] + reqs["E_ref_MP_CP"] + reqs["E_FDET_MP"]))
 parser = {k: "dmf_hf" for k in quantities_hf}
 parser.update({k: "dmf_mp" for k in quantities_mp})
