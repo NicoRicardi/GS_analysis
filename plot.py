@@ -27,11 +27,11 @@ syst_lbls = {"7HQ_2MeOH": "7HQ 2MeOH",
              "XVI_2HCOOH": "XVI 2HCOOH"}
 
 #r"$\int\frac{|\rho(\vec{r}|)}{2}d\vec{r}$"
+en["E_MPk"] = en["E_FDET_MP"] - en["kernel_tot"]
 s_ens, s_dens, en_ranges, en_centers = [], [], [], []
 dens_rangeM, dens_cenM, dens_rangeP, dens_cenP = [], [], [], []
 for n,system in enumerate(systems):
     s_en = en[en["system"] == system].set_index("calc")
-    s_en["E_MPk"] = s_en["E_FDET_MP"] - s_en["kernel_tot"]
     s_ens.append(s_en)
     s_den = dens[dens["system"] == system].set_index("calc")
     s_dens.append(s_den)
