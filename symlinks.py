@@ -30,12 +30,13 @@ def symlinkif(src, dst, printout=False):
     elif printout:
         print("Nothing done")
 
+root = os.getcwd()
 systems = ["7HQ_2MeOH", "7HQ_formate", "Uracil_5H2O", "XVI_2HCOOH"]
 for system in systems:
     for calc in ["FT-ME", "FT-SE"]:
-        os.chdir(os.path.join(system, calc))
+        os.chdir(os.path.join(root, system, calc))
         cyfols = gl.glob("cy*")
-        os.chdir("..")
+        os.chdir(os.path.join(root, system))
         for cyfol in cyfols:
             it = int(cyfol[2:])
             if it % 2:

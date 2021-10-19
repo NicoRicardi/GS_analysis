@@ -30,6 +30,7 @@ def symlinkif(src, dst, printout=False):
     elif printout:
         print("Nothing done")
         
+root = os.getcwd()
 system = "XVI_2HCOOH"
 calc = "FT-SE"
 os.chdir(os.path.join(system, calc))
@@ -38,7 +39,8 @@ for cyfol in cyfols:
     it = int(cyfol[2:])
     if it % 2 or it == 0:
         continue
-    dst = os.path.join("FT{}-MC-{}".format(it, calc[-2:]), "MP2_B")
-    src = os.path.join("FT{}-MC-{}".format(it-1, calc[-2:]), "MP2_A")
-    symlinkif(src, dst)
+    dst = os.path.join(root, system, calc, cyfol, "FT{}-MC-{}".format(it, calc[-2:]), "MP2_B")
+    src = os.path.join(root, system, calc, "cy{}".format(it-1), "FT{}-MC-{}".format(it-1, calc[-2:]), "MP2_A")
+    print(src, "=>", dst)
+    symlinkif(src, dst, printout=True)
 
