@@ -41,21 +41,18 @@ parser_kwargs = {"dmf_hf": {}, "dmf_mp": {"filename": "Densmat_MP.txt", "prop_ke
 
 cwd = os.getcwd()
 systems = ["7HQ_2MeOH", "7HQ_formate", "Uracil_5H2O", "XVI_2HCOOH"]
-calcs = ["FT-ME", "FT-SE"]
-for calc in calcs:
-    joblist = []
-    for system in systems:
-        base = os.path.join(cwd, system, calc)
-        cyfols = [i.replace(os.path.join(base, ""), "") for i in gl.glob(os.path.join(base, "cy*", "FT*-MC-*"))]
-        cyfols = [i for i in cyfols if not int([j for j in i if i.isnumeric()][-1]) % 2]  # only even
-        print("cyfols", cyfols)
-        joblist.extend([[cwd, system, calc, i] for i in cyfols])
-    print("joblist", joblist)
-#    df = ccd.collect_data(joblist, levelnames=["base","system","calc", "cy"], qlist=cqlist,
-#                 reqs=reqs, ext="*.out", ignore="slurm*", parser=parser, parserfuncs=parserfuncs,
-#                 parser_file="CCParser.json",parser_args=None, 
-#                 parser_kwargs=parser_kwargs, check_input=True, funcdict = "ccp",
-#                 to_console=True, to_log=False, printlevel=10)   
-#    df.to_csv("FTMC_{}_en.csv".format(calc[-2:]))
+joblist = []
+for system in systems:
+    joblist.extend([os.path.join(cwd, i) for i in gl.glob(os.path.join(system, "FT*-MC-ME"))])
+    joblist.append(os.path.join(cwd, "FT-ME"))
+    joblist.extend([os.path.join(cwd, i) for i in gl.glob(os.path.join(system, "FT*-MC-SE"))])
+    joblist.append(os.path.join(cwd, "FT-SE"))
+print("joblist", joblist)
+#df = ccd.collect_data(joblist, levelnames=["base","system","calc", "cy"], qlist=cqlist,
+#             reqs=reqs, ext="*.out", ignore="slurm*", parser=parser, parserfuncs=parserfuncs,
+#             parser_file="CCParser.json",parser_args=None, 
+#             parser_kwargs=parser_kwargs, check_input=True, funcdict = "ccp",
+#             to_console=True, to_log=False, printlevel=10)   
+#df.to_csv("FTMC_en.csv".format(calc[-2:]))
 
 
