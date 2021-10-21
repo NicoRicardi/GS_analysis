@@ -43,12 +43,13 @@ cwd = os.getcwd()
 systems = ["7HQ_2MeOH", "7HQ_formate", "Uracil_5H2O", "XVI_2HCOOH"]
 joblist = []
 for system in systems:
-    joblist.extend([os.path.join(cwd, i) for i in gl.glob(os.path.join(system, "FT*-MC-ME"))])
-    joblist.append(os.path.join(cwd, "FT-ME"))
-    joblist.extend([os.path.join(cwd, i) for i in gl.glob(os.path.join(system, "FT*-MC-SE"))])
-    joblist.append(os.path.join(cwd, "FT-SE"))
+    os.chdir(os.path.join(cwd, system))
+    joblist.extend([[cwd, system, i] for i in gl.glob("FT*-MC-ME")])
+    joblist.append([cwd, system, "FT-ME"])
+    joblist.extend([[cwd, system, i] for i in gl.glob("FT*-MC-SE")])
+    joblist.append([cwd, system, "FT-SE"])
 #print("joblist", joblist)
-joblist = []
+os.chdir(cwd)
 df = ccd.collect_data(joblist, levelnames=["base","system","calc"], qlist=cqlist,
              reqs=reqs, ext="*.out", ignore="slurm*", parser=parser, parserfuncs=parserfuncs,
              parser_file="CCParser.json",parser_args=None, 
