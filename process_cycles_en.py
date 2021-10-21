@@ -47,12 +47,13 @@ for system in systems:
     joblist.append(os.path.join(cwd, "FT-ME"))
     joblist.extend([os.path.join(cwd, i) for i in gl.glob(os.path.join(system, "FT*-MC-SE"))])
     joblist.append(os.path.join(cwd, "FT-SE"))
-print("joblist", joblist)
-#df = ccd.collect_data(joblist, levelnames=["base","system","calc", "cy"], qlist=cqlist,
-#             reqs=reqs, ext="*.out", ignore="slurm*", parser=parser, parserfuncs=parserfuncs,
-#             parser_file="CCParser.json",parser_args=None, 
-#             parser_kwargs=parser_kwargs, check_input=True, funcdict = "ccp",
-#             to_console=True, to_log=False, printlevel=10)   
-#df.to_csv("FTMC_en.csv".format(calc[-2:]))
+#print("joblist", joblist)
+joblist = []
+df = ccd.collect_data(joblist, levelnames=["base","system","calc"], qlist=cqlist,
+             reqs=reqs, ext="*.out", ignore="slurm*", parser=parser, parserfuncs=parserfuncs,
+             parser_file="CCParser.json",parser_args=None, 
+             parser_kwargs=parser_kwargs, check_input=True, funcdict = "ccp",
+             to_console=True, to_log=False, printlevel=10)   
+df.to_csv("FTMC_en.csv")
 
 
