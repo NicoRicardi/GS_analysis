@@ -7,6 +7,7 @@ Created on Tue Oct 19 21:00:16 2021
 """
 import os
 import glob as gl
+import shutil as sh
 
 def symlinkif(src, dst, printout=False):
     """
@@ -30,6 +31,11 @@ def symlinkif(src, dst, printout=False):
     elif printout:
         print("Nothing done")
 
+def mkdif(folder):
+    if not os.path.exists(folder):
+        os.mkdir(folder)
+        
+
 root = os.getcwd()
 systems = ["7HQ_2MeOH", "7HQ_formate", "Uracil_5H2O", "XVI_2HCOOH"]
 for system in systems:
@@ -45,9 +51,11 @@ for system in systems:
             dst_mc = "FT{}-MC-{}".format(it, calc[-2:])
             dst = "FT{}-{}".format(it, calc[-2:])
             if os.path.exists(dst_mc):
-                os.remove(dst_mc)
-            os.mkdir(dst)
-            os.mkdir(dst_mc)
+                sh.rmtree(dst_mc)
+            if os.path.exists(dst):
+                sh.rmtree(dst)   
+            mkdif(dst)
+            mkdif(dst_mc)
             MCcys = gl.glob(os.path.join(src,"cy*"))
             for cy in MCcys:
                 n_cy = cy.split("cy")[-1]
