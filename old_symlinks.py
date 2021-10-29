@@ -42,20 +42,5 @@ for system in systems:
             if it % 2:
                 continue
             src = os.path.join(calc, cyfol, "FT{}-MC-{}".format(it, calc[-2:]))
-            dst_mc = "FT{}-MC-{}".format(it, calc[-2:])
-            dst = "FT{}-{}".format(it, calc[-2:])
-            if os.path.exists(dst_mc):
-                os.remove(dst_mc)
-            os.mkdir(dst)
-            os.mkdir(dst_mc)
-            MCcys = gl.glob(os.path.join(src,"cy*"))
-            for cy in MCcys:
-                n_cy = cy.split("cy")[-1]
-                symlinkif(cy, os.path.join(dst_mc,"cy{}".format(n_cy)))
-            bfol = os.path.join(calc, "cy{}".format(it-1))
-            symlinkif(bfol, os.path.join(dst_mc,"HF_B"))
-            symlinkif(os.path.join(calc, "cy{}".format(it)), os.path.join(dst,"HF_A"))
-            symlinkif(bfol, os.path.join(dst,"HF_B"))
-#            symlinkif(src, dst)
-
-
+            dst = "FT{}-MC-{}".format(it, calc[-2:])
+            symlinkif(src, dst)

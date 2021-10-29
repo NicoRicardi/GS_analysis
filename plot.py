@@ -69,48 +69,46 @@ for n, system in enumerate(systems):
     axs_PHF.append(fig_PHF.add_subplot(221+n))#, label="PHF"))
     axs_MP.append(fig_MP.add_subplot(221+n))#, label="MP"))
     axs_PMP.append(fig_PMP.add_subplot(221+n))#, label="MP"))
+    Mmin = dens_cenM[n] - 0.5*den_rangeM
+    Mmin = max(0, Mmin)
+    Mmax = Mmin + den_rangeM
+    emin = en_centers[n] - 0.5*en_range
+    emax = emin + en_range
+    Pmin = dens_cenP[n] - 0.5*den_rangeP
+    Pmin = max(Pmin, 0) 
+    Pmax = Pmin + den_rangeP
+    axs_P[n].set_xlim([Mmin, Mmax])
+    axs_P[n].set_ylim([Pmin, Pmax])
+    axs_P[n].grid(b=True)
+    axs_HF[n].set_xlim([Mmin, Mmax])
+    axs_HF[n].set_ylim([emin, emax])
+    axs_HF[n].grid(b=True)
+    axs_MP[n].set_xlim([Mmin, Mmax])
+    axs_MP[n].set_ylim([emin, emax])
+    axs_MP[n].grid(b=True)
+    axs_PHF[n].set_xlim([Pmin, Pmax])
+    axs_PHF[n].set_ylim([emin, emax])
+    axs_PHF[n].grid(b=True)
+    axs_PMP[n].set_xlim([Pmin, Pmax])
+    axs_PMP[n].set_ylim([emin, emax])
+    axs_PMP[n].grid(b=True)
+    axs_HF[n].axhline(y=s_ens[n]["E_ref_HF"][0], color="k", alpha=0.5, linestyle=":")
+    axs_HF[n].text(Mmax + 0.01*den_rangeM, s_ens[n]["E_ref_HF"][0], axes_lbls["E_ref_HF"], color="k", ha="left", va="top")
+    axs_HF[n].axhline(y=s_ens[n]["E_ref_HF_CP"][0], color="k", alpha=0.5, linestyle="--")
+    axs_HF[n].text(Mmax + 0.01*den_rangeM, s_ens[n]["E_ref_HF_CP"][0], axes_lbls["E_ref_HF_CP"], color="k", ha="left", va="bottom")
+    axs_PHF[n].axhline(y=s_ens[n]["E_ref_HF"][0], color="k", alpha=0.5, linestyle=":")
+    axs_PHF[n].text(Pmax + 0.01*den_rangeP, s_ens[n]["E_ref_HF"][0], axes_lbls["E_ref_HF"], color="k", ha="left", va="top")
+    axs_PHF[n].axhline(y=s_ens[n]["E_ref_HF_CP"][0], color="k", alpha=0.5, linestyle="--")
+    axs_PHF[n].text(Pmax + 0.01*den_rangeP, s_ens[n]["E_ref_HF_CP"][0], axes_lbls["E_ref_HF_CP"], color="k", ha="left", va="bottom")
+    axs_MP[n].axhline(y=s_ens[n]["E_ref_MP"][0], color="k", alpha=0.5, linestyle=":")
+    axs_MP[n].text(Mmax + 0.01*den_rangeM, s_ens[n]["E_ref_MP"][0], axes_lbls["E_ref_MP"], color="k", ha="left", va="top")
+    axs_MP[n].axhline(y=s_ens[n]["E_ref_MP_CP"][0], color="k", alpha=0.5, linestyle="--")
+    axs_MP[n].text(Mmax + 0.01*den_rangeM, s_ens[n]["E_ref_MP_CP"][0], axes_lbls["E_ref_MP_CP"], color="k", ha="left", va="bottom")
+    axs_PMP[n].axhline(y=s_ens[n]["E_ref_MP"][0], color="k", alpha=0.5, linestyle=":")
+    axs_PMP[n].text(Pmax + 0.01*den_rangeP, s_ens[n]["E_ref_MP"][0], axes_lbls["E_ref_MP"], color="k", ha="left", va="top")
+    axs_PMP[n].axhline(y=s_ens[n]["E_ref_MP_CP"][0], color="k", alpha=0.5, linestyle="--")
+    axs_PMP[n].text(Pmax + 0.01*den_rangeP, s_ens[n]["E_ref_MP_CP"][0], axes_lbls["E_ref_MP_CP"], color="k", ha="left", va="bottom")
     for m in range(4):
-        Mmin = dens_cenM[n] - 0.5*den_rangeM
-        Mmin = max(0, Mmin)
-        Mmax = Mmin + den_rangeM
-        emin = en_centers[n] - 0.5*en_range
-        emax = emin + en_range
-        Pmin = dens_cenP[n] - 0.5*den_rangeP
-        Pmin = max(Pmin, 0) 
-        Pmax = Pmin + den_rangeP
-        axs_P[n].set_xlim([Mmin, Mmax])
-        axs_P[n].set_ylim([Pmin, Pmax])
-        axs_P[n].grid(b=True)
-        axs_HF[n].set_xlim([Mmin, Mmax])
-        axs_HF[n].set_ylim([emin, emax])
-        axs_HF[n].grid(b=True)
-        axs_MP[n].set_xlim([Mmin, Mmax])
-        axs_MP[n].set_ylim([emin, emax])
-        axs_MP[n].grid(b=True)
-        axs_PHF[n].set_xlim([Pmin, Pmax])
-        axs_PHF[n].set_ylim([emin, emax])
-        axs_PHF[n].grid(b=True)
-        axs_PMP[n].set_xlim([Pmin, Pmax])
-        axs_PMP[n].set_ylim([emin, emax])
-        axs_PMP[n].grid(b=True)
-        if m == 0:
-            axs_HF[n].axhline(y=s_ens[n]["E_ref_HF"][0], color="k", alpha=0.5, linestyle=":")
-            axs_HF[n].text(Mmax + 0.01*den_rangeM, s_ens[n]["E_ref_HF"][0], axes_lbls["E_ref_HF"], color="k", ha="left", va="top")
-            axs_HF[n].axhline(y=s_ens[n]["E_ref_HF_CP"][0], color="k", alpha=0.5, linestyle="--")
-            axs_HF[n].text(Mmax + 0.01*den_rangeM, s_ens[n]["E_ref_HF_CP"][0], axes_lbls["E_ref_HF_CP"], color="k", ha="left", va="bottom")
-            axs_PHF[n].axhline(y=s_ens[n]["E_ref_HF"][0], color="k", alpha=0.5, linestyle=":")
-            axs_PHF[n].text(Pmax + 0.01*den_rangeP, s_ens[n]["E_ref_HF"][0], axes_lbls["E_ref_HF"], color="k", ha="left", va="top")
-            axs_PHF[n].axhline(y=s_ens[n]["E_ref_HF_CP"][0], color="k", alpha=0.5, linestyle="--")
-            axs_PHF[n].text(Pmax + 0.01*den_rangeP, s_ens[n]["E_ref_HF_CP"][0], axes_lbls["E_ref_HF_CP"], color="k", ha="left", va="bottom")
-            axs_MP[n].axhline(y=s_ens[n]["E_ref_MP"][0], color="k", alpha=0.5, linestyle=":")
-            axs_MP[n].text(Mmax + 0.01*den_rangeM, s_ens[n]["E_ref_MP"][0], axes_lbls["E_ref_MP"], color="k", ha="left", va="top")
-            axs_MP[n].axhline(y=s_ens[n]["E_ref_MP_CP"][0], color="k", alpha=0.5, linestyle="--")
-            axs_MP[n].text(Mmax + 0.01*den_rangeM, s_ens[n]["E_ref_MP_CP"][0], axes_lbls["E_ref_MP_CP"], color="k", ha="left", va="bottom")
-            axs_PMP[n].axhline(y=s_ens[n]["E_ref_MP"][0], color="k", alpha=0.5, linestyle=":")
-            axs_PMP[n].text(Pmax + 0.01*den_rangeP, s_ens[n]["E_ref_MP"][0], axes_lbls["E_ref_MP"], color="k", ha="left", va="top")
-            axs_PMP[n].axhline(y=s_ens[n]["E_ref_MP_CP"][0], color="k", alpha=0.5, linestyle="--")
-            axs_PMP[n].text(Pmax + 0.01*den_rangeP, s_ens[n]["E_ref_MP_CP"][0], axes_lbls["E_ref_MP_CP"], color="k", ha="left", va="bottom")
-        
         axs_P[n].plot(s_dens[n]["M_value"][m], s_dens[n]["densdiff_FDET_ref"][m],
            marker=(3+m, 0, 0), color=colours[m], label=lbls[m], **constant)
         axs_HF[n].plot(s_dens[n]["M_value"][m], s_ens[n]["E_FDET_HF"][m],
@@ -122,31 +120,26 @@ for n, system in enumerate(systems):
         axs_PMP[n].plot(s_dens[n]["densdiff_FDET_ref"][m], s_ens[n]["E_MPk"][m],
            marker=(3+m, 0, 0), color=colours[m], label=lbls[m], **constant)
         axs_P[n].set_xlabel(axes_lbls["M_value"])
-        axs_HF[n].set_xlabel(axes_lbls["M_value"])
-        axs_PHF[n].set_xlabel(axes_lbls["densdiff_FDET_ref"])
-        axs_MP[n].set_xlabel(axes_lbls["M_value"])
-        axs_PMP[n].set_xlabel(axes_lbls["densdiff_FDET_ref"])
-        axs_P[n].set_ylabel(axes_lbls["densdiff_FDET_ref"])
-        axs_HF[n].set_ylabel(axes_lbls["E_FDET_HF"])
-        axs_PHF[n].set_ylabel(axes_lbls["E_FDET_HF"])
-        axs_MP[n].set_ylabel(axes_lbls["E_FDET_MP"])
-        axs_PMP[n].set_ylabel(axes_lbls["E_FDET_MP"])
-        axs_P[n].set_title(syst_lbls[system])
-        axs_HF[n].set_title(syst_lbls[system])
-        axs_PHF[n].set_title(syst_lbls[system])
-        axs_MP[n].set_title(syst_lbls[system])
-        axs_PMP[n].set_title(syst_lbls[system])
-#        axs_P[n].
-#        axs_HF[n].
-#        axs_PHF[n].
-#        axs_MP[n].
-#        axs_PMP[n].
-        if n == 0:
-            axs_P[n].legend(loc="best")
-            axs_HF[n].legend(loc="best")
-            axs_PHF[n].legend(loc="best")
-            axs_MP[n].legend(loc="best")
-            axs_PMP[n].legend(loc="best")
+    axs_HF[n].set_xlabel(axes_lbls["M_value"])
+    axs_PHF[n].set_xlabel(axes_lbls["densdiff_FDET_ref"])
+    axs_MP[n].set_xlabel(axes_lbls["M_value"])
+    axs_PMP[n].set_xlabel(axes_lbls["densdiff_FDET_ref"])
+    axs_P[n].set_ylabel(axes_lbls["densdiff_FDET_ref"])
+    axs_HF[n].set_ylabel(axes_lbls["E_FDET_HF"])
+    axs_PHF[n].set_ylabel(axes_lbls["E_FDET_HF"])
+    axs_MP[n].set_ylabel(axes_lbls["E_FDET_MP"])
+    axs_PMP[n].set_ylabel(axes_lbls["E_FDET_MP"])
+    axs_P[n].set_title(syst_lbls[system])
+    axs_HF[n].set_title(syst_lbls[system])
+    axs_PHF[n].set_title(syst_lbls[system])
+    axs_MP[n].set_title(syst_lbls[system])
+    axs_PMP[n].set_title(syst_lbls[system])
+    if n == 0:
+        axs_P[n].legend(loc="best")
+        axs_HF[n].legend(loc="best")
+        axs_PHF[n].legend(loc="best")
+        axs_MP[n].legend(loc="best")
+        axs_PMP[n].legend(loc="best")
 
 fig_P.subplots_adjust(top=0.96, bottom=0.065, left=0.055, right=0.97, wspace=0.18, hspace=0.25)
 fig_HF.subplots_adjust(top=0.96, bottom=0.065, left=0.055, right=0.97, wspace=0.18, hspace=0.25)
