@@ -52,9 +52,9 @@ for system in systems:
             for cy in MCcys:
                 n_cy = cy.split("cy")[-1]
                 symlinkif(cy, os.path.join(dst_mc,"cy{}".format(n_cy)))
-            bfol = os.path.join(calc, "cy{}".format(it-1))
+            bfol = os.path.join("..",  calc, "cy{}".format(it-1))
             symlinkif(bfol, os.path.join(dst_mc,"HF_B"))
-            symlinkif(os.path.join(calc, "cy{}".format(it)), os.path.join(dst,"HF_A"))
+            symlinkif(os.path.join("..", calc, "cy{}".format(it)), os.path.join(dst,"HF_A"))
             symlinkif(bfol, os.path.join(dst,"HF_B"))
 #            symlinkif(src, dst)
 
