@@ -18,9 +18,9 @@ cqlist = ["E_FDET_HF", "E_ref_HF", "E_ref_HF_CP", "E_ref_MP",
 reqs = {
       "E_ref_HF" : ["AB_MP2,scf_energy", "A_MP2,scf_energy", "B_MP2,scf_energy"], 
       "E_ref_HF_CP" : ["AB_MP2,scf_energy", "A_MP2_gh,scf_energy", "B_MP2_gh,scf_energy"], 
-      "E_FDET_HF" : ["MP2_A,J_int", "MP2_A,V_AB", "MP2_A,AnucB", "MP2_A,BnucA",
-                     "MP2_A,Exc_nad", "MP2_A,Ts_nad", "MP2_A,fde_delta_lin",
-                     "MP2_A,scf_energy", "MP2_A,fde_expansion", "MP2_B,cycle_energies"]
+      "E_FDET_HF" : ["HF_A,J_int", "HF_A,V_AB", "HF_A,AnucB", "HF_A,BnucA",
+                     "HF_A,Exc_nad", "HF_A,Ts_nad", "HF_A,fde_delta_lin",
+                     "HF_A,scf_energy", "HF_A,fde_expansion", "HF_B,cycle_energies"]
       }
 reqs["E_ref_MP"] = reqs["E_ref_HF"] + ["AB_MP2,mp_correction", "A_MP2,mp_correction", "B_MP2,mp_correction"]
 reqs["E_ref_MP_CP"] = reqs["E_ref_HF"] + ["AB_MP2,mp_correction", "A_MP2_gh,mp_correction", "B_MP2_gh,mp_correction"]
