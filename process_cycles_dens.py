@@ -41,9 +41,11 @@ df.to_csv("FTMC_dens.csv")
 joblist = []
 for system in systems:
     os.chdir(os.path.join(cwd, system))
-    joblist.extend([[cwd, system, i] for i in gl.glob("FT*-ME")])
+    joblist.extend([[cwd, system, i] for i in gl.glob("FT?-ME")])
+    joblist.extend([[cwd, system, i] for i in gl.glob("FT??-ME")])
     joblist.append([cwd, system, "FT-ME"])
-    joblist.extend([[cwd, system, i] for i in gl.glob("FT*-SE")])
+    joblist.extend([[cwd, system, i] for i in gl.glob("FT?-SE")])
+    joblist.extend([[cwd, system, i] for i in gl.glob("FT??-SE")])
     joblist.append([cwd, system, "FT-SE"])
 os.chdir(cwd)
 df = ccd.collect_data(joblist, levelnames=["base","system","calc"], qlist=cqlist,
