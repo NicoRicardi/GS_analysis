@@ -13,7 +13,7 @@ import pandas as pd
 import os
 import itertools as ittl
 
-cqlist = ["E_FDET_HF","E_linFDET_HF", "E_ref_HF", "E_ref_HF_CP", "E_ref_MP",
+cqlist = ["E_FDET_HF", "E_linFDET_HF", "E_ref_HF", "E_ref_HF_CP", "E_ref_MP",
           "E_ref_MP_CP"]
 reqs = {
       "E_ref_HF" : ["AB_MP2,scf_energy", "A_MP2,scf_energy", "B_MP2,scf_energy"], 
@@ -39,7 +39,8 @@ parserfuncs = {"dmf_hf": phf, "ccp": None}
 parser_kwargs = {"dmf_hf": {}, "ccp": {}}
 
 cwd = os.getcwd()
-systems = ["7HQ_2MeOH", "7HQ_formate", "Uracil_5H2O", "XVI_2HCOOH"]
+#systems = ["7HQ_2MeOH", "7HQ_formate", "Uracil_5H2O", "XVI_2HCOOH"]
+systems = ["7HQ_2MeOH"]
 joblist = []
 for system in systems:
     os.chdir(os.path.join(cwd, system))
@@ -59,9 +60,11 @@ df.to_csv("FTMC_en.csv")
 joblist = []
 for system in systems:
     os.chdir(os.path.join(cwd, system))
-    joblist.extend([[cwd, system, i] for i in gl.glob("FT*-ME")])
+    joblist.extend([[cwd, system, i] for i in gl.glob("FT?-ME")])
+    joblist.extend([[cwd, system, i] for i in gl.glob("FT??-ME")])
     joblist.append([cwd, system, "FT-ME"])
-    joblist.extend([[cwd, system, i] for i in gl.glob("FT*-SE")])
+    joblist.extend([[cwd, system, i] for i in gl.glob("FT?-SE")])
+    joblist.extend([[cwd, system, i] for i in gl.glob("FT??-SE")])
     joblist.append([cwd, system, "FT-SE"])
 #print("joblist", joblist)
 os.chdir(cwd)
