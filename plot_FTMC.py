@@ -56,7 +56,11 @@ axes_lbls = {"E_FDET_HF": r"$E^{FDET}_{HF} [Kcal/mol]$ ",
              "E_ref_MP_CP": r"$E^{MP}_{CP}$"}
 
 
-constant = dict(linestyle="", alpha=0.35, markeredgecolor="k", markeredgewidth=2.5, markersize=2.5)
+#constant = dict(linestyle="", alpha=0.35, markeredgecolor="k", markeredgewidth=1, markersize=5)
+constant = dict(linestyle="", alpha=0.35, markeredgewidth=1)
+markcol = [{"color":"r", "marker": "+", "markersize":10},
+           {"color":"b", "marker": "x", "markersize":7.5},
+           {"color":"r", "marker": "o", "markersize":3},]
 
 for exp in ["ME", "SE"]:
 #for exp in ["ME"]:
@@ -98,9 +102,9 @@ for exp in ["ME", "SE"]:
     en_range = max(en_ranges)*1.1   
     den_rangeM = max(dens_rangeM)*1.1
     den_rangeP = max(dens_rangeP)*1.1
-    fig_P, fig_HF, fig_PHF = [plt.figure(figsize=(20, 10), dpi=150) for i in range(3)]
+    fig_P, fig_HF, fig_PHF = [plt.figure(figsize=(20, 10), dpi=300) for i in range(3)]
     axs_P, axs_HF, axs_PHF = [[] for i in range(3)]
-    fig_NM, fig_NP, fig_NHF = [plt.figure(figsize=(20, 10), dpi=150) for i in range(3)]
+    fig_NM, fig_NP, fig_NHF = [plt.figure(figsize=(20, 10), dpi=300) for i in range(3)]
     axs_NM, axs_NP, axs_NHF = [[] for i in range(3)]
     for n, system in enumerate(systems):
         axs_P.append(fig_P.add_subplot(221+n))#, label="P"))
@@ -145,27 +149,33 @@ for exp in ["ME", "SE"]:
         axs_PHF[n].axhline(y=s_ens[n]["E_ref_HF_CP"][2], color="k", alpha=0.5, linestyle="--")
         axs_PHF[n].text(Pmax + 0.01*den_rangeP, s_ens[n]["E_ref_HF_CP"][2], axes_lbls["E_ref_HF_CP"], color="k", ha="left", va="bottom")
         axs_P[n].plot(s_dens[n]["M_value"], s_dens[n]["densdiff_FDET_ref"],
-           marker="o", color=colours[0], label="_nolegend_", **constant)
-        axs_P[n].plot(s_MCdens[n]["M_value"], s_dens[n]["densdiff_FDET_ref"],
-           marker="o", color=colours[2], label="_nolegend_", **constant)
+           **markcol[0], label="_nolegend_", **constant)
+        axs_P[n].plot(s_MCdens[n]["M_value"], s_MCdens[n]["densdiff_FDET_ref"],
+           **markcol[1], label="_nolegend_", **constant)
+        axs_HF[n].plot(s_dens[n]["M_value"], s_ens[n]["E_linFDET_HF"],
+           **markcol[0], label="_nolegend_", **constant)
         axs_HF[n].plot(s_dens[n]["M_value"], s_ens[n]["E_FDET_HF"],
-           marker="o", color=colours[0], label="_nolegend_", **constant)
-        axs_HF[n].plot(s_MCdens[n]["M_value"], s_ens[n]["E_FDET_HF"],
-           marker="o", color=colours[2], label="_nolegend_", **constant)
+           **markcol[2], label="_nolegend_", **constant)
+        axs_HF[n].plot(s_MCdens[n]["M_value"], s_MCens[n]["E_FDET_HF"],
+           **markcol[1], label="_nolegend_", **constant)
+        axs_PHF[n].plot(s_dens[n]["densdiff_FDET_ref"], s_ens[n]["E_linFDET_HF"],
+           **markcol[0], label="_nolegend_", **constant)
         axs_PHF[n].plot(s_dens[n]["densdiff_FDET_ref"], s_ens[n]["E_FDET_HF"],
-           marker="o", color=colours[0], label="_nolegend_", **constant)
-        axs_PHF[n].plot(s_MCdens[n]["densdiff_FDET_ref"], s_ens[n]["E_FDET_HF"],
-           marker="o", color=colours[2], label="_nolegend_", **constant)
+           **markcol[2], label="_nolegend_", **constant)
+        axs_PHF[n].plot(s_MCdens[n]["densdiff_FDET_ref"], s_MCens[n]["E_FDET_HF"],
+           **markcol[1], label="_nolegend_", **constant)
         axs_NM[n].plot(s_dens[n].index, s_dens[n]["M_value"],
-           marker="o", color=colours[0], label="_nolegend_", **constant)
+           **markcol[2], label="_nolegend_", **constant)
         axs_NP[n].plot(s_dens[n].index, s_dens[n]["densdiff_FDET_ref"],
-           marker="o", color=colours[0], label="_nolegend_", **constant)
-        axs_NP[n].plot(s_MCdens[n].index, s_dens[n]["densdiff_FDET_ref"],
-           marker="o", color=colours[2], label="_nolegend_", **constant)
+           **markcol[0], label="_nolegend_", **constant)
+        axs_NP[n].plot(s_MCdens[n].index, s_MCdens[n]["densdiff_FDET_ref"],
+           **markcol[1], label="_nolegend_", **constant)
+        axs_NHF[n].plot(s_dens[n].index, s_ens[n]["E_linFDET_HF"],
+           **markcol[0], label="_nolegend_", **constant)
         axs_NHF[n].plot(s_dens[n].index, s_ens[n]["E_FDET_HF"],
-           marker="o", color=colours[0], label="_nolegend_", **constant)
-        axs_NHF[n].plot(s_MCdens[n].index, s_ens[n]["E_FDET_HF"],
-           marker="o", color=colours[2], label="_nolegend_", **constant)
+           **markcol[2], label="_nolegend_", **constant)
+        axs_NHF[n].plot(s_MCdens[n].index, s_MCens[n]["E_FDET_HF"],
+           **markcol[1], label="_nolegend_", **constant)
         axs_P[n].set_xlabel(axes_lbls["M_value"])
         axs_HF[n].set_xlabel(axes_lbls["M_value"])
         axs_PHF[n].set_xlabel(axes_lbls["densdiff_FDET_ref"])
@@ -192,11 +202,11 @@ for exp in ["ME", "SE"]:
     fig_NP.subplots_adjust(top=0.96, bottom=0.065, left=0.055, right=0.97, wspace=0.18, hspace=0.25)
     fig_NHF.subplots_adjust(top=0.96, bottom=0.065, left=0.055, right=0.97, wspace=0.18, hspace=0.25)
     
-    fig_P.savefig("{}_cycles_M_vs_P.png".format(exp))
-    fig_HF.savefig("{}_cycles_M_vs_HF.png".format(exp))
-    fig_PHF.savefig("{}_cycles_P_vs_HF.png".format(exp))
-    fig_NM.savefig("{}_cycles_N_vs_M.png".format(exp))
-    fig_NP.savefig("{}_cycles_N_vs_P.png".format(exp))
-    fig_NHF.savefig("{}_cycles_N_vs_HF.png".format(exp))
+    fig_P.savefig("{}_cycles_M_vs_P.png".format(exp), dpi=300)
+    fig_HF.savefig("{}_cycles_M_vs_HF.png".format(exp), dpi=300)
+    fig_PHF.savefig("{}_cycles_P_vs_HF.png".format(exp), dpi=300)
+    fig_NM.savefig("{}_cycles_N_vs_M.png".format(exp), dpi=300)
+    fig_NP.savefig("{}_cycles_N_vs_P.png".format(exp), dpi=300)
+    fig_NHF.savefig("{}_cycles_N_vs_HF.png".format(exp), dpi=300)
 
 

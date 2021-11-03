@@ -19,22 +19,18 @@ joblist = []
 for system in systems:
     os.chdir(os.path.join(cwd, system))
     joblist.extend([[cwd, system, i] for i in gl.glob("FT*-MC-ME")])
-    joblist.append([cwd, system, "FT-ME"])
     joblist.extend([[cwd, system, i] for i in gl.glob("FT*-MC-SE")])
-    joblist.append([cwd, system, "FT-SE"])
 os.chdir(cwd)
 datafiles = [os.path.join(*i, "data.json") for i in joblist]
-correct_values(datafiles, todel="E_FDET_HF")
+correct_values(datafiles, todel=["E_FDET_HF", "E_linFDET_HF"])
 
 joblist = []
 for system in systems:
     os.chdir(os.path.join(cwd, system))
     joblist.extend([[cwd, system, i] for i in gl.glob("FT*-ME")])
-    joblist.append([cwd, system, "FT-ME"])
     joblist.extend([[cwd, system, i] for i in gl.glob("FT*-SE")])
-    joblist.append([cwd, system, "FT-SE"])
 os.chdir(cwd)
 datafiles = [os.path.join(*i, "data.json") for i in joblist]
-correct_values(datafiles, todel="E_FDET_HF")
+correct_values(datafiles, todel=["E_FDET_HF", "E_linFDET_HF"])
 
 #correct_values(dmfinders, todel=["HF_ref", "HF_FDET_A"])
