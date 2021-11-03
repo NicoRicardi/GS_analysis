@@ -33,5 +33,5 @@ def symlinkif(src, dst, printout=False):
 root = os.getcwd()
 systems = ["7HQ_2MeOH", "7HQ_formate", "Uracil_5H2O", "XVI_2HCOOH"]
 for system in systems:
-    os.chdir(system)
+    os.chdir(os.path.join(root, system))
     symlinkif(os.path.join("FT-SE", "cy0", "FT0-MC-SE"), "MC-SE-nopp")
