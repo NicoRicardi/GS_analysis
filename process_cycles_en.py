@@ -30,7 +30,7 @@ reqs["E_ref_MP_CP"] = reqs["E_ref_HF"] + ["AB_MP2,mp_correction", "A_MP2_gh,mp_c
 
 quantities_hf = ["DMfinder.json,{}".format(i) for  i in ["HF_FDET_A", "HF_FDET_B"]]
 
-quantities_ccp = list(set(reqs["E_ref_HF"] + reqs["E_ref_HF_CP"] + reqs["E_FDET_HF"]\
+quantities_ccp = list(set(reqs["E_ref_HF"] + reqs["E_ref_HF_CP"] + reqs["E_linFDET_HF"]\
                           + reqs["E_ref_MP"] + reqs["E_ref_MP_CP"]))
 
 parser = {k: "dmf_hf" for k in quantities_hf}
