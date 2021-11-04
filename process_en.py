@@ -12,12 +12,15 @@ import pandas as pd
 import os
 import itertools as ittl
 
-cqlist = ["E_FDET_MP", "kernel_tot", "E_FDET_HF", "E_ref_HF", "E_ref_HF_CP", "E_ref_MP",
+cqlist = ["E_FDET_MP", "kernel_tot", "E_FDET_HF", "E_linFDET_HF", "E_ref_HF", "E_ref_HF_CP", "E_ref_MP",
           "E_ref_MP_CP"]
 reqs = {
       "E_ref_HF" : ["AB_MP2,scf_energy", "A_MP2,scf_energy", "B_MP2,scf_energy"], 
       "E_ref_HF_CP" : ["AB_MP2,scf_energy", "A_MP2_gh,scf_energy", "B_MP2_gh,scf_energy"], 
       "E_FDET_HF" : ["MP2_A,J_int", "MP2_A,V_AB", "MP2_A,AnucB", "MP2_A,BnucA",
+                     "MP2_A,Exc_nad", "MP2_A,Ts_nad",
+                     "MP2_A,scf_energy", "MP2_A,fde_expansion", "MP2_B,cycle_energies"],
+      "E_linFDET_HF" : ["MP2_A,J_int", "MP2_A,V_AB", "MP2_A,AnucB", "MP2_A,BnucA",
                      "MP2_A,Exc_nad", "MP2_A,Ts_nad", "MP2_A,fde_delta_lin",
                      "MP2_A,scf_energy", "MP2_A,fde_expansion", "MP2_B,cycle_energies"]
       }

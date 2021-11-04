@@ -19,7 +19,7 @@ reqs = {
       "E_ref_HF" : ["AB_MP2,scf_energy", "A_MP2,scf_energy", "B_MP2,scf_energy"], 
       "E_ref_HF_CP" : ["AB_MP2,scf_energy", "A_MP2_gh,scf_energy", "B_MP2_gh,scf_energy"], 
       "E_FDET_HF" : ["HF_A,J_int", "HF_A,V_AB", "HF_A,AnucB", "HF_A,BnucA",
-                     "HF_A,Exc_nad", "HF_A,Ts_nad", "HF_A,fde_delta_lin",
+                     "HF_A,Exc_nad", "HF_A,Ts_nad",
                      "HF_A,scf_energy", "HF_A,fde_expansion", "HF_B,cycle_energies"],
       "E_linFDET_HF" : ["HF_A,J_int", "HF_A,V_AB", "HF_A,AnucB", "HF_A,BnucA",
                      "HF_A,Exc_nad", "HF_A,Ts_nad", "HF_A,fde_delta_lin",
