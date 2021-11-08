@@ -13,7 +13,7 @@ Created on Tue Aug 31 08:31:39 2021
 @author: nico
 """
 import pandas as pd
-import numpy as np
+import os
 import matplotlib.pyplot as plt
 from matplotlib import rc
 rc('text', usetex=True)
@@ -75,22 +75,22 @@ for exp in ["ME", "SE"]:
         s_en = en[en["system"] == system]
         s_en.loc[:,"iter"] = s_en["calc"].apply(get_iter)
         s_en.loc[s_en["iter"] == -1,"iter"] = s_en["iter"].max() + 2
-        s_en = s_en.set_index("iter").sort_index()#[1:]
+        s_en = s_en.set_index("iter").sort_index()[1:]
         s_ens.append(s_en)
         s_den = dens[dens["system"] == system]
         s_den.loc[:,"iter"] = s_den["calc"].apply(get_iter)
         s_den.loc[s_den["iter"] == -1,"iter"] = s_den["iter"].max() + 2
-        s_den = s_den.set_index("iter").sort_index()#[1:]
+        s_den = s_den.set_index("iter").sort_index()[1:]
         s_dens.append(s_den)
         s_MCen = MCen[MCen["system"] == system]
         s_MCen.loc[:,"iter"] = s_MCen["calc"].apply(get_iter)
         s_MCen.loc[s_MCen["iter"] == -1,"iter"] = s_MCen["iter"].max() + 2
-        s_MCen = s_MCen.set_index("iter").sort_index()#[1:]
+        s_MCen = s_MCen.set_index("iter").sort_index()[1:]
         s_MCens.append(s_MCen)
         s_MCden = MCdens[MCdens["system"] == system]
         s_MCden.loc[:,"iter"] = s_MCden["calc"].apply(get_iter)
         s_MCden.loc[s_MCden["iter"] == -1,"iter"] = s_MCden["iter"].max() + 2
-        s_MCden = s_MCden.set_index("iter").sort_index()#[1:]
+        s_MCden = s_MCden.set_index("iter").sort_index()[1:]
         s_MCdens.append(s_MCden)
         all_ens = s_en["E_FDET_HF"].tolist() + [s_en["E_ref_HF"][2], s_en["E_ref_HF_CP"][2]] + s_MCen["E_FDET_HF"].tolist() + [s_MCen["E_ref_HF"][2], s_MCen["E_ref_HF_CP"][2]]
         en_ranges.append(max(all_ens) - min(all_ens))
@@ -114,7 +114,6 @@ for exp in ["ME", "SE"]:
         axs_NM.append(fig_NM.add_subplot(221+n))#, label="NM"))
         axs_NP.append(fig_NP.add_subplot(221+n))#, label="NP"))
         axs_NHF.append(fig_NHF.add_subplot(221+n))#, label="NHF"))
-        Nmax = s_ens[n].index.max()
         Mmin = dens_cenM[n] - 0.5*den_rangeM
         Mmin = max(0, Mmin)
         Mmax = Mmin + den_rangeM
@@ -123,36 +122,33 @@ for exp in ["ME", "SE"]:
         Pmin = dens_cenP[n] - 0.5*den_rangeP
         Pmin = max(Pmin, 0) 
         Pmax = Pmin + den_rangeP
-        axs_P[n].set_xlim([Mmin, Mmax])
-        axs_P[n].set_ylim([Pmin, Pmax])
+#        axs_P[n].set_xlim([Mmin, Mmax])
+#        axs_P[n].set_ylim([Pmin, Pmax])
         axs_P[n].grid(b=True)
-        axs_HF[n].set_xlim([Mmin, Mmax])
-        axs_HF[n].set_ylim([emin, emax])
+#        axs_HF[n].set_xlim([Mmin, Mmax])
+#        axs_HF[n].set_ylim([emin, emax])
         axs_HF[n].grid(b=True)
-        axs_PHF[n].set_xlim([Pmin, Pmax])
-        axs_PHF[n].set_ylim([emin, emax])
+#        axs_PHF[n].set_xlim([Pmin, Pmax])
+#        axs_PHF[n].set_ylim([emin, emax])
         axs_PHF[n].grid(b=True)
-        axs_NM[n].set_ylim([Mmin, Mmax])
+#        axs_NM[n].set_ylim([Mmin, Mmax])
         axs_NM[n].grid(b=True)
-        axs_NM[n].set_xticks(np.arange(0, Nmax, 2))
-        axs_NP[n].set_ylim([Pmin, Pmax])
+#        axs_NP[n].set_ylim([Pmin, Pmax])
         axs_NP[n].grid(b=True)
-        axs_NP[n].set_xticks(np.arange(0, Nmax, 2))
-        axs_NHF[n].set_ylim([emin, emax])
+#        axs_NHF[n].set_ylim([emin, emax])
         axs_NHF[n].grid(b=True)
-        axs_NHF[n].set_xticks(np.arange(0, Nmax + 2, 2))
-        axs_HF[n].axhline(y=s_ens[n]["E_ref_HF"][2], color="k", alpha=0.5, linestyle=":")
-        axs_HF[n].text(Mmax + 0.01*den_rangeM, s_ens[n]["E_ref_HF"][2], axes_lbls["E_ref_HF"], color="k", ha="left", va="top")
-        axs_HF[n].axhline(y=s_ens[n]["E_ref_HF_CP"][2], color="k", alpha=0.5, linestyle="--")
-        axs_HF[n].text(Mmax + 0.01*den_rangeM, s_ens[n]["E_ref_HF_CP"][2], axes_lbls["E_ref_HF_CP"], color="k", ha="left", va="bottom")
-        axs_NHF[n].axhline(y=s_ens[n]["E_ref_HF"][2], color="k", alpha=0.5, linestyle=":")
-        axs_NHF[n].text(1.06 * Nmax, s_ens[n]["E_ref_HF"][2], axes_lbls["E_ref_HF"], color="k", ha="left", va="top")
-        axs_NHF[n].axhline(y=s_ens[n]["E_ref_HF_CP"][2], color="k", alpha=0.5, linestyle="--")
-        axs_NHF[n].text(1.06 * Nmax, s_ens[n]["E_ref_HF_CP"][2], axes_lbls["E_ref_HF_CP"], color="k", ha="left", va="bottom")
-        axs_PHF[n].axhline(y=s_ens[n]["E_ref_HF"][2], color="k", alpha=0.5, linestyle=":")
-        axs_PHF[n].text(Pmax + 0.01*den_rangeP, s_ens[n]["E_ref_HF"][2], axes_lbls["E_ref_HF"], color="k", ha="left", va="top")
-        axs_PHF[n].axhline(y=s_ens[n]["E_ref_HF_CP"][2], color="k", alpha=0.5, linestyle="--")
-        axs_PHF[n].text(Pmax + 0.01*den_rangeP, s_ens[n]["E_ref_HF_CP"][2], axes_lbls["E_ref_HF_CP"], color="k", ha="left", va="bottom")
+#        axs_HF[n].axhline(y=s_ens[n]["E_ref_HF"][2], color="k", alpha=0.5, linestyle=":")
+#        axs_HF[n].text(Mmax + 0.01*den_rangeM, s_ens[n]["E_ref_HF"][2], axes_lbls["E_ref_HF"], color="k", ha="left", va="top")
+#        axs_HF[n].axhline(y=s_ens[n]["E_ref_HF_CP"][2], color="k", alpha=0.5, linestyle="--")
+#        axs_HF[n].text(Mmax + 0.01*den_rangeM, s_ens[n]["E_ref_HF_CP"][2], axes_lbls["E_ref_HF_CP"], color="k", ha="left", va="bottom")
+#        axs_NHF[n].axhline(y=s_ens[n]["E_ref_HF"][2], color="k", alpha=0.5, linestyle=":")
+#        axs_NHF[n].text(Mmax + 0.01*den_rangeM, s_ens[n]["E_ref_HF"][2], axes_lbls["E_ref_HF"], color="k", ha="left", va="top")
+#        axs_NHF[n].axhline(y=s_ens[n]["E_ref_HF_CP"][2], color="k", alpha=0.5, linestyle="--")
+#        axs_NHF[n].text(Mmax + 0.01*den_rangeM, s_ens[n]["E_ref_HF_CP"][2], axes_lbls["E_ref_HF_CP"], color="k", ha="left", va="bottom")
+#        axs_PHF[n].axhline(y=s_ens[n]["E_ref_HF"][2], color="k", alpha=0.5, linestyle=":")
+#        axs_PHF[n].text(Pmax + 0.01*den_rangeP, s_ens[n]["E_ref_HF"][2], axes_lbls["E_ref_HF"], color="k", ha="left", va="top")
+#        axs_PHF[n].axhline(y=s_ens[n]["E_ref_HF_CP"][2], color="k", alpha=0.5, linestyle="--")
+#        axs_PHF[n].text(Pmax + 0.01*den_rangeP, s_ens[n]["E_ref_HF_CP"][2], axes_lbls["E_ref_HF_CP"], color="k", ha="left", va="bottom")
         axs_P[n].plot(s_dens[n]["M_value"], s_dens[n]["densdiff_FDET_ref"],
            **markcol[0], label="_nolegend_", **constant)
         axs_P[n].plot(s_MCdens[n]["M_value"], s_MCdens[n]["densdiff_FDET_ref"],
@@ -175,9 +171,9 @@ for exp in ["ME", "SE"]:
            **markcol[0], label="_nolegend_", **constant)
         axs_NP[n].plot(s_MCdens[n].index, s_MCdens[n]["densdiff_FDET_ref"],
            **markcol[1], label="_nolegend_", **constant)
-        axs_NHF[n].plot(s_ens[n].index, s_ens[n]["E_linFDET_HF"],
+        axs_NHF[n].plot(s_dens[n].index, s_ens[n]["E_linFDET_HF"],
            **markcol[0], label="_nolegend_", **constant)
-        axs_NHF[n].plot(s_ens[n].index, s_ens[n]["E_FDET_HF"],
+        axs_NHF[n].plot(s_dens[n].index, s_ens[n]["E_FDET_HF"],
            **markcol[2], label="_nolegend_", **constant)
         axs_NHF[n].plot(s_MCdens[n].index, s_MCens[n]["E_FDET_HF"],
            **markcol[1], label="_nolegend_", **constant)
@@ -207,11 +203,11 @@ for exp in ["ME", "SE"]:
     fig_NP.subplots_adjust(top=0.96, bottom=0.065, left=0.055, right=0.97, wspace=0.18, hspace=0.25)
     fig_NHF.subplots_adjust(top=0.96, bottom=0.065, left=0.055, right=0.97, wspace=0.18, hspace=0.25)
     
-    fig_P.savefig("{}_cycles_M_vs_P.png".format(exp), dpi=300)
-    fig_HF.savefig("{}_cycles_M_vs_HF.png".format(exp), dpi=300)
-    fig_PHF.savefig("{}_cycles_P_vs_HF.png".format(exp), dpi=300)
-    fig_NM.savefig("{}_cycles_N_vs_M.png".format(exp), dpi=300)
-    fig_NP.savefig("{}_cycles_N_vs_P.png".format(exp), dpi=300)
-    fig_NHF.savefig("{}_cycles_N_vs_HF.png".format(exp), dpi=300)
+    fig_P.savefig(os.path.join("skip_first", "{}_cycles_M_vs_P.png".format(exp)), dpi=300)
+    fig_HF.savefig(os.path.join("skip_first", "{}_cycles_M_vs_HF.png".format(exp)), dpi=300)
+    fig_PHF.savefig(os.path.join("skip_first", "{}_cycles_P_vs_HF.png".format(exp)), dpi=300)
+    fig_NM.savefig(os.path.join("skip_first", "{}_cycles_N_vs_M.png".format(exp)), dpi=300)
+    fig_NP.savefig(os.path.join("skip_first", "{}_cycles_N_vs_P.png".format(exp)), dpi=300)
+    fig_NHF.savefig(os.path.join("skip_first", "{}_cycles_N_vs_HF.png".format(exp)), dpi=300)
 
 

@@ -50,6 +50,6 @@ df = ccd.collect_data(joblist, levelnames=["base","system","calc"], qlist=cqlist
                  parser_file="CCParser.json",parser_args=None, 
                  parser_kwargs=parser_kwargs, check_input=True, funcdict = "ccp",
                  to_console=True, to_log=False, printlevel=10)   
-df.to_csv("results_en.csv")
+df.to_csv("results_SE_en.csv")
 
 

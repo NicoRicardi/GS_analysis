@@ -1,0 +1,134 @@
+\documentclass[journal=jctcce,manuscript=article, layout=twocolumn]{achemso}
+\usepackage[table]{xcolor}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{float}
+\graphicspath{ {./FIGs/} }
+
+\author{Niccol\`{o} Ricardi}
+\email{Niccolo.Ricardi@unige.ch}
+\author{Cristina E. Gonz\'{a}lez-Espinoza}
+\author{Tomasz Adam Weso\l{}owski}
+\email{Tomasz.Wesolowski@unige.ch}
+\affiliation[University of Geneva]
+{Department of Physical Chemistry, University of Geneva, Geneva (Switzerland)}
+
+\title[Non-negativity of the target density]
+  {Violation of The non-negativity of the target density in practical calculations}
+
+\begin{document}
+
+\begin{tocentry}
+
+TOC to be made. Probably isosurfaces of target density.
+
+\end{tocentry}
+
+
+\begin{abstract}
+Tentative abstract
+\end{abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Start the main part of the manuscript here.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+\begin{itemize}
+ \item FDET equation
+ \item shape of embedding potential.
+ \item there is no possible embedding potential that can lead to non v-representable target densities
+ \item if $\delta \rho_B (\mathbf{r})$ so that the extent of violation is reduced, the induced change in energy has to be non-positive ($\delta E^{FDET}[\Psi_A,\rho_B; v_B] \leq 0$ 
+ \item if we somehow measure the extent of non-negativity, and this is reduced, the energy should also lower. This is true unless:
+ \begin{itemize}
+  \item the violation reduces in a region of the space and increases somewhere else, with a larger energy effect in the latter than the former.
+  \item the contributions of the other sources of error (approximate functionals and potentials, basis set expansion) do not change significantly
+ \end{itemize}
+ \item polarization and charge transfer can be expected to influence the extent of violation of the target density
+\end{itemize}
+
+\section{Computational Details}
+\begin{itemize}
+ \item We study each of the 4 systems individually so that the changes in other error contributions are minimized
+ \item The energy effect of density is far from easy
+ \item Definition of M
+ \item Definition of P
+ \item pyscf to perform integration of M and P
+ \item Qchem version
+ \item ME vs SE, point-charge prepolarization only for ME
+ \item labels for different densities
+ \item in-house iterative procedure (Nico's fork of Alex's CCJob)
+\end{itemize}
+
+\section{Results and discussion}
+\subsection{Monomer Expansion}
+M vs $E_{HF}$
+\begin{itemize}
+ \item When M decreases, so does the HF energy
+ \item When we somehow prepolarize, we obtain a decrease in M, and the behavior is sensible (Mulliken < ChelPG < Freeze and Thaw, Mulliken sometimes no improvement)
+\end{itemize}
+M vs P
+\begin{itemize}
+ \item When M decreases, so does the P
+\end{itemize}
+M vs $E_{MP}$
+\begin{itemize}
+ \item When M decreases, so does the MP energy (obtained according to Wesolowski 2020)
+ \item Small deviation from expected behavior is small and can be explained by the approximate correlation treatment, the approximate external potential, and the incomplete basis set
+\end{itemize}
+\subsection{Supermolecular Expansion}
+M vs $E_{HF}$
+M vs P
+M vs $E_{MP}$
+\begin{itemize}
+ \item same behavior for supermolecular expansion, where charge transfer is allowed
+\end{itemize}
+
+\subsection{Freeze and Thaw cycles}
+N vs $E_{HF}$, SE
+\begin{itemize}
+ \item the first freeze and thaw iteration leads to the largest energy decrease
+ \item after 1-2 freeze and thaw iterations the energy is almost equal to the fully converged one
+ \item the linearization is extremely accurate, $\Delta^{lin}$ decreases during freeze and thaw, and finally reaches zero
+ \item same findings for ME (cf. SI)
+\end{itemize}
+
+\section{Conclusions}
+\begin{itemize}
+ \item the negativity of the target density clearly increases $E^{FDET}[\Psi_A,\rho_B; v_B]$
+ \item prepolarization techniques reduce negativity, and consequently $E^{FDET}[\Psi_A,\rho_B; v_B]$
+ \item the negativity of the target density is a sizeable error contribution. Error analysis should account for this.
+ \item Single-state properties require some type of prepolarization
+ \item ESP-derived charges are a well-performing tradeoff between computation time and accuracy
+ \item the error on excitation properties depends on the difference of negativity violation $\Delta M$. This implies:
+    \begin{itemize}
+     \item no-prepolarization can be expected to be much better than for single-state properties
+     \item the effect of prepolarization is hard to predict, and knowledge of the system is necessary
+    \end{itemize}
+
+\end{itemize}
+
+\begin{acknowledgement}
+The authors thank funding xyz.
+\end{acknowledgement}
+
+\begin{suppinfo}
+The data is provided in csv.
+\begin{itemize}
+  \item Filename: data as comma separated values. The labels are explaind below:
+  \begin{itemize}
+   \item label: explanation
+  \end{itemize}
+
+
+\end{itemize}
+
+\end{suppinfo}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The appropriate \bibliography command should be placed here.
+%% Notice that the class file automatically sets \bibliographystyle
+%% and also names the section correctly.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliography{achemso-demo}
+
+\end{document}
