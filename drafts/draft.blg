@@ -1,0 +1,65 @@
+This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: draft.aux
+The style file: achemso.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: acs-draft.bib
+Database file #2: group_bibliography.bib
+I was expecting a `,' or a `}'---line 6744 of file group_bibliography.bib
+ : 
+ : year = {2021},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 6764 of file group_bibliography.bib
+ : 
+ : year = {2021},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 6774 of file group_bibliography.bib
+ : 
+ : year = {2021},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+achemso 2018/02/05 v3.11a
+You've used 25 entries,
+            2536 wiz_defined-function locations,
+            956 strings with 16272 characters,
+and the built_in function-call counts, 14811 in all, are:
+= -- 912
+> -- 1476
+< -- 20
++ -- 586
+- -- 561
+* -- 1641
+:= -- 2146
+add.period$ -- 45
+call.type$ -- 25
+change.case$ -- 4
+chr.to.int$ -- 1
+cite$ -- 25
+duplicate$ -- 858
+empty$ -- 572
+format.name$ -- 592
+if$ -- 2678
+int.to.chr$ -- 0
+int.to.str$ -- 1
+missing$ -- 0
+newline$ -- 172
+num.names$ -- 74
+pop$ -- 45
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 21
+stack$ -- 0
+substring$ -- 456
+swap$ -- 1266
+text.length$ -- 51
+text.prefix$ -- 0
+top$ -- 1
+type$ -- 172
+warning$ -- 0
+while$ -- 84
+width$ -- 0
+write$ -- 325
+(There were 3 error messages)

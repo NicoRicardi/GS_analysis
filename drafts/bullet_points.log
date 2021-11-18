@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.3.17)  8 NOV 2021 10:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.3.17)  14 NOV 2021 23:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -278,31 +278,31 @@ LaTeX Font Info:    ... okay on input line 19.
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
 * driver: pdftex
-* paper: letterpaper
+* paper: <default>
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(54.91382pt, 504.46736pt, 54.91382pt)
-* v-part:(T,H,B)=(36.13498pt, 711.03438pt, 47.80063pt)
+* h-part:(L,W,R)=(72.2698pt, 469.75539pt, 72.2698pt)
+* v-part:(T,H,B)=(72.2698pt, 650.43037pt, 72.2698pt)
 * \paperwidth=614.295pt
 * \paperheight=794.96999pt
-* \textwidth=504.46736pt
-* \textheight=711.03438pt
-* \oddsidemargin=-17.35617pt
-* \evensidemargin=-17.35617pt
-* \topmargin=-73.13501pt
+* \textwidth=469.75539pt
+* \textheight=650.43037pt
+* \oddsidemargin=-0.00018pt
+* \evensidemargin=-0.00018pt
+* \topmargin=-37.00018pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=12.0pt
 * \footskip=30.0pt
 * \marginparwidth=44.0pt
 * \marginparsep=10.0pt
-* \columnsep=23.04674pt
+* \columnsep=10.0pt
 * \skip\footins=10.8pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
-* \@twocolumntrue
+* \@twocolumnfalse
 * \@twosidefalse
 * \@mparswitchfalse
 * \@reversemarginfalse
@@ -383,77 +383,41 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 37.
+ [1
 
-Underfull \hbox (badness 1565) in paragraph at lines 40--41
-[]\OT1/cmr/m/n/12 if $\OML/cmm/m/it/12 ^^N^^Z[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/1
-2 r\OT1/cmr/m/n/12 )$ so that the ex-tent of vi-o-
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
+Underfull \vbox (badness 10000) detected at line 59
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 40--41
-\OT1/cmr/m/n/12 in en-ergy has to be non-positive
- []
-
-
-Underfull \hbox (badness 7685) in paragraph at lines 44--45
-[]\OT1/cmr/m/n/12 the con-tri-bu-tions of the other
- []
-
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
-
-
-
-]
-Overfull \hbox (7.27611pt too wide) in paragraph at lines 98--99
-\OT1/cmr/m/n/12 tiv-ity, and con-se-quently $\OML/cmm/m/it/12 E[]\OT1/cmr/m/n/1
-2 [	[]\OML/cmm/m/it/12 ; ^^Z[]\OT1/cmr/m/n/12 ; \OML/cmm/m/it/12 v[]\OT1/cmr/m/
-n/12 ]$ 
- []
-
-
-Overfull \hbox (1.85524pt too wide) in paragraph at lines 101--102
-[]\OT1/cmr/m/n/12 ESP-derived charges are a well-performing
- []
-
-
-Underfull \hbox (badness 7133) in paragraph at lines 110--112
-[]\OT1/cmr/bx/n/12 Acknowledgement \OT1/cmr/m/n/12 The au-thors thank
- []
-
-
-Overfull \hbox (14.16951pt too wide) in paragraph at lines 114--114
-[]\OT1/cmr/bx/n/17.28 Supporting In-for-ma-tion Avail-
- []
-
-No file bullet_points.bbl.
-[2]
-Underfull \vbox (badness 10000) detected at line 134
- []
-
-[3
-
-] (./bullet_points.aux) ) 
+[3] (./bullet_points.aux) ) 
 Here is how much of TeX's memory you used:
- 5544 strings out of 492982
- 81474 string characters out of 6134896
- 159551 words of memory out of 5000000
- 9019 multiletter control sequences out of 15000+600000
- 12945 words of font info for 46 fonts, out of 8000000 for 9000
+ 5545 strings out of 492982
+ 81494 string characters out of 6134896
+ 156443 words of memory out of 5000000
+ 9020 multiletter control sequences out of 15000+600000
+ 13246 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,10n,94p,280b,490s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
-8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on bullet_points.pdf (3 pages, 109616 bytes).
+ 60i,8n,94p,298b,454s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+bx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+msy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on bullet_points.pdf (3 pages, 169809 bytes).
 PDF statistics:
- 50 PDF objects out of 1000 (max. 8388607)
- 35 compressed objects within 1 object stream
+ 82 PDF objects out of 1000 (max. 8388607)
+ 59 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

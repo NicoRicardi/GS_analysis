@@ -1,0 +1,293 @@
+\providecommand{\latin}[1]{#1}
+\makeatletter
+\providecommand{\doi}
+  {\begingroup\let\do\@makeother\dospecials
+  \catcode`\{=1 \catcode`\}=2 \doi@aux}
+\providecommand{\doi@aux}[1]{\endgroup\texttt{#1}}
+\makeatother
+\providecommand*\mcitethebibliography{\thebibliography}
+\csname @ifundefined\endcsname{endmcitethebibliography}
+  {\let\endmcitethebibliography\endthebibliography}{}
+\begin{mcitethebibliography}{25}
+\providecommand*\natexlab[1]{#1}
+\providecommand*\mciteSetBstSublistMode[1]{}
+\providecommand*\mciteSetBstMaxWidthForm[2]{}
+\providecommand*\mciteBstWouldAddEndPuncttrue
+  {\def\EndOfBibitem{\unskip.}}
+\providecommand*\mciteBstWouldAddEndPunctfalse
+  {\let\EndOfBibitem\relax}
+\providecommand*\mciteSetBstMidEndSepPunct[3]{}
+\providecommand*\mciteSetBstSublistLabelBeginEnd[3]{}
+\providecommand*\EndOfBibitem{}
+\mciteSetBstSublistMode{f}
+\mciteSetBstMaxWidthForm{subitem}{(\alph{mcitesubitemcount})}
+\mciteSetBstSublistLabelBeginEnd
+  {\mcitemaxwidthsubitemform\space}
+  {\relax}
+  {\relax}
+
+\bibitem[Weso{\l}owski(2008)]{Wesolowski2008}
+Weso{\l}owski,~T.~A. {Embedding a multideterminantal wave function in an
+  orbital-free environment}. \emph{Phys. Rev. A} \textbf{2008}, \emph{77},
+  012504\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Wesolowski and Warshel(1993)Wesolowski, and Warshel]{Wesolowski1993}
+Wesolowski,~T.~A.; Warshel,~A. {Frozen density functional approach for ab
+  initio calculations of solvated molecules}. \emph{J. Phys. Chem.}
+  \textbf{1993}, \emph{97}, 8050--8053\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Aquilante and Weso{\l}owski(2011)Aquilante, and
+  Weso{\l}owski]{Aquilante2011}
+Aquilante,~F.; Weso{\l}owski,~T.~A. {Self-consistency in frozen-density
+  embedding theory based calculations}. \emph{J. Chem. Phys.} \textbf{2011},
+  \emph{135}, 084120\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Wesolowski and Savin(2013)Wesolowski, and Savin]{Wesolowski2013}
+Wesolowski,~T.~A.; Savin,~A. In \emph{Recent Progress in Orbital-Free Density
+  Functional Theory}; Wesolowski,~T.~A., Wang,~Y.~A., Eds.; Recent Advances in
+  Computational Chemistry; World Scientific: Singapore, 2013; Vol.~6; pp
+  275--295\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Fux \latin{et~al.}(2010)Fux, Jacob, Neugebauer, Visscher, and
+  Reiher]{Fux2010}
+Fux,~S.; Jacob,~C.~R.; Neugebauer,~J.; Visscher,~L.; Reiher,~M. {Accurate
+  frozen-density embedding potentials as a first step towards a subsystem
+  description of covalent bonds}. \emph{J. Chem. Phys.} \textbf{2010},
+  \emph{132}, 164101\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Ricardi \latin{et~al.}(2018)Ricardi, Zech, Gimbal-Zofka, and
+  Wesolowski]{Ricardi2018}
+Ricardi,~N.; Zech,~A.; Gimbal-Zofka,~Y.; Wesolowski,~T.~A. {Explicit vs.
+  implicit electronic polarisation of environment of an embedded chromophore in
+  frozen-density embedding theory}. \emph{Phys. Chem. Chem. Phys.}
+  \textbf{2018}, \emph{20}, 26053--26062\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Zech \latin{et~al.}(2018)Zech, Ricardi, Prager, Dreuw, and
+  Wesolowski]{Zech2018}
+Zech,~A.; Ricardi,~N.; Prager,~S.; Dreuw,~A.; Wesolowski,~T.~A. {Benchmark of
+  Excitation Energy Shifts from Frozen-Density Embedding Theory: Introduction
+  of a Density-Overlap-Based Applicability Threshold}. \emph{J. Chem. Theory
+  Comput.} \textbf{2018}, \emph{14}, 4028--4040\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Wesolowski(2020)]{Wesolowski2020}
+Wesolowski,~T.~A. {On the Correlation Potential in Frozen-Density Embedding
+  Theory}. \emph{J. Chem. Theory Comput.} \textbf{2020}, \emph{16},
+  6880--6885\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Du{\l}ak \latin{et~al.}(2009)Du{\l}ak, Kaminski, and
+  Weso{\l}owski]{Dulak2009}
+Du{\l}ak,~M.; Kaminski,~J.~W.; Weso{\l}owski,~T.~A. {Linearized orbital-free
+  embedding potential in self-consistent calculations}. \emph{Int. J. Quantum
+  Chem.} \textbf{2009}, \emph{109}, 1886--1897\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Zech \latin{et~al.}(2015)Zech, Aquilante, and Wesolowski]{Zech2015}
+Zech,~A.; Aquilante,~F.; Wesolowski,~T.~A. {Orthogonality of embedded wave
+  functions for different states in frozen-density embedding theory}. \emph{J.
+  Chem. Phys.} \textbf{2015}, \emph{143}, 164106\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Ricardi()]{CCJob_Ricardi}
+Ricardi,~N. CCJob\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Zech(2021)]{CCJob_Zech}
+Zech,~A. CCJob. \url{https://github.com/spectre007/CCJob}, 2021\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Epifanovsky \latin{et~al.}(2021)Epifanovsky, Gilbert, Feng, Lee, Mao,
+  Mardirossian, Pokhilko, White, Coons, Dempwolff, Gan, Hait, Horn, Jacobson,
+  Kaliman, Kussmann, Lange, Lao, Levine, Liu, McKenzie, Morrison, Nanda,
+  Plasser, Rehn, Vidal, You, Zhu, Alam, Albrecht, Aldossary, Alguire, Andersen,
+  Athavale, Barton, Begam, Behn, Bellonzi, Bernard, Berquist, Burton, Carreras,
+  Carter-Fenk, Chakraborty, Chien, Closser, Cofer-Shabica, Dasgupta,
+  de~Wergifosse, Deng, Diedenhofen, Do, Ehlert, Fang, Fatehi, Feng, Friedhoff,
+  Gayvert, Ge, Gidofalvi, Goldey, Gomes, Gonz\'alez-Espinoza, Gulania, Gunina,
+  Hanson-Heine, Harbach, Hauser, Herbst, Hernández~Vera, Hodecker, Holden,
+  Houck, Huang, Hui, Huynh, Ivanov, J\'{a}sz, Ji, Jiang, Kaduk, K\"{a}hler,
+  Khistyaev, Kim, Kis, Klunzinger, Koczor-Benda, Koh, Kosenkov, Koulias,
+  Kowalczyk, Krauter, Kue, Kunitsa, Kus, Ladjánszki, Landau, Lawler,
+  Lefrancois, Lehtola, Li, Li, Liang, Liebenthal, Lin, Lin, Liu, Liu,
+  Loipersberger, Luenser, Manjanath, Manohar, Mansoor, Manzer, Mao, Marenich,
+  Markovich, Mason, Maurer, McLaughlin, Menger, Mewes, Mewes, Morgante,
+  Mullinax, Oosterbaan, Paran, Paul, Paul, Pavošević, Pei, Prager, Proynov,
+  R\'ak, Ramos-Cordoba, Rana, Rask, Rettig, Richard, Rob, Rossomme, Scheele,
+  Scheurer, Schneider, Sergueev, Sharada, Skomorowski, Small, Stein, Su,
+  Sundstrom, Tao, Thirman, Tornai, Tsuchimochi, Tubman, Veccham, Vydrov,
+  Wenzel, Witte, Yamada, Yao, Yeganeh, Yost, Zech, Zhang, Zhang, Zhang, Zuev,
+  Aspuru-Guzik, Bell, Besley, Bravaya, Brooks, Casanova, Chai, Coriani, Cramer,
+  Cserey, DePrince, DiStasio, Dreuw, Dunietz, Furlani, Goddard,
+  Hammes-Schiffer, Head-Gordon, Hehre, Hsu, Jagau, Jung, Klamt, Kong,
+  Lambrecht, Liang, Mayhall, McCurdy, Neaton, Ochsenfeld, Parkhill, Peverati,
+  Rassolov, Shao, Slipchenko, Stauch, Steele, Subotnik, Thom, Tkatchenko,
+  Truhlar, Van~Voorhis, Wesolowski, Whaley, Woodcock, Zimmerman, Faraji, Gill,
+  Head-Gordon, Herbert, and Krylov]{Qchem54}
+Epifanovsky,~E.; Gilbert,~A. T.~B.; Feng,~X.; Lee,~J.; Mao,~Y.;
+  Mardirossian,~N.; Pokhilko,~P.; White,~A.~F.; Coons,~M.~P.; Dempwolff,~A.~L.;
+  Gan,~Z.; Hait,~D.; Horn,~P.~R.; Jacobson,~L.~D.; Kaliman,~I.; Kussmann,~J.;
+  Lange,~A.~W.; Lao,~K.~U.; Levine,~D.~S.; Liu,~J.; McKenzie,~S.~C.;
+  Morrison,~A.~F.; Nanda,~K.~D.; Plasser,~F.; Rehn,~D.~R.; Vidal,~M.~L.;
+  You,~Z.-Q.; Zhu,~Y.; Alam,~B.; Albrecht,~B.~J.; Aldossary,~A.; Alguire,~E.;
+  Andersen,~J.~H.; Athavale,~V.; Barton,~D.; Begam,~K.; Behn,~A.; Bellonzi,~N.;
+  Bernard,~Y.~A.; Berquist,~E.~J.; Burton,~H. G.~A.; Carreras,~A.;
+  Carter-Fenk,~K.; Chakraborty,~R.; Chien,~A.~D.; Closser,~K.~D.;
+  Cofer-Shabica,~V.; Dasgupta,~S.; de~Wergifosse,~M.; Deng,~J.;
+  Diedenhofen,~M.; Do,~H.; Ehlert,~S.; Fang,~P.-T.; Fatehi,~S.; Feng,~Q.;
+  Friedhoff,~T.; Gayvert,~J.; Ge,~Q.; Gidofalvi,~G.; Goldey,~M.; Gomes,~J.;
+  Gonz\'alez-Espinoza,~C.~E.; Gulania,~S.; Gunina,~A.~O.; Hanson-Heine,~M.
+  W.~D.; Harbach,~P. H.~P.; Hauser,~A.; Herbst,~M.~F.; Hernández~Vera,~M.;
+  Hodecker,~M.; Holden,~Z.~C.; Houck,~S.; Huang,~X.; Hui,~K.; Huynh,~B.~C.;
+  Ivanov,~M.; J\'{a}sz,~A.; Ji,~H.; Jiang,~H.; Kaduk,~B.; K\"{a}hler,~S.;
+  Khistyaev,~K.; Kim,~J.; Kis,~G.; Klunzinger,~P.; Koczor-Benda,~Z.;
+  Koh,~J.~H.; Kosenkov,~D.; Koulias,~L.; Kowalczyk,~T.; Krauter,~C.~M.;
+  Kue,~K.; Kunitsa,~A.; Kus,~T.; Ladjánszki,~I.; Landau,~A.; Lawler,~K.~V.;
+  Lefrancois,~D.; Lehtola,~S.; Li,~R.~R.; Li,~Y.-P.; Liang,~J.; Liebenthal,~M.;
+  Lin,~H.-H.; Lin,~Y.-S.; Liu,~F.; Liu,~K.-Y.; Loipersberger,~M.; Luenser,~A.;
+  Manjanath,~A.; Manohar,~P.; Mansoor,~E.; Manzer,~S.~F.; Mao,~S.-P.;
+  Marenich,~A.~V.; Markovich,~T.; Mason,~S.; Maurer,~S.~A.; McLaughlin,~P.~F.;
+  Menger,~M. F. S.~J.; Mewes,~J.-M.; Mewes,~S.~A.; Morgante,~P.;
+  Mullinax,~J.~W.; Oosterbaan,~K.~J.; Paran,~G.; Paul,~A.~C.; Paul,~S.~K.;
+  Pavošević,~F.; Pei,~Z.; Prager,~S.; Proynov,~E.~I.; R\'ak,~A.;
+  Ramos-Cordoba,~E.; Rana,~B.; Rask,~A.~E.; Rettig,~A.; Richard,~R.~M.;
+  Rob,~F.; Rossomme,~E.; Scheele,~T.; Scheurer,~M.; Schneider,~M.;
+  Sergueev,~N.; Sharada,~S.~M.; Skomorowski,~W.; Small,~D.~W.; Stein,~C.~J.;
+  Su,~Y.-C.; Sundstrom,~E.~J.; Tao,~Z.; Thirman,~J.; Tornai,~G.~J.;
+  Tsuchimochi,~T.; Tubman,~N.~M.; Veccham,~S.~P.; Vydrov,~O.; Wenzel,~J.;
+  Witte,~J.; Yamada,~A.; Yao,~K.; Yeganeh,~S.; Yost,~S.~R.; Zech,~A.;
+  Zhang,~I.~Y.; Zhang,~X.; Zhang,~Y.; Zuev,~D.; Aspuru-Guzik,~A.; Bell,~A.~T.;
+  Besley,~N.~A.; Bravaya,~K.~B.; Brooks,~B.~R.; Casanova,~D.; Chai,~J.-D.;
+  Coriani,~S.; Cramer,~C.~J.; Cserey,~G.; DePrince,~A.~E.; DiStasio,~R.~A.;
+  Dreuw,~A.; Dunietz,~B.~D.; Furlani,~T.~R.; Goddard,~W.~A.;
+  Hammes-Schiffer,~S.; Head-Gordon,~T.; Hehre,~W.~J.; Hsu,~C.-P.; Jagau,~T.-C.;
+  Jung,~Y.; Klamt,~A.; Kong,~J.; Lambrecht,~D.~S.; Liang,~W.; Mayhall,~N.~J.;
+  McCurdy,~C.~W.; Neaton,~J.~B.; Ochsenfeld,~C.; Parkhill,~J.~A.; Peverati,~R.;
+  Rassolov,~V.~A.; Shao,~Y.; Slipchenko,~L.~V.; Stauch,~T.; Steele,~R.~P.;
+  Subotnik,~J.~E.; Thom,~A. J.~W.; Tkatchenko,~A.; Truhlar,~D.~G.;
+  Van~Voorhis,~T.; Wesolowski,~T.~A.; Whaley,~K.~B.; Woodcock,~H.~L.;
+  Zimmerman,~P.~M.; Faraji,~S.; Gill,~P. M.~W.; Head-Gordon,~M.;
+  Herbert,~J.~M.; Krylov,~A.~I. Software for the frontiers of quantum
+  chemistry: An overview of developments in the Q-Chem 5 package. \emph{The
+  Journal of Chemical Physics} \textbf{2021}, \emph{155}, 084801\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Thomas(1927)]{Thomas1927}
+Thomas,~L.~H. {The calculation of atomic fields}. \emph{Math. Proc. Cambridge
+  Philos. Soc.} \textbf{1927}, \emph{23}, 542\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Fermi(1928)]{Fermi1928}
+Fermi,~E. {Eine statistische Methode zur Bestimmung einiger Eigenschaften des
+  Atoms und ihre Anwendung auf die Theorie des periodischen Systems der
+  Elemente}. \emph{Z. Phys.} \textbf{1928}, \emph{48}, 73--79\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Slater(1929)]{Slater1929}
+Slater,~J.~C. {The Theory of Complex Spectra}. \emph{Phys. Rev.} \textbf{1929},
+  \emph{34}, 1293--1322\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Vosko \latin{et~al.}(1980)Vosko, Wilk, and Nusair]{Vosko1980}
+Vosko,~S.~H.; Wilk,~L.; Nusair,~M. {Accurate spin-dependent electron liquid
+  correlation energies for local spin density calculations: a critical
+  analysis}. \emph{Can. J. Phys.} \textbf{1980}, \emph{58}, 1200--1211\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Sun \latin{et~al.}(2017)Sun, Berkelbach, Blunt, Booth, Guo, Li, Liu,
+  McClain, Sayfutyarova, Sharma, Wouters, and Chan]{PYSCF}
+Sun,~Q.; Berkelbach,~T.~C.; Blunt,~N.~S.; Booth,~G.~H.; Guo,~S.; Li,~Z.;
+  Liu,~J.; McClain,~J.~D.; Sayfutyarova,~E.~R.; Sharma,~S.; Wouters,~S.;
+  Chan,~G.~K. {PySCF: the Python‐based simulations of chemistry framework}.
+  \emph{Wiley Interdisciplinary Reviews: Computational Molecular Science}
+  \textbf{2017}, \emph{8}, e1340\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Ricardi()]{CCParser_Ricardi}
+Ricardi,~N. CCParser\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Zech()]{CCParser_Zech}
+Zech,~A. CCParser\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Ricardi and Gonz\'alez-Espinoza(2020)Ricardi, and
+  Gonz\'alez-Espinoza]{CCDatabase}
+Ricardi,~N.; Gonz\'alez-Espinoza,~C.~E. CCDatabase.
+  \url{https://github.com/NicoRicardi/CCDatabase}, 2020\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[{W}es {M}c{K}inney(2010)]{PANDAS}
+{W}es {M}c{K}inney, {D}ata {S}tructures for {S}tatistical {C}omputing in
+  {P}ython. {P}roceedings of the 9th {P}ython in {S}cience {C}onference. 2010;
+  pp 56 -- 61\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Hunter(2007)]{Hunter2007}
+Hunter,~J.~D. {Matplotlib: A 2D Graphics Environment}. \emph{Comput. Sci. Eng.}
+  \textbf{2007}, \emph{9}, 90--95\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Sen \latin{et~al.}(2021)Sen, Gonz{\'{a}}lez-Espinoza, Zech, Dreuw, and
+  Wesolowski]{Sen2021}
+Sen,~R.; Gonz{\'{a}}lez-Espinoza,~C.~E.; Zech,~A.; Dreuw,~A.; Wesolowski,~T.~A.
+  {Benchmark of the Extension of Frozen-Density Embedding Theory to
+  Nonvariational Correlated Methods: The Embedded-MP2 Case}. \emph{Journal of
+  Chemical Theory and Computation} \textbf{2021}, \emph{17}, 4049--4062\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\end{mcitethebibliography}
