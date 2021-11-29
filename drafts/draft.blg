@@ -21,45 +21,45 @@ I was expecting a `,' or a `}'---line 6774 of file group_bibliography.bib
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
 achemso 2018/02/05 v3.11a
-You've used 25 entries,
+You've used 26 entries,
             2536 wiz_defined-function locations,
-            956 strings with 16272 characters,
-and the built_in function-call counts, 14811 in all, are:
-= -- 912
-> -- 1476
-< -- 20
-+ -- 586
-- -- 561
-* -- 1641
-:= -- 2146
-add.period$ -- 45
-call.type$ -- 25
+            965 strings with 16513 characters,
+and the built_in function-call counts, 15140 in all, are:
+= -- 944
+> -- 1489
+< -- 21
++ -- 591
+- -- 565
+* -- 1678
+:= -- 2188
+add.period$ -- 47
+call.type$ -- 26
 change.case$ -- 4
 chr.to.int$ -- 1
-cite$ -- 25
-duplicate$ -- 858
-empty$ -- 572
-format.name$ -- 592
-if$ -- 2678
+cite$ -- 26
+duplicate$ -- 875
+empty$ -- 597
+format.name$ -- 599
+if$ -- 2744
 int.to.chr$ -- 0
 int.to.str$ -- 1
 missing$ -- 0
-newline$ -- 172
-num.names$ -- 74
-pop$ -- 45
+newline$ -- 178
+num.names$ -- 77
+pop$ -- 46
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 21
+skip$ -- 22
 stack$ -- 0
-substring$ -- 456
-swap$ -- 1266
-text.length$ -- 51
+substring$ -- 480
+swap$ -- 1281
+text.length$ -- 53
 text.prefix$ -- 0
 top$ -- 1
-type$ -- 172
+type$ -- 179
 warning$ -- 0
-while$ -- 84
+while$ -- 88
 width$ -- 0
-write$ -- 325
+write$ -- 338
 (There were 3 error messages)

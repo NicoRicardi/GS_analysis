@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.3.17)  19 NOV 2021 00:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.3.17)  26 NOV 2021 17:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -258,18 +258,18 @@ LaTeX Info: Redefining \] on input line 2818.
 ) (./draft.aux)
 \openout1 = `draft.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
 \openout3 = `acs-draft.bib'.
 
 
@@ -379,62 +379,69 @@ e
 
 
 
-]
-Underfull \hbox (badness 1142) in paragraph at lines 86--89
-\OT1/cmr/m/n/12 Specif-i-cally, 7-hydroxyquinoline bound to 2
- []
-
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 98--98
+] [2]
+Underfull \hbox (badness 10000) in paragraph at lines 100--100
 []\OT1/cmr/bx/n/17.28 Approximate FDET-
  []
 
 
-Overfull \hbox (10.92224pt too wide) detected at line 128
+Overfull \hbox (3.70247pt too wide) detected at line 130
 []
  []
 
-[3] [4]
-Overfull \hbox (0.26915pt too wide) detected at line 182
+
+Underfull \hbox (badness 5217) in paragraph at lines 130--138
+\OT1/cmr/m/n/12 re-la-tion, and ki-netic bi-func-tion-als within
+ []
+
+[3]
+Underfull \hbox (badness 3098) in paragraph at lines 154--156
+\OT1/cmr/m/n/12 where $[][\OML/cmm/m/it/12 ^^Z[]\OT1/cmr/m/n/12 ]$ is the HF co
+m-po-nent of
+ []
+
+[4]
+Overfull \hbox (0.46371pt too wide) detected at line 194
 \OML/cmm/m/it/12 M\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 ^^Z[] \OMS/cmsy/m/n/12 ^^@ 
-\OML/cmm/m/it/12 ^^Z[]\OT1/cmr/m/n/12 ] \OML/cmm/m/it/12 < P\OT1/cmr/m/n/12 [\O
-ML/cmm/m/it/12 ^^Z[]; ^^Z[]; ^^Z[]\OT1/cmr/m/n/12 ] \OMS/cmsy/m/n/12 ^^T [] \OM
-L/cmm/m/it/12 ^^Z[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 N[]:
+\OML/cmm/m/it/12 ^^Z[]\OT1/cmr/m/n/12 ] \OMS/cmsy/m/n/12 ^^T \OML/cmm/m/it/12 P
+\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 ^^Z[]; ^^Z[]; ^^Z[]\OT1/cmr/m/n/12 ] \OMS/cms
+y/m/n/12 ^^T [] \OML/cmm/m/it/12 ^^Z[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 N[]:
  []
 
-
-Underfull \hbox (badness 4291) in paragraph at lines 197--201
-\OT1/cmr/m/n/12 con-cern the so-called monomer ex-pan-sion
- []
-
-<./FIGs/M_vs_HF.png, id=28, 1445.4pt x 722.7pt>
+[5]
+<./FIGs/M_vs_HF.png, id=31, 1445.4pt x 722.7pt>
 File: ./FIGs/M_vs_HF.png Graphic file (type png)
 <use ./FIGs/M_vs_HF.png>
-Package pdftex.def Info: ./FIGs/M_vs_HF.png  used on input line 210.
+Package pdftex.def Info: ./FIGs/M_vs_HF.png  used on input line 223.
 (pdftex.def)             Requested size: 240.71031pt x 120.35413pt.
-[5]
 <./FIGs/M_vs_P.png, id=33, 1445.4pt x 722.7pt>
 File: ./FIGs/M_vs_P.png Graphic file (type png)
 <use ./FIGs/M_vs_P.png>
-Package pdftex.def Info: ./FIGs/M_vs_P.png  used on input line 219.
+Package pdftex.def Info: ./FIGs/M_vs_P.png  used on input line 232.
 (pdftex.def)             Requested size: 240.71031pt x 120.35413pt.
 
-Underfull \hbox (badness 1107) in paragraph at lines 224--227
+Underfull \hbox (badness 1107) in paragraph at lines 237--240
 \OT1/cmr/m/n/12 can be used to es-ti-mate the ex-act FDET
  []
 
-<./FIGs/M_vs_MP.png, id=34, 1445.4pt x 722.7pt>
+
+Underfull \hbox (badness 1028) in paragraph at lines 237--240
+\OT1/cmr/m/n/12 only 0.41 Kcal/mol larger than the low-est
+ []
+
+[6 <./FIGs/M_vs_HF.png> <./FIGs/M_vs_P.png>]
+<./FIGs/M_vs_MP.png, id=39, 1445.4pt x 722.7pt>
 File: ./FIGs/M_vs_MP.png Graphic file (type png)
 <use ./FIGs/M_vs_MP.png>
-Package pdftex.def Info: ./FIGs/M_vs_MP.png  used on input line 230.
+Package pdftex.def Info: ./FIGs/M_vs_MP.png  used on input line 243.
 (pdftex.def)             Requested size: 240.71031pt x 120.35413pt.
-[6 <./FIGs/M_vs_HF.png> <./FIGs/M_vs_P.png> <./FIGs/M_vs_MP.png>]
-Overfull \hbox (16.63252pt too wide) in paragraph at lines 241--251
+
+Overfull \hbox (16.63252pt too wide) in paragraph at lines 254--264
  [] 
  []
 
 
-Overfull \hbox (2.03914pt too wide) detected at line 264
+Overfull \hbox (4.10838pt too wide) detected at line 277
 \OML/cmm/m/it/12 E[]\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 ^^Z[]; ^^Z[]\OT1/cmr/m/n/
 12 ] = \OML/cmm/m/it/12 E[]\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 ^^Z[]; ^^Z[]\OT1/c
 mr/m/n/12 ] + ^^A[][\OML/cmm/m/it/12 ^^Z[]; ^^Z[]; ^^Z[]\OT1/cmr/m/n/12 ]\OML/c
@@ -442,66 +449,85 @@ mm/m/it/12 ;
  []
 
 
-Underfull \hbox (badness 5637) in paragraph at lines 272--276
+Underfull \hbox (badness 5316) in paragraph at lines 285--289
  \OT1/cmr/m/n/12 Since we al-ways use $\OML/cmm/m/it/12 ^^Z[]$ \OT1/cmr/m/n/12 
 as $\OML/cmm/m/it/12 ^^Z[]$\OT1/cmr/m/n/12 ,
  []
 
 
-Underfull \hbox (badness 3884) in paragraph at lines 272--276
+Underfull \hbox (badness 3884) in paragraph at lines 285--289
 \OML/cmm/m/it/12 E[]\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 ^^Z[]\OT1/cmr/m/n/12 ]$, 
 $\OML/cmm/m/it/12 E[]\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 ^^Z[]\OT1/cmr/m/n/12 ]$,
  and
  []
 
-<./FIGs/SE_cycles_N_vs_HF.png, id=41, 1445.4pt x 722.7pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 290--292
+[]\OT1/cmr/m/n/12 The de-crease in self-consistent en-ergy
+ []
+
+
+Underfull \hbox (badness 2393) in paragraph at lines 290--292
+\OML/cmm/m/it/12 E[]\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 ^^Z[]\OT1/cmr/m/n/12 ]$ f
+rom the zero-th to the
+ []
+
+
+Underfull \hbox (badness 2065) in paragraph at lines 290--292
+\OT1/cmr/m/n/12 sec-ond cy-cle brings the en-ergy al-most to
+ []
+
+[7 <./FIGs/M_vs_MP.png>]
+<./FIGs/SE_cycles_N_vs_HF.png, id=45, 1445.4pt x 722.7pt>
 File: ./FIGs/SE_cycles_N_vs_HF.png Graphic file (type png)
 <use ./FIGs/SE_cycles_N_vs_HF.png>
-Package pdftex.def Info: ./FIGs/SE_cycles_N_vs_HF.png  used on input line 285.
+Package pdftex.def Info: ./FIGs/SE_cycles_N_vs_HF.png  used on input line 299.
 (pdftex.def)             Requested size: 240.71031pt x 120.35413pt.
 
-Underfull \hbox (badness 1552) in paragraph at lines 286--286
+Underfull \hbox (badness 1552) in paragraph at lines 300--300
 \OT1/cmr/m/n/12 consistent cal-cu-la-tions(blue ``X''), lin-earized
  []
 
-[7 <./FIGs/SE_cycles_N_vs_HF.png>]
-Underfull \hbox (badness 1210) in paragraph at lines 302--306
+
+Underfull \hbox (badness 1210) in paragraph at lines 316--320
 \OT1/cmr/m/n/12 If ex-ci-ta-tions are con-sid-ered, the er-ror on
  []
 
 
-Underfull \hbox (badness 1189) in paragraph at lines 302--306
+Underfull \hbox (badness 1189) in paragraph at lines 316--320
 \OT1/cmr/m/n/12 i-larly, this could be com-pared to the dif-
  []
 
 
-Underfull \hbox (badness 7133) in paragraph at lines 307--309
+Underfull \hbox (badness 7133) in paragraph at lines 321--323
 []\OT1/cmr/bx/n/12 Acknowledgement \OT1/cmr/m/n/12 The au-thors thank
  []
 
 
-Overfull \hbox (14.16951pt too wide) in paragraph at lines 311--311
+Overfull \hbox (14.16951pt too wide) in paragraph at lines 325--325
 []\OT1/cmr/bx/n/17.28 Supporting In-for-ma-tion Avail-
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 314.
+[8 <./FIGs/SE_cycles_N_vs_HF.png>]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 328.
+
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 314.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 328.
 
-Overfull \hbox (19.33656pt too wide) detected at line 331
+Overfull \hbox (15.85077pt too wide) detected at line 345
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 331--333
+Underfull \hbox (badness 10000) in paragraph at lines 345--347
 \OT1/cmr/m/n/12 As a con-se-quence, we can re-for-mu-late
  []
 
-[8] (./draft.bbl
+(./draft.bbl
 Underfull \hbox (badness 1325) in paragraph at lines 55--64
 []\OT1/cmr/m/n/12 Wesolowski, T. A.; Savin, A. In \OT1/cmr/m/it/12 Re-
  []
@@ -511,7 +537,7 @@ Underfull \hbox (badness 3492) in paragraph at lines 55--64
 \OT1/cmr/m/it/12 cent Progress in Orbital-Free Den-sity
  []
 
-
+[9]
 Underfull \hbox (badness 2635) in paragraph at lines 75--84
 \OT1/cmr/m/n/12 an em-bed-ded chro-mophore in frozen-
  []
@@ -536,7 +562,6 @@ Underfull \hbox (badness 3895) in paragraph at lines 103--110
 \OT1/cmr/m/n/12 cal-cu-la-tions. \OT1/cmr/m/it/12 Int. J. Quan-tum Chem.
  []
 
-[9]
 Missing character: There is no Ã in font cmr12!
 Missing character: There is no ¡ in font cmr12!
 Missing character: There is no Ã in font cmr12!
@@ -715,12 +740,11 @@ Underfull \hbox (badness 3118) in paragraph at lines 157--207
 \OT1/cmr/m/n/12 5 pack-age. \OT1/cmr/m/it/12 The Jour-nal of Chem-i-cal
  []
 
-
+[10]
 Underfull \hbox (badness 2393) in paragraph at lines 215--222
 \OT1/cmr/m/n/12 Bes-tim-mung einiger Eigen-schaften des
  []
 
-[10]
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no  in font cmr12!
@@ -745,34 +769,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 262--268
  []
 
 
-Underfull \hbox (badness 6675) in paragraph at lines 285--293
+Underfull \hbox (badness 6675) in paragraph at lines 293--301
 []\OT1/cmr/m/n/12 Sen, R.; Gonz^^Salez-Espinoza, C. E.;
  []
 
 
-Underfull \hbox (badness 4805) in paragraph at lines 285--293
+Underfull \hbox (badness 4805) in paragraph at lines 293--301
 \OT1/cmr/m/n/12 Density Em-bed-ding The-ory to Non-
  []
 
 
-Underfull \hbox (badness 2961) in paragraph at lines 285--293
+Underfull \hbox (badness 2961) in paragraph at lines 293--301
 \OT1/cmr/m/n/12 va-ri-a-tional Cor-re-lated Meth-ods: The
  []
 
-) [11
-
-]
-Underfull \vbox (badness 10000) detected at line 365
+) [11]
+Underfull \vbox (badness 10000) detected at line 372
  []
 
 [12
 
 ] (./draft.aux) ) 
 Here is how much of TeX's memory you used:
- 5718 strings out of 492982
- 84731 string characters out of 6134896
- 175963 words of memory out of 5000000
- 9183 multiletter control sequences out of 15000+600000
+ 5723 strings out of 492982
+ 84834 string characters out of 6134896
+ 176349 words of memory out of 5000000
+ 9188 multiletter control sequences out of 15000+600000
  14261 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,11n,94p,1991b,490s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -791,7 +813,7 @@ onts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on draft.pdf (12 pages, 840128 bytes).
+Output written on draft.pdf (12 pages, 842423 bytes).
 PDF statistics:
  116 PDF objects out of 1000 (max. 8388607)
  77 compressed objects within 1 object stream

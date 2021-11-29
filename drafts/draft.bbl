@@ -8,7 +8,7 @@
 \providecommand*\mcitethebibliography{\thebibliography}
 \csname @ifundefined\endcsname{endmcitethebibliography}
   {\let\endmcitethebibliography\endthebibliography}{}
-\begin{mcitethebibliography}{25}
+\begin{mcitethebibliography}{26}
 \providecommand*\natexlab[1]{#1}
 \providecommand*\mciteSetBstSublistMode[1]{}
 \providecommand*\mciteSetBstMaxWidthForm[2]{}
@@ -276,6 +276,14 @@ Ricardi,~N.; Gonz\'alez-Espinoza,~C.~E. CCDatabase.
 \bibitem[Hunter(2007)]{Hunter2007}
 Hunter,~J.~D. {Matplotlib: A 2D Graphics Environment}. \emph{Comput. Sci. Eng.}
   \textbf{2007}, \emph{9}, 90--95\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Boys and Bernardi(1970)Boys, and Bernardi]{Boys1970}
+Boys,~S.~F.; Bernardi,~F. {The calculation of small molecular interactions by
+  the differences of separate total energies. Some procedures with reduced
+  errors}. \emph{Molecular Physics} \textbf{1970}, \emph{19}, 553--566\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
