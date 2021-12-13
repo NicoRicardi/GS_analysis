@@ -42,15 +42,6 @@ Wesolowski,~T.~A.; Warshel,~A. {Frozen density functional approach for ab
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
-\bibitem[Aquilante and Weso{\l}owski(2011)Aquilante, and
-  Weso{\l}owski]{Aquilante2011}
-Aquilante,~F.; Weso{\l}owski,~T.~A. {Self-consistency in frozen-density
-  embedding theory based calculations}. \emph{J. Chem. Phys.} \textbf{2011},
-  \emph{135}, 084120\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
 \bibitem[Wesolowski and Savin(2013)Wesolowski, and Savin]{Wesolowski2013}
 Wesolowski,~T.~A.; Savin,~A. In \emph{Recent Progress in Orbital-Free Density
   Functional Theory}; Wesolowski,~T.~A., Wang,~Y.~A., Eds.; Recent Advances in
@@ -86,6 +77,16 @@ Zech,~A.; Ricardi,~N.; Prager,~S.; Dreuw,~A.; Wesolowski,~T.~A. {Benchmark of
   Excitation Energy Shifts from Frozen-Density Embedding Theory: Introduction
   of a Density-Overlap-Based Applicability Threshold}. \emph{J. Chem. Theory
   Comput.} \textbf{2018}, \emph{14}, 4028--4040\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Humbert-Droz \latin{et~al.}(2014)Humbert-Droz, Zhou, Shedge, and
+  Wesolowski]{HumbertDroz2014}
+Humbert-Droz,~M.; Zhou,~X.; Shedge,~S.~V.; Wesolowski,~T.~A. {How to choose the
+  frozen density in Frozen-Density Embedding Theory-based numerical simulations
+  of local excitations?} \emph{Theor. Chem. Acc.} \textbf{2014}, \emph{133},
+  1405\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax

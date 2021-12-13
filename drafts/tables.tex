@@ -1,0 +1,87 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{a4paper, portrait, margin=1.5cm}
+
+\begin{document}
+\begin{table*}
+{%
+\newcommand{\mc}[3]{\multicolumn{#1}{#2}{#3}}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+& \mc{4}{|c|}{Freeze and Thaw} & \\ \hline
+ & \mc{2}{|c|}{ME} & \mc{2}{|c|}{SE} & \\ \hline
+ & $M[\rho^{ref} - \rho^{FT}_{B}]$ & $E^{FDET-MP2}_{int}[\rho^{FT}_B]$ & $M[\rho^{ref} - \rho^{FT}_{B}]$ & $E^{FDET-MP2}_{int}[\rho^{FT}_B]$ & $E^{ref}$\\ \hline
+7Hq 2MeOH & 0.013 & -13.85 & 0.007 & -15.02 & -17.47 \\ \hline
+7Hq formate & 0.036 & -28.58 & 0.007 & -34.06 & -36.48 \\ \hline
+Uracil 5H2O & 0.024 & -38.39 & 0.014 & -41.09 & -38.62 \\ \hline
+PyrBnz 2HCOOH & 0.016 & -33.31 & 0.013 & -35.92 & -36.53 \\ \hline
+\end{tabular}
+\end{center}
+}%
+\caption{Monomer (ME) and supermolecular (SE) expansion results at the MP2 level for $\rho_B^{FT}$. Energies are in Kcal/mol and integrated densities in a.u.}
+\label{table:MP_FT}
+\end{table*}
+
+\begin{table*}
+{%
+\newcommand{\mc}[3]{\multicolumn{#1}{#2}{#3}}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+& \mc{4}{|c|}{Freeze and Thaw} & \\ \hline
+ & \mc{2}{|c|}{ME} & \mc{2}{|c|}{SE} & \\ \hline
+ & $M[\rho^{ref} - \rho^{FT}_{B}]$ & $E^{FDET-HF}_{int}[\rho^{FT}_B]$ & $M[\rho^{ref} - \rho^{FT}_{B}]$ & $E^{FDET-HF}_{int}[\rho^{FT}_B]$ & $E^{ref,HF}$\\ \hline
+7Hq 2MeOH & 0.013 & -16.05 & 0.007 &  -16.87 & -7.97 \\ \hline
+7Hq formate & 0.036 & -33.61 & 0.007 & -38.37 & -32.29 \\ \hline
+Uracil 5H2O & 0.024 & -46.42 & 0.014 & -48.29 & -31.38 \\ \hline
+PyrBnz 2HCOOH & 0.016 & -41.84 & 0.013 & -43.99 & -29.84 \\ \hline
+\end{tabular}
+\end{center}
+}%
+\caption{Monomer (ME) and supermolecular (SE) expansion results at the HF level for $\rho_B^{FT}$. Energies are in Kcal/mol and integrated densities in a.u.}
+\label{table:HF_FT}
+\end{table*}
+
+\begin{table*}
+{%
+\newcommand{\mc}[3]{\multicolumn{#1}{#2}{#3}}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+& \mc{4}{|c|}{Isolated environment} & \\ \hline
+ & \mc{2}{|c|}{ME} & \mc{2}{|c|}{SE} & \\ \hline
+ & $M[\rho^{ref} - \rho^{isol}_{B}]$ & $E^{FDET-MP2}_{int}[\rho^{isol}_B]$ & $M[\rho^{ref} - \rho^{isol}_{B}]$ & $E^{FDET-MP2}_{int}[\rho^{isol}_B]$ & $E^{ref}$\\ \hline
+7Hq 2MeOH & 0.123 & -10.91 & 0.121 & -11.20 & -17.47 \\ \hline
+7Hq formate & 0.205 & -23.23 & 0.206 & -23.34 & -36.48 \\ \hline
+Uracil 5H2O & 0.237 & -32.00 & 0.234 & -32.47 & -38.62 \\ \hline
+PyrBnz 2HCOOH & 0.185 & -25.98 & 0.184 & -27.17 & -36.53 \\ \hline
+\end{tabular}
+\end{center}
+}%
+\caption{Monomer (ME) and supermolecular (SE) expansion results at the MP2 level for $\rho_B^{isol}$. Energies are in Kcal/mol and integrated densities in a.u.}
+\label{table:MP_isol}
+\end{table*}
+
+\begin{table*}
+{%
+\newcommand{\mc}[3]{\multicolumn{#1}{#2}{#3}}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+& \mc{4}{|c|}{Isolated environment} & \\ \hline
+ & \mc{2}{|c|}{ME} & \mc{2}{|c|}{SE} & \\ \hline
+ & $M[\rho^{ref} - \rho^{isol}_{B}]$ & $E^{FDET-HF}_{int}[\rho^{isol}_B]$ & $M[\rho^{ref} - \rho^{isol}_{B}]$ & $E^{FDET-HF}_{int}[\rho^{isol}_B]$ & $E^{ref,HF}$\\ \hline
+7Hq 2MeOH & 0.123 & -11.90 & 0.121 & -12.06 & -7.97 \\ \hline
+7Hq formate & 0.205 & -23.14 & 0.206 & -23.17 & -32.29 \\ \hline
+Uracil 5H2O & 0.237 & -36.53 & 0.234 & -36.69 & -31.38 \\ \hline
+PyrBnz 2HCOOH & 0.185 & -30.61 & 0.184 & -31.56 & -29.84 \\ \hline
+\end{tabular}
+\end{center}
+}%
+\caption{Monomer (ME) and supermolecular (SE) expansion results at the HF level for $\rho_B^{isol}$. Energies are in Kcal/mol and integrated densities in a.u.}
+\label{table:HF_isol}
+\end{table*}
+
+\end{document}

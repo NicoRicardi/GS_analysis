@@ -23,37 +23,37 @@ I'm skipping whatever remains of this entry
 achemso 2018/02/05 v3.11a
 You've used 26 entries,
             2536 wiz_defined-function locations,
-            965 strings with 16513 characters,
-and the built_in function-call counts, 15140 in all, are:
-= -- 944
-> -- 1489
-< -- 21
-+ -- 591
-- -- 565
-* -- 1678
-:= -- 2188
+            966 strings with 16624 characters,
+and the built_in function-call counts, 15179 in all, are:
+= -- 943
+> -- 1499
+< -- 20
++ -- 595
+- -- 569
+* -- 1682
+:= -- 2196
 add.period$ -- 47
 call.type$ -- 26
 change.case$ -- 4
 chr.to.int$ -- 1
 cite$ -- 26
-duplicate$ -- 875
-empty$ -- 597
-format.name$ -- 599
-if$ -- 2744
+duplicate$ -- 879
+empty$ -- 595
+format.name$ -- 601
+if$ -- 2748
 int.to.chr$ -- 0
 int.to.str$ -- 1
 missing$ -- 0
 newline$ -- 178
 num.names$ -- 77
-pop$ -- 46
+pop$ -- 47
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
 skip$ -- 22
 stack$ -- 0
-substring$ -- 480
-swap$ -- 1281
+substring$ -- 474
+swap$ -- 1289
 text.length$ -- 53
 text.prefix$ -- 0
 top$ -- 1
