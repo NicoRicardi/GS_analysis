@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 Created on Thu Aug 19 16:36:12 2021
+
 @author: nico
 """
 import CCDatabase.CCDatabase as ccd
@@ -11,32 +12,18 @@ import pandas as pd
 import os
 import itertools as ittl
 
-cqlist = ["E_FDET_MP", "kernel_tot", "E_FDET_HF", "E_linFDET_HF", "E_ref_HF", "E_ref_HF_CP", "E_ref_MP",
-          "E_ref_MP_CP"]
-reqs = {
-      "E_ref_HF" : ["AB_MP2,scf_energy", "A_MP2,scf_energy", "B_MP2,scf_energy"], 
-      "E_ref_HF_CP" : ["AB_MP2,scf_energy", "A_MP2_gh,scf_energy", "B_MP2_gh,scf_energy"], 
-      "E_FDET_HF" : ["MP2_A,J_int", "MP2_A,V_AB", "MP2_A,AnucB", "MP2_A,BnucA",
-                     "MP2_A,Exc_nad", "MP2_A,Ts_nad",
-                     "MP2_A,scf_energy", "MP2_A,fde_expansion", "MP2_B,cycle_energies"],
-      "E_linFDET_HF" : ["MP2_A,J_int", "MP2_A,V_AB", "MP2_A,AnucB", "MP2_A,BnucA",
-                     "MP2_A,Exc_nad", "MP2_A,Ts_nad", "MP2_A,fde_delta_lin",
-                     "MP2_A,scf_energy", "MP2_A,fde_expansion", "MP2_B,cycle_energies"]
-      }
-reqs["E_ref_MP"] = reqs["E_ref_HF"] + ["AB_MP2,mp_correction", "A_MP2,mp_correction", "B_MP2,mp_correction"]
-reqs["E_ref_MP_CP"] = reqs["E_ref_HF"] + ["AB_MP2,mp_correction", "A_MP2_gh,mp_correction", "B_MP2_gh,mp_correction"]
-reqs["E_FDET_MP"] = reqs["E_FDET_HF"] + ["MP2_A,mp_correction", "MP2_B,mp_correction"]
-
+cqlist = ["kernel_tot", "kernel_A", "kernel_B"]
+reqs = {}
 quantities_hf = ["DMfinder.json,{}".format(i) for  i in ["HF_FDET_A", "HF_FDET_B"]]
 quantities_mp = ["DMfinder.json,{}".format(i) for  i in ["MP_FDET_A", "MP_FDET_B"]]
 quantities_ccp_kernel = ["MP2_A,{}".format(i) for i in ["fde_Tfunc", "fde_Xfunc", "fde_Cfunc"]]
 reqs["kernel_tot"] = quantities_hf + quantities_mp + quantities_ccp_kernel
+reqs["kernel_A"] = quantities_hf + quantities_mp + quantities_ccp_kernel
+reqs["kernel_B"] = quantities_hf + quantities_mp + quantities_ccp_kernel
 
-quantities_ccp = list(set(reqs["E_ref_HF"] + reqs["E_ref_HF_CP"] + reqs["E_linFDET_HF"]\
-                          + reqs["E_ref_MP"] + reqs["E_ref_MP_CP"] + reqs["E_FDET_MP"]))
 parser = {k: "dmf_hf" for k in quantities_hf}
 parser.update({k: "dmf_mp" for k in quantities_mp})
-parser.update({k: "ccp" for k in quantities_ccp_kernel + quantities_ccp})
+parser.update({k: "ccp" for k in quantities_ccp_kernel})
 parserfuncs = {"dmf_hf": phf, "dmf_mp": pmp, "ccp": None}
 parser_kwargs = {"dmf_hf": {}, "dmf_mp": {"filename": "Densmat_MP.txt", "prop_key": "MP_FDET"}, "ccp": {}}
 
@@ -49,4 +36,6 @@ df = ccd.collect_data(joblist, levelnames=["base","system","calc"], qlist=cqlist
                  parser_file="CCParser.json",parser_args=None, 
                  parser_kwargs=parser_kwargs, check_input=True, funcdict = "ccp",
                  to_console=True, to_log=False, printlevel=10)   
-df.to_csv("results_SE_en.csv")
+df.to_csv("results_SE_kernel.csv")
+
+
