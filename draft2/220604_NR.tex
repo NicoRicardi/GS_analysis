@@ -1,32 +1,25 @@
-%\documentclass[journal=jctcce,manuscript=article, layout=twocolumn]{achemso}
-\documentclass[journal=jctcce,manuscript=article]{achemso}
+% \documentclass[journal=jctcce,manuscript=article]{achemso}
+\documentclass[amsmath,amssymb,preprint,aip,jcp]{revtex4-1}
 \usepackage[table]{xcolor}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{silence}
+\WarningFilter{revtex4-1}{Repair the float}
 
+\newcommand{\nr}[1]{\color{red}#1\color{black}}    
+\begin{document}
 \author{Niccol\`{o} Ricardi}
 \email{Niccolo.Ricardi@unige.ch}
 \author{Cristina E. Gonz\'{a}lez-Espinoza}
 \email{Cristina.GonzalezEspinoza@unige.ch}
 \author{Tomasz Adam Weso\l{}owski}
 \email{Tomasz.Wesolowski@unige.ch}
-\affiliation[University of Geneva]
-{Department of Physical Chemistry, University of Geneva, Geneva (Switzerland)}
-
-\title[Negativity of the target density]
-  {Negativity of the target density in practical Frozen-Density Embedding Theory based calculations\\
-  version April 6, 2022 by NR}
-
-\newcommand{\nr}[1]{\color{red}#1\color{black}}    
-\begin{document}
-
-\begin{tocentry}
-
-TOC to be made. Probably isosurfaces of target density.
-
-\end{tocentry}
+\affiliation{Department of Physical Chemistry, University of Geneva, Geneva (Switzerland)}
+% 
+\date{version April 6, 2022 by NR}
+\title{Negativity of the target density in practical Frozen-Density Embedding Theory based calculations}
 
 \begin{abstract}
 The accuracy of any observable derived from multi-scale simulations based on Frozen-Density Embedding Theory (FDET) is affected by two inseparable factors: {\it i}) the approximation for the bi-functional ${E}_{xcT}^{nad}[\rho_A,\rho_B]$ representing the non-additivity of density functionals for the exchange-, correlation-, and kinetic  energies and  {\it ii}) the possible violation of the non-negativity condition of the target density for a given density associated with the environment $\rho_B(\mathbf{r})$.
@@ -43,6 +36,7 @@ Reduction of both the magnitude of the violation of the non-negativity condition
 } 
 \end{abstract}
 
+\maketitle
 
 \section{Introduction}\label{sec:intro}
 The formal framework of 
@@ -50,13 +44,13 @@ Frozen-Density Embedding Theory (FDET) provides the basis of multi-scale/multi-l
 The environment is described by means of the electron density $\rho_B$ whereas the embedded species by means of the 
 embedded $N_A$-electron wavefunction ($\Psi_A$). The total energy of a system is given by the functional ${E}_{v_{AB}}^{FDET}[\Psi_{A},\rho_B]$ which is closely related to the Hohenberg-Kohn energy functional ($E_v^{HK}[\rho]$) known in \nr{the } density-functional theory \cite{Hohenberg1964} formulation of quantum $N$-electron problem (see Eq.~\ref{eq:nfund} below).
 
-Any multi-level simulation based based on the formal framework of FDET, %svcomma
+Any multi-level simulation based on the formal framework of FDET
 hinges on two types of approximations/assumptions.
 One concerns the used approximation for one of the components of ${E}_{v_{AB}}^{FDET}[\Psi_{A},\rho_B]$ the other concerns the approach to generate $\rho_B$. In FDET, multi-level mean\nr{s } that  $\rho_B$ is generated using other methods than \nr{those } used to optimise $\Psi_A$. The errors due to these two types of approximations combine and their relative significance cannot be determined  in a straightforward matter. The approximation used for ${E}_{v_{AB}}^{FDET}[\Psi_{A},\rho_B]$ leads to errors in the electron density obtained and in errors in energy. The latter can be either positive and negative. The errors due to  $\rho_B$ are always non-negative\nr{, due to the second Hohenberg-Kohn theorem}.
 The optimal electron density of the embedded species obtained in FDET\nr{, $\rho_A^o$, } is always $v$-representable. 
 As a result, if $\rho_B$
 is larger than the exact ground-state density of the whole system \nr{($\rho_{AB}^o$) } on some volume element, the sum of $\rho_A$ and
-$\rho_B$ cannot be equal to \nr{$\rho_{AB}^o$}. As a consequence of the second Hohenberg-Kohn theorem, FDET can only provide the upper bound of the exact ground-state anergy of the whole system. The necessary condition to reach the ground-state energy in FDET calculations is \nr{the } non-negativity of the difference \nr{$\rho_{AB}^o-\rho_B$ } on all non-zero volume elements.
+$\rho_B$ cannot be equal to \nr{$\rho_{AB}^o$}. \nr{Hence}, FDET can only provide the upper bound of the exact ground-state anergy of the whole system. The necessary condition to reach the ground-state energy in FDET calculations is \nr{the } non-negativity of the difference \nr{$\rho_{AB}^o-\rho_B$ } on all non-zero volume elements.
 We will refer to this difference as the {\it target density}.
 The condition of non-negativity of \nr{$\rho_{AB}^o-\rho_B$ }cannot be verified in practice because it requires the {\it a priori} knowledge of 
 $\rho_{AB}^o$.
@@ -65,10 +59,10 @@ The principal question addressed in the present work is:  {\it Does violation of
 The issue has not been studied systematically in the literature.
 \nr{ There are examples where $\rho_B$ was produced in such a way to not violate the negativity condition. }
 Wesolowski and Savin analysed the errors due to approximations used for ${E}_{v_{AB}}^{FDET}[\Psi_{A},\rho_B]$ in a model system for which the exact solutions of FDET are available. \nr{Only environment densities such that $\rho_{AB}^o-\rho_B \geq 0$ were considered. \cite{Wesolowski2013}}
-\nr{Fux et al. \cite{Fux2010} used localised Kohn-Sham orbitals from a supermolecular calculation, selecting only those localised on the environment. This led to environment densitues whose violation of the non-negativity condition was small and only due to numerical effects. Nonetheless, no systematic analysis of the effect of sizeable violation extents has been divulged thus far.}
+\nr{Fux et al. \cite{Fux2010} used localised Kohn-Sham orbitals from a supermolecular calculation, selecting only those localised on the environment. This led to environment densities whose violation of the non-negativity condition was small and only due to numerical effects. Nonetheless, the authors are not aware of any report of systematic analysis of the effect of sizeable violation extents.}
 
 The present work reports the result of a computational experiment on four intermolecular clusters, in which the relative significance 
-of the two factors affecting the FDET results is \nr{estimated}. In such an experiment the density and the energy of the whole cluster \nr{$\rho_{AB}^o$ } can be evaluated using an adequate method of quantum chemistry and used as a reference for various choices made for $\rho_B$.
+of the two factors affecting the FDET results is \nr{estimated}. In such an experiment the density and the energy of the whole cluster \nr{$\rho_{AB}^o$ } can be evaluated with an adequate method of quantum chemistry and used as a reference for various choices made for $\rho_B$.
 In particular, the relation between the violation of the condition of non-negativity of  \nr{$\rho_{AB}^o-\rho_B$ } and the electronic polarisation of the environment due to the interactions with the embedded species is investigated.
 
 
@@ -131,15 +125,16 @@ v_{emb}^{{FDET}}[\rho_A,\rho_B; v_B](\mathbf{r}) &=& v_B(\mathbf{r}) +  \int \fr
 \end{eqnarray}
 The term $\frac{\delta E_{xct}^{nad}[\rho_A,\rho_B]}{\delta\rho_A(\mathbf{r})}\equiv v_{xct}^{nad}[\rho_A,\rho_B](\mathbf{r})$ depends on the form of the embedded wavefunction\cite{Wesolowski2008}.
 For a single determinant, the FDET expression for $E_{xct}^{nad}[\rho_A,\rho_B]$   includes also the correlation functional $E_c[\rho_A]$  assuring that the optimal embedded density satisfies Eq.~\ref{eq:nfund}. 
-In the present work,  $E_{xct}^{nad}[\rho_A,\rho_B]$ \nr{always } denotes the \nr{bi}functional corresponding to the embedded wavefunction of the Full Configuration Interaction form\cite{Wesolowski2008}, i.e., \nr{this component is not included}.
+In the present work,  $E_{xct}^{nad}[\rho_A,\rho_B]$ \nr{always } denotes the \nr{bi}functional corresponding to the embedded wavefunction of the Full Configuration Interaction form\cite{Wesolowski2008}, i.e. \nr{$E_c[\rho_A]$ is not included}.
 The $\rho_A$-dependency of  $v_{xct}^{nad}[\rho_A,\rho_B](\mathbf{r})$ leads to two 
 particular features of Eq. \ref {eq:FDET_SE}: {\it i}) solving it involves an iterative procedure leading to self-consistency\cite{Dulak2009} and {\it ii}) the Lagrange multiplier $\lambda^{o}$  does not represent the energy.\cite{Zech2016}  \nr{NR added refs }
 
-\nr{We consider the case where the wavefunction $\Psi_A$ in Eq.~\ref{eq:FDET_SE} has a single-determinant form, which we denote with the letter $\Phi$. Therefore, an auxiliary $N_A$-electron system is defined by the self-consistent potential
+\nr{We consider the case where the wavefunction $\Psi_A$ in Eq.~\ref{eq:FDET_SE} has a single-determinant form, which we denote with the letter $\Phi$. 
+The potential
 \begin{eqnarray}
 v'_A(\mathbf{r})=v_A(\mathbf{r})+v_{emb}^{{FDET}}[\rho'_A,\rho_B; v_B](\mathbf{r})\label{eq:def_v'},
 \end{eqnarray}
-where $\rho'_A(\mathbf{r})=\langle\Phi'_A\vert\sum_{i=1}^{N_{A}}\delta(\mathbf{r}_i-\mathbf{r})\vert\Phi'_A\rangle$. The use of a prime(') in the notation ($\Phi'_A$, $\rho'_A$, and $v'_A$) indicates the simultaneous use of a single determinant wavefunction and the neglect of $E_c[\rho_A]$ and its functional derivative. We bring the reader's attention that this implies that $\rho'_A$ is a Hartree-Fock density.}
+where $\rho'_A(\mathbf{r})=\langle\Phi'_A\vert\sum_{i=1}^{N_{A}}\delta(\mathbf{r}_i-\mathbf{r})\vert\Phi'_A\rangle$, defines an auxiliary $N_A$-electron system. The use of a prime ($'$) in the notation ($\Phi'_A$, $\rho'_A$, and $v'_A$) indicates the simultaneous use of a single determinant wavefunction and the neglect of $E_c[\rho_A]$ and its functional derivative. We bring the reader's attention that $\rho'_A$ always denotes the density obtained from a self-consistent single determinant.}
 %\subsection{FDET energy using a non-variational embedded wavefunction}
 
 According to the recently derived formula relating the quantities available in methods treating the correlation energy of embedded electrons non-variationally to the Hohenberg-Kohn energy functional (Eq. 38 in Ref. \citenum{Wesolowski2020}): 
@@ -166,7 +161,7 @@ $\rho_A^{o}(\mathbf{r})$ in the left-hand side is the optimal correlated density
 defined in Eq.~\ref{eq:nfund}. 
 The right-hand-side of Eq.~\ref{eq:E_FDET_gnovc} is used to approximate $E_{v_{AB}}^{HK}[\rho_A^{o}+\rho_B]$.
 \nr{Any post-Hartree-Fock method, applied to the potential $v'_A$ (cf. Eq.~\ref{eq:def_v'}), yields the necessary terms: {\it i})
-the optimal single determinant ($\Phi'_{A}$), {\it ii}) the corresponding density ($\rho'_{A}(\mathbf{r})$), 
+the optimal single determinant ($\Phi'_{A}$), {\it ii}) the corresponding density ($\rho'_{A}$), 
 {\it iii}) the correlation energy ($E^{c}_{v'_A}$), and {\it iv}) the change of the density due to correlation ($\Delta \rho^{c}_{v'_A}(\mathbf{r})$).}
 % The  $E^{c}_{v'_A}$ and  $E_k[\Delta \rho^{c}_{v'_A}, \rho'_A, \rho_B]$
 %  terms can be evaluated in practice by means of conventional non-variational methods 
@@ -194,11 +189,11 @@ E_{int}^{FDET(\rho_B)}&=&
 &-&     E_k[\Delta \rho^{c}_{v'_A}, \rho'_A, \rho_B]  - E_{v_A}^{HK}[\rho_A^{isol}] + {E}^{HK}_{v_B}[\rho_B]  - 
 E_{v_B}^{HK}[\rho_B^{isol}] \nonumber
 \end{eqnarray}
-In the above equation,  the quantities:  $\Phi'_{A}$, $\rho'_A$, $E^{c}_{v'_A}$, and $\Delta \rho^{c}_{v'_A}$ \nr{implicitly } depend on $\rho_B(\mathbf{r})$\nr{, through  $v'_A$. For the sake of conciseness}, this dependency is not indicated explicitly. 
+In the above equation,  the quantities:  $\Phi'_{A}$, $\rho'_A$, $E^{c}_{v'_A}$, and $\Delta \rho^{c}_{v'_A}$ \nr{implicitly } depend on $\rho_B$\nr{, through  $v'_A$. For the sake of conciseness}, this dependency is not indicated explicitly. 
 \subsection{FDET interaction energy}
-The subsequent sub-sections concerns application of Eq.~\ref{eq:eint1} for different choices \nr{of } $\rho_B(\mathbf{r})$. 
+The \nr{following } sub-sections concerns application of Eq.~\ref{eq:eint1} for different choices \nr{of } $\rho_B$. 
 %Numerical implementation of the above formula depends on the choice made for $\rho_B(\mathbf{r})$ due to the evaluation of the ${E}^{HK}_{v_B}[\rho_B]$ term.
-\subsubsection{FDET interaction energy for $\rho_B(\mathbf{r})=\rho_B^{isol}(\mathbf{r})$}
+\subsubsection{FDET interaction energy for $\rho_B=\rho_B^{isol}$}
 \nr{If the environment is modelled by means of its isolated density $\rho_B^{isol}(\mathbf{r})$}, the last two terms in Eq.~\ref{eq:eint1} are equal \nr{and thus cancel out } leading to:
 \begin{eqnarray}
 E_{int}^{FDET(\rho_B^{isol})}&=&
@@ -213,7 +208,7 @@ where the exact relation $E_{v_A}^o=E_{v_A}^{HK}[\rho_A^{isol}]=\langle\Phi_{A}\
 
 \subsubsection{FDET interaction energy for  $\rho_B^{v"}(\mathbf{r})$ being the ground-state Hartree-Fock density for some 
  potential $v"(\mathbf{r})$} 
-\nr{If the environment density is obtained by solution of the Hartree-Fock in an external potential $v''(\mathbf{r})$ other than the nuclear potential of subsystem B ($v_B(\mathbf{r})$)}, the numerical value of 
+\nr{If the environment density is obtained as Hartree-Fock solution for an external potential $v''(\mathbf{r})$ other than the nuclear potential of subsystem B ($v_B(\mathbf{r})$)}, the numerical value of 
 ${E}^{HK}_{v_B}[\rho_B^{v"}]-{E}^{HK}_{v_B}[\rho_B^{isol}]\ge 0$ contributes to the interaction energy. 
 It \nr{is } approximated as:
 \begin{eqnarray}
@@ -231,10 +226,10 @@ E_{int}^{FDET(\rho_B^{v"})}
 - \langle\Phi_{B}\vert \hat{H}_{v_B}\vert \Phi_{B}\rangle - E^{c}_{v_B}\nonumber
 \end{eqnarray}
 where $\Phi_{X}$ is the Hartree-Fock wavefunction and  $E^{c}_{v_X}$ denotes the correlation energy in the system defined by the potential $v_X$ ($X=A$ or $B$).
- \subsubsection{FDET interaction energy for  optimised $\rho_B(\mathbf{r})$}
-Optimisation of both $\rho_A(\mathbf{r})$ and $\rho_B(\mathbf{r})$  proceeds by performing an iterative cycle (\textit{freeze-and-thaw}, $FAT$) in which the
+ \subsubsection{FDET interaction energy for  optimised $\rho_B$}
+Optimisation of both $\rho_A$ and $\rho_B$  proceeds by performing an iterative cycle (\textit{freeze-and-thaw}, $FAT$) in which the
 subsystem $A$ and $B$ exchange their roles  in all FDET equations \cite{Wesolowski1996a}. 
-In case of freezing $\rho_A(\mathbf{r})$,  $\rho_B$ is represented be means of an embedded $N_B$ electron single determinant ($\Phi'_B$) that is optimal  for a given $\rho_A$. Let us denote the quantities obtained at the end of such an optimisation with: $v'^{FAT}_A$, $\Phi'^{FAT}_A$, $\rho'^{FAT}_A$, 
+In case of freezing $\rho_A$,  $\rho_B$ is represented be means of an embedded $N_B$ electron single determinant ($\Phi'_B$) that is optimal  for a given $\rho_A$. Let us denote the quantities obtained at the end of such an optimisation with: $v'^{FAT}_A$, $\Phi'^{FAT}_A$, $\rho'^{FAT}_A$, 
  $E^{c}_{v'^{FAT}_A}$, and $\Delta \rho^{c}_{v'^{FAT}_A}$  for the subsystem $A$ and
  $v'^{FAT}_B$ $\Phi'^{FAT}_B$, $\rho'^{FAT}_B$, 
  $E^{c}_{v'^{FAT}_B}$, and $\Delta \rho^{c}_{v'^{FAT}_A}$  for the subsystem $B$. Using this notation, Eq.~\ref{eq:eint3} reads: 
@@ -274,9 +269,8 @@ Eqs.~\ref{eq:eint4A}, \ref{eq:eint4B}, and \ref{eq:eint4} yield the same energy.
 In practical calculations, 
 Eqs.~\ref{eq:eint4A} and \ref{eq:eint4B} \nr{may } yield different numerical results due to the following factors:
 {\it i})  the approximation: ${E}_{xcT}^{nad}[\rho_A,\rho_B]\approx \tilde{E}_{xcT}^{nad}[\rho_A,\rho_B]$, 
-{\it ii}) approximate treatment of the correlation energy $E^c_{v}$, and {\it iii}) the incompleteness of the used basis sets.
-The "symmetrised" expression for the interaction energy (Eq.~\ref{eq:eint4}) \nr{uniquely defines } the interaction energy for practical calculations.
-{\color{red}TW to TW:  add Delta O}
+{\it ii}) approximate treatment of the correlation energy $E^c_{v}$, {\it iii}) the incompleteness of the used basis sets, {\it iv}) the difference in magnitude of the second order contributions $O(\Delta\rho)^2$(cf. Eq.~\ref{eq:E_FDET_gnovc}).
+The symmetrised expression for the interaction energy (Eq.~\ref{eq:eint4}) \nr{uniquely defines } the interaction energy for practical calculations.
 \subsection{Measures of errors in density}
 As a measure of violation of the non-negativity condition by a given density $\rho_{B}(\mathbf{r})$, the
  parameter $M[\rho_{B}(\mathbf{r})-\rho^{o}_{AB}(\mathbf{r})]$ defined as:
@@ -304,11 +298,13 @@ the the following relation between $M$ and $P$ (see the Supporting Information):
  M[\rho_{B} - \rho^{o}_{AB}] \leq P[\rho^{Eq.\ref{eq:FDET_SE}}_A+\rho_B - \rho_{AB}^{o}]  \leq %  \int \rho_{AB}^{o} 
   N_{AB}.
 \end{equation}
-\nr{Such upper bound is almost impossible to reach in practical calculations, as it corresponds to the case where the overlap of $\rho^{Eq.\ref{eq:FDET_SE}}_A+\rho_B$ and $\rho_{AB}^{o}$ is zero. A more insightful term of comparison can be obtained by comparing the sum of isolated fragments to the reference density by means of $P[\rho_A^{isol}+\rho_B^{isol} - \rho_{AB}^{o}]$. In the interest of compactness, we denote this as $P_{cmpl}$, as it actually constitutes the integrated density change upon complexation and corresponds to the density error if no optimisation of the active subsystem were performed, which in turn relates to the strength of the intersubsystem interaction.}
+\nr{The upper bound is almost impossible to reach in practical calculations, as it corresponds to the case where the overlap of $\rho^{Eq.\ref{eq:FDET_SE}}_A+\rho_B$ and $\rho_{AB}^{o}$ is zero. A more insightful term of comparison can be obtained by comparing the sum of isolated fragments to the reference density by means of $P[\rho_A^{isol}+\rho_B^{isol} - \rho_{AB}^{o}]$. In the interest of compactness, we denote this as
+\begin{equation}\label{eq:p_cmpl}
+ P_{cmpl} = P[\rho_A^{isol}+\rho_B^{isol} - \rho_{AB}^{o}]
+\end{equation}
+as it actually constitutes the integrated density change upon complexation and corresponds to the density error if no optimisation of the active subsystem were performed, which in turn relates to the strength of the intersubsystem interaction.}
 
 $M$ and $P$  are used here to discuss different choices of $\rho_{B}(\mathbf{r})$ in {\it the same} system. 
-
-The numerical values of $M$ and $P$ discussed in the present work use the Hartree-Fock densities evaluated for the whole system  as $\rho^{o}_{AB}$. 
 %\newpage
 \subsection{Computational Details}
 %\subsection{FDET with MP2 treatment of correlation for embedded $N_A$ electrons}
@@ -316,18 +312,15 @@ The interaction energy was evaluated according to Eqs.~\ref{eq:eint2}, \ref{eq:e
 \begin{eqnarray}
 %{E}_{xcT}^{nad}[\rho_A,\rho_B]&\approx& \tilde {E}_{xcT}^{nad}[\rho_A,\rho_B] \\
 %v_{xct}^{nad}[\rho_A,\rho_B](\mathbf{r})&\approx&\frac{\delta \tilde{E}_{xct}^{nad}[\rho_A,\rho_B]}{\delta\rho_A(\mathbf{r})}\\
-E^{c}_{v}&\approx&E_c^{MP2} \label{eq:appr_ec}\\
-\Delta \rho^{c}_{v}(\mathbf{r})&\approx&\rho_v^{MP1}(\mathbf{r})-\rho_v^{HF}(\mathbf{r}) \label{eq:appr_rc}
+E^{c}_{v'_X}&\approx&E_{v'_X}^{(2)} \label{eq:appr_ec}\\
+\Delta \rho^{c}_{v'_X}(\mathbf{r})&\approx&\rho_{v'_X}^{MP1}(\mathbf{r})-\rho'_{X},(\mathbf{r}) \label{eq:appr_rc}
 \end{eqnarray}
+where $X=A$ or $B$, and $E_{v'_X}^{(2)}$ denotes the second-order M{\o}ller-Plesset energy correction.
+
 For the sake of \nr{brevity}, the methods based on the energy expressions given in this section and \nr{the approximations used in this work } are referred to as FDET-MP2. 
 
-\nr{NR we never say that our $\rho_B$ are HF. I think we should do it here.}
-
-\nr{I think we should mention here that M and P use HF.}
-
-\nr{NR we only mention that $E^{ref}$ is MP2 CP in the tables' notes. I think we could mention it here.}
-
-\nr{NR I think that we could come up with a paragraph explaining why we chose such combinations of levels of theory for all these terms.}
+All $\rho_B$ densities were obtained from single Slater determinants. For consistency, so was the reference density $\rho_{AB}^o$, used to evaluate $M$ and $P$ parameters.
+The reference interaction energy was calculated with MP2 theory with counterpoise correction.
 
 $E_{xcT}^{nad}[\rho_A,\rho_B]$ and its functional derivative \nr{were } approximated using local-density approximation (LDA) for all its components: Thomas-Fermi  \cite{Thomas1927, Fermi1928} for the kinetic energy, Dirac-Slater\cite{Slater1929} for the exchange energy, and the Vosko-Wilk-Nusair \cite{Vosko1980} for correlation energy:
 \begin{eqnarray}
@@ -344,7 +337,7 @@ The \textit{freeze-and-thaw} optimisation of $\rho_B$ required 7 to 14 iteration
 % involves obtaining a self consistent solution of Eq.~\ref{eq:FDET_SE} ($\Phi'_A$) followed by
 % solving a "conjoint" equation, in which the indices $A$ and $B$ are switched. 
 Note that the evaluation of the correlation energy is needed only after obtaining the final (consistent with the embedding potential) single determinant. 
-The above iterative procedures, %svcomma
+The above iterative procedures
 were performed using the author's version \cite{CCParser_Ricardi} of CCParser\cite{CCParser_Zech} and CCDatabase\cite{CCDatabase} handling the automatic submission of Q-Chem5.4\cite{Qchem54} calculations, parsing, and collecting the results.
 
 The aug-cc-pVDZ \nr{atomic basis sets was } used in all calculations. 
@@ -352,20 +345,19 @@ In FDET, two types of expansions were applied: {\it supermolecular expansion}, i
 atomic functions centred on atoms defining the potential $v_A$ whereas $\Phi_B$ was constructed using only atomic functions centred on atoms defining the potential $v_B$. \nr{NR monomer and supermolecular expansion are now always italic. }
 
 \nr{
-The geometries of the investigated complexes are reported in Ref. \citenum{Zech2018}.}
-
+The geometries of the investigated complexes are reported in Ref. \citenum{Zech2018}. }
 Throughout this work, the following convention is used for relating Eq.~\ref{eq:FDET_SE} and to the names of the complexes/clusters: if the system name is AAA-BBB, AAA is associated with $\Psi_A$ and BBB with $\rho_B$ .
 In case of optimisation of $\rho_B$, \nr{Eq.~\ref{eq:FDET_SE} } is solved 
 iteratively for both subsystems. In subsequent  calculations the indices A and B exchange and the order does not matter.
 The \textit{freeze-and-thaw} optimisation \nr{always starts and ends with the index $B$ being attributed to subsystem BBB}. 
  
-Parameters $M$ and $P$ were evaluate\nr{d} using the grid integration implemented in PySCF\cite{PYSCF}\nr{, which is based on Becke\cite{Becke1988b}-Lebedev\cite{Lebedev1999} grids}. 
+Parameters $M$ and $P$ were evaluate\nr{d } using the grid integration implemented in PySCF\cite{PYSCF}\nr{, which is based on Becke\cite{Becke1988b}-Lebedev\cite{Lebedev1999} grids}. 
 The plots were prepared using the Python modules: pandas\cite{PANDAS} and matplotlib\cite{Hunter2007}.
 
 \subsection{Explicit treatment of the electronic polarisation of $\rho_B$ in FDET}\label{sect:pol_treat}
 %\section{Treatment of polarization} \label{sect:pol_treat}
 The interpretation of the electronic polarisation of the environment and its effect on the energy is different in FDET and in the theories of intermolecular interactions such as the Symmetry-Adapted Perturbation Theory \cite{Jeziorski1994}. Whereas it enters as a separate component of the energy in the latter case, its identification in FDET is less straightforward.
-\nr{This is due to } the fact that in FDET, the electronic polarisation of each subsystem is not well-defined.\cite{HumbertDroz2014} \nr{NR added ref } As long as the non-negativity condition for $\rho^{o}_{AB}-\rho_B$ is satisfied, any \nr{variation } of $\rho_B$ is not changing the FDET energy. The partition of the total density and consequently the effect of polarisation of $\rho_B$ is, therefore, not unique.\cite{Wesolowski2013,Savin2009}  \nr{NR added refs }
+\nr{This is due to } the fact that in FDET, the electronic polarisation of each subsystem is not well-defined.\cite{HumbertDroz2014} The partition of the total density is not unique.\cite{Savin2009}, so, as long as the non-negativity condition for $\rho^{o}_{AB}-\rho_B$ is satisfied, any \nr{variation } of $\rho_B$ is not changing the FDET energy.
 In FDET\nr{-}based methods, on the other hand,  ${E}_{xcT}^{nad}[\rho_A,\rho_B]\approx \tilde{E}_{xcT}^{nad}[\rho_A,\rho_B]$. 
 Even though $\tilde{E}_{xcT}^{nad}[\rho_A,\rho_B]$
 is symmetric with respect to exchanging $A$ with $B$, 
@@ -373,12 +365,12 @@ the errors in the potentials  $\tilde{v}_{xcT}^{nad}[\rho_A,\rho_B](\mathbf{r})$
  are not the same. 
 As a result, the unique pair $\rho_A$ and  $\rho_B$ is usually obtained in the \textit{freeze-and-thaw} calculations.\cite{Wesolowski2015,Wesolowski1997a,Dulak2007a} 
 \nr{NR to TW+CGE: ok with only refs or also more detailed explanation? } 
-Optimisation of $\rho_B$  corresponds thus to two effect which cannot be separated, the possibility to reduce the magnitude of the violation of the non-negativity condition, and lowering the total energy given by an approximated expression differing from the exact one by  $\tilde{E}_{xcT}^{nad}[\rho_A,\rho_B]-{E}_{xcT}^{nad}[\rho_A,\rho_B]$. None of them can be uniquely attributed to the electronic polarisation of $\rho_B$. 
+Optimisation of $\rho_B$  corresponds thus to two effects which cannot be separated, the possibility to reduce the magnitude of the violation of the non-negativity condition, and lowering the total energy given by an approximated expression differing from the exact one by  $\tilde{E}_{xcT}^{nad}[\rho_A,\rho_B]-{E}_{xcT}^{nad}[\rho_A,\rho_B]$. None of them can be uniquely attributed to the electronic polarisation of $\rho_B$. 
 
 The FDET calculations for $\rho_B=\rho_B^{isol}$, on the other hand, take into account the electronic polarisation implicitly if the two densities $\rho_A(\mathbf{r})$ and $\rho_B(\mathbf{r})$ do overlap. 
 Even if $\rho_B$ is frozen, the total density near the subsystem $B$ can be modified by the intermolecular interactions due to its $\rho_A$ component.  Since $\rho_A$
-is always positive, such implicit treatment of the polarisation cannot expected to be complete. 
-This implicit treatment depends on the basis \nr{used } set which \nr{in turn } determines the amount of possible overlap between  $\rho_A$ and $\rho_B$.
+is always positive, such implicit treatment of the polarisation cannot be expected to be complete. 
+This implicit treatment depends on the basis set \nr{used } which \nr{in turn } determines the amount of possible overlap between  $\rho_A$ and $\rho_B$.
 Moreover, the optimised density 
 $\rho_A$ depends critically on the used $\tilde{v}_{xcT}^{nad}[\rho_A,\rho_B](\mathbf{r})$.  
 
@@ -397,8 +389,8 @@ The electric field generated by the  ChelPG  charges has the same long-distance 
 The corresponding densities are denoted with  $\rho_B^{pp(MC)}$.  
 For pre-polarised  $\rho_B$,  the interaction energy is given by Eq.~\ref{eq:eint3}.
 
-The comparative analysis of the three approaches to the electronic polarisation within FDET, %svcomma
-are made only for the {\it monomer expansion}. The pre-polarisation by net atomic charges misses the quantum effects due to the Fermi statistics of electrons, which leads to unstable numerical results if the basis set is such that the diffusion of electrons towards the environment possible  \cite{Fradelos2011a,Fradelos2011c}.
+The comparative analysis of the three approaches to the electronic polarisation within FDET
+are made only for the {\it monomer expansion}. The pre-polarisation by net atomic charges misses the quantum effects due to the Fermi statistics of electrons, which leads to unstable numerical results if the basis set is such that the diffusion of electrons towards the environment is possible.\cite{Fradelos2011a,Fradelos2011c}
 
 \section{Results and discussion}
 \subsection{FDET results with optimised $\rho_B$}
@@ -409,7 +401,7 @@ Such good performance of the used approximation for $E_{xcT}^{nad}[\rho_A,\rho_B
 could be expected based on our previous numerical experience \cite{Wesolowski2003a,Kevorkyants2006,Dulak2007a}. The numerical values of $
 \delta E_{int}^{FAT}=E^{FDET(FAT)}_{int}-E_{int}^{ref}\label{eq:def_err_en}$
  can be attributed mainly to the used  approximation for $E_{xcT}^{nad}[\rho_A,\rho_B]$. 
- $\rho_B$ was optimised and the same basis set was used in \nr{FDET-MP2 } and \nr{in } the reference supermolecular calculations (MP2). 8\%). 
+ $\rho_B$ was optimised and the same basis set was used in \nr{FDET-MP2 } and \nr{in } the reference supermolecular calculations (MP2). 
 Other factors contributing to the deviations from the reference energies are due to incompleteness of the basis sets and to the higher than second-order contributions to the correlation energy. These effects might not completely cancel each other in FDET and in the reference calculations. 
 
 The non-zero values of  the parameters $M$ and $P$, on the other hand, \nr{are mainly due to } the approximation \nr{used for } $v_{xcT}^{nad}[\rho_A,\rho_B]$. 
@@ -441,7 +433,7 @@ Density measures $M$ and $P$ are given in atomic units, energies in kcal/mol.
 \label{table:SE_FAT}
 \end{table*}
 
-Some analyses in the present work are made using a reduced set of atomic basis sets ({\it monomer expansion}). This \nr{constitutes an additional contribution } to the deviations of FDET interaction energies from the reference ones\nr{, whose extent can be assessed by comparison of Table~\ref{table:SE_FAT} and Table~\ref{table:ME_FAT}}.
+Some analyses in the present work are made using a reduced set of atomic basis sets ({\it monomer expansion}). This \nr{constitutes an additional contribution } to the deviations of FDET interaction energies from the reference ones\nr{, the extent of which can be assessed by comparison of Table~\ref{table:SE_FAT} and Table~\ref{table:ME_FAT}}.
 
 \begin{table*}
 {
@@ -467,7 +459,7 @@ PyrBnz-2HCOOH  & 0.127 & 0.606 & 0.016  & 3.74 & -32.79 &  -36.53 \\ \hline
 \label{table:ME_FAT}
 \end{table*}
 
-Limiting the basis set expansion to functions centred on one subsystem increases the interaction energies reflecting thus the variational principle (the total energy decreases). Except for uracil-3H$_2$O, the energies obtained with basis sets centred on all atoms of the complex are closer to the MP2 reference. In the {\it monomer expansion} case, the total density obtained as a sum of \nr{the } two subsystem densities, %svcomma
+Limiting the basis set expansion to functions centred on one subsystem increases the interaction energies reflecting thus the variational principle (the total energy decreases). Except for uracil-3H$_2$O, the energies obtained with basis sets centred on all atoms of the complex are closer to the MP2 reference. In the {\it monomer expansion} case, the total density obtained as a sum of \nr{the } two subsystem densities
 does not include products of basis function\nr{s } localised in different subsystems. The largest effect on energy due to neglecting of such terms occurs for 7HQ-formate case (the error increases from 2.88 to 8.21~kcal/mol) - arguably the most covalently bound complex among the four considered in this work\nr{, as evidenced by its hydrogen bond length (cf. Section~\ref{sec:intro})}. In all cases, the magnitude of the violation of the non-negativity condition ($M$)  is smaller if the {\it supermolecular expansion} is used. 
 
 In practice, for the multi-scale numerical simulations,  optimising 
@@ -586,23 +578,23 @@ Lower values of $M$, i.e. less significant violation of the non-negativity condi
 The FDET energies obtained using the pre-polarised $\rho_B$ and optimised $\rho_B$ agree within about 1kcal/mol.
 Using the  Mulliken charge representation of $\rho_A^{isol}$ does not lead to similar - desired - effects. 
 The advantage of using the ChelPG  over the Mulliken charges  in order to polarise $\rho_B$ could be expected\nr{, as the former } are fitted to the electrostatic potential generated by the molecule.
-\begin{figure}[H]
+\begin{figure*}
 \centering
 \includegraphics[width=1.0\linewidth]{M_vs_MP_220401.png}
 \caption{Integrated negative density $M$ and the FDET-MP2 interaction energy for various choices of $\rho_B$:  a) $\rho_B^{isol}$ (orange triangles), b) $\rho_B^{FAT}$ (light blue hexagons), c) $\rho_B^{pp(Mulliken)}$ (green diamonds), and d) $\rho_B^{pp(ChelPG)}$ (dark blue pentagons). Data obtained using the {\it monomer expansion}. Horizontal lies indicate the reference interaction energy.}
 \label{fig:M_vs_MP}
-\end{figure}
+\end{figure*}
 
 Figure \ref{fig:M_vs_P} shows that the pre-polarisation of $\rho_B$ using the  ChelPG representation of $\rho_A^{isol}$
 results also \nr{in } a significant improvement in the total density.
 %\end{document}
 
-\begin{figure}[H]
+\begin{figure*}
 \centering
 \includegraphics[width=1.0\linewidth]{M_vs_P_220401.png}
 \caption{Integrated negative density $M$ and the total density error $P$ for various choices of $\rho_B$:  a) $\rho_B^{isol}$ (orange triangles), b) $\rho_B^{FAT}$ (light blue hexagons), c) $\rho_B^{pp(Mulliken)}$ (green diamonds), and d) $\rho_B^{pp(ChelPG)}$ (dark blue pentagons). Data obtained using the {\it monomer expansion}.}
 \label{fig:M_vs_P}
-\end{figure}
+\end{figure*}
 % \end{document}
 
 
@@ -613,21 +605,13 @@ ${E}_{xcT}^{nad}[\rho_A,\rho_B]$ is significantly  smaller than the error in the
 This fact lies at the origin of  a  remarkable performance of such FDET\nr{-}based calculations if such density is used  \cite{Ricardi2018}.
 Whereas  the approximation  to ${E}_{xcT}^{nad}[\rho_A,\rho_B]$ can result in \nr{positive or negative energy error for } a given electronic state, the \nr{energy error due to  such a choice of $\rho_B$ } is always non-negative (cf. Eq.~\ref{eq:nfund}). The origin of the good description of vertical excitation energies lies, therefore, in a systematic cancellation of these non-negative contributions for each state.
 
-For the energy of one state, on the other hand, there is no other component that could compensate \nr{the } error due to violation of this condition. In practical calculations, verification  of the condition of the non-negativity of $\rho^{o}_{AB}-\rho_B$ is not possible. This would require a priori knowledge of the total density.
+For the energy of one state, on the other hand, there is no other component that could compensate \nr{the } error due to violation of this condition. In practical calculations, verification  of the condition of the non-negativity of $\rho^{o}_{AB}-\rho_B$ is not possible. This would require \textit{a priori} knowledge of the total density.
 The present work provided a link between the violation of the condition of the non-negativity of $\rho^{o}_{AB}-\rho_B$
 and the effect of electronic polarisation of $\rho_B$ by the embedded species. Due to this link, the magnitude
 of the violation of the non-negativity condition of $\rho^{o}_{AB}-\rho_B$ can be significantly reduced  in practice.
 
-%\newpage
-%
-%$\;$
-
-
-%\end{document}
-
-\begin{suppinfo}
-{\color{red} NR: 
-SI will comprise the following information
+\section*{suppinfo}
+\nr{ NR: let's discuss SI
 
 The data is provided in csv.
 \begin{itemize}
@@ -640,16 +624,8 @@ The data is provided in csv.
   \item kernel contributions
 \end{itemize}
 }
-\end{suppinfo}
-
-%\end{document}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% The appropriate \bibliography command should be placed here.
-%% Notice that the class file automatically sets \bibliographystyle
-%% and also names the section correctly.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \bibliography{biblio}
 
 \end{document}
