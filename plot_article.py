@@ -24,8 +24,8 @@ en.loc[en["calc"]=="FT-ME","kernel_tot"] /= 2
 systems = ["7HQ_2MeOH", "7HQ_formate", "Uracil_5H2O", "XVI_2HCOOH"]
 syst_lbls = {"7HQ_2MeOH": "7HQ 2MeOH",
              "7HQ_formate": "7HQ formate",
-             "Uracil_5H2O": "Uracil 5H2O",
-             "XVI_2HCOOH": "XVI 2HCOOH"}
+             "Uracil_5H2O": "uracil 5H2O",
+             "XVI_2HCOOH": "PyrBnz 2HCOOH"}
 
 #r"$\int\frac{|\rho(\vec{r}|)}{2}d\vec{r}$"
 en["E_MPk"] = en["E_FDET_MP"] - en["kernel_tot"]
@@ -42,21 +42,15 @@ for n,system in enumerate(systems):
     mp_centers.append(0.5*(max(all_mps) + min(all_mps)))
     hf_ranges.append(max(s_en["E_FDET_HF"].tolist()) - min(s_en["E_FDET_HF"].tolist()))
     hf_centers.append(0.5*(max(s_en["E_FDET_HF"].tolist()) + min(s_en["E_FDET_HF"].tolist())))
-    dens_rangeM.append(s_den["M_value"].max() - s_den["M_value"].min())
-    dens_cenM.append(0.5*(s_den["M_value"].max() + s_den["M_value"].min()))
-    dens_rangeP.append(s_den["densdiff_FDET_ref"].max() - s_den["densdiff_FDET_ref"].min())
-    dens_cenP.append(0.5*(s_den["densdiff_FDET_ref"].max() + s_den["densdiff_FDET_ref"].min()))
+    dens_rangeM.append(1.1*s_den["M_value"].max())
+    dens_rangeP.append(1.1*s_den["densdiff_FDET_ref"].max())
     
 mp_range = max(mp_ranges)*1.1   
 hf_range = max(hf_ranges)*1.1  
-den_rangeM = max(dens_rangeM)*1.1
-den_rangeP = max(dens_rangeP)*1.1
-
-
 
 colours = ["r", "g", "b", "c"]
-axes_lbls = {"E_FDET_HF": r"$E^{FDET}_{HF} [Kcal/mol]$ ",
-             "E_FDET_MP": r"$E^{FDET}_{MP,k}[Kcal/mol]$",
+axes_lbls = {"E_FDET_HF": r"$E^{FDET}_{int} [kcal/mol]$ ",
+             "E_FDET_MP": r"$E^{FDET}_{int}[kcal/mol]$",
              "densdiff_FDET_ref": "P[a.u.]",
              "M_value": "M[a.u.]",
              "E_ref_HF": r"$E^{HF}_{}$",
@@ -64,7 +58,7 @@ axes_lbls = {"E_FDET_HF": r"$E^{FDET}_{HF} [Kcal/mol]$ ",
              "E_ref_MP": r"$E^{MP}_{}$",
              "E_ref_MP_CP": r"$E^{MP}_{CP}$"}
 lbls = ["none", "Mulliken", "ChelPG", "FT"]
-fig_P, fig_HF, fig_PHF, fig_MP, fig_PMP = [plt.figure(figsize=(20, 10), dpi=150) for i in range(5)]
+fig_P, fig_HF, fig_PHF, fig_MP, fig_PMP = [plt.figure(figsize=(20, 10), dpi=600) for i in range(5)]
 axs_P, axs_HF, axs_PHF, axs_MP, axs_PMP = [[] for i in range(5)]
 constant = dict(linestyle="", alpha=0.75, markeredgecolor="k", markeredgewidth=2.5, markersize=15)
 
@@ -74,29 +68,29 @@ for n, system in enumerate(systems):
     axs_PHF.append(fig_PHF.add_subplot(221+n))#, label="PHF"))
     axs_MP.append(fig_MP.add_subplot(221+n))#, label="MP"))
     axs_PMP.append(fig_PMP.add_subplot(221+n))#, label="MP"))
-    Mmin = dens_cenM[n] - 0.5*den_rangeM
-    Mmin = max(0, Mmin)
-    Mmax = Mmin + den_rangeM
+#    Mmin = dens_cenM[n] - 0.5*den_rangeM
+#    Mmin = max(0, Mmin)
+#    Mmax = Mmin + den_rangeM
     mpmin = mp_centers[n] - 0.5*mp_range
     mpmax = mpmin + mp_range
     hfmin = hf_centers[n] - 0.5*hf_range
     hfmax = hfmin + hf_range
-    Pmin = dens_cenP[n] - 0.5*den_rangeP
-    Pmin = max(Pmin, 0) 
-    Pmax = Pmin + den_rangeP
-    axs_P[n].set_xlim([Mmin, Mmax])
-    axs_P[n].set_ylim([Pmin, Pmax])
+#    Pmin = dens_cenP[n] - 0.5*den_rangeP
+#    Pmin = max(Pmin, 0) 
+#    Pmax = Pmin + den_rangeP
+    axs_P[n].set_xlim([0, dens_rangeM[n]])
+    axs_P[n].set_ylim([0, dens_rangeP[n]])
     axs_P[n].grid(b=True)
-    axs_HF[n].set_xlim([Mmin, Mmax])
+    axs_HF[n].set_xlim([0, dens_rangeM[n]])
     axs_HF[n].set_ylim([hfmin, hfmax])
     axs_HF[n].grid(b=True)
-    axs_MP[n].set_xlim([Mmin, Mmax])
+    axs_MP[n].set_xlim([0, dens_rangeM[n]])
     axs_MP[n].set_ylim([mpmin, mpmax])
     axs_MP[n].grid(b=True)
-    axs_PHF[n].set_xlim([Pmin, Pmax])
+    axs_PHF[n].set_xlim([0, dens_rangeP[n]])
     axs_PHF[n].set_ylim([hfmin, hfmax])
     axs_PHF[n].grid(b=True)
-    axs_PMP[n].set_xlim([Pmin, Pmax])
+    axs_PMP[n].set_xlim([0, dens_rangeP[n]])
     axs_PMP[n].set_ylim([mpmin, mpmax])
     axs_PMP[n].grid(b=True)
 #    axs_HF[n].axhline(y=s_ens[n]["E_ref_HF"][0], color="k", alpha=0.5, linestyle=":")
@@ -110,11 +104,11 @@ for n, system in enumerate(systems):
 #    axs_MP[n].axhline(y=s_ens[n]["E_ref_MP"][0], color="k", alpha=0.5, linestyle=":")
 #    axs_MP[n].text(Mmax + 0.01*den_rangeM, s_ens[n]["E_ref_MP"][0], axes_lbls["E_ref_MP"], color="k", ha="left", va="top")
     axs_MP[n].axhline(y=s_ens[n]["E_ref_MP_CP"][0], color="k", alpha=0.5, linestyle="--")
-    axs_MP[n].text(Mmax + 0.01*den_rangeM, s_ens[n]["E_ref_MP_CP"][0], axes_lbls["E_ref_MP_CP"], color="k", ha="left", va="bottom")
+    axs_MP[n].text(1.01*dens_rangeM[n], s_ens[n]["E_ref_MP_CP"][0], axes_lbls["E_ref_MP_CP"], color="k", ha="left", va="bottom")
 #    axs_PMP[n].axhline(y=s_ens[n]["E_ref_MP"][0], color="k", alpha=0.5, linestyle=":")
 #    axs_PMP[n].text(Pmax + 0.01*den_rangeP, s_ens[n]["E_ref_MP"][0], axes_lbls["E_ref_MP"], color="k", ha="left", va="top")
     axs_PMP[n].axhline(y=s_ens[n]["E_ref_MP_CP"][0], color="k", alpha=0.5, linestyle="--")
-    axs_PMP[n].text(Pmax + 0.01*den_rangeP, s_ens[n]["E_ref_MP_CP"][0], axes_lbls["E_ref_MP_CP"], color="k", ha="left", va="bottom")
+    axs_PMP[n].text(1.01*dens_rangeP[n], s_ens[n]["E_ref_MP_CP"][0], axes_lbls["E_ref_MP_CP"], color="k", ha="left", va="bottom")
     for m in range(4):
         axs_P[n].plot(s_dens[n]["M_value"][m], s_dens[n]["densdiff_FDET_ref"][m],
            marker=(3+m, 0, 0), color=colours[m], label=lbls[m], **constant)
@@ -154,11 +148,11 @@ fig_PHF.subplots_adjust(top=0.965, bottom=0.0775, left=0.0725, right=0.96, wspac
 fig_MP.subplots_adjust(top=0.965, bottom=0.0775, left=0.0725, right=0.96, wspace=0.275, hspace=0.3)
 fig_PMP.subplots_adjust(top=0.965, bottom=0.0775, left=0.0725, right=0.96, wspace=0.275, hspace=0.3)
 
-fig_P.savefig("M_vs_P.png")
-fig_HF.savefig("M_vs_HF.png")
-fig_PHF.savefig("P_vs_HF.png")
-fig_MP.savefig("M_vs_MP.png")
-fig_PMP.savefig("P_vs_MP.png")
+fig_P.savefig("M_vs_P.png",dpi=600)
+fig_HF.savefig("M_vs_HF.png",dpi=600)
+fig_PHF.savefig("P_vs_HF.png",dpi=600)
+fig_MP.savefig("M_vs_MP.png",dpi=600)
+fig_PMP.savefig("P_vs_MP.png",dpi=600)
 
 ###############
 ####PLOT ALL IN ONE PICTURE
