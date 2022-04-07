@@ -21,6 +21,8 @@ reqs["kernel_tot"] = quantities_hf + quantities_mp + quantities_ccp_kernel
 reqs["kernel_A"] = quantities_hf + quantities_mp + quantities_ccp_kernel
 reqs["kernel_B"] = quantities_hf + quantities_mp + quantities_ccp_kernel
 
+#quantities_ccp = list(set(reqs["E_ref_HF"] + reqs["E_ref_HF_CP"] + reqs["E_linFDET_HF"]\
+#                          + reqs["E_ref_MP"] + reqs["E_ref_MP_CP"] + reqs["E_FDET_MP"]))
 parser = {k: "dmf_hf" for k in quantities_hf}
 parser.update({k: "dmf_mp" for k in quantities_mp})
 parser.update({k: "ccp" for k in quantities_ccp_kernel})
@@ -29,13 +31,13 @@ parser_kwargs = {"dmf_hf": {}, "dmf_mp": {"filename": "Densmat_MP.txt", "prop_ke
 
 cwd = os.getcwd()
 systems = ["7HQ_2MeOH", "7HQ_formate", "Uracil_5H2O", "XVI_2HCOOH"]
-calcs = ["MC-SE-nopp", "FT-SE"]
+calcs = ["MC-nopp", "MC-pp_Mulliken", "MC-pp_ChelPG", "FT-ME"]
 joblist = [i for i in ittl.product([cwd], systems, calcs)]
 df = ccd.collect_data(joblist, levelnames=["base","system","calc"], qlist=cqlist,
                  reqs=reqs, ext="*.out", ignore="slurm*", parser=parser, parserfuncs=parserfuncs,
                  parser_file="CCParser.json",parser_args=None, 
                  parser_kwargs=parser_kwargs, check_input=True, funcdict = "ccp",
                  to_console=True, to_log=False, printlevel=10)   
-df.to_csv("results_SE_kernel.csv")
+df.to_csv("results_kernels.csv")
 
 

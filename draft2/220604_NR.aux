@@ -31,18 +31,23 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {B}FDET interaction energy}{6}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {1}FDET interaction energy for $\rho _B=\rho _B^{isol}$}{6}{}}
 \newlabel{eq:eint2}{{12}{6}{}{}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2}FDET interaction energy for $\rho _B^{v"}(\mathbf  {r})$ being the ground-state Hartree-Fock density for some potential $v"(\mathbf  {r})$}{6}{}}
 \citation{Wesolowski1996a}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2}FDET interaction energy for $\rho _B^{v"}(\mathbf  {r})$ being the ground-state Hartree-Fock density for some potential $v"(\mathbf  {r})$}{7}{}}
 \newlabel{eq:evb}{{13}{7}{}{}{}}
 \newlabel{eq:eint3}{{14}{7}{}{}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3}FDET interaction energy for optimised $\rho _B$}{7}{}}
 \newlabel{eq:eint4A}{{15}{7}{}{}{}}
-\newlabel{eq:eint4B}{{16}{7}{}{}{}}
+\newlabel{eq:eint4B}{{16}{8}{}{}{}}
 \newlabel{eq:eint4}{{17}{8}{}{}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {C}Measures of errors in density}{8}{}}
 \newlabel{eq:M}{{18}{8}{}{}{}}
 \newlabel{eq:def_M}{{18}{8}{}{}{}}
-\newlabel{eq:def_P}{{19}{8}{}{}{}}
+\newlabel{eq:def_P}{{19}{9}{}{}{}}
+\newlabel{eq:P_bound}{{20}{9}{}{}{}}
+\newlabel{eq:p_cmpl}{{21}{9}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {D}Computational Details}{9}{}}
+\newlabel{eq:appr_ec}{{22}{9}{}{}{}}
+\newlabel{eq:appr_rc}{{23}{9}{}{}{}}
 \citation{Thomas1927,Fermi1928}
 \citation{Slater1929}
 \citation{Vosko1980}
@@ -51,11 +56,6 @@
 \citation{CCParser_Zech}
 \citation{CCDatabase}
 \citation{Qchem54}
-\newlabel{eq:P_bound}{{20}{9}{}{}{}}
-\newlabel{eq:p_cmpl}{{21}{9}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {D}Computational Details}{9}{}}
-\newlabel{eq:appr_ec}{{22}{9}{}{}{}}
-\newlabel{eq:appr_rc}{{23}{9}{}{}{}}
 \citation{Zech2018}
 \citation{PYSCF}
 \citation{Becke1988b}
@@ -66,36 +66,35 @@
 \citation{HumbertDroz2014}
 \citation{Savin2009}
 \citation{Wesolowski2015,Wesolowski1997a,Dulak2007a}
-\citation{Breneman1990}
-\citation{Mulliken1955}
 \@writefile{toc}{\contentsline {subsection}{\numberline {E}Explicit treatment of the electronic polarisation of $\rho _B$ in FDET}{11}{}}
 \newlabel{sect:pol_treat}{{II\tmspace  +\thinmuskip {.1667em}E}{11}{}{}{}}
+\citation{Breneman1990}
+\citation{Mulliken1955}
 \citation{Fradelos2011a,Fradelos2011c}
 \citation{Wesolowski2003a,Kevorkyants2006,Dulak2007a}
 \@writefile{toc}{\contentsline {section}{\numberline {III}Results and discussion}{12}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {A}FDET results with optimised $\rho _B$}{12}{}}
-\newlabel{eq:def_err_en}{{III\tmspace  +\thinmuskip {.1667em}A}{12}{}{}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces Deviations of the FDET-MP2 results from the reference data. In FDET, \textit  {freeze-and-thaw} optimised $\rho _B$ and the reduced set of atomic basis sets ({\it  supermolecular expansion}) are used. Density measures $M$ and $P$ are given in atomic units, energies in kcal/mol. }}{13}{}}
 \newlabel{table:SE_FAT}{{I}{13}{}{}{}}
+\newlabel{eq:def_err_en}{{III\tmspace  +\thinmuskip {.1667em}A}{13}{}{}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces Deviations of the FDET-MP2 results from the reference data. In FDET, \textit  {freeze-and-thaw} optimised $\rho _B$ and the reduced set of atomic basis sets ({\it  monomer expansion}) are used. Density measures $M$ and $P$ are given in atomic units, energies in kcal/mol. }}{14}{}}
 \newlabel{table:ME_FAT}{{II}{14}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {B}FDET results without optimisation of $\rho _B$: $\rho _B=\rho _B^{isol}$}{14}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {III}{\ignorespaces Deviations of the FDET-MP2 results from the reference data. In FDET, $\rho _B=\rho _B^{isol}$ and the complete set of atomic basis sets ({\it  supermolecular expansion}) are used. Density measures $M$ and $P$ are given in atomic units, energies in kcal/mol\\ $^e$ $E^{FDET(rho_B=\rho _B^{isol})}_{int}$ is given in Eq.\nobreakspace  {}12{}{}{}\hbox {}. }}{15}{}}
-\newlabel{table:SE_isol}{{III}{15}{}{}{}}
-\citation{Ricardi2018}
-\@writefile{lot}{\contentsline {table}{\numberline {IV}{\ignorespaces Deviations of the FDET-MP2 results from the reference data. In FDET, $\rho _B=\rho _B^{isol}$ and the reduced set of atomic basis sets ({\it  monomer expansion}) are used. Density measures $M$ and $P$ are given in atomic units, energies in kcal/mol. }}{16}{}}
-\newlabel{table:ME_isol}{{IV}{16}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B}FDET results without optimisation of $\rho _B$: $\rho _B=\rho _B^{isol}$}{15}{}}
 \citation{Ricardi2018}
 \citation{Ricardi2018}
+\@writefile{lot}{\contentsline {table}{\numberline {III}{\ignorespaces Deviations of the FDET-MP2 results from the reference data. In FDET, $\rho _B=\rho _B^{isol}$ and the complete set of atomic basis sets ({\it  supermolecular expansion}) are used. Density measures $M$ and $P$ are given in atomic units, energies in kcal/mol\\ $^e$ $E^{FDET(rho_B=\rho _B^{isol})}_{int}$ is given in Eq.\nobreakspace  {}12{}{}{}\hbox {}. }}{16}{}}
+\newlabel{table:SE_isol}{{III}{16}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {IV}{\ignorespaces Deviations of the FDET-MP2 results from the reference data. In FDET, $\rho _B=\rho _B^{isol}$ and the reduced set of atomic basis sets ({\it  monomer expansion}) are used. Density measures $M$ and $P$ are given in atomic units, energies in kcal/mol. }}{17}{}}
+\newlabel{table:ME_isol}{{IV}{17}{}{}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {C}FDET results with pre-polarized $\rho _B$}{17}{}}
+\citation{Ricardi2018}
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Integrated negative density $M$ and the FDET-MP2 interaction energy for various choices of $\rho _B$: a) $\rho _B^{isol}$ (orange triangles), b) $\rho _B^{FAT}$ (light blue hexagons), c) $\rho _B^{pp(Mulliken)}$ (green diamonds), and d) $\rho _B^{pp(ChelPG)}$ (dark blue pentagons). Data obtained using the {\it  monomer expansion}. Horizontal lies indicate the reference interaction energy.}}{18}{}}
 \newlabel{fig:M_vs_MP}{{1}{18}{}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Integrated negative density $M$ and the total density error $P$ for various choices of $\rho _B$: a) $\rho _B^{isol}$ (orange triangles), b) $\rho _B^{FAT}$ (light blue hexagons), c) $\rho _B^{pp(Mulliken)}$ (green diamonds), and d) $\rho _B^{pp(ChelPG)}$ (dark blue pentagons). Data obtained using the {\it  monomer expansion}.}}{18}{}}
-\newlabel{fig:M_vs_P}{{2}{18}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Integrated negative density $M$ and the total density error $P$ for various choices of $\rho _B$: a) $\rho _B^{isol}$ (orange triangles), b) $\rho _B^{FAT}$ (light blue hexagons), c) $\rho _B^{pp(Mulliken)}$ (green diamonds), and d) $\rho _B^{pp(ChelPG)}$ (dark blue pentagons). Data obtained using the {\it  monomer expansion}.}}{19}{}}
+\newlabel{fig:M_vs_P}{{2}{19}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {IV}Conclusions}{19}{}}
 \bibdata{220604_NRNotes,biblio}
 \bibcite{Wesolowski1993}{{1}{1993}{{Wesolowski and Warshel}}{{Wesolowski, and Warshel}}}
-\@writefile{toc}{\contentsline {section}{\numberline {IV}Conclusions}{19}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {}suppinfo}{19}{}}
 \bibcite{Wesolowski2008}{{2}{2008}{{Weso{\l }owski}}{{}}}
 \bibcite{Pernal2009}{{3}{2009}{{Pernal and Wesolowski}}{{Pernal, and Wesolowski}}}
 \bibcite{Wesolowski2015}{{4}{2015}{{Wesolowski et~al.}}{{Wesolowski, Shedge, and Zhou}}}
@@ -104,11 +103,12 @@
 \bibcite{Wesolowski2013}{{7}{2013}{{Wesolowski and Savin}}{{Wesolowski, and Savin}}}
 \bibcite{Fux2010}{{8}{2010}{{Fux et~al.}}{{Fux, Jacob, Neugebauer, Visscher, and Reiher}}}
 \bibcite{Ricardi2018}{{9}{2018}{{Ricardi et~al.}}{{Ricardi, Zech, Gimbal-Zofka, and Wesolowski}}}
+\@writefile{toc}{\contentsline {section}{\numberline {}Supplementary Material}{20}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {}References}{20}{}}
 \bibcite{Dulak2009}{{10}{2009}{{Du{\l }ak et~al.}}{{Du{\l }ak, Kaminski, and Weso{\l }owski}}}
 \bibcite{Zech2016}{{11}{2016}{{Zech et~al.}}{{Zech, Aquilante, and Wesolowski}}}
 \bibcite{Wesolowski1996a}{{12}{1996}{{Wesolowski and Weber}}{{Wesolowski, and Weber}}}
 \bibcite{Thomas1927}{{13}{1927}{{Thomas}}{{}}}
-\@writefile{toc}{\contentsline {section}{\numberline {}References}{20}{}}
 \bibcite{Fermi1928}{{14}{1928}{{Fermi}}{{}}}
 \bibcite{Slater1929}{{15}{1929}{{Slater}}{{}}}
 \bibcite{Vosko1980}{{16}{1980}{{Vosko et~al.}}{{Vosko, Wilk, and Nusair}}}

@@ -148,12 +148,23 @@ fig_PHF.subplots_adjust(top=0.965, bottom=0.0775, left=0.0725, right=0.96, wspac
 fig_MP.subplots_adjust(top=0.965, bottom=0.0775, left=0.0725, right=0.96, wspace=0.275, hspace=0.3)
 fig_PMP.subplots_adjust(top=0.965, bottom=0.0775, left=0.0725, right=0.96, wspace=0.275, hspace=0.3)
 
-fig_P.savefig("M_vs_P.png",dpi=600)
-fig_HF.savefig("M_vs_HF.png",dpi=600)
-fig_PHF.savefig("P_vs_HF.png",dpi=600)
-fig_MP.savefig("M_vs_MP.png",dpi=600)
-fig_PMP.savefig("P_vs_MP.png",dpi=600)
+fig_P.savefig("M_vs_P.svg",dpi=600)
+fig_HF.savefig("M_vs_HF.svg",dpi=600)
+fig_PHF.savefig("P_vs_HF.svg",dpi=600)
+fig_MP.savefig("M_vs_MP.svg",dpi=600)
+fig_PMP.savefig("P_vs_MP.svg",dpi=600)
 
+fig_P.savefig("M_vs_P.pdf",dpi=600)
+fig_HF.savefig("M_vs_HF.pdf",dpi=600)
+fig_PHF.savefig("P_vs_HF.pdf",dpi=600)
+fig_MP.savefig("M_vs_MP.pdf",dpi=600)
+fig_PMP.savefig("P_vs_MP.pdf",dpi=600)
+
+fig_P.savefig("M_vs_P.eps",dpi=600)
+fig_HF.savefig("M_vs_HF.eps",dpi=600)
+fig_PHF.savefig("P_vs_HF.eps",dpi=600)
+fig_MP.savefig("M_vs_MP.eps",dpi=600)
+fig_PMP.savefig("P_vs_MP.eps",dpi=600)
 ###############
 ####PLOT ALL IN ONE PICTURE
 ###############

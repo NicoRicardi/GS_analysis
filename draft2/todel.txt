@@ -1,0 +1,3 @@
+qwerty\nr{uiop}asdfg
+asdfg\nr{hjkl}zxcv
+zxcv\nr{bnm}qwerty

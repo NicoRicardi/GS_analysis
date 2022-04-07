@@ -1,0 +1,62 @@
+\documentclass[amsmath,amssymb,preprint,aip,jcp]{revtex4-1}
+\usepackage[table]{xcolor}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{silence}
+\WarningFilter{revtex4-1}{Repair the float}
+
+\begin{document}
+\author{Niccol\`{o} Ricardi}
+\email{Niccolo.Ricardi@unige.ch}
+\author{Cristina E. Gonz\'{a}lez-Espinoza}
+\email{Cristina.GonzalezEspinoza@unige.ch}
+\author{Tomasz Adam Weso\l{}owski}
+\email{Tomasz.Wesolowski@unige.ch}
+\affiliation{Department of Physical Chemistry, University of Geneva, Geneva (Switzerland)}
+% 
+\date{\today}
+\title{Supplementary Material for: Negativity of the target density in practical Frozen-Density Embedding Theory based calculations}
+
+\maketitle
+\section{Appendix: boundaries of $P[\rho^{o}_A + \rho_B - \rho_{AB}^o]$}
+The parameter $P$ is bound by:
+\begin{equation} \label{eq:P_bound}
+ M[\rho_{B} - \rho^{o}_{AB}] \leq P[\rho_A^o+\rho_B - \rho_{AB}^{o}] \leq % \int \rho_{AB}^{o} 
+ N_{AB}.
+\end{equation}
+Due to the fact that:
+\begin{equation}
+ \int \rho^{o}_A + \rho_B = \int \rho_{AB}^o = N_{AB},
+\end{equation}
+where $N_{AB}$ is the number of electrons of the supersystem, the integrated difference of these two densities is zero:
+\begin{align}
+ & \int \rho^{o}_A + \rho_B - \rho_{AB}^o = 0 \\ \nonumber
+ & \int\limits_{\rho_{AB}^o <\rho^{o}_A + \rho_B}\rho^{o}_A + \rho_B - \rho_{AB}^o + \int\limits_{\rho_{AB}^o > \rho^{o}_A + \rho_B}\rho^{o}_A + \rho_B - \rho_{AB}^o = 0 \\ \nonumber
+ & \int\limits_{\rho_{AB}^o < \rho^{o}_A + \rho_B}\rho^{o}_A + \rho_B - \rho_{AB}^o = \int\limits_{\rho_{AB}^o > \rho^{o}_A + \rho_B}\rho_{AB}^o - \rho^{o}_A - \rho_B 
+\end{align}
+As a consequence, we can reformulate $P[\rho^{o}_A + \rho_B - \rho_{AB}^o]$:
+\begin{align}\label{eq:P_alternatives}
+P[\rho^{o}_A + \rho_B - \rho_{AB}^o] = & \frac{1}{2} \cdot \int \vert \rho^{o}_A + \rho_B - \rho_{AB}^o \vert \\ \nonumber
+P[\rho^{o}_A + \rho_B - \rho_{AB}^o] = & \frac{1}{2} \cdot \int\limits_{\rho_{AB}^o <\rho^{o}_A + \rho_B}\rho^{o}_A + \rho_B - \rho_{AB}^o + \\ \nonumber
+ & \frac{1}{2} \cdot \int\limits_{\rho_{AB}^o > \rho^{o}_A + \rho_B}\rho^{o}_A + \rho_B - \rho_{AB}^o \\ \nonumber
+P[\rho^{o}_A + \rho_B - \rho_{AB}^o] = & \int\limits_{\rho_{AB}^o <\rho^{o}_A + \rho_B}\rho^{o}_A + \rho_B - \rho_{AB}^o.
+\end{align}
+We can then split the integration space and obtain:
+\begin{align}
+P[\rho^{o}_A + \rho_B - \rho_{AB}^o] = & \int\limits_{\rho_{AB}^o < \rho_B}\rho^{o}_A + \rho_B - \rho_{AB}^o + \\ \nonumber
+ & \int\limits_{\rho_B \leq \rho_{AB}^o < \rho_B + \rho^{o}_A}\rho^{o}_A + \rho_B - \rho_{AB}^o.
+\end{align}
+Which in turn leads to:
+\begin{align}\label{eq:P_M+terms}
+ P[\rho^{o}_A + \rho_B - \rho_{AB}^o] =  &M[\rho_{AB}^o - \rho_B] + \int\limits_{\rho_{AB}^o < \rho_B}\rho^{o}_A + \\ \nonumber
+ & \int\limits_{\rho_B \leq \rho_{AB}^o < \rho_B + \rho^{o}_A}\rho^{o}_A + \rho_B - \rho_{AB}^o.
+\end{align}
+The fact that both integrals on the right hand side of Eq.~\ref{eq:P_M+terms} are non-negative guarantees that:
+\begin{equation}
+ P[\rho^{o}_A + \rho_B - \rho_{AB}^o] \geq M[\rho_{AB}^o - \rho_B],
+\end{equation}
+while the upper bound in Eq.~\ref{eq:P_bound} is apparent from Eq.~\ref{eq:P_alternatives}.
+
+\end{document}
