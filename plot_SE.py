@@ -19,7 +19,7 @@ plt.rc('legend', fontsize=14)
 
 en = pd.read_csv("results_SE_en_kcal.csv", index_col=0)
 dens = pd.read_csv("results_SE_densities.csv", index_col=0)
-en.loc[en["calc"]=="FT-SE","kernel_tot"] /= 2
+#en.loc[en["calc"]=="FT-SE","kernel_tot"] /= 2
 systems = ["7HQ_2MeOH", "7HQ_formate", "Uracil_5H2O", "XVI_2HCOOH"]
 syst_lbls = {"7HQ_2MeOH": "7HQ 2MeOH",
              "7HQ_formate": "7HQ formate",

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.3.17)  7 APR 2022 21:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.3.17)  8 APR 2022 14:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -240,6 +240,9 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks26
 \@floatcapt=\box44
 )
+(/usr/share/texlive/texmf-dist/tex/latex/tools/xr.sty
+Package: xr 1994/05/28 v5.02 eXternal References (DPC)
+)
 (/usr/share/texlive/texmf-dist/tex/latex/silence/silence.sty
 Package: silence 2012/07/02 v1.5b Selective filtering of warnings and error mes
 sages
@@ -264,28 +267,29 @@ LaTeX Info: Redefining \GenericWarning on input line 433.
 \sl@BankOfErrors=\toks34
 LaTeX Info: Redefining \GenericError on input line 601.
 )
+Package xr Info: IMPORTING LABELS FROM ./220604_NR.aux on input line 11.
 Class revtex4-1 Info: colortbl package is loaded. (Proceeding with fingers cros
-sed.) on input line 10.
-Class revtex4-1 Info: Robustifying \LaTeX's \boldmath command on input line 10.
+sed.) on input line 18.
+Class revtex4-1 Info: Robustifying \LaTeX's \boldmath command on input line 18.
 
-Class revtex4-1 Info: cite was not loaded (OK!) on input line 10.
-Class revtex4-1 Info: mcite was not loaded (OK!) on input line 10.
-Class revtex4-1 Info: multicol was not loaded (OK!) on input line 10.
+Class revtex4-1 Info: cite was not loaded (OK!) on input line 18.
+Class revtex4-1 Info: mcite was not loaded (OK!) on input line 18.
+Class revtex4-1 Info: multicol was not loaded (OK!) on input line 18.
  (./SI.aux)
 \openout1 = `SI.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -358,44 +362,90 @@ e
 ))
 \openout3 = `SINotes.bib'.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 22.
+LaTeX Font Info:    Try loading font information for U+msa on input line 30.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 22.
+LaTeX Font Info:    Try loading font information for U+msb on input line 30.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (./SI.bbl) (./SI.b
-bl) [3] (./SI.aux) ) 
+) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no — in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no — in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no — in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no — in font cmr10!
+
+Overfull \hbox (69.55762pt too wide) in paragraph at lines 76--98
+ [] 
+ []
+
+[3]
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no — in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no — in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no — in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no — in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no — in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no — in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no — in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no — in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no — in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no — in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no — in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no — in font cmr10!
+
+Overfull \hbox (69.50598pt too wide) in paragraph at lines 104--134
+ [] 
+ []
+
+(./SI.bbl) (./SI.bbl) [4] [5] (./SI.aux) ) 
 Here is how much of TeX's memory you used:
- 5035 strings out of 492982
- 65479 string characters out of 6134896
- 151462 words of memory out of 5000000
- 8522 multiletter control sequences out of 15000+600000
- 11839 words of font info for 46 fonts, out of 8000000 for 9000
+ 5103 strings out of 492982
+ 66419 string characters out of 6134896
+ 176821 words of memory out of 5000000
+ 8585 multiletter control sequences out of 15000+600000
+ 13433 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,9n,35p,269b,210s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cme
-x10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
-y8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb
->
-Output written on SI.pdf (3 pages, 149508 bytes).
+ 41i,13n,35p,2013b,299s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.
+pfb>
+Output written on SI.pdf (5 pages, 195635 bytes).
 PDF statistics:
- 74 PDF objects out of 1000 (max. 8388607)
- 53 compressed objects within 1 object stream
+ 92 PDF objects out of 1000 (max. 8388607)
+ 66 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

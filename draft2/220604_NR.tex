@@ -281,7 +281,7 @@ where $X=A$ or $B$, and $E_{v'_X}^{(2)}$ denotes the second-order M{\o}ller-Ples
 For the sake of brevity, the methods based on the energy expressions given in this section and the approximations used in this work are referred to as FDET-MP2. 
 
 All $\rho_B$ densities were obtained from single Slater determinants. For consistency, so was the reference density $\rho^{ref}$, used to evaluate $M$ and $P$ parameters.
-The reference interaction energy was calculated with MP2 theory with counterpoise correction.
+The reference interaction energy $E_{int}^{ref}$ was calculated with MP2 theory with counterpoise correction.
 
 $E_{xcT}^{nad}[\rho_A,\rho_B]$ and its functional derivative were approximated using local-density approximation (LDA) for all its components: Thomas-Fermi \cite{Thomas1927, Fermi1928} for the kinetic energy, Dirac-Slater\cite{Slater1929} for the exchange energy, and the Vosko-Wilk-Nusair \cite{Vosko1980} for correlation energy:
 \begin{eqnarray}
@@ -350,8 +350,8 @@ are made only for the {\it monomer expansion}. The pre-polarisation by net atomi
 \section{Results and discussion}
 \subsection{FDET results with optimised $\rho_B$}
 The FDET interaction energies obtained using the optimised $\rho_B$ and the complete set of atomic basis sets ({\it supermolecular expansion}) collected in Table~\ref{table:SE_FAT} compare well with the reference interaction energies. 
-The largest deviation from the reference energy occurs for 7HQ-2MeOH (2.88 kcal/mol representing the relative error of about 16\% relative error). 
-For the remaining three complexes, the absolute errors are smaller and the relative errors do not exceed 8\%.
+The largest deviation from the reference energy occurs for 7HQ-2MeOH (3.20 kcal/mol representing the relative error of about 18\% relative error). 
+For the remaining three complexes, the absolute errors are smaller and the relative errors do not exceed 9\%.
 Such good performance of the used approximation for $E_{xcT}^{nad}[\rho_A,\rho_B]$
 could be expected based on our previous numerical experience \cite{Wesolowski2003a,Kevorkyants2006,Dulak2007a}. The numerical values of $
 \delta E_{int}^{FAT}=E^{FDET(FAT)}_{int}-E_{int}^{ref}\label{eq:def_err_en}$
@@ -369,17 +369,17 @@ The numerical values of $M$, $P$ , and $\delta E_{int}$ given in Table~\ref{tabl
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline
  complex & $P^{[a]}$ & $P_{cmpl}^{[b]}$ & $M^{[c]}$ & $\delta E_{int}\;^{[d]}$ & $E^{FDET(FAT)}_{int}$ $^{[e]}$ & $E_{int}^{ref}$ $^{[f]}$ \\ \hline
-7HQ-2MeOH & 0.059 & 0.362 & 0.007 & 2.88 & -14.59 & -17.47 \\ \hline
-7HQ-formate & 0.066 & 0.670 & 0.007 & 2.80 & -33.68 & -36.48 \\ \hline
-uracil-5H$_2$O & 0.114 & 0.633 & 0.014 & -1.66 & -40.28 & -38.62 \\ \hline
-PyrBnz-2HCOOH & 0.104 & 0.600 & 0.013 & 1.20 & -35.33 & -36.53 \\ \hline
-\multicolumn{6}{c}{ } \\
-\multicolumn{6}{l}{$^{[a]}$ $M=M[\rho^{ref} - \rho^{FDET(FAT)}_{B}]$ with $M[\rho]$ defined in Eq.~\ref{eq:M}}\\
-\multicolumn{6}{l}{$^{[b]}$ $P_{cmpl}=P[\rho_A^{isol}+\rho_B^{isol} - \rho^{ref}]$ (cf. Eq.~\ref{eq:p_cmpl}), with $P[\rho]$ defined in Eq.~\ref{eq:def_P}}\\
-\multicolumn{6}{l}{$^{[c]}$ $P=P[\rho^{ref} - \rho_{tot}^{FDET(FAT)}]$ with $P[\rho]$ defined in Eq.~\ref{eq:def_P}}\\
-\multicolumn{6}{l}{$^{[d]}$ $\delta E_{int}=E^{FDET(FAT)}_{int}-E_{int}^{ref}$} \\
-\multicolumn{6}{l}{$^{[e]}$ $E^{FDET(FAT)}_{int}$ is given in Eq.~\ref{eq:eint4}}\\
-\multicolumn{6}{l}{$^{[f]}$ The reference MP2 interaction energies ($E_{int}^{ref}$) are counterpoise corrected.}
+7HQ-2MeOH & 0.059 & 0.362 & 0.007 & 3.20 & -14.27 & -17.47 \\ \hline
+7HQ-formate & 0.066 & 0.670 & 0.007 & 3.16 & -33.33 & -36.48 \\ \hline
+uracil-5H$_2$O & 0.114 & 0.633 & 0.014 & -1.07 & -39.69 & -38.62 \\ \hline
+PyrBnz-2HCOOH & 0.104 & 0.600 & 0.013 & 1.64 & -34.89 & -36.53 \\ \hline
+\multicolumn{7}{c}{ } \\
+\multicolumn{7}{l}{$^{[a]}$ $M=M[\rho^{ref} - \rho^{FDET(FAT)}_{B}]$ with $M[\rho]$ defined in Eq.~\ref{eq:M}}\\
+\multicolumn{7}{l}{$^{[b]}$ $P_{cmpl}=P[\rho_A^{isol}+\rho_B^{isol} - \rho^{ref}]$ (cf. Eq.~\ref{eq:p_cmpl}), with $P[\rho]$ defined in Eq.~\ref{eq:def_P}}\\
+\multicolumn{7}{l}{$^{[c]}$ $P=P[\rho^{ref} - \rho_{tot}^{FDET(FAT)}]$ with $P[\rho]$ defined in Eq.~\ref{eq:def_P}}\\
+\multicolumn{7}{l}{$^{[d]}$ $\delta E_{int}=E^{FDET(FAT)}_{int}-E_{int}^{ref}$} \\
+\multicolumn{7}{l}{$^{[e]}$ $E^{FDET(FAT)}_{int}$ is given in Eq.~\ref{eq:eint4}}\\
+\multicolumn{7}{l}{$^{[f]}$ The reference MP2 interaction energies ($E_{int}^{ref}$) are counterpoise corrected.}
 \end{tabular}
 \end{center}
 }%
@@ -397,17 +397,17 @@ Some analyses in the present work are made using a reduced set of atomic basis s
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline
  complex & $P^{[a]}$ & $P_{cmpl}^{[b]}$ & $M^{[c]}$ & $\delta E_{int}\;^{[d]}$ & $E^{FDET(FAT)}_{int}$ $^{[e]}$ & $E_{int}^{ref}$ $^{[f]}$ \\ \hline
-7HQ-2MeOH & 0.073 & 0.368 & 0.013 & 4.00 & -13.47 & -17.47 \\ \hline
-7HQ-formate & 0.114 & 0.673 & 0.036 & 8.21 & -28.27 & -36.48 \\ \hline
-uracil-5H$_2$O & 0.129 & 0.643 & 0.024 & 0.94 & -37.68 & -38.62 \\ \hline
-PyrBnz-2HCOOH & 0.127 & 0.606 & 0.016 & 3.74 & -32.79 & -36.53 \\ \hline
-\multicolumn{6}{c}{ } \\
-\multicolumn{6}{l}{$^{[a]}$ $M=M[\rho^{ref} - \rho^{FDET(FAT)}_{B}]$ with $M[\rho]$ defined in Eq.~\ref{eq:M}}\\
-\multicolumn{6}{l}{$^{[b]}$ $P_{cmpl}=P[\rho_A^{isol}+\rho_B^{isol} - \rho^{ref}]$ (cf. Eq.~\ref{eq:p_cmpl}), with $P[\rho]$ defined in Eq.~\ref{eq:def_P}}\\
-\multicolumn{6}{l}{$^{[c]}$ $P=P[\rho^{ref} - \rho_{tot}^{FDET(FAT)}]$ with $P[\rho]$ defined in Eq.~\ref{eq:def_P}}\\
-\multicolumn{6}{l}{$^{[d]}$ $\delta E_{int}=E^{FDET(FAT)}_{int}-E_{int}^{ref}$} \\
-\multicolumn{6}{l}{$^{[e]}$ $E^{FDET(FAT)}_{int}$ is given in Eq.~\ref{eq:eint4}}\\
-\multicolumn{6}{l}{$^{[f]}$ The reference MP2 interaction energies ($E_{int}^{ref}$) are counterpoise corrected.}
+7HQ-2MeOH & 0.073 & 0.368 & 0.013 & 4.29 & -13.18 & -17.47 \\ \hline
+7HQ-formate & 0.114 & 0.673 & 0.036 & 8.46 & -28.03 & -36.48 \\ \hline
+uracil-5H$_2$O & 0.129 & 0.643 & 0.024 & 1.44 & -37.18 & -38.62 \\ \hline
+PyrBnz-2HCOOH & 0.127 & 0.606 & 0.016 & 4.11 & -32.42 & -36.53 \\ \hline
+\multicolumn{7}{c}{ } \\
+\multicolumn{7}{l}{$^{[a]}$ $M=M[\rho^{ref} - \rho^{FDET(FAT)}_{B}]$ with $M[\rho]$ defined in Eq.~\ref{eq:M}}\\
+\multicolumn{7}{l}{$^{[b]}$ $P_{cmpl}=P[\rho_A^{isol}+\rho_B^{isol} - \rho^{ref}]$ (cf. Eq.~\ref{eq:p_cmpl}), with $P[\rho]$ defined in Eq.~\ref{eq:def_P}}\\
+\multicolumn{7}{l}{$^{[c]}$ $P=P[\rho^{ref} - \rho_{tot}^{FDET(FAT)}]$ with $P[\rho]$ defined in Eq.~\ref{eq:def_P}}\\
+\multicolumn{7}{l}{$^{[d]}$ $\delta E_{int}=E^{FDET(FAT)}_{int}-E_{int}^{ref}$} \\
+\multicolumn{7}{l}{$^{[e]}$ $E^{FDET(FAT)}_{int}$ is given in Eq.~\ref{eq:eint4}}\\
+\multicolumn{7}{l}{$^{[f]}$ The reference MP2 interaction energies ($E_{int}^{ref}$) are counterpoise corrected.}
 \end{tabular}
 \end{center}
 }%
@@ -417,7 +417,7 @@ PyrBnz-2HCOOH & 0.127 & 0.606 & 0.016 & 3.74 & -32.79 & -36.53 \\ \hline
 \end{table*}
 
 Limiting the basis set expansion to functions centred on one subsystem increases the interaction energies reflecting thus the variational principle (the total energy decreases). Except for uracil-3H$_2$O, the energies obtained with basis sets centred on all atoms of the complex are closer to the MP2 reference. In the {\it monomer expansion} case, the total density obtained as a sum of the two subsystem densities
-does not include products of basis functions localised in different subsystems. The largest effect on energy due to neglecting of such terms occurs for 7HQ-formate case (the error increases from 2.88 to 8.21~kcal/mol) - arguably the most covalently bound complex among the four considered in this work, as evidenced by its hydrogen bond length (cf. Section~\ref{sec:intro}). In all cases, the magnitude of the violation of the non-negativity condition ($M$) is smaller if the {\it supermolecular expansion} is used. 
+does not include products of basis functions localised in different subsystems. The largest effect on energy due to neglecting of such terms occurs for 7HQ-formate case (the error increases from 3.16 to 8.46~kcal/mol) - arguably the most covalently bound complex among the four considered in this work, as evidenced by its hydrogen bond length (cf. Section~\ref{sec:intro}). In all cases, the magnitude of the violation of the non-negativity condition ($M$) is smaller if the {\it supermolecular expansion} is used. 
 
 In practice, for the multi-scale numerical simulations, optimising 
 $\rho_B$ by means of the {\it freeze-and-thaw} iterations is rather not realistic. Such simulations hinge on the possibility to generate $\rho_B$ 
@@ -434,17 +434,17 @@ The errors in energy ($\delta E_{int}$) and in density ($P$) increase by a facto
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline
  complex & $P^{[a]}$ & $P_{cmpl}^{[b]}$ & $M^{[c]}$ & $\delta E_{int}\;^{[d]}$ & $E^{FDET(\rho_B=\rho_B^{isol})}_{int}$ & $^{[e]}$ $E_{int}^{ref}$ $^{[f]}$ \\ \hline
-7HQ-2MeOH & 0.228 & 0.362 & 0.121 & 6.27 & -11.20 & -17.47 \\ \hline
-7HQ-formate & 0.316 & 0.670 & 0.206 & 13.14 & -23.34 & -36.48 \\ \hline
-uracil-5H$_2$O & 0.426 & 0.633 & 0.234 & 6.15 & -32.47 & -38.62 \\ \hline
-PyrBnz-2HCOOH & 0.416 & 0.600 & 0.184 & 9.36 & -27.17 & -36.53 \\ \hline
-\multicolumn{6}{c}{ } \\
-\multicolumn{6}{l}{$^{[a]}$ $M=M[\rho^{ref} - \rho^{isol}_{B}]$ with $M[\rho]$ defined in Eq.~\ref{eq:M}}\\
-\multicolumn{6}{l}{$^{[b]}$ $P_{cmpl}=P[\rho_A^{isol}+\rho_B^{isol} - \rho^{ref}]$ (cf. Eq.~\ref{eq:p_cmpl}), with $P[\rho]$ defined in Eq.~\ref{eq:def_P}}\\
-\multicolumn{6}{l}{$^{[c]}$ $P=P[\rho^{ref} - \rho_{tot}^{FDET(\rho_B=\rho_B^{isol})}]$ with $P[\rho]$ defined in Eq.~\ref{eq:def_P}}\\
-\multicolumn{6}{l}{$^{[d]}$ $\delta E_{int}=E^{FDET(\rho_B=\rho_B^{isol})}_{int}-E_{int}^{ref}$} \\
-\multicolumn{6}{l}{$^{[e]}$ $E^{FDET(\rho_B=\rho_B^{isol})}_{int}$ is given in Eq.~\ref{eq:eint2}}\\
-\multicolumn{6}{l}{$^{[f]}$ The reference MP2 interaction energies ($E_{int}^{ref}$) are counterpoise corrected.}
+7HQ-2MeOH & 0.228 & 0.362 & 0.121 & 6.49 & -10.98 & -17.47 \\ \hline
+7HQ-formate & 0.316 & 0.670 & 0.206 & 13.45 & -23.04 & -36.48 \\ \hline
+uracil-5H$_2$O & 0.426 & 0.633 & 0.234 & 6.56 & -32.06 & -38.62 \\ \hline
+PyrBnz-2HCOOH & 0.416 & 0.600 & 0.184 & 9.58 & -26.95 & -36.53 \\ \hline
+\multicolumn{7}{c}{ } \\
+\multicolumn{7}{l}{$^{[a]}$ $M=M[\rho^{ref} - \rho^{isol}_{B}]$ with $M[\rho]$ defined in Eq.~\ref{eq:M}}\\
+\multicolumn{7}{l}{$^{[b]}$ $P_{cmpl}=P[\rho_A^{isol}+\rho_B^{isol} - \rho^{ref}]$ (cf. Eq.~\ref{eq:p_cmpl}), with $P[\rho]$ defined in Eq.~\ref{eq:def_P}}\\
+\multicolumn{7}{l}{$^{[c]}$ $P=P[\rho^{ref} - \rho_{tot}^{FDET(\rho_B=\rho_B^{isol})}]$ with $P[\rho]$ defined in Eq.~\ref{eq:def_P}}\\
+\multicolumn{7}{l}{$^{[d]}$ $\delta E_{int}=E^{FDET(\rho_B=\rho_B^{isol})}_{int}-E_{int}^{ref}$} \\
+\multicolumn{7}{l}{$^{[e]}$ $E^{FDET(\rho_B=\rho_B^{isol})}_{int}$ is given in Eq.~\ref{eq:eint2}}\\
+\multicolumn{7}{l}{$^{[f]}$ The reference MP2 interaction energies ($E_{int}^{ref}$) are counterpoise corrected.}
 \end{tabular}
 \end{center}
 }%
@@ -461,17 +461,17 @@ $^e$ $E^{FDET(rho_B=\rho_B^{isol})}_{int}$ is given in Eq.~\ref{eq:eint2}.
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline
  complex & $P^{[a]}$ & $P_{cmpl}^{[b]}$ & $M^{[c]}$ & $\delta E_{int}\;^{[d]}$ & $E^{FDET(\rho_B=\rho_B^{isol})}_{int}$ & $^{[e]}$ $E_{int}^{ref}$ $^{[f]}$ \\ \hline
-7HQ-2MeOH & 0.231 & 0.368 & 0.123 & 6.56 & -10.91 & -17.47 \\ \hline
-7HQ-formate & 0.316 & 0.673 & 0.205 & 13.25 & -23.23 & -36.48 \\ \hline
-uracil-5H$_2$O & 0.427 & 0.643 & 0.237 & 6.62 & -32.00 & -38.62 \\ \hline
-PyrBnz-2HCOOH & 0.419 & 0.606 & 0.185 & 10.55 & -25.98 & -36.53 \\ \hline
-\multicolumn{6}{c}{ } \\
-\multicolumn{6}{l}{$^{[a]}$ $M=M[\rho^{ref} - \rho^{isol}_{B}]$ with $M[\rho]$ defined in Eq.~\ref{eq:M}}\\
-\multicolumn{6}{l}{$^{[b]}$ $P_{cmpl}=P[\rho_A^{isol}+\rho_B^{isol} - \rho^{ref}]$ (cf. Eq.~\ref{eq:p_cmpl}), with $P[\rho]$ defined in Eq.~\ref{eq:def_P}}\\
-\multicolumn{6}{l}{$^{[c]}$ $P=P[\rho^{ref} - \rho_{tot}^{FDET(\rho_B=\rho_B^{isol})}]$ with $P[\rho]$ defined in Eq.~\ref{eq:def_P}}\\
-\multicolumn{6}{l}{$^{[d]}$ $\delta E_{int}=E^{FDET(\rho_B=\rho_B^{isol})}_{int}-E_{int}^{ref}$} \\
-\multicolumn{6}{l}{$^{[e]}$ $E^{FDET(\rho_B=\rho_B^{isol})}_{int}$ is given in Eq.~\ref{eq:eint2}}\\
-\multicolumn{6}{l}{$^{[f]}$ The reference MP2 interaction energies ($E_{int}^{ref}$) are counterpoise corrected.}
+7HQ-2MeOH & 0.231 & 0.368 & 0.123 & 6.77 & -10.70 & -17.47 \\ \hline
+7HQ-formate & 0.316 & 0.673 & 0.205 & 13.56 & -22.93 & -36.48 \\ \hline
+uracil-5H$_2$O & 0.427 & 0.643 & 0.237 & 6.99 & -31.63 & -38.62 \\ \hline
+PyrBnz-2HCOOH & 0.419 & 0.606 & 0.185 & 10.74 & -25.80 & -36.53 \\ \hline
+\multicolumn{7}{c}{ } \\
+\multicolumn{7}{l}{$^{[a]}$ $M=M[\rho^{ref} - \rho^{isol}_{B}]$ with $M[\rho]$ defined in Eq.~\ref{eq:M}}\\
+\multicolumn{7}{l}{$^{[b]}$ $P_{cmpl}=P[\rho_A^{isol}+\rho_B^{isol} - \rho^{ref}]$ (cf. Eq.~\ref{eq:p_cmpl}), with $P[\rho]$ defined in Eq.~\ref{eq:def_P}}\\
+\multicolumn{7}{l}{$^{[c]}$ $P=P[\rho^{ref} - \rho_{tot}^{FDET(\rho_B=\rho_B^{isol})}]$ with $P[\rho]$ defined in Eq.~\ref{eq:def_P}}\\
+\multicolumn{7}{l}{$^{[d]}$ $\delta E_{int}=E^{FDET(\rho_B=\rho_B^{isol})}_{int}-E_{int}^{ref}$} \\
+\multicolumn{7}{l}{$^{[e]}$ $E^{FDET(\rho_B=\rho_B^{isol})}_{int}$ is given in Eq.~\ref{eq:eint2}}\\
+\multicolumn{7}{l}{$^{[f]}$ The reference MP2 interaction energies ($E_{int}^{ref}$) are counterpoise corrected.}
 \end{tabular}
 \end{center}
 }%
@@ -502,7 +502,7 @@ The analyses presented in the present work were inspired by our previous studies
 
 As shown in Ref. \citenum{Ricardi2018}, the $\rho_B=\rho_B^{isol}$ approximation in FDET leads to an astonishingly good overall accuracy of the complexation induced shifts of the vertical excitation energies (errors in the order 0.04~eV). This magnitude of the error in energy is much smaller than the errors reported in Tables \ref{table:SE_isol} and \ref{table:ME_isol}) obtained using the same choice for $\rho_B$. 
 According to the present analysis, such a choice for 
-$\rho_B$ leads to an error in the ground state energy of at least 6 kcal/mol (equivalent to 0.26 eV).
+$\rho_B$ leads to an error in the ground state energy of at least *** 6.5 kcal/mol (equivalent to 0.26 eV).
 
 The present analysis shows that the violation of the non-additivity condition is a major source of error in the ground-state energy if $\rho_B=\rho_B^{isol}$. Since this error is non-negative regardless of the system (see Eq.~\ref{eq:nfund}),
 the much better performance of the $\rho_B=\rho_B^{isol}$ approximation for excitation energies\cite{Ricardi2018}, than for the interaction energies has its origin in a systematic compensation of these non-negative contributions to the total energy in two electronic states. 
@@ -543,7 +543,8 @@ The present work provided a link between the violation of the condition of the n
 and the effect of electronic polarisation of $\rho_B$ by the embedded species. Due to this link, the magnitude
 of the violation of the non-negativity condition of $\rho^{o}_{AB}-\rho_B$ can be significantly reduced in practice.
 \section*{Supplementary Material}
-The Supplementary material includes the proof of Eq.~\ref{eq:P_bound}, the magnitude of the counterpoise corrections for $E_{int}^{ref}$, and the values of $E_k[\Delta \rho^{c}_{v'_X}, \rho'_X, \rho_Y]$ for the different calculations.
+***
+The Supplementary Material includes the proof of Eq.~\ref{eq:P_bound}, the magnitude of the counterpoise corrections for $E_{int}^{ref}$, the values of $E_k[\Delta \rho^{c}_{v'_X}, \rho'_X, \rho_Y]$ for the different calculations, and the data plotted in the Figures.
 Any additional data is made available on request from the authors.
 \bibliography{biblio}
 

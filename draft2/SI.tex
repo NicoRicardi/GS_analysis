@@ -4,8 +4,16 @@
 \usepackage{amsfonts}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{xr}
 \usepackage{silence}
 \WarningFilter{revtex4-1}{Repair the float}
+
+\externaldocument[M-]{./220604_NR}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\thesection}{S\arabic{section}}
+% \renewcommand{\thepage}{S\arabic{page}}
+\renewcommand{\theequation}{S\arabic{equation}} 
 
 \begin{document}
 \author{Niccol\`{o} Ricardi}
@@ -20,12 +28,15 @@
 \title{Supplementary Material for: Negativity of the target density in practical Frozen-Density Embedding Theory based calculations}
 
 \maketitle
-\section{Appendix: boundaries of $P[\rho^{o}_A + \rho_B - \rho_{AB}^o]$}
+\section{Boundaries of $P[\rho^{o}_A + \rho_B - \rho_{AB}^o]$}
 The parameter $P$ is bound by:
-\begin{equation} \label{eq:P_bound}
+\begin{equation} \label{eq:P_bound_SI}
  M[\rho_{B} - \rho^{o}_{AB}] \leq P[\rho_A^o+\rho_B - \rho_{AB}^{o}] \leq % \int \rho_{AB}^{o} 
  N_{AB}.
 \end{equation}
+
+\subsection{Proof}
+
 Due to the fact that:
 \begin{equation}
  \int \rho^{o}_A + \rho_B = \int \rho_{AB}^o = N_{AB},
@@ -57,6 +68,70 @@ The fact that both integrals on the right hand side of Eq.~\ref{eq:P_M+terms} ar
 \begin{equation}
  P[\rho^{o}_A + \rho_B - \rho_{AB}^o] \geq M[\rho_{AB}^o - \rho_B],
 \end{equation}
-while the upper bound in Eq.~\ref{eq:P_bound} is apparent from Eq.~\ref{eq:P_alternatives}.
+while the upper bound in Eq.~\ref{eq:P_bound_SI} is apparent from Eq.~\ref{eq:P_alternatives}.
 
+\section{Data}
+\begin{table}[H]
+\begin{center}
+\resizebox{0.875\paperwidth}{!}{
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}\hline
+complex & $\rho_B$ & $E_k[\Delta \rho^{c}_{v'_A}, \rho'_A, \rho_B]$ $^{[a]}$ & $E_k[\Delta \rho^{c}_{v'_B}, \rho'_B, \rho_A]$ $^{[a]}$ & $E^{FDET(\rho_B)}_{int}$ $^{[b]}$ & $E_{int}^{ref}$ $^{[c]}$& $\Delta_{CP}$ $^{[d]}$ & $M$ $^{[e]}$ & $P$ $^{[f]}$ & $P_{cmpl}$ $^{[g]}$\\\hline
+7HQ-2MeOH & $\rho_B^{isol}$ & 0.092 & × & -10.983 & -0.028 & 0.009 & 0.121 & 0.228 & 0.362\\\hline
+7HQ-2MeOH & $\rho_B^{FAT}$ & 0.081 & 0.127 & -14.269 & -0.028 & 0.009 & 0.007 & 0.059 & 0.362\\\hline
+7HQ-formate & $\rho_B^{isol}$ & 0.020 & × & -23.037 & -0.058 & 0.006 & 0.206 & 0.316 & 0.670\\\hline
+7HQ-formate & $\rho_B^{FAT}$ & -0.008 & 0.068 & -33.325 & -0.058 & 0.006 & 0.007 & 0.066 & 0.670\\\hline
+uracil-5H$_2$O & $\rho_B^{isol}$ & 0.224 & × & -32.065 & -0.062 & 0.012 & 0.234 & 0.426 & 0.633\\\hline
+uracil-5H$_2$O & $\rho_B^{FAT}$ & 0.204 & 0.236 & -39.695 & -0.062 & 0.012 & 0.014 & 0.114 & 0.633\\\hline
+PyrBnz-2HCOOH & $\rho_B^{isol}$ & 0.160 & × & -26.948 & -0.058 & 0.012 & 0.184 & 0.416 & 0.600\\\hline
+PyrBnz-2HCOOH & $\rho_B^{FAT}$ & 0.131 & 0.164 & -34.894 & -0.058 & 0.012 & 0.013 & 0.104 & 0.600\\\hline
+\multicolumn{10}{c}{ } \\
+\multicolumn{10}{p{1.0\textwidth}}{$^{[a]}$ defined in Eq.~\ref{M-eq:nkernel} in the manuscript}\\
+\multicolumn{10}{p{1.0\textwidth}}{$^{[b]}$ defined in Eq.~\ref{M-eq:eint2}, and Eq.~\ref{M-eq:eint4} in the manuscript for $\rho_B^{isol}$ and $\rho_B^{FAT }$ respectively.}\\
+\multicolumn{10}{p{1.0\textwidth}}{$^{[c]}$ Counterpoise corrected, i.e. $E_{int}^{ref} = E_{AB}^{(AB)} - E_{A}^{(AB)} - E_{B}^{(AB)}$, where all values are obtained with MP2, the subscript denotes the subsystem, and the superscript denotes the centres involved in the basis set expansion.} \\
+\multicolumn{10}{p{1.0\textwidth}}{$^{[d]}$ Counterpoise correction: $\Delta_{CP} = E_{A}^{(A)} + E_{B}^{(B)} - E_{A}^{(AB)} - E_{B}^{(AB)}$, where all values are obtained with MP2, the subscript denotes the subsystem, and the superscript denotes the centres involved in the basis set expansion.} \\
+\multicolumn{10}{p{1.0\textwidth}}{$^{[e]}$ $M=M[\rho^{ref} - \rho^{FDET(FAT)}_{B}]$ with $M[\rho]$ defined in Eq.~\ref{M-eq:M} in the manuscript}\\
+\multicolumn{10}{p{1.0\textwidth}}{$^{[f]}$ $P_{cmpl}=P[\rho_A^{isol}+\rho_B^{isol} - \rho^{ref}]$ (cf. Eq.~\ref{M-eq:p_cmpl}), with $P[\rho]$ defined in Eq.~\ref{M-eq:def_P} in the manuscript}\\
+\multicolumn{10}{p{1.0\textwidth}}{$^{[g]}$ $P=P[\rho^{ref} - \rho_{tot}^{FDET(FAT)}]$ with $P[\rho]$ defined in Eq.~\ref{M-eq:def_P} in the manuscript}\\
+\multicolumn{10}{p{1.0\textwidth}}{$^{[h]}$ $E^{FDET(FAT)}_{int}$ is given in Eq.~\ref{M-eq:eint4} in the manuscript}\\
+\end{tabular}
+}
+\end{center}
+\caption{Supplementary data for \textit{supermolecular expansion} results.}
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+\resizebox{0.875\paperwidth}{!}{
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}\hline
+complex & $\rho_B$ & $E_k[\Delta \rho^{c}_{v'_A}, \rho'_A, \rho_B]$ $^{[a]}$ & $E_k[\Delta \rho^{c}_{v'_B}, \rho'_B, \rho_A]$ $^{[a]}$ & $E^{FDET(\rho_B)}_{int}$ $^{[b]}$ & $E_{int}^{ref}$ $^{[c]}$ & $\Delta_{CP}$ $^{[d]}$ & $M$ $^{[e]}$ & $P$ $^{[f]}$ & $P_{cmpl}$ $^{[g]}$\\\hline
+7HQ-2MeOH & $\rho_B^{isol}$ & 0.087 & × & -10.702 & -17.473 & 5.632 & 0.123 & 0.231 & 0.368\\\hline
+7HQ-2MeOH & $\rho_B^{pp(Mulliken)}$ & 0.084 & × & -10.688 & -17.473 & 5.632 & 0.121 & 0.221 & 0.368\\\hline
+7HQ-2MeOH & $\rho_B^{pp(ChelPG)}$ & 0.084 & × & -13.492 & -17.473 & 5.632 & 0.037 & 0.118 & 0.368\\\hline
+7HQ-2MeOH & $\rho_B^{FAT}$ & 0.081 & 0.128 & -13.181 & -17.473 & 5.632 & 0.013 & 0.073 & 0.368\\\hline
+7HQ-formate & $\rho_B^{isol}$ & 0.021 & × & -22.927 & -36.485 & 3.522 & 0.205 & 0.316 & 0.673\\\hline
+7HQ-formate & $\rho_B^{pp(Mulliken)}$ & 0.016 & × & -27.202 & -36.485 & 3.522 & 0.148 & 0.242 & 0.673\\\hline
+7HQ-formate & $\rho_B^{pp(ChelPG)}$ & 0.015 & × & -28.678 & -36.485 & 3.522 & 0.096 & 0.186 & 0.673\\\hline
+7HQ-formate & $\rho_B^{FAT}$ & 0.011 & 0.117 & -28.028 & -36.485 & 3.522 & 0.036 & 0.114 & 0.673\\\hline
+uracil-5H$_2$O & $\rho_B^{isol}$ & 0.212 & × & -31.629 & -38.620 & 7.839 & 0.237 & 0.427 & 0.643\\\hline
+uracil-5H$_2$O & $\rho_B^{pp(Mulliken)}$ & 0.201 & × & -35.221 & -38.620 & 7.839 & 0.173 & 0.305 & 0.643\\\hline
+uracil-5H$_2$O & $\rho_B^{pp(ChelPG)}$ & 0.205 & × & -38.010 & -38.620 & 7.839 & 0.058 & 0.206 & 0.643\\\hline
+uracil-5H$_2$O & $\rho_B^{FAT}$ & 0.196 & 0.234 & -37.182 & -38.620 & 7.839 & 0.024 & 0.129 & 0.643\\\hline
+PyrBnz-2HCOOH & $\rho_B^{isol}$ & 0.161 & × & -25.795 & -36.532 & 7.318 & 0.185 & 0.419 & 0.606\\\hline
+PyrBnz-2HCOOH & $\rho_B^{pp(Mulliken)}$ & 0.141 & × & -31.448 & -36.532 & 7.318 & 0.152 & 0.281 & 0.606\\\hline
+PyrBnz-2HCOOH & $\rho_B^{pp(ChelPG)}$ & 0.146 & × & -32.291 & -36.532 & 7.318 & 0.057 & 0.215 & 0.606\\\hline
+PyrBnz-2HCOOH & $\rho_B^{FAT}$ & 0.139 & 0.164 & -32.418 & -36.532 & 7.318 & 0.016 & 0.127 & 0.606\\\hline
+\multicolumn{10}{c}{ } \\
+\multicolumn{10}{p{1.0\textwidth}}{$^{[a]}$ defined in Eq.~\ref{M-eq:nkernel} in the manuscript}\\
+\multicolumn{10}{p{1.0\textwidth}}{$^{[b]}$ defined in Eq.~\ref{M-eq:eint2}, and Eq.~\ref{M-eq:eint4} in the manuscript for $\rho_B^{isol}$ and $\rho_B^{FAT }$ respectively, and in Eq.~\ref{M-eq:eint3} for $\rho_B^{pp(Mulliken)}$ and $\rho_B^{pp(ChelPG)}$}\\
+\multicolumn{10}{p{1.0\textwidth}}{$^{[c]}$ Counterpoise corrected, i.e. $E_{int}^{ref} = E_{AB}^{(AB)} - E_{A}^{(AB)} - E_{B}^{(AB)}$, where all values are obtained with MP2, the subscript denotes the subsystem, and the superscript denotes the centres involved in the basis set expansion.} \\
+\multicolumn{10}{p{1.0\textwidth}}{$^{[d]}$ Counterpoise correction: $\Delta_{CP} = E_{A}^{(A)} + E_{B}^{(B)} - E_{A}^{(AB)} - E_{B}^{(AB)}$, where all values are obtained with MP2, the subscript denotes the subsystem, and the superscript denotes the centres involved in the basis set expansion.} \\
+\multicolumn{10}{p{1.0\textwidth}}{$^{[e]}$ $M=M[\rho^{ref} - \rho^{FDET(FAT)}_{B}]$ with $M[\rho]$ defined in Eq.~\ref{M-eq:M} in the manuscript}\\
+\multicolumn{10}{p{1.0\textwidth}}{$^{[f]}$ $P_{cmpl}=P[\rho_A^{isol}+\rho_B^{isol} - \rho^{ref}]$ (cf. Eq.~\ref{M-eq:p_cmpl}), with $P[\rho]$ defined in Eq.~\ref{M-eq:def_P} in the manuscript}\\
+\multicolumn{10}{p{1.0\textwidth}}{$^{[g]}$ $P=P[\rho^{ref} - \rho_{tot}^{FDET(FAT)}]$ with $P[\rho]$ defined in Eq.~\ref{M-eq:def_P} in the manuscript}\\
+\multicolumn{10}{p{1.0\textwidth}}{$^{[h]}$ $E^{FDET(FAT)}_{int}$ is given in Eq.~\ref{M-eq:eint4} in the manuscript}\\
+\end{tabular}
+}
+\end{center}
+\caption{Supplementary data for \textit{monomer expansion} results.}
+\end{table}
 \end{document}

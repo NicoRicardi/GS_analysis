@@ -1,7 +1,7 @@
 This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: SI.aux
-Illegal, another \bibdata command---line 8 of file SI.aux
+Illegal, another \bibdata command---line 12 of file SI.aux
  : \bibdata
  :         {SINotes}
 I'm skipping whatever remains of this command
