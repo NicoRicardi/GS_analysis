@@ -58,11 +58,11 @@ axes_lbls = {"E_FDET_HF": r"$E^{\mathrm{HF}\mbox{-}\mathrm{part}(\rho_B)} [kcal/
              "E_ref_MP": r"$E^{MP}_{}$",
              "E_ref_MP_CP": r"$E^{MP}_{CP}$"}
 lbls = ["none", "Mulliken", "ChelPG", "FT"]
-fig_P, fig_HF, fig_PHF, fig_MP, fig_PMP = [plt.figure(figsize=(20, 10), dpi=300) for i in range(5)]
+fig_P, fig_HF, fig_PHF, fig_MP, fig_PMP = [plt.figure(figsize=(20, 10), dpi=150) for i in range(5)]
 axs_P, axs_HF, axs_PHF, axs_MP, axs_PMP = [[] for i in range(5)]
 constant = dict(linestyle="", alpha=0.75, markeredgecolor="k", markeredgewidth=2.5, markersize=15)
 
-for n, system in enumerate(systems):
+for n, system in enumerate(systems[:3]):
     axs_P.append(fig_P.add_subplot(221+n))#, label="P"))
     axs_HF.append(fig_HF.add_subplot(221+n))#, label="HF"))
     axs_PHF.append(fig_PHF.add_subplot(221+n))#, label="PHF"))
@@ -148,23 +148,23 @@ fig_PHF.subplots_adjust(top=0.965, bottom=0.0775, left=0.0725, right=0.96, wspac
 fig_MP.subplots_adjust(top=0.965, bottom=0.0775, left=0.0725, right=0.96, wspace=0.275, hspace=0.3)
 fig_PMP.subplots_adjust(top=0.965, bottom=0.0775, left=0.0725, right=0.96, wspace=0.275, hspace=0.3)
 
-fig_P.savefig("M_vs_P.png",dpi=300)
-fig_HF.savefig("M_vs_HF.png",dpi=300)
-fig_PHF.savefig("P_vs_HF.png",dpi=300)
-fig_MP.savefig("M_vs_MP.png",dpi=300)
-fig_PMP.savefig("P_vs_MP.png",dpi=300)
+fig_P.savefig("M_vs_P.png",dpi=150)
+fig_HF.savefig("M_vs_HF.png",dpi=150)
+fig_PHF.savefig("P_vs_HF.png",dpi=150)
+fig_MP.savefig("M_vs_MP.png",dpi=150)
+fig_PMP.savefig("P_vs_MP.png",dpi=150)
 #
-#fig_P.savefig("M_vs_P.pdf",dpi=300)
-#fig_HF.savefig("M_vs_HF.pdf",dpi=300)
-#fig_PHF.savefig("P_vs_HF.pdf",dpi=300)
-#fig_MP.savefig("M_vs_MP.pdf",dpi=300)
-#fig_PMP.savefig("P_vs_MP.pdf",dpi=300)
+#fig_P.savefig("M_vs_P.pdf",dpi=150)
+#fig_HF.savefig("M_vs_HF.pdf",dpi=150)
+#fig_PHF.savefig("P_vs_HF.pdf",dpi=150)
+#fig_MP.savefig("M_vs_MP.pdf",dpi=150)
+#fig_PMP.savefig("P_vs_MP.pdf",dpi=150)
 #
-#fig_P.savefig("M_vs_P.eps",dpi=300)
-#fig_HF.savefig("M_vs_HF.eps",dpi=300)
-#fig_PHF.savefig("P_vs_HF.eps",dpi=300)
-#fig_MP.savefig("M_vs_MP.eps",dpi=300)
-#fig_PMP.savefig("P_vs_MP.eps",dpi=300)
+#fig_P.savefig("M_vs_P.eps",dpi=150)
+#fig_HF.savefig("M_vs_HF.eps",dpi=150)
+#fig_PHF.savefig("P_vs_HF.eps",dpi=150)
+#fig_MP.savefig("M_vs_MP.eps",dpi=150)
+#fig_PMP.savefig("P_vs_MP.eps",dpi=150)
 ###############
 ####PLOT ALL IN ONE PICTURE
 ###############

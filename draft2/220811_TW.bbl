@@ -50,6 +50,15 @@
 \providecommand \BibitemShut  [1]{\csname bibitem#1\endcsname}%
 \let\auto@bib@innerbib\@empty
 %</preamble>
+\bibitem [{\citenamefont {Wesolowski}, \citenamefont {Shedge},\ and\
+  \citenamefont {Zhou}(2015)}]{Wesolowski2015}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {T.~A.}\ \bibnamefont
+  {Wesolowski}}, \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Shedge}},
+  \ and\ \bibinfo {author} {\bibfnamefont {X.}~\bibnamefont {Zhou}},\ }\href
+  {\doibase 10.1021/cr500502v} {\bibfield  {journal} {\bibinfo  {journal}
+  {Chemical Reviews}\ }\textbf {\bibinfo {volume} {115}},\ \bibinfo {pages}
+  {5891} (\bibinfo {year} {2015})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Wesolowski}\ and\ \citenamefont
   {Warshel}(1993)}]{Wesolowski1993}%
   \BibitemOpen
@@ -75,15 +84,6 @@
   {\bibinfo  {journal} {International Journal of Quantum Chemistry}\ }\textbf
   {\bibinfo {volume} {109}},\ \bibinfo {pages} {2520} (\bibinfo {year}
   {2009})}\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Wesolowski}, \citenamefont {Shedge},\ and\
-  \citenamefont {Zhou}(2015)}]{Wesolowski2015}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {T.~A.}\ \bibnamefont
-  {Wesolowski}}, \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Shedge}},
-  \ and\ \bibinfo {author} {\bibfnamefont {X.}~\bibnamefont {Zhou}},\ }\href
-  {\doibase 10.1021/cr500502v} {\bibfield  {journal} {\bibinfo  {journal}
-  {Chemical Reviews}\ }\textbf {\bibinfo {volume} {115}},\ \bibinfo {pages}
-  {5891} (\bibinfo {year} {2015})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Wesolowski}(2020)}]{Wesolowski2020}%
   \BibitemOpen
   \bibfield  {author} {\bibinfo {author} {\bibfnamefont {T.~A.}\ \bibnamefont
@@ -135,26 +135,6 @@
   {\doibase 10.1039/c8cp05634j} {\bibfield  {journal} {\bibinfo  {journal}
   {Physical Chemistry Chemical Physics}\ }\textbf {\bibinfo {volume} {20}},\
   \bibinfo {pages} {26053} (\bibinfo {year} {2018})}\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Du{\l}ak}, \citenamefont {Kaminski},\ and\
-  \citenamefont {Weso{\l}owski}(2009)}]{Dulak2009}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {M.}~\bibnamefont
-  {Du{\l}ak}}, \bibinfo {author} {\bibfnamefont {J.~W.}\ \bibnamefont
-  {Kaminski}}, \ and\ \bibinfo {author} {\bibfnamefont {T.~A.}\ \bibnamefont
-  {Weso{\l}owski}},\ }\href {\doibase 10.1002/qua.22011} {\bibfield  {journal}
-  {\bibinfo  {journal} {International Journal of Quantum Chemistry}\ }\textbf
-  {\bibinfo {volume} {109}},\ \bibinfo {pages} {1886} (\bibinfo {year}
-  {2009})}\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Zech}, \citenamefont {Aquilante},\ and\ \citenamefont
-  {Wesolowski}(2016)}]{Zech2016}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
-  {Zech}}, \bibinfo {author} {\bibfnamefont {F.}~\bibnamefont {Aquilante}}, \
-  and\ \bibinfo {author} {\bibfnamefont {T.~A.}\ \bibnamefont {Wesolowski}},\
-  }\href {\doibase 10.1080/00268976.2015.1125027} {\bibfield  {journal}
-  {\bibinfo  {journal} {Molecular Physics}\ }\textbf {\bibinfo {volume}
-  {114}},\ \bibinfo {pages} {1199} (\bibinfo {year} {2016})}\BibitemShut
-  {NoStop}%
 \bibitem [{\citenamefont {Wesolowski}\ and\ \citenamefont
   {Weber}(1996)}]{Wesolowski1996a}%
   \BibitemOpen
@@ -192,6 +172,15 @@
   {\doibase 10.1139/p80-159} {\bibfield  {journal} {\bibinfo  {journal}
   {Canadian Journal of Physics}\ }\textbf {\bibinfo {volume} {58}},\ \bibinfo
   {pages} {1200} (\bibinfo {year} {1980})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Ceperley}\ and\ \citenamefont
+  {Alder}(1980)}]{Ceperley1980}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {D.~M.}\ \bibnamefont
+  {Ceperley}}\ and\ \bibinfo {author} {\bibfnamefont {B.~J.}\ \bibnamefont
+  {Alder}},\ }\href {\doibase 10.1103/PhysRevLett.45.566} {\bibfield  {journal}
+  {\bibinfo  {journal} {Physical Review Letters}\ }\textbf {\bibinfo {volume}
+  {45}},\ \bibinfo {pages} {566} (\bibinfo {year} {1980})}\BibitemShut
+  {NoStop}%
 \bibitem [{\citenamefont {Ricardi}(2021)}]{CCParser_Ricardi}%
   \BibitemOpen
   \bibfield  {author} {\bibinfo {author} {\bibfnamefont {N.}~\bibnamefont
@@ -573,18 +562,6 @@
   {Szalewicz}},\ }\href {\doibase 10.1021/cr00031a008} {\bibfield  {journal}
   {\bibinfo  {journal} {Chemical Reviews}\ }\textbf {\bibinfo {volume} {94}},\
   \bibinfo {pages} {1887} (\bibinfo {year} {1994})}\BibitemShut {NoStop}%
-\bibitem [{\citenamefont {Humbert-Droz}\ \emph {et~al.}(2014)\citenamefont
-  {Humbert-Droz}, \citenamefont {Zhou}, \citenamefont {Shedge},\ and\
-  \citenamefont {Wesolowski}}]{HumbertDroz2014}%
-  \BibitemOpen
-  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {M.}~\bibnamefont
-  {Humbert-Droz}}, \bibinfo {author} {\bibfnamefont {X.}~\bibnamefont {Zhou}},
-  \bibinfo {author} {\bibfnamefont {S.~V.}\ \bibnamefont {Shedge}}, \ and\
-  \bibinfo {author} {\bibfnamefont {T.~A.}\ \bibnamefont {Wesolowski}},\ }\href
-  {\doibase 10.1007/s00214-013-1405-1} {\bibfield  {journal} {\bibinfo
-  {journal} {Theoretical Chemistry Accounts}\ }\textbf {\bibinfo {volume}
-  {133}},\ \bibinfo {pages} {1405} (\bibinfo {year} {2014})}\BibitemShut
-  {NoStop}%
 \bibitem [{\citenamefont {Savin}\ and\ \citenamefont
   {Wesolowski}(2009)}]{Savin2009}%
   \BibitemOpen
@@ -600,6 +577,18 @@
   {G.}~\bibnamefont {Delgado-Barrio}}, \ and\ \bibinfo {editor} {\bibfnamefont
   {S.}~\bibnamefont {Wilson}}}\ (\bibinfo  {publisher} {Springer Netherlands},\
   \bibinfo {year} {2009})\ pp.\ \bibinfo {pages} {311--326}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Humbert-Droz}\ \emph {et~al.}(2014)\citenamefont
+  {Humbert-Droz}, \citenamefont {Zhou}, \citenamefont {Shedge},\ and\
+  \citenamefont {Wesolowski}}]{HumbertDroz2014}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {M.}~\bibnamefont
+  {Humbert-Droz}}, \bibinfo {author} {\bibfnamefont {X.}~\bibnamefont {Zhou}},
+  \bibinfo {author} {\bibfnamefont {S.~V.}\ \bibnamefont {Shedge}}, \ and\
+  \bibinfo {author} {\bibfnamefont {T.~A.}\ \bibnamefont {Wesolowski}},\ }\href
+  {\doibase 10.1007/s00214-013-1405-1} {\bibfield  {journal} {\bibinfo
+  {journal} {Theoretical Chemistry Accounts}\ }\textbf {\bibinfo {volume}
+  {133}},\ \bibinfo {pages} {1405} (\bibinfo {year} {2014})}\BibitemShut
   {NoStop}%
 \bibitem [{\citenamefont {Wesolowski}(1997)}]{Wesolowski1997a}%
   \BibitemOpen
@@ -670,4 +659,17 @@
   {journal} {The Journal of Chemical Physics}\ }\textbf {\bibinfo {volume}
   {124}},\ \bibinfo {pages} {024104} (\bibinfo {year} {2006})}\BibitemShut
   {NoStop}%
+\bibitem [{\citenamefont {Sen}\ \emph {et~al.}(2021)\citenamefont {Sen},
+  \citenamefont {Gonz{\'{a}}lez-Espinoza}, \citenamefont {Zech}, \citenamefont
+  {Dreuw},\ and\ \citenamefont {Wesolowski}}]{Sen2021}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {R.}~\bibnamefont
+  {Sen}}, \bibinfo {author} {\bibfnamefont {C.~E.}\ \bibnamefont
+  {Gonz{\'{a}}lez-Espinoza}}, \bibinfo {author} {\bibfnamefont
+  {A.}~\bibnamefont {Zech}}, \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
+  {Dreuw}}, \ and\ \bibinfo {author} {\bibfnamefont {T.~A.}\ \bibnamefont
+  {Wesolowski}},\ }\href {\doibase 10.1021/acs.jctc.1c00228} {\bibfield
+  {journal} {\bibinfo  {journal} {Journal of Chemical Theory and Computation}\
+  }\textbf {\bibinfo {volume} {17}},\ \bibinfo {pages} {4049} (\bibinfo {year}
+  {2021})}\BibitemShut {NoStop}%
 \end{thebibliography}%

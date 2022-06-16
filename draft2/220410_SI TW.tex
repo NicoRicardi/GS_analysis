@@ -26,23 +26,31 @@
 \affiliation{Department of Physical Chemistry, University of Geneva, Geneva (Switzerland)}
 % 
 \date{\today}
-\title{Supplementary Material for: The significance of negativity of the target density in Frozen-Density Embedding Theory based simulations}
+\title{Supplementary Material for: The non-negativity condition of the target density in Frozen-Density Embedding Theory based simulations}
 
 \maketitle
 \section{Proof that $M[\rho_{B} - \rho^{o}_{AB}] \leq P[\rho_A^o+\rho_B - \rho_{AB}^{o}] $}
+%The parameter $P$ is bound by:
+%\begin{equation} \label{eq:P_bound_SI}
+% M[\rho_{B} - \rho^{o}_{AB}] \leq P[\rho_A^o+\rho_B - \rho_{AB}^{o}] \leq % \int \rho_{AB}^{o} 
+% N_{AB}.
+%\end{equation}
+%\subsection{Proof}
 We start with the obvious equality,
-\begin{equation}
-\int \rho^{o}_A + \rho_B - \rho_{AB}^o = 0, 
-\end{equation}
+\begin{align}
+ & \int \rho^{o}_A + \rho_B - \rho_{AB}^o = 0, %\\ \nonumber
+% & \int\limits_{\rho_{AB}^o <\rho^{o}_A + \rho_B}\rho^{o}_A + \rho_B - \rho_{AB}^o + \int\limits_{\rho_{AB}^o > \rho^{o}_A + \rho_B}\rho^{o}_A + \rho_B - \rho_{AB}^o = 0 \\ \nonumber
+% & \int\limits_{\rho_{AB}^o < \rho^{o}_A + \rho_B}\rho^{o}_A + \rho_B - \rho_{AB}^o = \int\limits_{\rho_{AB}^o > \rho^{o}_A + \rho_B}\rho_{AB}^o - \rho^{o}_A - \rho_B 
+\end{align}
 from which it follows that:
 \begin{align}
  & \int\limits_{\rho_{AB}^o < \rho^{o}_A + \rho_B}\rho^{o}_A + \rho_B - \rho_{AB}^o = \int\limits_{\rho_{AB}^o > \rho^{o}_A + \rho_B}\rho_{AB}^o - \rho^{o}_A - \rho_B.
 \end{align}
 The above relation used in the definition of $P$ leads to:
 \begin{align}\label{eq:P_alternatives}
-P[\rho^{o}_A + \rho_B - \rho_{AB}^o] = & \frac{1}{2}  \int \vert \rho^{o}_A + \rho_B - \rho_{AB}^o \vert \\ \nonumber
- = & \frac{1}{2}  \int\limits_{\rho_{AB}^o <\rho^{o}_A + \rho_B}\rho^{o}_A + \rho_B - \rho_{AB}^o + \\ \nonumber
- & \frac{1}{2}  \int\limits_{\rho_{AB}^o > \rho^{o}_A + \rho_B}\rho^{o}_A + \rho_B - \rho_{AB}^o \\ \nonumber
+P[\rho^{o}_A + \rho_B - \rho_{AB}^o] = & \frac{1}{2} \cdot \int \vert \rho^{o}_A + \rho_B - \rho_{AB}^o \vert \\ \nonumber
+ = & \frac{1}{2} \cdot \int\limits_{\rho_{AB}^o <\rho^{o}_A + \rho_B}\rho^{o}_A + \rho_B - \rho_{AB}^o + \\ \nonumber
+ & \frac{1}{2} \cdot \int\limits_{\rho_{AB}^o > \rho^{o}_A + \rho_B}\rho^{o}_A + \rho_B - \rho_{AB}^o \\ \nonumber
 = & \int\limits_{\rho_{AB}^o <\rho^{o}_A + \rho_B}\rho^{o}_A + \rho_B - \rho_{AB}^o.
 \end{align}
 Splitting the domain of integration of the final integral above  leads to: 
@@ -52,12 +60,20 @@ P[\rho^{o}_A + \rho_B - \rho_{AB}^o] = & \int\limits_{\rho_{AB}^o < \rho_B}\rho^
  = & \int\limits_{\rho_{AB}^o < \rho_B} \rho_B - \rho_{AB}^o + \\ \nonumber
  +&\int\limits_{\rho_{AB}^o < \rho_B}\rho^{o}_A + \int\limits_{\rho_B \leq \rho_{AB}^o < \rho_B + \rho^{o}_A}\rho^{o}_A + \rho_B - \rho_{AB}^o\nonumber 
 \end{align}
-The first integral in the right-hand-side of the equation above is equal to $M[\rho_{AB}^o - \rho_B]$ whereas the second and third are non-negative. As a result:
+The first integral in the right-hand-side of the equation above is equal to $M[\rho_{AB}^o - \rho_B]$ whereas the second and third are non-negative. As a result:%
+%Which in turn leads to:
+%\begin{align}\label{eq:P_M+terms}
+% P[\rho^{o}_A + \rho_B - \rho_{AB}^o] =  &M[\rho_{AB}^o - \rho_B] + \int\limits_{\rho_{AB}^o < \rho_B}\rho^{o}_A + \\ \nonumber
+% & \int\limits_{\rho_B \leq \rho_{AB}^o < \rho_B + \rho^{o}_A}\rho^{o}_A + \rho_B - \rho_{AB}^o.
+%\end{align}
+%The fact that both integrals on the right hand side of Eq.~\ref{eq:P_M+terms} are non-negative guarantees that:
 \begin{equation}
  P[\rho^{o}_A + \rho_B - \rho_{AB}^o] \geq M[\rho_{AB}^o - \rho_B],
 \end{equation}
 which ends the proof.
-% \newpage
+%while the upper bound in Eq.~\ref{eq:P_bound_SI} is apparent from Eq.~\ref{eq:P_alternatives}.
+\end{document}
+\newpage
 \section{Data}
 \begin{table}[H]
 \begin{center}
@@ -84,7 +100,7 @@ PyrBnz-2HCOOH & $\rho_B^{FAT}$ & 0.131 & 0.164 & -34.894 & -0.058 & 0.012 & 0.01
 \end{tabular}
 }
 \end{center}
-\caption{Supplementary data for \textit{supermolecular expansion} results. Energies are given in kcal/mol and quantities related to electron densities are given in atomic units.}
+\caption{Supplementary data for \textit{supermolecular expansion} results.}
 \end{table}
 
 \begin{table}[H]
@@ -120,6 +136,6 @@ PyrBnz-2HCOOH & $\rho_B^{FAT}$ & 0.139 & 0.164 & -32.418 & -36.532 & 7.318 & 0.0
 \end{tabular}
 }
 \end{center}
-\caption{Supplementary data for \textit{monomer expansion} results. Energies are given in kcal/mol and quantities related to electron densities are given in atomic units.}
+\caption{Supplementary data for \textit{monomer expansion} results.}
 \end{table}
 \end{document}

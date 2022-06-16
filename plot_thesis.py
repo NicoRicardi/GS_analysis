@@ -15,7 +15,7 @@ plt.rc('axes', labelsize=22)
 plt.rc('xtick', labelsize=22)
 plt.rc('ytick', labelsize=22)
 plt.rc('figure', titlesize=22)
-plt.rc('legend', fontsize=22)
+plt.rc('legend', fontsize=20)
 
 en = pd.read_csv("results_en_kcal.csv", index_col=0)
 dens = pd.read_csv("results_densities.csv", index_col=0)
@@ -49,15 +49,15 @@ mp_range = max(mp_ranges)*1.1
 hf_range = max(hf_ranges)*1.1  
 
 colours = ["r", "g", "b", "c"]
-axes_lbls = {"E_FDET_HF": r"$E^{\mathrm{HF}\mbox{-}\mathrm{part}(\rho_B)} [kcal/mol]$ ",
-             "E_FDET_MP": r"$E^{FDET}_{int}[kcal/mol]$",
+axes_lbls = {"E_FDET_HF": r"$E^{\mathrm{HF}\mbox{-}\mathrm{part}(\rho_B)}$ [kcal/mol] ",
+             "E_FDET_MP": r"$E^{\mathrm{FDET}(\rho_B)}_{\mathrm{int}}$[kcal/mol]",
              "densdiff_FDET_ref": "P[a.u.]",
              "M_value": "M[a.u.]",
              "E_ref_HF": r"$E^{HF}_{}$",
              "E_ref_HF_CP": r"$E^{HF}_{CP}$",
              "E_ref_MP": r"$E^{MP}_{}$",
              "E_ref_MP_CP": r"$E^{MP}_{CP}$"}
-lbls = ["none", "Mulliken", "ChelPG", "FT"]
+lbls = [r"$\rho_B^{\mathrm{isol}}$", r"$\rho_B^{\mathrm{pp}\mbox{-}\mathrm{Mulliken}}$", r"$\rho_B^{\mathrm{pp}\mbox{-}\mathrm{ChelPG}}$", r"$\rho_B^{\mathrm{FT}}$"]
 fig_P, fig_HF, fig_PHF, fig_MP, fig_PMP = [plt.figure(figsize=(20, 10), dpi=300) for i in range(5)]
 axs_P, axs_HF, axs_PHF, axs_MP, axs_PMP = [[] for i in range(5)]
 constant = dict(linestyle="", alpha=0.75, markeredgecolor="k", markeredgewidth=2.5, markersize=15)
@@ -135,12 +135,12 @@ for n, system in enumerate(systems):
     axs_PHF[n].set_title(syst_lbls[system])
     axs_MP[n].set_title(syst_lbls[system])
     axs_PMP[n].set_title(syst_lbls[system])
-#    if n == 0:
-#        axs_P[n].legend(loc="best")
-#        axs_HF[n].legend(loc="best")
-#        axs_PHF[n].legend(loc="best")
-#        axs_MP[n].legend(loc="best")
-#        axs_PMP[n].legend(loc="best")
+    if n == 0:
+        axs_P[n].legend(loc="best")
+        axs_HF[n].legend(loc="best")
+        axs_PHF[n].legend(loc="best")
+        axs_MP[n].legend(loc="best")
+        axs_PMP[n].legend(loc="best")
 
 fig_P.subplots_adjust(top=0.965, bottom=0.0775, left=0.0725, right=0.96, wspace=0.275, hspace=0.3)
 fig_HF.subplots_adjust(top=0.965, bottom=0.0775, left=0.0725, right=0.96, wspace=0.275, hspace=0.3)
@@ -148,11 +148,11 @@ fig_PHF.subplots_adjust(top=0.965, bottom=0.0775, left=0.0725, right=0.96, wspac
 fig_MP.subplots_adjust(top=0.965, bottom=0.0775, left=0.0725, right=0.96, wspace=0.275, hspace=0.3)
 fig_PMP.subplots_adjust(top=0.965, bottom=0.0775, left=0.0725, right=0.96, wspace=0.275, hspace=0.3)
 
-fig_P.savefig("M_vs_P.png",dpi=300)
-fig_HF.savefig("M_vs_HF.png",dpi=300)
-fig_PHF.savefig("P_vs_HF.png",dpi=300)
-fig_MP.savefig("M_vs_MP.png",dpi=300)
-fig_PMP.savefig("P_vs_MP.png",dpi=300)
+fig_P.savefig("M_vs_P_leg.png",dpi=300)
+fig_HF.savefig("M_vs_HF_leg.png",dpi=300)
+fig_PHF.savefig("P_vs_HF_leg.png",dpi=300)
+fig_MP.savefig("M_vs_MP_leg.png",dpi=300)
+fig_PMP.savefig("P_vs_MP_leg.png",dpi=300)
 #
 #fig_P.savefig("M_vs_P.pdf",dpi=300)
 #fig_HF.savefig("M_vs_HF.pdf",dpi=300)
@@ -190,4 +190,4 @@ fig_PMP.savefig("P_vs_MP.png",dpi=300)
 #        ymax = ymin + den_rangey
 #        twins[n].set_ylim([ymin - 0.05*den_rangey, ymax + 0.1*den_rangey])
 ##        twins[n].legend()
-#fig.savefig("picture.png")
+#fig.savefig("picture_leg.png")

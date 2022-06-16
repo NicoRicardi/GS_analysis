@@ -1,6 +1,6 @@
 This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
-The top-level auxiliary file: 220604_NR.aux
+The top-level auxiliary file: 220811_TW.aux
 The style file: aipnum4-1.bst
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
@@ -9,8 +9,8 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-Database file #1: 220604_NRNotes.bib
-Database file #2: biblio_thesis.bib
+Database file #1: 220811_TWNotes.bib
+Database file #2: biblio.bib
 control{REVTEX41Control}, control.key{N/A}, control.author{N/A}, control.editor{N/A}, control.title{N/A}, control.pages{N/A}, control.year{N/A}, control.eprint{N/A}, 
 control{aip41Control}, control.key{N/A}, control.author{N/A}, control.editor{N/A}, control.title{}, control.pages{0}, control.year{N/A}, control.eprint{N/A}, 
 Warning--jnrlst (dependency: not reversed) set 1
@@ -25,41 +25,41 @@ Control: year (1) truncated
 Control: production of eprint (0) enabled
 You've used 39 entries,
             5918 wiz_defined-function locations,
-            1971 strings with 29001 characters,
-and the built_in function-call counts, 57611 in all, are:
-= -- 2660
-> -- 2557
-< -- 443
+            1969 strings with 28988 characters,
+and the built_in function-call counts, 57647 in all, are:
+= -- 2658
+> -- 2555
+< -- 444
 + -- 764
 - -- 703
-* -- 10225
-:= -- 5154
+* -- 10234
+:= -- 5155
 add.period$ -- 40
 call.type$ -- 39
 change.case$ -- 155
 chr.to.int$ -- 39
 cite$ -- 39
-duplicate$ -- 5064
-empty$ -- 3902
-format.name$ -- 1394
-if$ -- 11515
+duplicate$ -- 5071
+empty$ -- 3906
+format.name$ -- 1396
+if$ -- 11522
 int.to.chr$ -- 1
 int.to.str$ -- 46
-missing$ -- 667
+missing$ -- 668
 newline$ -- 163
 num.names$ -- 114
-pop$ -- 1844
+pop$ -- 1842
 preamble$ -- 1
 purify$ -- 185
 quote$ -- 0
-skip$ -- 1773
+skip$ -- 1775
 stack$ -- 0
-substring$ -- 981
-swap$ -- 5575
-text.length$ -- 316
+substring$ -- 978
+swap$ -- 5584
+text.length$ -- 317
 text.prefix$ -- 0
 top$ -- 10
-type$ -- 733
+type$ -- 734
 warning$ -- 1
 while$ -- 155
 width$ -- 0
