@@ -1,0 +1,7 @@
+,base,system,calc,kernel_tot,kernel_A,kernel_B
+0,/home/ricardi/NEG_GS/aug-cc-pVTZ,7HQ_formate,MC-nopp,,,
+1,/home/ricardi/NEG_GS/aug-cc-pVTZ,7HQ_formate,FT-ME,,,
+2,/home/ricardi/NEG_GS/aug-cc-pVTZ,Uracil_5H2O,MC-nopp,0.0003032507302872811,0.00030325073028728136,
+3,/home/ricardi/NEG_GS/aug-cc-pVTZ,Uracil_5H2O,MC-pp_Mulliken,0.0002859912652460651,0.00028599126524606565,
+4,/home/ricardi/NEG_GS/aug-cc-pVTZ,Uracil_5H2O,MC-pp_ChelPG,0.0002931697094882722,0.0002931697094882707,
+5,/home/ricardi/NEG_GS/aug-cc-pVTZ,Uracil_5H2O,FT-ME,0.0003000132105317033,0.00027637916143271484,0.00032364725963069155

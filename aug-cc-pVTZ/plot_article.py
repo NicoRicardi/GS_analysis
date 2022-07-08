@@ -20,8 +20,10 @@ plt.rc('legend', fontsize=22)
 en = pd.read_csv("results_en_kcal.csv", index_col=0)
 dens = pd.read_csv("results_densities.csv", index_col=0)
 #en.loc[en["calc"]=="FT-ME","kernel_tot"] /= 2
+#
+#systems = ["7HQ_2MeOH", "7HQ_formate", "Uracil_5H2O", "XVI_2HCOOH"]
 
-systems = ["7HQ_2MeOH", "7HQ_formate", "Uracil_5H2O", "XVI_2HCOOH"]
+systems = ["Uracil_5H2O"]
 syst_lbls = {"7HQ_2MeOH": "7HQ-2MeOH",
              "7HQ_formate": "7HQ-formate",
              "Uracil_5H2O": "uracil-5H2O",
@@ -62,12 +64,12 @@ fig_P, fig_HF, fig_PHF, fig_MP, fig_PMP = [plt.figure(figsize=(20, 10), dpi=300)
 axs_P, axs_HF, axs_PHF, axs_MP, axs_PMP = [[] for i in range(5)]
 constant = dict(linestyle="", alpha=0.75, markeredgecolor="k", markeredgewidth=2.5, markersize=15)
 
-for n, system in enumerate(systems):
-    axs_P.append(fig_P.add_subplot(221+n))#, label="P"))
-    axs_HF.append(fig_HF.add_subplot(221+n))#, label="HF"))
-    axs_PHF.append(fig_PHF.add_subplot(221+n))#, label="PHF"))
-    axs_MP.append(fig_MP.add_subplot(221+n))#, label="MP"))
-    axs_PMP.append(fig_PMP.add_subplot(221+n))#, label="MP"))
+for n, system in enumerate(systems[:1]):
+    axs_P.append(fig_P.add_subplot(111+n))#, label="P"))
+    axs_HF.append(fig_HF.add_subplot(111+n))#, label="HF"))
+    axs_PHF.append(fig_PHF.add_subplot(111+n))#, label="PHF"))
+    axs_MP.append(fig_MP.add_subplot(111+n))#, label="MP"))
+    axs_PMP.append(fig_PMP.add_subplot(111+n))#, label="MP"))
 #    Mmin = dens_cenM[n] - 0.5*den_rangeM
 #    Mmin = max(0, Mmin)
 #    Mmax = Mmin + den_rangeM
@@ -142,11 +144,11 @@ for n, system in enumerate(systems):
 #        axs_MP[n].legend(loc="best")
 #        axs_PMP[n].legend(loc="best")
 
-fig_P.subplots_adjust(top=0.965, bottom=0.0775, left=0.0725, right=0.96, wspace=0.275, hspace=0.3)
-fig_HF.subplots_adjust(top=0.965, bottom=0.0775, left=0.0725, right=0.96, wspace=0.275, hspace=0.3)
-fig_PHF.subplots_adjust(top=0.965, bottom=0.0775, left=0.0725, right=0.96, wspace=0.275, hspace=0.3)
-fig_MP.subplots_adjust(top=0.965, bottom=0.0775, left=0.0725, right=0.96, wspace=0.275, hspace=0.3)
-fig_PMP.subplots_adjust(top=0.965, bottom=0.0775, left=0.0725, right=0.96, wspace=0.275, hspace=0.3)
+fig_P.subplots_adjust(top=0.925, bottom=0.1, left=0.1, right=0.925, wspace=0.275, hspace=0.3)
+fig_HF.subplots_adjust(top=0.925, bottom=0.1, left=0.1, right=0.925, wspace=0.275, hspace=0.3)
+fig_PHF.subplots_adjust(top=0.925, bottom=0.1, left=0.1, right=0.925, wspace=0.275, hspace=0.3)
+fig_MP.subplots_adjust(top=0.925, bottom=0.1, left=0.1, right=0.925, wspace=0.275, hspace=0.3)
+fig_PMP.subplots_adjust(top=0.925, bottom=0.1, left=0.1, right=0.925, wspace=0.275, hspace=0.3)
 
 #fig_P.savefig("M_vs_P.png",dpi=300)
 #fig_HF.savefig("M_vs_HF.png",dpi=300)
@@ -169,7 +171,7 @@ fig_PMP.savefig("P_vs_MP.pdf",dpi=300)
 ####PLOT ALL IN ONE PICTURE
 ###############
 #for n, system in enumerate(systems):
-#    axs.append(fig.add_subplot(221+n))
+#    axs.append(fig.add_subplot(111+n))
 #    twins.append(axs[n].twinx())
 #    for m in range(4):
 #        axs[n].plot(s_dens[n]["M_value"][m], s_ens[n][props[0]][m], linestyle="",

@@ -1,0 +1,650 @@
+%merlin.mbs aipnum4-1.bst 2010-07-25 4.21a (PWD, AO, DPC) hacked
+%Control: key (0)
+%Control: author (8) initials jnrlst
+%Control: editor formatted (1) identically to author
+%Control: production of article title (-1) disabled
+%Control: page (0) single
+%Control: year (1) truncated
+%Control: production of eprint (0) enabled
+\begin{thebibliography}{35}%
+\makeatletter
+\providecommand \@ifxundefined [1]{%
+ \@ifx{#1\undefined}
+}%
+\providecommand \@ifnum [1]{%
+ \ifnum #1\expandafter \@firstoftwo
+ \else \expandafter \@secondoftwo
+ \fi
+}%
+\providecommand \@ifx [1]{%
+ \ifx #1\expandafter \@firstoftwo
+ \else \expandafter \@secondoftwo
+ \fi
+}%
+\providecommand \natexlab [1]{#1}%
+\providecommand \enquote  [1]{``#1''}%
+\providecommand \bibnamefont  [1]{#1}%
+\providecommand \bibfnamefont [1]{#1}%
+\providecommand \citenamefont [1]{#1}%
+\providecommand \href@noop [0]{\@secondoftwo}%
+\providecommand \href [0]{\begingroup \@sanitize@url \@href}%
+\providecommand \@href[1]{\@@startlink{#1}\@@href}%
+\providecommand \@@href[1]{\endgroup#1\@@endlink}%
+\providecommand \@sanitize@url [0]{\catcode `\\12\catcode `\$12\catcode
+  `\&12\catcode `\#12\catcode `\^12\catcode `\_12\catcode `\%12\relax}%
+\providecommand \@@startlink[1]{}%
+\providecommand \@@endlink[0]{}%
+\providecommand \url  [0]{\begingroup\@sanitize@url \@url }%
+\providecommand \@url [1]{\endgroup\@href {#1}{\urlprefix }}%
+\providecommand \urlprefix  [0]{URL }%
+\providecommand \Eprint [0]{\href }%
+\providecommand \doibase [0]{http://dx.doi.org/}%
+\providecommand \selectlanguage [0]{\@gobble}%
+\providecommand \bibinfo  [0]{\@secondoftwo}%
+\providecommand \bibfield  [0]{\@secondoftwo}%
+\providecommand \translation [1]{[#1]}%
+\providecommand \BibitemOpen [0]{}%
+\providecommand \bibitemStop [0]{}%
+\providecommand \bibitemNoStop [0]{.\EOS\space}%
+\providecommand \EOS [0]{\spacefactor3000\relax}%
+\providecommand \BibitemShut  [1]{\csname bibitem#1\endcsname}%
+\let\auto@bib@innerbib\@empty
+%</preamble>
+\bibitem [{\citenamefont {Wesolowski}, \citenamefont {Shedge},\ and\
+  \citenamefont {Zhou}(2015)}]{Wesolowski2015}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {T.~A.}\ \bibnamefont
+  {Wesolowski}}, \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Shedge}},
+  \ and\ \bibinfo {author} {\bibfnamefont {X.}~\bibnamefont {Zhou}},\ }\href
+  {\doibase 10.1021/cr500502v} {\bibfield  {journal} {\bibinfo  {journal}
+  {Chemical Reviews}\ }\textbf {\bibinfo {volume} {115}},\ \bibinfo {pages}
+  {5891} (\bibinfo {year} {2015})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Wesolowski}\ and\ \citenamefont
+  {Warshel}(1993)}]{Wesolowski1993}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {T.~A.}\ \bibnamefont
+  {Wesolowski}}\ and\ \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
+  {Warshel}},\ }\href {\doibase 10.1021/j100132a040} {\bibfield  {journal}
+  {\bibinfo  {journal} {The Journal of Physical Chemistry}\ }\textbf {\bibinfo
+  {volume} {97}},\ \bibinfo {pages} {8050} (\bibinfo {year}
+  {1993})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Weso{\l}owski}(2008)}]{Wesolowski2008}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {T.~A.}\ \bibnamefont
+  {Weso{\l}owski}},\ }\href {\doibase 10.1103/PhysRevA.77.012504} {\bibfield
+  {journal} {\bibinfo  {journal} {Physical Review A}\ }\textbf {\bibinfo
+  {volume} {77}},\ \bibinfo {pages} {012504} (\bibinfo {year}
+  {2008})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Pernal}\ and\ \citenamefont
+  {Wesolowski}(2009)}]{Pernal2009}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {K.}~\bibnamefont
+  {Pernal}}\ and\ \bibinfo {author} {\bibfnamefont {T.~A.}\ \bibnamefont
+  {Wesolowski}},\ }\href {\doibase 10.1002/qua.22016} {\bibfield  {journal}
+  {\bibinfo  {journal} {International Journal of Quantum Chemistry}\ }\textbf
+  {\bibinfo {volume} {109}},\ \bibinfo {pages} {2520} (\bibinfo {year}
+  {2009})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Wesolowski}(2020)}]{Wesolowski2020}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {T.~A.}\ \bibnamefont
+  {Wesolowski}},\ }\href {\doibase 10.1021/acs.jctc.0c00754} {\bibfield
+  {journal} {\bibinfo  {journal} {Journal of Chemical Theory and Computation}\
+  }\textbf {\bibinfo {volume} {16}},\ \bibinfo {pages} {6880} (\bibinfo {year}
+  {2020})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Hohenberg}\ and\ \citenamefont
+  {Kohn}(1964)}]{Hohenberg1964}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {P.}~\bibnamefont
+  {Hohenberg}}\ and\ \bibinfo {author} {\bibfnamefont {W.}~\bibnamefont
+  {Kohn}},\ }\href {\doibase 10.1103/PhysRev.136.B864} {\bibfield  {journal}
+  {\bibinfo  {journal} {Physical Review}\ }\textbf {\bibinfo {volume} {136}},\
+  \bibinfo {pages} {B864} (\bibinfo {year} {1964})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Ricardi}\ \emph {et~al.}(2018)\citenamefont
+  {Ricardi}, \citenamefont {Zech}, \citenamefont {Gimbal-Zofka},\ and\
+  \citenamefont {Wesolowski}}]{Ricardi2018}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {N.}~\bibnamefont
+  {Ricardi}}, \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont {Zech}},
+  \bibinfo {author} {\bibfnamefont {Y.}~\bibnamefont {Gimbal-Zofka}}, \ and\
+  \bibinfo {author} {\bibfnamefont {T.~A.}\ \bibnamefont {Wesolowski}},\ }\href
+  {\doibase 10.1039/c8cp05634j} {\bibfield  {journal} {\bibinfo  {journal}
+  {Physical Chemistry Chemical Physics}\ }\textbf {\bibinfo {volume} {20}},\
+  \bibinfo {pages} {26053} (\bibinfo {year} {2018})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Wesolowski}\ and\ \citenamefont
+  {Weber}(1996)}]{Wesolowski1996a}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {T.~A.}\ \bibnamefont
+  {Wesolowski}}\ and\ \bibinfo {author} {\bibfnamefont {J.}~\bibnamefont
+  {Weber}},\ }\href {\doibase 10.1016/0009-2614(95)01281-8} {\bibfield
+  {journal} {\bibinfo  {journal} {Chemical Physics Letters}\ }\textbf {\bibinfo
+  {volume} {248}},\ \bibinfo {pages} {71} (\bibinfo {year} {1996})}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Thomas}(1927)}]{Thomas1927}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {L.~H.}\ \bibnamefont
+  {Thomas}},\ }\href {\doibase 10.1017/S0305004100011683} {\bibfield  {journal}
+  {\bibinfo  {journal} {Mathematical Proceedings of the Cambridge Philosophical
+  Society}\ }\textbf {\bibinfo {volume} {23}},\ \bibinfo {pages} {542}
+  (\bibinfo {year} {1927})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Fermi}(1928)}]{Fermi1928}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {E.}~\bibnamefont
+  {Fermi}},\ }\href {\doibase 10.1007/BF01351576} {\bibfield  {journal}
+  {\bibinfo  {journal} {Zeitschrift f\"ur Physik}\ }\textbf {\bibinfo {volume}
+  {48}},\ \bibinfo {pages} {73} (\bibinfo {year} {1928})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Slater}(1929)}]{Slater1929}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.~C.}\ \bibnamefont
+  {Slater}},\ }\href {\doibase 10.1103/PhysRev.34.1293} {\bibfield  {journal}
+  {\bibinfo  {journal} {Physical Review}\ }\textbf {\bibinfo {volume} {34}},\
+  \bibinfo {pages} {1293} (\bibinfo {year} {1929})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Vosko}, \citenamefont {Wilk},\ and\ \citenamefont
+  {Nusair}(1980)}]{Vosko1980}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {S.~H.}\ \bibnamefont
+  {Vosko}}, \bibinfo {author} {\bibfnamefont {L.}~\bibnamefont {Wilk}}, \ and\
+  \bibinfo {author} {\bibfnamefont {M.}~\bibnamefont {Nusair}},\ }\href
+  {\doibase 10.1139/p80-159} {\bibfield  {journal} {\bibinfo  {journal}
+  {Canadian Journal of Physics}\ }\textbf {\bibinfo {volume} {58}},\ \bibinfo
+  {pages} {1200} (\bibinfo {year} {1980})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Ceperley}\ and\ \citenamefont
+  {Alder}(1980)}]{Ceperley1980}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {D.~M.}\ \bibnamefont
+  {Ceperley}}\ and\ \bibinfo {author} {\bibfnamefont {B.~J.}\ \bibnamefont
+  {Alder}},\ }\href {\doibase 10.1103/PhysRevLett.45.566} {\bibfield  {journal}
+  {\bibinfo  {journal} {Physical Review Letters}\ }\textbf {\bibinfo {volume}
+  {45}},\ \bibinfo {pages} {566} (\bibinfo {year} {1980})}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Ricardi}(2021)}]{CCParser_Ricardi}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {N.}~\bibnamefont
+  {Ricardi}},\ }\href@noop {} {\enquote {\bibinfo {title} {Ccparser},}\
+  }\bibinfo {howpublished} {\url{https://github.com/NicoRicardi/CCParser}}
+  (\bibinfo {year} {2021})\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Zech}(2021)}]{CCParser_Zech}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
+  {Zech}},\ }\href@noop {} {\enquote {\bibinfo {title} {Ccparser},}\ }\bibinfo
+  {howpublished} {\url{https://github.com/spectre007/CCParser}} (\bibinfo
+  {year} {2021})\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Ricardi}\ and\ \citenamefont
+  {Gonz\'alez-Espinoza}(2020)}]{CCDatabase}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {N.}~\bibnamefont
+  {Ricardi}}\ and\ \bibinfo {author} {\bibfnamefont {C.~E.}\ \bibnamefont
+  {Gonz\'alez-Espinoza}},\ }\href@noop {} {\enquote {\bibinfo {title}
+  {Ccdatabase},}\ }\bibinfo {howpublished}
+  {\url{https://github.com/NicoRicardi/CCDatabase}} (\bibinfo {year}
+  {2020})\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Epifanovsky}\ \emph {et~al.}(2021)\citenamefont
+  {Epifanovsky}, \citenamefont {Gilbert}, \citenamefont {Feng}, \citenamefont
+  {Lee}, \citenamefont {Mao}, \citenamefont {Mardirossian}, \citenamefont
+  {Pokhilko}, \citenamefont {White}, \citenamefont {Coons}, \citenamefont
+  {Dempwolff}, \citenamefont {Gan}, \citenamefont {Hait}, \citenamefont {Horn},
+  \citenamefont {Jacobson}, \citenamefont {Kaliman}, \citenamefont {Kussmann},
+  \citenamefont {Lange}, \citenamefont {Lao}, \citenamefont {Levine},
+  \citenamefont {Liu}, \citenamefont {McKenzie}, \citenamefont {Morrison},
+  \citenamefont {Nanda}, \citenamefont {Plasser}, \citenamefont {Rehn},
+  \citenamefont {Vidal}, \citenamefont {You}, \citenamefont {Zhu},
+  \citenamefont {Alam}, \citenamefont {Albrecht}, \citenamefont {Aldossary},
+  \citenamefont {Alguire}, \citenamefont {Andersen}, \citenamefont {Athavale},
+  \citenamefont {Barton}, \citenamefont {Begam}, \citenamefont {Behn},
+  \citenamefont {Bellonzi}, \citenamefont {Bernard}, \citenamefont {Berquist},
+  \citenamefont {Burton}, \citenamefont {Carreras}, \citenamefont
+  {Carter-Fenk}, \citenamefont {Chakraborty}, \citenamefont {Chien},
+  \citenamefont {Closser}, \citenamefont {Cofer-Shabica}, \citenamefont
+  {Dasgupta}, \citenamefont {de~Wergifosse}, \citenamefont {Deng},
+  \citenamefont {Diedenhofen}, \citenamefont {Do}, \citenamefont {Ehlert},
+  \citenamefont {Fang}, \citenamefont {Fatehi}, \citenamefont {Feng},
+  \citenamefont {Friedhoff}, \citenamefont {Gayvert}, \citenamefont {Ge},
+  \citenamefont {Gidofalvi}, \citenamefont {Goldey}, \citenamefont {Gomes},
+  \citenamefont {Gonz\'{a}lez-Espinoza}, \citenamefont {Gulania}, \citenamefont
+  {Gunina}, \citenamefont {Hanson-Heine}, \citenamefont {Harbach},
+  \citenamefont {Hauser}, \citenamefont {Herbst}, \citenamefont
+  {Hern\'{a}ndez~Vera}, \citenamefont {Hodecker}, \citenamefont {Holden},
+  \citenamefont {Houck}, \citenamefont {Huang}, \citenamefont {Hui},
+  \citenamefont {Huynh}, \citenamefont {Ivanov}, \citenamefont {J\'{a}sz},
+  \citenamefont {Ji}, \citenamefont {Jiang}, \citenamefont {Kaduk},
+  \citenamefont {K\"{a}hler}, \citenamefont {Khistyaev}, \citenamefont {Kim},
+  \citenamefont {Kis}, \citenamefont {Klunzinger}, \citenamefont
+  {Koczor-Benda}, \citenamefont {Koh}, \citenamefont {Kosenkov}, \citenamefont
+  {Koulias}, \citenamefont {Kowalczyk}, \citenamefont {Krauter}, \citenamefont
+  {Kue}, \citenamefont {Kunitsa}, \citenamefont {Kus}, \citenamefont
+  {Ladj\'{a}nszki}, \citenamefont {Landau}, \citenamefont {Lawler},
+  \citenamefont {Lefrancois}, \citenamefont {Lehtola}, \citenamefont {Li},
+  \citenamefont {Li}, \citenamefont {Liang}, \citenamefont {Liebenthal},
+  \citenamefont {Lin}, \citenamefont {Lin}, \citenamefont {Liu}, \citenamefont
+  {Liu}, \citenamefont {Loipersberger}, \citenamefont {Luenser}, \citenamefont
+  {Manjanath}, \citenamefont {Manohar}, \citenamefont {Mansoor}, \citenamefont
+  {Manzer}, \citenamefont {Mao}, \citenamefont {Marenich}, \citenamefont
+  {Markovich}, \citenamefont {Mason}, \citenamefont {Maurer}, \citenamefont
+  {McLaughlin}, \citenamefont {Menger}, \citenamefont {Mewes}, \citenamefont
+  {Mewes}, \citenamefont {Morgante}, \citenamefont {Mullinax}, \citenamefont
+  {Oosterbaan}, \citenamefont {Paran}, \citenamefont {Paul}, \citenamefont
+  {Paul}, \citenamefont {Pavo\v{s}evi\'{c}}, \citenamefont {Pei}, \citenamefont
+  {Prager}, \citenamefont {Proynov}, \citenamefont {R\'{a}k}, \citenamefont
+  {Ramos-Cordoba}, \citenamefont {Rana}, \citenamefont {Rask}, \citenamefont
+  {Rettig}, \citenamefont {Richard}, \citenamefont {Rob}, \citenamefont
+  {Rossomme}, \citenamefont {Scheele}, \citenamefont {Scheurer}, \citenamefont
+  {Schneider}, \citenamefont {Sergueev}, \citenamefont {Sharada}, \citenamefont
+  {Skomorowski}, \citenamefont {Small}, \citenamefont {Stein}, \citenamefont
+  {Su}, \citenamefont {Sundstrom}, \citenamefont {Tao}, \citenamefont
+  {Thirman}, \citenamefont {Tornai}, \citenamefont {Tsuchimochi}, \citenamefont
+  {Tubman}, \citenamefont {Veccham}, \citenamefont {Vydrov}, \citenamefont
+  {Wenzel}, \citenamefont {Witte}, \citenamefont {Yamada}, \citenamefont {Yao},
+  \citenamefont {Yeganeh}, \citenamefont {Yost}, \citenamefont {Zech},
+  \citenamefont {Zhang}, \citenamefont {Zhang}, \citenamefont {Zhang},
+  \citenamefont {Zuev}, \citenamefont {Aspuru-Guzik}, \citenamefont {Bell},
+  \citenamefont {Besley}, \citenamefont {Bravaya}, \citenamefont {Brooks},
+  \citenamefont {Casanova}, \citenamefont {Chai}, \citenamefont {Coriani},
+  \citenamefont {Cramer}, \citenamefont {Cserey}, \citenamefont {DePrince},
+  \citenamefont {DiStasio}, \citenamefont {Dreuw}, \citenamefont {Dunietz},
+  \citenamefont {Furlani}, \citenamefont {Goddard}, \citenamefont
+  {Hammes-Schiffer}, \citenamefont {Head-Gordon}, \citenamefont {Hehre},
+  \citenamefont {Hsu}, \citenamefont {Jagau}, \citenamefont {Jung},
+  \citenamefont {Klamt}, \citenamefont {Kong}, \citenamefont {Lambrecht},
+  \citenamefont {Liang}, \citenamefont {Mayhall}, \citenamefont {McCurdy},
+  \citenamefont {Neaton}, \citenamefont {Ochsenfeld}, \citenamefont {Parkhill},
+  \citenamefont {Peverati}, \citenamefont {Rassolov}, \citenamefont {Shao},
+  \citenamefont {Slipchenko}, \citenamefont {Stauch}, \citenamefont {Steele},
+  \citenamefont {Subotnik}, \citenamefont {Thom}, \citenamefont {Tkatchenko},
+  \citenamefont {Truhlar}, \citenamefont {Van~Voorhis}, \citenamefont
+  {Wesolowski}, \citenamefont {Whaley}, \citenamefont {Woodcock}, \citenamefont
+  {Zimmerman}, \citenamefont {Faraji}, \citenamefont {Gill}, \citenamefont
+  {Head-Gordon}, \citenamefont {Herbert},\ and\ \citenamefont
+  {Krylov}}]{Qchem54}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {E.}~\bibnamefont
+  {Epifanovsky}}, \bibinfo {author} {\bibfnamefont {A.~T.~B.}\ \bibnamefont
+  {Gilbert}}, \bibinfo {author} {\bibfnamefont {X.}~\bibnamefont {Feng}},
+  \bibinfo {author} {\bibfnamefont {J.}~\bibnamefont {Lee}}, \bibinfo {author}
+  {\bibfnamefont {Y.}~\bibnamefont {Mao}}, \bibinfo {author} {\bibfnamefont
+  {N.}~\bibnamefont {Mardirossian}}, \bibinfo {author} {\bibfnamefont
+  {P.}~\bibnamefont {Pokhilko}}, \bibinfo {author} {\bibfnamefont {A.~F.}\
+  \bibnamefont {White}}, \bibinfo {author} {\bibfnamefont {M.~P.}\ \bibnamefont
+  {Coons}}, \bibinfo {author} {\bibfnamefont {A.~L.}\ \bibnamefont
+  {Dempwolff}}, \bibinfo {author} {\bibfnamefont {Z.}~\bibnamefont {Gan}},
+  \bibinfo {author} {\bibfnamefont {D.}~\bibnamefont {Hait}}, \bibinfo {author}
+  {\bibfnamefont {P.~R.}\ \bibnamefont {Horn}}, \bibinfo {author}
+  {\bibfnamefont {L.~D.}\ \bibnamefont {Jacobson}}, \bibinfo {author}
+  {\bibfnamefont {I.}~\bibnamefont {Kaliman}}, \bibinfo {author} {\bibfnamefont
+  {J.}~\bibnamefont {Kussmann}}, \bibinfo {author} {\bibfnamefont {A.~W.}\
+  \bibnamefont {Lange}}, \bibinfo {author} {\bibfnamefont {K.~U.}\ \bibnamefont
+  {Lao}}, \bibinfo {author} {\bibfnamefont {D.~S.}\ \bibnamefont {Levine}},
+  \bibinfo {author} {\bibfnamefont {J.}~\bibnamefont {Liu}}, \bibinfo {author}
+  {\bibfnamefont {S.~C.}\ \bibnamefont {McKenzie}}, \bibinfo {author}
+  {\bibfnamefont {A.~F.}\ \bibnamefont {Morrison}}, \bibinfo {author}
+  {\bibfnamefont {K.~D.}\ \bibnamefont {Nanda}}, \bibinfo {author}
+  {\bibfnamefont {F.}~\bibnamefont {Plasser}}, \bibinfo {author} {\bibfnamefont
+  {D.~R.}\ \bibnamefont {Rehn}}, \bibinfo {author} {\bibfnamefont {M.~L.}\
+  \bibnamefont {Vidal}}, \bibinfo {author} {\bibfnamefont {Z.-Q.}\ \bibnamefont
+  {You}}, \bibinfo {author} {\bibfnamefont {Y.}~\bibnamefont {Zhu}}, \bibinfo
+  {author} {\bibfnamefont {B.}~\bibnamefont {Alam}}, \bibinfo {author}
+  {\bibfnamefont {B.~J.}\ \bibnamefont {Albrecht}}, \bibinfo {author}
+  {\bibfnamefont {A.}~\bibnamefont {Aldossary}}, \bibinfo {author}
+  {\bibfnamefont {E.}~\bibnamefont {Alguire}}, \bibinfo {author} {\bibfnamefont
+  {J.~H.}\ \bibnamefont {Andersen}}, \bibinfo {author} {\bibfnamefont
+  {V.}~\bibnamefont {Athavale}}, \bibinfo {author} {\bibfnamefont
+  {D.}~\bibnamefont {Barton}}, \bibinfo {author} {\bibfnamefont
+  {K.}~\bibnamefont {Begam}}, \bibinfo {author} {\bibfnamefont
+  {A.}~\bibnamefont {Behn}}, \bibinfo {author} {\bibfnamefont {N.}~\bibnamefont
+  {Bellonzi}}, \bibinfo {author} {\bibfnamefont {Y.~A.}\ \bibnamefont
+  {Bernard}}, \bibinfo {author} {\bibfnamefont {E.~J.}\ \bibnamefont
+  {Berquist}}, \bibinfo {author} {\bibfnamefont {H.~G.~A.}\ \bibnamefont
+  {Burton}}, \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont {Carreras}},
+  \bibinfo {author} {\bibfnamefont {K.}~\bibnamefont {Carter-Fenk}}, \bibinfo
+  {author} {\bibfnamefont {R.}~\bibnamefont {Chakraborty}}, \bibinfo {author}
+  {\bibfnamefont {A.~D.}\ \bibnamefont {Chien}}, \bibinfo {author}
+  {\bibfnamefont {K.~D.}\ \bibnamefont {Closser}}, \bibinfo {author}
+  {\bibfnamefont {V.}~\bibnamefont {Cofer-Shabica}}, \bibinfo {author}
+  {\bibfnamefont {S.}~\bibnamefont {Dasgupta}}, \bibinfo {author}
+  {\bibfnamefont {M.}~\bibnamefont {de~Wergifosse}}, \bibinfo {author}
+  {\bibfnamefont {J.}~\bibnamefont {Deng}}, \bibinfo {author} {\bibfnamefont
+  {M.}~\bibnamefont {Diedenhofen}}, \bibinfo {author} {\bibfnamefont
+  {H.}~\bibnamefont {Do}}, \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont
+  {Ehlert}}, \bibinfo {author} {\bibfnamefont {P.-T.}\ \bibnamefont {Fang}},
+  \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Fatehi}}, \bibinfo
+  {author} {\bibfnamefont {Q.}~\bibnamefont {Feng}}, \bibinfo {author}
+  {\bibfnamefont {T.}~\bibnamefont {Friedhoff}}, \bibinfo {author}
+  {\bibfnamefont {J.}~\bibnamefont {Gayvert}}, \bibinfo {author} {\bibfnamefont
+  {Q.}~\bibnamefont {Ge}}, \bibinfo {author} {\bibfnamefont {G.}~\bibnamefont
+  {Gidofalvi}}, \bibinfo {author} {\bibfnamefont {M.}~\bibnamefont {Goldey}},
+  \bibinfo {author} {\bibfnamefont {J.}~\bibnamefont {Gomes}}, \bibinfo
+  {author} {\bibfnamefont {C.~E.}\ \bibnamefont {Gonz\'{a}lez-Espinoza}},
+  \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Gulania}}, \bibinfo
+  {author} {\bibfnamefont {A.~O.}\ \bibnamefont {Gunina}}, \bibinfo {author}
+  {\bibfnamefont {M.~W.~D.}\ \bibnamefont {Hanson-Heine}}, \bibinfo {author}
+  {\bibfnamefont {P.~H.~P.}\ \bibnamefont {Harbach}}, \bibinfo {author}
+  {\bibfnamefont {A.}~\bibnamefont {Hauser}}, \bibinfo {author} {\bibfnamefont
+  {M.~F.}\ \bibnamefont {Herbst}}, \bibinfo {author} {\bibfnamefont
+  {M.}~\bibnamefont {Hern\'{a}ndez~Vera}}, \bibinfo {author} {\bibfnamefont
+  {M.}~\bibnamefont {Hodecker}}, \bibinfo {author} {\bibfnamefont {Z.~C.}\
+  \bibnamefont {Holden}}, \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont
+  {Houck}}, \bibinfo {author} {\bibfnamefont {X.}~\bibnamefont {Huang}},
+  \bibinfo {author} {\bibfnamefont {K.}~\bibnamefont {Hui}}, \bibinfo {author}
+  {\bibfnamefont {B.~C.}\ \bibnamefont {Huynh}}, \bibinfo {author}
+  {\bibfnamefont {M.}~\bibnamefont {Ivanov}}, \bibinfo {author} {\bibfnamefont
+  {A.}~\bibnamefont {J\'{a}sz}}, \bibinfo {author} {\bibfnamefont
+  {H.}~\bibnamefont {Ji}}, \bibinfo {author} {\bibfnamefont {H.}~\bibnamefont
+  {Jiang}}, \bibinfo {author} {\bibfnamefont {B.}~\bibnamefont {Kaduk}},
+  \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {K\"{a}hler}}, \bibinfo
+  {author} {\bibfnamefont {K.}~\bibnamefont {Khistyaev}}, \bibinfo {author}
+  {\bibfnamefont {J.}~\bibnamefont {Kim}}, \bibinfo {author} {\bibfnamefont
+  {G.}~\bibnamefont {Kis}}, \bibinfo {author} {\bibfnamefont {P.}~\bibnamefont
+  {Klunzinger}}, \bibinfo {author} {\bibfnamefont {Z.}~\bibnamefont
+  {Koczor-Benda}}, \bibinfo {author} {\bibfnamefont {J.~H.}\ \bibnamefont
+  {Koh}}, \bibinfo {author} {\bibfnamefont {D.}~\bibnamefont {Kosenkov}},
+  \bibinfo {author} {\bibfnamefont {L.}~\bibnamefont {Koulias}}, \bibinfo
+  {author} {\bibfnamefont {T.}~\bibnamefont {Kowalczyk}}, \bibinfo {author}
+  {\bibfnamefont {C.~M.}\ \bibnamefont {Krauter}}, \bibinfo {author}
+  {\bibfnamefont {K.}~\bibnamefont {Kue}}, \bibinfo {author} {\bibfnamefont
+  {A.}~\bibnamefont {Kunitsa}}, \bibinfo {author} {\bibfnamefont
+  {T.}~\bibnamefont {Kus}}, \bibinfo {author} {\bibfnamefont {I.}~\bibnamefont
+  {Ladj\'{a}nszki}}, \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
+  {Landau}}, \bibinfo {author} {\bibfnamefont {K.~V.}\ \bibnamefont {Lawler}},
+  \bibinfo {author} {\bibfnamefont {D.}~\bibnamefont {Lefrancois}}, \bibinfo
+  {author} {\bibfnamefont {S.}~\bibnamefont {Lehtola}}, \bibinfo {author}
+  {\bibfnamefont {R.~R.}\ \bibnamefont {Li}}, \bibinfo {author} {\bibfnamefont
+  {Y.-P.}\ \bibnamefont {Li}}, \bibinfo {author} {\bibfnamefont
+  {J.}~\bibnamefont {Liang}}, \bibinfo {author} {\bibfnamefont
+  {M.}~\bibnamefont {Liebenthal}}, \bibinfo {author} {\bibfnamefont {H.-H.}\
+  \bibnamefont {Lin}}, \bibinfo {author} {\bibfnamefont {Y.-S.}\ \bibnamefont
+  {Lin}}, \bibinfo {author} {\bibfnamefont {F.}~\bibnamefont {Liu}}, \bibinfo
+  {author} {\bibfnamefont {K.-Y.}\ \bibnamefont {Liu}}, \bibinfo {author}
+  {\bibfnamefont {M.}~\bibnamefont {Loipersberger}}, \bibinfo {author}
+  {\bibfnamefont {A.}~\bibnamefont {Luenser}}, \bibinfo {author} {\bibfnamefont
+  {A.}~\bibnamefont {Manjanath}}, \bibinfo {author} {\bibfnamefont
+  {P.}~\bibnamefont {Manohar}}, \bibinfo {author} {\bibfnamefont
+  {E.}~\bibnamefont {Mansoor}}, \bibinfo {author} {\bibfnamefont {S.~F.}\
+  \bibnamefont {Manzer}}, \bibinfo {author} {\bibfnamefont {S.-P.}\
+  \bibnamefont {Mao}}, \bibinfo {author} {\bibfnamefont {A.~V.}\ \bibnamefont
+  {Marenich}}, \bibinfo {author} {\bibfnamefont {T.}~\bibnamefont {Markovich}},
+  \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Mason}}, \bibinfo
+  {author} {\bibfnamefont {S.~A.}\ \bibnamefont {Maurer}}, \bibinfo {author}
+  {\bibfnamefont {P.~F.}\ \bibnamefont {McLaughlin}}, \bibinfo {author}
+  {\bibfnamefont {M.~F. S.~J.}\ \bibnamefont {Menger}}, \bibinfo {author}
+  {\bibfnamefont {J.-M.}\ \bibnamefont {Mewes}}, \bibinfo {author}
+  {\bibfnamefont {S.~A.}\ \bibnamefont {Mewes}}, \bibinfo {author}
+  {\bibfnamefont {P.}~\bibnamefont {Morgante}}, \bibinfo {author}
+  {\bibfnamefont {J.~W.}\ \bibnamefont {Mullinax}}, \bibinfo {author}
+  {\bibfnamefont {K.~J.}\ \bibnamefont {Oosterbaan}}, \bibinfo {author}
+  {\bibfnamefont {G.}~\bibnamefont {Paran}}, \bibinfo {author} {\bibfnamefont
+  {A.~C.}\ \bibnamefont {Paul}}, \bibinfo {author} {\bibfnamefont {S.~K.}\
+  \bibnamefont {Paul}}, \bibinfo {author} {\bibfnamefont {F.}~\bibnamefont
+  {Pavo\v{s}evi\'{c}}}, \bibinfo {author} {\bibfnamefont {Z.}~\bibnamefont
+  {Pei}}, \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Prager}},
+  \bibinfo {author} {\bibfnamefont {E.~I.}\ \bibnamefont {Proynov}}, \bibinfo
+  {author} {\bibfnamefont {A.}~\bibnamefont {R\'{a}k}}, \bibinfo {author}
+  {\bibfnamefont {E.}~\bibnamefont {Ramos-Cordoba}}, \bibinfo {author}
+  {\bibfnamefont {B.}~\bibnamefont {Rana}}, \bibinfo {author} {\bibfnamefont
+  {A.~E.}\ \bibnamefont {Rask}}, \bibinfo {author} {\bibfnamefont
+  {A.}~\bibnamefont {Rettig}}, \bibinfo {author} {\bibfnamefont {R.~M.}\
+  \bibnamefont {Richard}}, \bibinfo {author} {\bibfnamefont {F.}~\bibnamefont
+  {Rob}}, \bibinfo {author} {\bibfnamefont {E.}~\bibnamefont {Rossomme}},
+  \bibinfo {author} {\bibfnamefont {T.}~\bibnamefont {Scheele}}, \bibinfo
+  {author} {\bibfnamefont {M.}~\bibnamefont {Scheurer}}, \bibinfo {author}
+  {\bibfnamefont {M.}~\bibnamefont {Schneider}}, \bibinfo {author}
+  {\bibfnamefont {N.}~\bibnamefont {Sergueev}}, \bibinfo {author}
+  {\bibfnamefont {S.~M.}\ \bibnamefont {Sharada}}, \bibinfo {author}
+  {\bibfnamefont {W.}~\bibnamefont {Skomorowski}}, \bibinfo {author}
+  {\bibfnamefont {D.~W.}\ \bibnamefont {Small}}, \bibinfo {author}
+  {\bibfnamefont {C.~J.}\ \bibnamefont {Stein}}, \bibinfo {author}
+  {\bibfnamefont {Y.-C.}\ \bibnamefont {Su}}, \bibinfo {author} {\bibfnamefont
+  {E.~J.}\ \bibnamefont {Sundstrom}}, \bibinfo {author} {\bibfnamefont
+  {Z.}~\bibnamefont {Tao}}, \bibinfo {author} {\bibfnamefont {J.}~\bibnamefont
+  {Thirman}}, \bibinfo {author} {\bibfnamefont {G.~J.}\ \bibnamefont {Tornai}},
+  \bibinfo {author} {\bibfnamefont {T.}~\bibnamefont {Tsuchimochi}}, \bibinfo
+  {author} {\bibfnamefont {N.~M.}\ \bibnamefont {Tubman}}, \bibinfo {author}
+  {\bibfnamefont {S.~P.}\ \bibnamefont {Veccham}}, \bibinfo {author}
+  {\bibfnamefont {O.}~\bibnamefont {Vydrov}}, \bibinfo {author} {\bibfnamefont
+  {J.}~\bibnamefont {Wenzel}}, \bibinfo {author} {\bibfnamefont
+  {J.}~\bibnamefont {Witte}}, \bibinfo {author} {\bibfnamefont
+  {A.}~\bibnamefont {Yamada}}, \bibinfo {author} {\bibfnamefont
+  {K.}~\bibnamefont {Yao}}, \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont
+  {Yeganeh}}, \bibinfo {author} {\bibfnamefont {S.~R.}\ \bibnamefont {Yost}},
+  \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont {Zech}}, \bibinfo {author}
+  {\bibfnamefont {I.~Y.}\ \bibnamefont {Zhang}}, \bibinfo {author}
+  {\bibfnamefont {X.}~\bibnamefont {Zhang}}, \bibinfo {author} {\bibfnamefont
+  {Y.}~\bibnamefont {Zhang}}, \bibinfo {author} {\bibfnamefont
+  {D.}~\bibnamefont {Zuev}}, \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
+  {Aspuru-Guzik}}, \bibinfo {author} {\bibfnamefont {A.~T.}\ \bibnamefont
+  {Bell}}, \bibinfo {author} {\bibfnamefont {N.~A.}\ \bibnamefont {Besley}},
+  \bibinfo {author} {\bibfnamefont {K.~B.}\ \bibnamefont {Bravaya}}, \bibinfo
+  {author} {\bibfnamefont {B.~R.}\ \bibnamefont {Brooks}}, \bibinfo {author}
+  {\bibfnamefont {D.}~\bibnamefont {Casanova}}, \bibinfo {author}
+  {\bibfnamefont {J.-D.}\ \bibnamefont {Chai}}, \bibinfo {author}
+  {\bibfnamefont {S.}~\bibnamefont {Coriani}}, \bibinfo {author} {\bibfnamefont
+  {C.~J.}\ \bibnamefont {Cramer}}, \bibinfo {author} {\bibfnamefont
+  {G.}~\bibnamefont {Cserey}}, \bibinfo {author} {\bibfnamefont {A.~E.}\
+  \bibnamefont {DePrince}}, \bibinfo {author} {\bibfnamefont {R.~A.}\
+  \bibnamefont {DiStasio}}, \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
+  {Dreuw}}, \bibinfo {author} {\bibfnamefont {B.~D.}\ \bibnamefont {Dunietz}},
+  \bibinfo {author} {\bibfnamefont {T.~R.}\ \bibnamefont {Furlani}}, \bibinfo
+  {author} {\bibfnamefont {W.~A.}\ \bibnamefont {Goddard}}, \bibinfo {author}
+  {\bibfnamefont {S.}~\bibnamefont {Hammes-Schiffer}}, \bibinfo {author}
+  {\bibfnamefont {T.}~\bibnamefont {Head-Gordon}}, \bibinfo {author}
+  {\bibfnamefont {W.~J.}\ \bibnamefont {Hehre}}, \bibinfo {author}
+  {\bibfnamefont {C.-P.}\ \bibnamefont {Hsu}}, \bibinfo {author} {\bibfnamefont
+  {T.-C.}\ \bibnamefont {Jagau}}, \bibinfo {author} {\bibfnamefont
+  {Y.}~\bibnamefont {Jung}}, \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
+  {Klamt}}, \bibinfo {author} {\bibfnamefont {J.}~\bibnamefont {Kong}},
+  \bibinfo {author} {\bibfnamefont {D.~S.}\ \bibnamefont {Lambrecht}}, \bibinfo
+  {author} {\bibfnamefont {W.}~\bibnamefont {Liang}}, \bibinfo {author}
+  {\bibfnamefont {N.~J.}\ \bibnamefont {Mayhall}}, \bibinfo {author}
+  {\bibfnamefont {C.~W.}\ \bibnamefont {McCurdy}}, \bibinfo {author}
+  {\bibfnamefont {J.~B.}\ \bibnamefont {Neaton}}, \bibinfo {author}
+  {\bibfnamefont {C.}~\bibnamefont {Ochsenfeld}}, \bibinfo {author}
+  {\bibfnamefont {J.~A.}\ \bibnamefont {Parkhill}}, \bibinfo {author}
+  {\bibfnamefont {R.}~\bibnamefont {Peverati}}, \bibinfo {author}
+  {\bibfnamefont {V.~A.}\ \bibnamefont {Rassolov}}, \bibinfo {author}
+  {\bibfnamefont {Y.}~\bibnamefont {Shao}}, \bibinfo {author} {\bibfnamefont
+  {L.~V.}\ \bibnamefont {Slipchenko}}, \bibinfo {author} {\bibfnamefont
+  {T.}~\bibnamefont {Stauch}}, \bibinfo {author} {\bibfnamefont {R.~P.}\
+  \bibnamefont {Steele}}, \bibinfo {author} {\bibfnamefont {J.~E.}\
+  \bibnamefont {Subotnik}}, \bibinfo {author} {\bibfnamefont {A.~J.~W.}\
+  \bibnamefont {Thom}}, \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
+  {Tkatchenko}}, \bibinfo {author} {\bibfnamefont {D.~G.}\ \bibnamefont
+  {Truhlar}}, \bibinfo {author} {\bibfnamefont {T.}~\bibnamefont
+  {Van~Voorhis}}, \bibinfo {author} {\bibfnamefont {T.~A.}\ \bibnamefont
+  {Wesolowski}}, \bibinfo {author} {\bibfnamefont {K.~B.}\ \bibnamefont
+  {Whaley}}, \bibinfo {author} {\bibfnamefont {H.~L.}\ \bibnamefont
+  {Woodcock}}, \bibinfo {author} {\bibfnamefont {P.~M.}\ \bibnamefont
+  {Zimmerman}}, \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Faraji}},
+  \bibinfo {author} {\bibfnamefont {P.~M.~W.}\ \bibnamefont {Gill}}, \bibinfo
+  {author} {\bibfnamefont {M.}~\bibnamefont {Head-Gordon}}, \bibinfo {author}
+  {\bibfnamefont {J.~M.}\ \bibnamefont {Herbert}}, \ and\ \bibinfo {author}
+  {\bibfnamefont {A.~I.}\ \bibnamefont {Krylov}},\ }\href {\doibase
+  10.1063/5.0055522} {\bibfield  {journal} {\bibinfo  {journal} {The Journal of
+  Chemical Physics}\ }\textbf {\bibinfo {volume} {155}},\ \bibinfo {pages}
+  {084801} (\bibinfo {year} {2021})},\ \Eprint
+  {http://arxiv.org/abs/https://doi.org/10.1063/5.0055522}
+  {https://doi.org/10.1063/5.0055522} \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Zech}\ \emph {et~al.}(2018)\citenamefont {Zech},
+  \citenamefont {Ricardi}, \citenamefont {Prager}, \citenamefont {Dreuw},\ and\
+  \citenamefont {Wesolowski}}]{Zech2018}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
+  {Zech}}, \bibinfo {author} {\bibfnamefont {N.}~\bibnamefont {Ricardi}},
+  \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Prager}}, \bibinfo
+  {author} {\bibfnamefont {A.}~\bibnamefont {Dreuw}}, \ and\ \bibinfo {author}
+  {\bibfnamefont {T.~A.}\ \bibnamefont {Wesolowski}},\ }\href {\doibase
+  10.1021/acs.jctc.8b00201} {\bibfield  {journal} {\bibinfo  {journal} {Journal
+  of Chemical Theory and Computation}\ }\textbf {\bibinfo {volume} {14}},\
+  \bibinfo {pages} {4028} (\bibinfo {year} {2018})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Sun}\ \emph {et~al.}(2017)\citenamefont {Sun},
+  \citenamefont {Berkelbach}, \citenamefont {Blunt}, \citenamefont {Booth},
+  \citenamefont {Guo}, \citenamefont {Li}, \citenamefont {Liu}, \citenamefont
+  {McClain}, \citenamefont {Sayfutyarova}, \citenamefont {Sharma},
+  \citenamefont {Wouters},\ and\ \citenamefont {Chan}}]{PYSCF}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Q.}~\bibnamefont
+  {Sun}}, \bibinfo {author} {\bibfnamefont {T.~C.}\ \bibnamefont {Berkelbach}},
+  \bibinfo {author} {\bibfnamefont {N.~S.}\ \bibnamefont {Blunt}}, \bibinfo
+  {author} {\bibfnamefont {G.~H.}\ \bibnamefont {Booth}}, \bibinfo {author}
+  {\bibfnamefont {S.}~\bibnamefont {Guo}}, \bibinfo {author} {\bibfnamefont
+  {Z.}~\bibnamefont {Li}}, \bibinfo {author} {\bibfnamefont {J.}~\bibnamefont
+  {Liu}}, \bibinfo {author} {\bibfnamefont {J.~D.}\ \bibnamefont {McClain}},
+  \bibinfo {author} {\bibfnamefont {E.~R.}\ \bibnamefont {Sayfutyarova}},
+  \bibinfo {author} {\bibfnamefont {S.}~\bibnamefont {Sharma}}, \bibinfo
+  {author} {\bibfnamefont {S.}~\bibnamefont {Wouters}}, \ and\ \bibinfo
+  {author} {\bibfnamefont {G.~K.}\ \bibnamefont {Chan}},\ }\href {\doibase
+  10.1002/wcms.1340} {\bibfield  {journal} {\bibinfo  {journal} {Wiley
+  Interdisciplinary Reviews: Computational Molecular Science}\ }\textbf
+  {\bibinfo {volume} {8}},\ \bibinfo {pages} {e1340} (\bibinfo {year}
+  {2017})},\ \Eprint
+  {http://arxiv.org/abs/https://onlinelibrary.wiley.com/doi/pdf/10.1002/wcms.1340}
+  {https://onlinelibrary.wiley.com/doi/pdf/10.1002/wcms.1340} \BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Becke}(1988)}]{Becke1988b}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {A.~D.}\ \bibnamefont
+  {Becke}},\ }\href {\doibase 10.1063/1.454033} {\bibfield  {journal} {\bibinfo
+   {journal} {The Journal of Chemical Physics}\ }\textbf {\bibinfo {volume}
+  {88}},\ \bibinfo {pages} {2547} (\bibinfo {year} {1988})},\ \Eprint
+  {http://arxiv.org/abs/https://doi.org/10.1063/1.454033}
+  {https://doi.org/10.1063/1.454033} \BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Lebedev}\ and\ \citenamefont
+  {Laikov}(1999)}]{Lebedev1999}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {V.~I.}\ \bibnamefont
+  {Lebedev}}\ and\ \bibinfo {author} {\bibfnamefont {D.~N.}\ \bibnamefont
+  {Laikov}},\ }\href@noop {} {\bibfield  {journal} {\bibinfo  {journal}
+  {Doklady Mathematics}\ }\textbf {\bibinfo {volume} {59}},\ \bibinfo {pages}
+  {477} (\bibinfo {year} {1999})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {{W}es {M}c{K}inney}(2010)}]{PANDAS}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibnamefont {{W}es {M}c{K}inney}},\
+  }in\ \href {\doibase 10.25080/Majora-92bf1922-00a} {\emph {\bibinfo
+  {booktitle} {{P}roceedings of the 9th {P}ython in {S}cience {C}onference}}},\
+  \bibinfo {editor} {edited by\ \bibinfo {editor} {\bibnamefont {{S}t\'efan
+  van~der {W}alt}}\ and\ \bibinfo {editor} {\bibnamefont {{J}arrod
+  {M}illman}}}\ (\bibinfo {year} {2010})\ pp.\ \bibinfo {pages} {56 --
+  61}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Hunter}(2007)}]{Hunter2007}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {J.~D.}\ \bibnamefont
+  {Hunter}},\ }\href {\doibase 10.1109/MCSE.2007.55} {\bibfield  {journal}
+  {\bibinfo  {journal} {Computing in Science \& Engineering}\ }\textbf
+  {\bibinfo {volume} {9}},\ \bibinfo {pages} {90} (\bibinfo {year}
+  {2007})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Jeziorski}, \citenamefont {Moszynski},\ and\
+  \citenamefont {Szalewicz}(1994)}]{Jeziorski1994}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {B.}~\bibnamefont
+  {Jeziorski}}, \bibinfo {author} {\bibfnamefont {R.}~\bibnamefont
+  {Moszynski}}, \ and\ \bibinfo {author} {\bibfnamefont {K.}~\bibnamefont
+  {Szalewicz}},\ }\href {\doibase 10.1021/cr00031a008} {\bibfield  {journal}
+  {\bibinfo  {journal} {Chemical Reviews}\ }\textbf {\bibinfo {volume} {94}},\
+  \bibinfo {pages} {1887} (\bibinfo {year} {1994})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Savin}\ and\ \citenamefont
+  {Wesolowski}(2009)}]{Savin2009}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
+  {Savin}}\ and\ \bibinfo {author} {\bibfnamefont {T.~A.}\ \bibnamefont
+  {Wesolowski}},\ }in\ \href {\doibase 10.1007/978-90-481-2596-8i{\_}15} {\emph
+  {\bibinfo {booktitle} {Advances in the Theory of Atomic and Molecular
+  Systems: Conceptual and Computational Advances in Quantum Chemistry}}},\
+  \bibinfo {series} {{Progress in Theoretical Chemistry and Physics}},
+  Vol.~\bibinfo {volume} {19},\ \bibinfo {editor} {edited by\ \bibinfo {editor}
+  {\bibfnamefont {P.}~\bibnamefont {Piecuch}}, \bibinfo {editor} {\bibfnamefont
+  {J.}~\bibnamefont {Maruani}}, \bibinfo {editor} {\bibfnamefont
+  {G.}~\bibnamefont {Delgado-Barrio}}, \ and\ \bibinfo {editor} {\bibfnamefont
+  {S.}~\bibnamefont {Wilson}}}\ (\bibinfo  {publisher} {Springer Netherlands},\
+  \bibinfo {year} {2009})\ pp.\ \bibinfo {pages} {311--326}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Humbert-Droz}\ \emph {et~al.}(2014)\citenamefont
+  {Humbert-Droz}, \citenamefont {Zhou}, \citenamefont {Shedge},\ and\
+  \citenamefont {Wesolowski}}]{HumbertDroz2014}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {M.}~\bibnamefont
+  {Humbert-Droz}}, \bibinfo {author} {\bibfnamefont {X.}~\bibnamefont {Zhou}},
+  \bibinfo {author} {\bibfnamefont {S.~V.}\ \bibnamefont {Shedge}}, \ and\
+  \bibinfo {author} {\bibfnamefont {T.~A.}\ \bibnamefont {Wesolowski}},\ }\href
+  {\doibase 10.1007/s00214-013-1405-1} {\bibfield  {journal} {\bibinfo
+  {journal} {Theoretical Chemistry Accounts}\ }\textbf {\bibinfo {volume}
+  {133}},\ \bibinfo {pages} {1405} (\bibinfo {year} {2014})}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Wesolowski}(1997)}]{Wesolowski1997a}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {T.~A.}\ \bibnamefont
+  {Wesolowski}},\ }\href {\doibase 10.1063/1.473907} {\bibfield  {journal}
+  {\bibinfo  {journal} {The Journal of Chemical Physics}\ }\textbf {\bibinfo
+  {volume} {106}},\ \bibinfo {pages} {8516} (\bibinfo {year}
+  {1997})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Du{\l}ak}\ and\ \citenamefont
+  {Weso{\l}owski}(2007)}]{Dulak2007a}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {M.}~\bibnamefont
+  {Du{\l}ak}}\ and\ \bibinfo {author} {\bibfnamefont {T.~A.}\ \bibnamefont
+  {Weso{\l}owski}},\ }\href {\doibase 10.1007/s00894-007-0182-y} {\bibfield
+  {journal} {\bibinfo  {journal} {Journal of Molecular Modeling}\ }\textbf
+  {\bibinfo {volume} {13}},\ \bibinfo {pages} {631} (\bibinfo {year}
+  {2007})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Breneman}\ and\ \citenamefont
+  {Wiberg}(1990)}]{Breneman1990}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {C.~M.}\ \bibnamefont
+  {Breneman}}\ and\ \bibinfo {author} {\bibfnamefont {K.~B.}\ \bibnamefont
+  {Wiberg}},\ }\href {\doibase 10.1002/jcc.540110311} {\bibfield  {journal}
+  {\bibinfo  {journal} {Journal of Computational Chemistry}\ }\textbf {\bibinfo
+  {volume} {11}},\ \bibinfo {pages} {361} (\bibinfo {year} {1990})}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Mulliken}(1955)}]{Mulliken1955}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {R.~S.}\ \bibnamefont
+  {Mulliken}},\ }\href {\doibase 10.1063/1.1740588} {\bibfield  {journal}
+  {\bibinfo  {journal} {The Journal of Chemical Physics}\ }\textbf {\bibinfo
+  {volume} {23}},\ \bibinfo {pages} {1833} (\bibinfo {year}
+  {1955})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Fradelos}\ and\ \citenamefont
+  {Weso{\l}owski}(2011)}]{Fradelos2011a}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {G.}~\bibnamefont
+  {Fradelos}}\ and\ \bibinfo {author} {\bibfnamefont {T.~A.}\ \bibnamefont
+  {Weso{\l}owski}},\ }\href {\doibase 10.1021/jp203192g} {\bibfield  {journal}
+  {\bibinfo  {journal} {The Journal of Physical Chemistry A}\ }\textbf
+  {\bibinfo {volume} {115}},\ \bibinfo {pages} {10018} (\bibinfo {year}
+  {2011})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Fradelos}\ and\ \citenamefont
+  {Wesolowski}(2011)}]{Fradelos2011c}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {G.}~\bibnamefont
+  {Fradelos}}\ and\ \bibinfo {author} {\bibfnamefont {T.~A.}\ \bibnamefont
+  {Wesolowski}},\ }\href {\doibase 10.1021/ct100415h} {\bibfield  {journal}
+  {\bibinfo  {journal} {Journal of Chemical Theory and Computation}\ }\textbf
+  {\bibinfo {volume} {7}},\ \bibinfo {pages} {213} (\bibinfo {year}
+  {2011})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Wesolowski}\ and\ \citenamefont
+  {Tran}(2003)}]{Wesolowski2003a}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {T.~A.}\ \bibnamefont
+  {Wesolowski}}\ and\ \bibinfo {author} {\bibfnamefont {F.}~\bibnamefont
+  {Tran}},\ }\href {\doibase 10.1063/1.1534090} {\bibfield  {journal} {\bibinfo
+   {journal} {The Journal of Chemical Physics}\ }\textbf {\bibinfo {volume}
+  {118}},\ \bibinfo {pages} {2072} (\bibinfo {year} {2003})}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Kevorkyants}, \citenamefont {Dulak},\ and\
+  \citenamefont {Wesolowski}(2006)}]{Kevorkyants2006}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {R.}~\bibnamefont
+  {Kevorkyants}}, \bibinfo {author} {\bibfnamefont {M.}~\bibnamefont {Dulak}},
+  \ and\ \bibinfo {author} {\bibfnamefont {T.~A.}\ \bibnamefont {Wesolowski}},\
+  }\href {\doibase 10.1063/1.2150820} {\bibfield  {journal} {\bibinfo
+  {journal} {The Journal of Chemical Physics}\ }\textbf {\bibinfo {volume}
+  {124}},\ \bibinfo {pages} {024104} (\bibinfo {year} {2006})}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Sen}\ \emph {et~al.}(2021)\citenamefont {Sen},
+  \citenamefont {Gonz{\'{a}}lez-Espinoza}, \citenamefont {Zech}, \citenamefont
+  {Dreuw},\ and\ \citenamefont {Wesolowski}}]{Sen2021}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {R.}~\bibnamefont
+  {Sen}}, \bibinfo {author} {\bibfnamefont {C.~E.}\ \bibnamefont
+  {Gonz{\'{a}}lez-Espinoza}}, \bibinfo {author} {\bibfnamefont
+  {A.}~\bibnamefont {Zech}}, \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont
+  {Dreuw}}, \ and\ \bibinfo {author} {\bibfnamefont {T.~A.}\ \bibnamefont
+  {Wesolowski}},\ }\href {\doibase 10.1021/acs.jctc.1c00228} {\bibfield
+  {journal} {\bibinfo  {journal} {Journal of Chemical Theory and Computation}\
+  }\textbf {\bibinfo {volume} {17}},\ \bibinfo {pages} {4049} (\bibinfo {year}
+  {2021})}\BibitemShut {NoStop}%
+\end{thebibliography}%
